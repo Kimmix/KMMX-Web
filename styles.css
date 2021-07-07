@@ -187,6 +187,32 @@ body {
   }
 }
 
+.line {
+  height: 0;
+  width: 14px;
+  background: repeating-linear-gradient(to top,var(--white-color) 0,var(--white-color) 5px,transparent 5px,transparent 12px);
+  position: absolute;
+  left: 30px;
+  bottom: 0;
+  animation: run 3s infinite 10s;
+}
+
+@keyframes run {
+  0% {
+    height: 300px;
+    transform: translateY(-50%) scaleY(0)
+  }
+  60% {
+    transform: translateY(-20%) scaleY(1)
+  }
+  80% {
+    transform: translateY(0) scaleY(0);
+  }
+  100% {
+    transform: translateY(-50%) scaleY(0);
+  }
+}
+
 .logo-wrapper {
   position: absolute;
   right: -11em;
@@ -195,7 +221,6 @@ body {
 }
 
 .logo-wrapper svg {
-  /* animation: fade2 3s infinite 9.2s; */
   opacity: 0.3;
 }
 
@@ -314,20 +339,6 @@ body {
 
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes fade2 {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.6;
-  }
-
-  100% {
-    opacity: 0.3;
   }
 }
 
