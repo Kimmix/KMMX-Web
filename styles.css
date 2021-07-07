@@ -233,12 +233,12 @@ body {
   display: flex;
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  letter-spacing: 10px;
 }
 
 .swipe .title {
   width: 100%;
-  font-size: 100px;
+  font-size: clamp(4rem, 80px, 5em);
+  letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);
   animation: mainFadeIn 2s forwards 7.6s;
@@ -247,7 +247,8 @@ body {
 
 .swipe .subtitle {
   width: 100%;
-  font-size: 20px;
+  font-size: clamp(1rem, 20px, 3em);
+  letter-spacing: 5px;
   text-align: right;
   color: var(--white2-color);
   animation: mainFadeIn 2s forwards 7.8s;
