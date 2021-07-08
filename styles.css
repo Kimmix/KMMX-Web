@@ -258,7 +258,7 @@ body {
 /* Title */
 
 .container.title {
-  background-image: url(/logo.svg);
+  background-image: url(asset/logo.svg);
   background-repeat: no-repeat;
   background-size: 970px;
   background-position: 90% 75%;
