@@ -27,6 +27,7 @@ body {
   height: 100vh;
   scrollbar-width: none;
   background: var(--black-color);
+  color: var(--white-color);
   font-family: "Montserrat", sans-serif;
 }
 
@@ -34,9 +35,9 @@ body {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  /* position: relative; */
+  perspective: 8px;
+  perspective-origin: 0%;
 }
 
 /* Intro animation */
@@ -260,7 +261,7 @@ body {
   background-image: url(/logo.svg);
   background-repeat: no-repeat;
   background-size: 970px;
-  background-position-x: right;
+  background-position: 90% 75%;
 }
 
 .header-wrapper {
@@ -283,7 +284,6 @@ body {
 
 .swipe {
   width: 100%;
-  height: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -357,7 +357,7 @@ body {
 
 .swipe span.block1 {
   width: 0%;
-  height: inherit;
+  height: 100%;
   position: absolute;
   display: flex;
   background: var(--acc1-color);
@@ -366,7 +366,7 @@ body {
 
 .swipe span.block2 {
   width: 0%;
-  height: inherit;
+  height: 100%;
   position: absolute;
   display: flex;
   background: var(--acc2-color);
@@ -476,5 +476,9 @@ body {
   .logo-wrapper svg {
     margin-left: 3em;
     width: 100%;
+  }
+  .container.title {
+    background-size: 800px;
+    background-position: 46% 15%;
   }
 }
