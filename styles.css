@@ -298,7 +298,7 @@ body {
   animation: mainFadeIn 2s forwards 7.8s;
   opacity: 0;
   margin-right: 2rem;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .swipe .subtitle h2 {
@@ -311,31 +311,40 @@ body {
 }
 
 /* V.H.E. */
-.V:hover, .V:active{
+.V:hover,
+.V:active {
   color: var(--acc2-color);
 }
-.V:hover:after, .V:active:after{
-  content: 'ery';
+.V:hover:after,
+.V:active:after {
+  content: "ery";
 }
-.V:hover .Vdot, .V:active .Vdot {
+.V:hover .Vdot,
+.V:active .Vdot {
   display: none;
 }
-.H:hover, .H:active{
+.H:hover,
+.H:active {
   color: var(--acc2-color);
 }
-.H:hover:after, .H:active:after{
-  content: 'igh';
+.H:hover:after,
+.H:active:after {
+  content: "igh";
 }
-.H:hover .Hdot, .H:active .Hdot {
+.H:hover .Hdot,
+.H:active .Hdot {
   display: none;
 }
-.E:hover, .E:active{
+.E:hover,
+.E:active {
   color: var(--acc2-color);
 }
-.E:hover:after, .E:active:after{
-  content: 'fficiency';
+.E:hover:after,
+.E:active:after {
+  content: "fficiency";
 }
-.E:hover .Edot, .E:active .Edot {
+.E:hover .Edot,
+.E:active .Edot {
   display: none;
 }
 
