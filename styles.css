@@ -8,7 +8,7 @@
 
 ::selection {
   color: var(--acc2-color);
-  background: var(--black-color);
+  background: var(--white-color);
 }
 
 ::-webkit-scrollbar {
