@@ -223,7 +223,8 @@ body {
   position: absolute;
   right: 0;
   height: 100%;
-  width: clamp(13rem, 39vw, 34rem)
+  width: clamp(13rem, 39vw, 34rem);
+  overflow-x: hidden;
 }
 
 .logo-wrapper svg {
