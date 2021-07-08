@@ -190,7 +190,13 @@ body {
 .line {
   height: 0;
   width: 14px;
-  background: repeating-linear-gradient(to top,var(--white-color) 0,var(--white-color) 5px,transparent 5px,transparent 12px);
+  background: repeating-linear-gradient(
+    to top,
+    var(--white-color) 0,
+    var(--white-color) 5px,
+    transparent 5px,
+    transparent 12px
+  );
   position: absolute;
   left: 30px;
   bottom: 0;
@@ -200,10 +206,10 @@ body {
 @keyframes run {
   0% {
     height: 300px;
-    transform: translateY(-50%) scaleY(0)
+    transform: translateY(-50%) scaleY(0);
   }
   60% {
-    transform: translateY(-20%) scaleY(1)
+    transform: translateY(-20%) scaleY(1);
   }
   80% {
     transform: translateY(0) scaleY(0);
@@ -217,11 +223,11 @@ body {
   position: absolute;
   right: 0;
   height: 100%;
-  width: 380px;
+  width: clamp(13rem, 39vw, 34rem)
 }
 
 .logo-wrapper svg {
-  /* opacity: 0.3; */
+  margin-top: 5vw;
   animation: hover 5s infinite;
 }
 
@@ -241,7 +247,7 @@ body {
 }
 
 .header-wrapper {
-  width: 400px;
+  min-width: clamp(18rem, 80vw, 36em);
   position: relative;
   display: flex;
   justify-content: center;
@@ -269,7 +275,7 @@ body {
 
 .swipe .title {
   width: 100%;
-  font-size: clamp(4rem, 80px, 5em);
+  font-size: clamp(3rem, 18vw, 8em);
   letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);
@@ -279,7 +285,7 @@ body {
 
 .swipe .subtitle {
   width: 100%;
-  font-size: clamp(1rem, 20px, 3em);
+  font-size: clamp(0.9rem, 4vw, 1.7em);
   letter-spacing: 5px;
   text-align: right;
   color: var(--white2-color);
@@ -398,4 +404,14 @@ body {
   user-select: none;
   animation: fadebounce 1.6s infinite 10.3s;
   opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrapper {
+    margin-bottom: 30vh;
+  }
+  .logo-wrapper svg {
+    margin-left: 3em;
+    width: 100%;
+  }
 }
