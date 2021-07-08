@@ -295,28 +295,64 @@ body {
 
 .swipe .subtitle {
   width: 100%;
+  animation: mainFadeIn 2s forwards 7.8s;
+  opacity: 0;
+  margin-right: 2rem;
+  cursor: pointer
+}
+
+.swipe .subtitle h2 {
+  padding: 0;
+  margin: 0;
   font-size: clamp(0.9rem, 4vw, 1.7em);
   letter-spacing: 5px;
   text-align: right;
   color: var(--white2-color);
-  animation: mainFadeIn 2s forwards 7.8s;
-  opacity: 0;
-  margin-right: 2rem;
 }
 
-.swipe span {
+/* V.H.E. */
+.V:hover, .V:active{
+  color: var(--acc2-color);
+}
+.V:hover:after, .V:active:after{
+  content: 'ery';
+}
+.V:hover .Vdot, .V:active .Vdot {
+  display: none;
+}
+.H:hover, .H:active{
+  color: var(--acc2-color);
+}
+.H:hover:after, .H:active:after{
+  content: 'igh';
+}
+.H:hover .Hdot, .H:active .Hdot {
+  display: none;
+}
+.E:hover, .E:active{
+  color: var(--acc2-color);
+}
+.E:hover:after, .E:active:after{
+  content: 'fficiency';
+}
+.E:hover .Edot, .E:active .Edot {
+  display: none;
+}
+
+.swipe span.block1 {
   width: 0%;
   height: inherit;
   position: absolute;
   display: flex;
-}
-
-.swipe span.block1 {
   background: var(--acc1-color);
   animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6.3s;
 }
 
 .swipe span.block2 {
+  width: 0%;
+  height: inherit;
+  position: absolute;
+  display: flex;
   background: var(--acc2-color);
   animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6s;
 }
