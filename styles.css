@@ -31,7 +31,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.container {
+section {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -42,7 +42,7 @@ body {
 
 /* Intro animation */
 
-.container.intro {
+section.intro {
   background: var(--black-color);
   animation: slide-out-container 5s cubic-bezier(0.95, 0.01, 0.36, 0.8) 2.8s;
   animation-fill-mode: forwards;
@@ -64,7 +64,7 @@ body {
 .text {
   margin: auto;
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+  font-size: clamp(1.7rem, -0.875rem + 8.333vw, 5rem);
   color: var(--white-color);
 }
 
@@ -231,13 +231,23 @@ body {
   position: absolute;
   right: 0;
   height: 100%;
-  width: clamp(13rem, 39vw, 34rem);
+  width: clamp(17rem, 39vw, 34rem);
   overflow-x: hidden;
 }
 
 .logo-wrapper svg {
   margin-top: 5vw;
-  animation: hover 5s infinite;
+  animation: hover 5s infinite 8.5s, mainFadeIn 2s 8.5s, show 1s infinite 9.5s;
+  opacity: 0;
+}
+
+@keyframes show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes hover {
@@ -257,7 +267,7 @@ body {
 
 /* Title */
 
-.container.title {
+section.title {
   background-image: url(asset/logo.svg);
   background-repeat: no-repeat;
   background-size: 970px;
@@ -444,7 +454,7 @@ body {
 /* Scroll */
 .scrollhint {
   color: var(--acc2-color);
-  font-size: 14px;
+  font-size: 20px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   position: absolute;
@@ -464,10 +474,12 @@ body {
     margin-bottom: 30vh;
   }
   .logo-wrapper svg {
-    margin-left: 3em;
     width: 100%;
+    margin-left: 3em;
+    margin-top: 55vh;
   }
-  .container.title {
+  section.title {
+    justify-content: center;
     background-size: 800px;
     background-position: 46% 15%;
   }
