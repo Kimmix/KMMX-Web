@@ -41,7 +41,7 @@ body {
 
 /* Intro animation */
 
-.intro {
+.container.intro {
   background: var(--black-color);
   animation: slide-out-container 5s cubic-bezier(0.95, 0.01, 0.36, 0.8) 2.8s;
   animation-fill-mode: forwards;
@@ -255,6 +255,13 @@ body {
 }
 
 /* Title */
+
+.container.title {
+  background-image: url(/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 1030px;
+  background-position-x: right;
+}
 
 .header-wrapper {
   min-width: clamp(18rem, 80vw, 36em);
