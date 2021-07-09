@@ -1,4 +1,5 @@
 /* Gobal */
+
 :root {
   --white-color: #eeeeee;
   --white2-color: #9e9e9e;
@@ -17,8 +18,7 @@
   background: transparent;
 }
 
-html,
-body {
+html, body {
   touch-action: manipulation;
   scroll-behavior: smooth;
   margin: 0;
@@ -68,11 +68,7 @@ section.intro {
   color: var(--white-color);
 }
 
-.text-1,
-.text-3,
-.text-4,
-.text-8,
-.text-10 {
+.text-1, .text-3, .text-4, .text-8, .text-10 {
   color: var(--black-color);
   -webkit-text-stroke: 1px var(--white-color);
 }
@@ -82,6 +78,7 @@ section.intro {
   animation: slide-out 1.5s linear 3.5s;
   opacity: 0;
 }
+
 .text-1 {
   animation: blink 0.8s linear 0.9s, blink 0.5s linear 2s;
   opacity: 0;
@@ -121,14 +118,17 @@ section.intro {
   animation: blink 0.8s linear 0.7s, blink 0.65s linear 2s;
   opacity: 0;
 }
+
 .text-9 {
   animation: blink 0.8s linear 0.6s, blink 0.6s linear 2s;
   opacity: 0;
 }
+
 .text-10 {
   animation: blink 0.8s linear 0.8s, blink 0.5s linear 2s;
   opacity: 0;
 }
+
 .text-error {
   font-size: clamp(4rem, 400px, 20rem);
   color: red;
@@ -196,13 +196,7 @@ section.intro {
 .line {
   height: 0;
   width: 14px;
-  background: repeating-linear-gradient(
-    to top,
-    var(--white-color) 0,
-    var(--white-color) 5px,
-    transparent 5px,
-    transparent 12px
-  );
+  background: repeating-linear-gradient( to top, var(--white-color) 0, var(--white-color) 5px, transparent 5px, transparent 12px);
   position: absolute;
   left: 30px;
   bottom: 0;
@@ -236,8 +230,8 @@ section.intro {
 }
 
 .logo-wrapper svg {
-  margin-top: 5vw;
-  animation: hover 5s infinite 8.5s, mainFadeIn 2s 8.5s, show 1s infinite 9.5s;
+  margin-top: 10vw;
+  animation: hover 5s infinite 8.5s, fadeIn 2s 8.5s, show 1s infinite 9.5s;
   opacity: 0;
 }
 
@@ -247,6 +241,15 @@ section.intro {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -296,13 +299,13 @@ section.title {
   letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);
-  animation: mainFadeIn 2s forwards 7.6s;
+  animation: fadeIn 2s forwards 7.6s, fadeIn 3.5s forwards 13s;
   opacity: 0;
 }
 
 .swipe .subtitle {
   width: 100%;
-  animation: mainFadeIn 2s forwards 7.8s;
+  animation: fadeIn 2s forwards 7.8s;
   opacity: 0;
   margin-right: 2rem;
   cursor: pointer;
@@ -318,53 +321,55 @@ section.title {
 }
 
 /* V.H.E. */
-.V:hover,
-.V:active {
+
+.V:hover, .V:active {
   color: var(--acc2-color);
 }
-.V:hover:after,
-.V:active:after {
+
+.V:hover:after, .V:active:after {
   content: "ery";
 }
-.V:hover .Vdot,
-.V:active .Vdot {
+
+.V:hover .Vdot, .V:active .Vdot {
   display: none;
 }
-.H:hover,
-.H:active {
+
+.H:hover, .H:active {
   color: var(--acc2-color);
 }
-.H:hover:after,
-.H:active:after {
+
+.H:hover:after, .H:active:after {
   content: "igh";
 }
-.H:hover .Hdot,
-.H:active .Hdot {
+
+.H:hover .Hdot, .H:active .Hdot {
   display: none;
 }
-.E:hover,
-.E:active {
+
+.E:hover, .E:active {
   color: var(--acc2-color);
 }
-.E:hover:after,
-.E:active:after {
+
+.E:hover:after, .E:active:after {
   content: "fficiency";
 }
-.E:hover .Edot,
-.E:active .Edot {
+
+.E:hover .Edot, .E:active .Edot {
   display: none;
 }
 
 .swipe span.block1 {
+  z-index: 2;
   width: 0%;
   height: 100%;
   position: absolute;
   display: flex;
   background: var(--acc1-color);
-  animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6.3s;
+  animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6.3s, mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 12s;
 }
 
 .swipe span.block2 {
+  z-index: 2;
   width: 0%;
   height: 100%;
   position: absolute;
@@ -403,26 +408,12 @@ section.title {
   }
 }
 
-@keyframes mainFadeIn {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 
@@ -435,23 +426,14 @@ section.title {
     opacity: 0.2;
     transform: translateY(-15px);
   }
-
   100% {
     opacity: 0.8;
     transform: translateY(0);
   }
 }
 
-@keyframes secFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
-
 /* Scroll */
+
 .scrollhint {
   color: var(--acc2-color);
   font-size: 20px;
