@@ -3,7 +3,9 @@ const assets = [
   "/index.html",
   "/css/style-intro.css",
   "/css/style.css",
-  "/js/script.js",
+  "/css/cursor.css",
+  "/asset/js/app.js",
+  "/asset/js/cursor.js",
   "/asset/logo.svg",
 ]
 
