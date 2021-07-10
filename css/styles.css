@@ -38,7 +38,7 @@
 
 .logo-wrapper svg {
   margin-top: 10vw;
-  animation: hover 5s infinite 8.5s, fadeIn 2s 8.5s, show 1s infinite 9.5s;
+  animation: hover 5s infinite alternate 8.5s, fadeIn 2s 8.5s, show 1s infinite 9.5s;
   opacity: 0;
 }
 
