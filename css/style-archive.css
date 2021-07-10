@@ -1,0 +1,56 @@
+.archive {
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.archive .warpper {
+  display: flex;
+  margin: 0 25px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive h1 {
+  font-size: clamp(2rem, 13vw, 6.5em);
+}
+
+.archive h1::before {
+  content: "//";
+  float: left;
+  opacity: 0.4;
+  padding-right: 1.5rem;
+}
+
+.archive h2 {
+  opacity: 0.3;
+  font-size: 40px;
+  margin: 0 20px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.content p.log::first-letter {
+  color: var(--acc1-color);
+  float: left;
+  font-size: 5.5rem;
+  font-weight: 600;
+  padding-right: 0.5rem;
+}
+
+.content p {
+  padding-top: 0.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.8em);
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 1400px) {
+  .archive {
+    padding-left: 15%;
+  }
+}

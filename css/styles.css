@@ -97,7 +97,6 @@ section.title {
   position: relative;
   display: flex;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
 }
 
 .swipe .title {
