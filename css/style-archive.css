@@ -17,6 +17,7 @@
 
 .archive h1 {
   font-size: clamp(2rem, 13vw, 6.5em);
+  opacity: 0.6;
 }
 
 .archive h1::before {
@@ -46,7 +47,7 @@
   padding-top: 0.5rem;
   font-size: clamp(1.2rem, 2vw, 1.8em);
   font-weight: 400;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 @media screen and (min-width: 1400px) {
