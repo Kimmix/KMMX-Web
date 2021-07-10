@@ -1,6 +1,7 @@
 const cacheName = "kmmx-site-v1"
 const assets = [
   "/index.html",
+  "/css/style-intro.css",
   "/css/style.css",
   "/js/script.js",
   "/asset/logo.svg",

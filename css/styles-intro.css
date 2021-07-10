@@ -18,17 +18,21 @@
   background: transparent;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
   touch-action: manipulation;
   scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100vh;
   scrollbar-width: none;
   background: var(--black-color);
   color: var(--white-color);
   font-family: "Montserrat", sans-serif;
+  -webkit-tap-highlight-color: #00000000;
 }
 
 section {
@@ -46,6 +50,7 @@ section.intro {
   background: var(--black-color);
   animation: slide-out-container 5s cubic-bezier(0.95, 0.01, 0.36, 0.8) 2.8s;
   animation-fill-mode: forwards;
+  cursor: none;
 }
 
 .text-warpper {
