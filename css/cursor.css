@@ -1,65 +1,27 @@
 :root {
-  --cursor-visibility: hidden;
+  --cursor-visibility: show;
 }
 
 .cursor {
   z-index: 100;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--white-color);
-  border-radius: 50%;
+  width: 5px;
+  height: 5px;
   position: absolute;
-  /* transition: 30ms ease-out; */
-  animation: cursorAnim .5s infinite alternate;
   pointer-events: none;
-  visibility: var(--cursor-visibility);
-}
-
-.cursor::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border: 8px solid var(--white2-color);
+  background: var(--white-color);
   border-radius: 50%;
-  opacity: .5;
-  top: -8px;
-  left: -8px;
-  animation: cursorAnim2 .5s infinite alternate;
 }
 
-.expand {
-  animation: cursorAnim3 .5s forwards;
+.cursor-outer {
+  z-index: 99;
+  width: 31px;
+  height: 31px;
+  top: -14px;
+  left: -14px;
+  position: absolute;
+  pointer-events: none;
   border: 1px solid var(--acc2-color);
-}
-
-@keyframes cursorAnim {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(.7);
-  }
-}
-
-@keyframes cursorAnim2 {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(.4);
-  }
-}
-
-@keyframes cursorAnim3 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(3);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
+  border-radius: 50%;
+  transition: transform 200ms cubic-bezier(0, 0.57, 0.6, 1.18);
+  visibility: var(--cursor-visibility);
 }

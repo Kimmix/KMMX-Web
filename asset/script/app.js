@@ -41,3 +41,10 @@ fsEnter.addEventListener('click', function (e) {
     }
   }
 });
+
+fsEnter.addEventListener("mouseover", function (event) {
+  document.documentElement.style.setProperty('--cursor-visibility', 'hidden');
+}, false);
+fsEnter.addEventListener("mouseout", function (event) {
+  document.documentElement.style.setProperty('--cursor-visibility', 'show');
+}, false);

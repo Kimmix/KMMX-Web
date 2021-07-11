@@ -274,6 +274,11 @@ section.title {
   position: fixed;
   padding: 20px;
   right: 0;
+  border-radius: 50%;
+}
+
+.fullscr-wrapper:hover {
+  border: 1px var(--acc2-color) solid;
 }
 
 svg.fs {
@@ -281,16 +286,16 @@ svg.fs {
   transition: transform 150ms ease-out;
 }
 
-svg.fs:hover, svg.fs.active {
+.fullscr-wrapper:hover svg.fs, svg.fs.active {
   fill: var(--acc2-color);
   transform: scale(1.5);
 }
 
-svg.fs:hover .corner-1, svg.fs.active .corner-1 {
+.fullscr-wrapper:hover svg.fs .corner-1, svg.fs.active .corner-1 {
   transform: translateX(-10px);
 }
 
-svg.fs:hover .corner-2, svg.fs.active .corner-2 {
+.fullscr-wrapper:hover svg.fs .corner-2, svg.fs.active .corner-2 {
   transform: translateX(10px);
 }
 
