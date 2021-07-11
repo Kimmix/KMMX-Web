@@ -267,12 +267,13 @@ section.title {
 
 /* Icon on right */
 
-.fullscr-icon {
-  z-index: 2;
-  align-self: end;
-  padding: 30px;
+.fullscr-wrapper {
+  z-index: 10;
   width: 25px;
   height: auto;
+  position: fixed;
+  padding: 20px;
+  right: 0;
 }
 
 svg.fs {
