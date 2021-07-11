@@ -82,13 +82,15 @@ section.title {
   background-repeat: no-repeat;
   background-size: 970px;
   background-position: 90% 75%;
+  justify-content: center;
 }
 
 .wrapper {
   display: flex;
   padding: 20px;
   width: 100%;
-  justify-content: space-around;
+  max-width: 1500px;
+  justify-content: space-between;
 }
 
 .header-wrapper {
@@ -262,6 +264,13 @@ section.title {
   user-select: none;
   animation: fadebounce 1.6s infinite 10.3s;
   opacity: 0;
+}
+
+/* Icon on right */
+
+.fullscr-icon {
+  z-index: 2;
+  align-self: end;
 }
 
 @media screen and (max-width: 768px) {

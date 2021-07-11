@@ -9,7 +9,7 @@
   border: 1px solid var(--white-color);
   border-radius: 50%;
   position: absolute;
-  transition: 30ms ease-out;
+  /* transition: 30ms ease-out; */
   animation: cursorAnim .5s infinite alternate;
   pointer-events: none;
   visibility: var(--cursor-visibility);
