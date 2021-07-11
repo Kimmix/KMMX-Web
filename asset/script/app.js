@@ -18,11 +18,13 @@ if ("serviceWorker" in navigator) {
 
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
+// let fsSvg = document.getElementsByClassName('fs')
 const elem = document.documentElement;
 fsEnter.addEventListener('click', function (e) {
   e.preventDefault();
   if (!fullscreen) {
     fullscreen = true;
+    document.getElementById('fsSvg').classList.add("active")
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) { /* Safari */
@@ -31,6 +33,7 @@ fsEnter.addEventListener('click', function (e) {
   }
   else {
     fullscreen = false;
+    document.getElementById('fsSvg').classList.remove("active")
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) { /* Safari */

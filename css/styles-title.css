@@ -88,7 +88,7 @@ section.title {
 .wrapper {
   display: flex;
   width: 100%;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   justify-content: space-between;
 }
 
@@ -270,7 +270,32 @@ section.title {
 .fullscr-icon {
   z-index: 2;
   align-self: end;
-  margin: 20px;
+  padding: 30px;
+  width: 25px;
+  height: auto;
+}
+
+svg.fs {
+  fill: var(--white-color);
+  transition: transform 150ms ease-out;
+}
+
+svg.fs:hover, svg.fs.active {
+  fill: var(--acc2-color);
+  transform: scale(1.5);
+}
+
+svg.fs:hover .corner-1, svg.fs.active .corner-1 {
+  transform: translateX(-10px);
+}
+
+svg.fs:hover .corner-2, svg.fs.active .corner-2 {
+  transform: translateX(10px);
+}
+
+svg.fs.active:hover {
+  fill: var(--white-color);
+  transform: scale(1);
 }
 
 @media screen and (max-width: 768px) {
@@ -286,5 +311,11 @@ section.title {
     justify-content: center;
     background-size: 800px;
     background-position: 46% 15%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .header-wrapper {
+    padding-left: 15%;
   }
 }
