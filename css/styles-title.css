@@ -87,7 +87,6 @@ section.title {
 
 .wrapper {
   display: flex;
-  padding: 20px;
   width: 100%;
   max-width: 1500px;
   justify-content: space-between;
@@ -271,6 +270,7 @@ section.title {
 .fullscr-icon {
   z-index: 2;
   align-self: end;
+  margin: 20px;
 }
 
 @media screen and (max-width: 768px) {
