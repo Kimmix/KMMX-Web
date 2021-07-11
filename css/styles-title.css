@@ -84,6 +84,13 @@ section.title {
   background-position: 90% 75%;
 }
 
+.wrapper {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .header-wrapper {
   min-width: clamp(18rem, 80vw, 36em);
   position: relative;

@@ -15,3 +15,26 @@ if ("serviceWorker" in navigator) {
 //     logoFill.style.transform = `translate3d(${yPosition * 0.2}px, ${yPosition * 0.4}px, -${yPosition * 0.01}px)`;
 //   }
 // })
+
+let fullscreen;
+const fsEnter = document.getElementById('fullscr');
+const elem = document.documentElement;
+fsEnter.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (!fullscreen) {
+    fullscreen = true;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    }
+  }
+  else {
+    fullscreen = false;
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    }
+  }
+});
