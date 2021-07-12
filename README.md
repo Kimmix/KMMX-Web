@@ -9,4 +9,4 @@
 * Parallax
 * Add connection links
 * Footer
-* Protogen grabing cursor? :))
+* Protogen grabing cursor? :)
