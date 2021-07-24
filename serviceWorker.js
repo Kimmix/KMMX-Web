@@ -1,12 +1,17 @@
 const cacheName = "kmmx-site-v1"
 const assets = [
   "/index.html",
-  "/css/style-intro.css",
-  "/css/style.css",
+  "/asset/script/app.js",
+  "/asset/script/cursor.js",
+  "/asset/KMMX_VRC1.jpg",
+  "/asset/maskable_icon.png",
+  "/asset/splash.png",
+  "/css/styles-about.css",
+  "/css/styles-archive.css",
+  "/css/styles-footer.css",
+  "/css/styles-intro.css",
+  "/css/styles-title.css",
   "/css/cursor.css",
-  "/asset/js/app.js",
-  "/asset/js/cursor.js",
-  "/asset/logo.svg",
 ]
 
 self.addEventListener("install", installEvent => {
