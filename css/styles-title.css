@@ -85,11 +85,15 @@ section.title {
   justify-content: center;
 }
 
+section.title > .wrapper {
+  width: 100%;
+}
+
 .wrapper {
   display: flex;
-  width: 100%;
-  /* max-width: 1500px; */
+  max-width: 1500px;
   justify-content: space-between;
+  margin: 0 10px;
 }
 
 .header-wrapper {

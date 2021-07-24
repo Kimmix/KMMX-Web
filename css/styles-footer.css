@@ -1,0 +1,32 @@
+section.footer {
+  min-height: 40vh;
+  background-color: #000000;
+}
+
+.footer .warpper {
+  z-index: 1;
+  width: 100%;
+  margin: auto 5%;
+}
+
+.footer .warpper h2 {
+  font-size: 70px;
+}
+
+.footer>.bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.footer>.bg>h1 {
+  color: #353535;
+  font-size: 140px;
+  font-weight: 400;
+}
+
+.proto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
