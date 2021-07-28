@@ -36,7 +36,22 @@
   overflow-x: hidden;
 }
 
-.logo-wrapper svg {
+svg#logo-stroke .stroke {
+  fill: none;
+  stroke: #2e2e2e;
+  stroke-width: 4px;
+  animation: stroke-anim 4s linear forwards 7s;
+  stroke-dasharray: 912;
+  stroke-dashoffset: 912;
+}
+
+@keyframes stroke-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+svg#logoFill {
   margin-top: 10vw;
   animation: hover 5s infinite alternate 8.5s, fadeIn 2s 8.5s, show 1s infinite 9.5s;
   opacity: 0;
@@ -76,16 +91,20 @@
 }
 
 /* Title */
-
 section.title {
-  background-image: url(../asset/logo.svg);
-  background-repeat: no-repeat;
-  background-size: 970px;
-  background-position: 90% 75%;
   justify-content: center;
+  overflow: visible;
 }
 
-section.title > .wrapper {
+section.title>.logo-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(600px, 60vw, 900px);
+  height: 80%;
+}
+
+section.title>.wrapper {
   width: 100%;
 }
 
@@ -312,7 +331,7 @@ svg.fs.active:hover {
   .header-wrapper {
     margin-bottom: 30vh;
   }
-  .logo-wrapper svg {
+  svg#logoFill {
     width: 100%;
     margin-left: 3em;
     margin-top: 55vh;

@@ -7,15 +7,6 @@ if ("serviceWorker" in navigator) {
   })
 }
 
-// const logoFill = document.getElementById("logoFill");
-
-// window.addEventListener('scroll', function () {
-//   const yPosition = window.scrollY
-//   if (yPosition < 600) {
-//     logoFill.style.transform = `translate3d(${yPosition * 0.2}px, ${yPosition * 0.4}px, -${yPosition * 0.01}px)`;
-//   }
-// })
-
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
 // let fsSvg = document.getElementsByClassName('fs')
