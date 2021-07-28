@@ -6,11 +6,11 @@ const assets = [
   "/asset/KMMX_VRC1.webp",
   "/asset/maskable_icon.png",
   "/asset/splash.png",
+  "/css/styles-main.css",
+  "/css/styles-title.css",
   "/css/styles-about.css",
   "/css/styles-archive.css",
   "/css/styles-footer.css",
-  "/css/styles-intro.css",
-  "/css/styles-title.css",
   "/css/cursor.css",
 ]
 
