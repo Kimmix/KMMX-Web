@@ -1,3 +1,4 @@
+// Register service worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
     navigator.serviceWorker
@@ -7,6 +8,7 @@ if ("serviceWorker" in navigator) {
   })
 }
 
+// Fullscreen button and cusor animation
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
 // let fsSvg = document.getElementsByClassName('fs')
@@ -33,9 +35,20 @@ fsEnter.addEventListener('click', function (e) {
   }
 });
 
-fsEnter.addEventListener("mouseover", function (event) {
-  document.documentElement.style.setProperty('--cursor-visibility', 'hidden');
-}, false);
-fsEnter.addEventListener("mouseout", function (event) {
-  document.documentElement.style.setProperty('--cursor-visibility', 'show');
-}, false);
+// fsEnter.addEventListener("mouseover", function (event) {
+//   document.documentElement.style.setProperty('--cursor-visibility', 'hidden');
+// }, false);
+// fsEnter.addEventListener("mouseout", function (event) {
+//   document.documentElement.style.setProperty('--cursor-visibility', 'show');
+// }, false);
+
+const animationObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
+  })
+}, {
+  threshold: 0.1
+});
+
+animationObserver.observe(document.getElementById('logo-stroke'));
+animationObserver.observe(document.getElementById('stardate'));

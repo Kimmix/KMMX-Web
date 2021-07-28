@@ -40,9 +40,12 @@ svg#logo-stroke .stroke {
   fill: none;
   stroke: #2e2e2e;
   stroke-width: 4px;
-  animation: stroke-anim 4s linear forwards 7s;
   stroke-dasharray: 912;
   stroke-dashoffset: 912;
+}
+
+svg#logo-stroke.animate-onscroll .stroke {
+  animation: stroke-anim 4s linear forwards 500ms;
 }
 
 @keyframes stroke-anim {
@@ -91,6 +94,7 @@ svg#logoFill {
 }
 
 /* Title */
+
 section.title {
   justify-content: center;
   overflow: visible;
@@ -155,44 +159,6 @@ section.title>.wrapper {
   letter-spacing: 5px;
   text-align: right;
   color: var(--white2-color);
-}
-
-/* V.H.E. */
-
-.V:hover, .V:active {
-  color: var(--acc2-color);
-}
-
-.V:hover:after, .V:active:after {
-  content: "ery";
-}
-
-.V:hover .Vdot, .V:active .Vdot {
-  display: none;
-}
-
-.H:hover, .H:active {
-  color: var(--acc2-color);
-}
-
-.H:hover:after, .H:active:after {
-  content: "igh";
-}
-
-.H:hover .Hdot, .H:active .Hdot {
-  display: none;
-}
-
-.E:hover, .E:active {
-  color: var(--acc2-color);
-}
-
-.E:hover:after, .E:active:after {
-  content: "fficiency";
-}
-
-.E:hover .Edot, .E:active .Edot {
-  display: none;
 }
 
 .swipe span.block1 {
@@ -267,6 +233,44 @@ section.title>.wrapper {
     opacity: 0.8;
     transform: translateY(0);
   }
+}
+
+/* V.H.E. */
+
+.V:hover, .V:active {
+  color: var(--acc2-color);
+}
+
+.V:hover:after, .V:active:after {
+  content: "ery";
+}
+
+.V:hover .Vdot, .V:active .Vdot {
+  display: none;
+}
+
+.H:hover, .H:active {
+  color: var(--acc2-color);
+}
+
+.H:hover:after, .H:active:after {
+  content: "igh";
+}
+
+.H:hover .Hdot, .H:active .Hdot {
+  display: none;
+}
+
+.E:hover, .E:active {
+  color: var(--acc2-color);
+}
+
+.E:hover:after, .E:active:after {
+  content: "fficiency";
+}
+
+.E:hover .Edot, .E:active .Edot {
+  display: none;
 }
 
 /* Scroll */
