@@ -3,7 +3,7 @@ const assets = [
   "/index.html",
   "/asset/script/app.js",
   "/asset/script/cursor.js",
-  "/asset/KMMX_VRC1.jpg",
+  "/asset/KMMX_VRC1.webp",
   "/asset/maskable_icon.png",
   "/asset/splash.png",
   "/css/styles-about.css",
