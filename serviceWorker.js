@@ -1,4 +1,4 @@
-const cacheName = "kmmx-site-v1"
+const cacheName = "kmmx-site-v1.0.1"
 const assets = [
   "/index.html",
   "/asset/script/app.js",
