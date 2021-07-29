@@ -17,7 +17,6 @@ section.archive {
 
 .archive h1 {
   font-size: clamp(2rem, 13vw, 6.5em);
-  opacity: 0.6;
 }
 
 .archive h1::before {
@@ -31,7 +30,6 @@ h2.stardate {
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0.3;
   font-size: 40px;
   margin: 0 20px;
 }
@@ -39,7 +37,17 @@ h2.stardate {
 .stardate .stardate-text {
   display: flex;
   position: relative;
-  color: #000;
+  color: var(--black-color);
+}
+
+.stardate .stardate-text:hover {
+  animation: none !important;
+}
+
+.stardate .stardate-text:hover:before {
+  animation: none !important;
+  width: 0.9em;
+  background-color: white;
 }
 
 .stardate .stardate-text:before {
@@ -47,7 +55,7 @@ h2.stardate {
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #fff;
+  background-color: #d6d6d6;
   width: 0.9em;
   height: 1.2em;
   -webkit-transform: translate(-50%, -55%);
@@ -96,11 +104,14 @@ h2.stardate {
 }
 
 @keyframes blink-in {
-  99% {
-    color: #000;
+  75% {
+    color: var(--black-color);
+  }
+  90% {
+    color: var(--acc2-color);
   }
   100% {
-    color: #fff;
+    color: #aaa;
   }
 }
 
@@ -114,10 +125,11 @@ h2.stardate {
   30% {
     width: 1px;
   }
-  84% {
+  89% {
     width: 1px;
+    background-color: var(--acc1-color);
   }
-  85% {
+  90% {
     width: 0;
   }
   100% {

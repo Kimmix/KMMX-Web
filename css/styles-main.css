@@ -11,12 +11,12 @@
 
 ::selection {
   color: var(--acc2-color);
-  background: var(--white-color);
+  background-color: var(--white-color);
 }
 
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent;
+  background-color: transparent;
 }
 
 * {
@@ -31,7 +31,7 @@ html, body {
   width: 100%;
   height: 100vh;
   scrollbar-width: none;
-  background: var(--black-color);
+  background-color: var(--black-color);
   color: var(--white-color);
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -50,7 +50,6 @@ section {
 /* Intro animation */
 
 section.intro {
-  background: var(--black-color);
   animation: slide-out-container 5s cubic-bezier(0.95, 0.01, 0.36, 0.8) forwards 2.8s;
 }
 

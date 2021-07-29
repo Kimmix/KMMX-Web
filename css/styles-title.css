@@ -167,7 +167,7 @@ section.title>.wrapper {
   height: 100%;
   position: absolute;
   display: flex;
-  background: var(--acc1-color);
+  background-color: var(--acc1-color);
   animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6.3s, mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 12s;
 }
 
@@ -177,7 +177,7 @@ section.title>.wrapper {
   height: 100%;
   position: absolute;
   display: flex;
-  background: var(--acc2-color);
+  background-color: var(--acc2-color);
   animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6s;
 }
 
@@ -342,8 +342,6 @@ svg.fs.active:hover {
   }
   section.title {
     justify-content: center;
-    background-size: 800px;
-    background-position: 46% 15%;
   }
 }
 
