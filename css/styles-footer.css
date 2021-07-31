@@ -1,6 +1,7 @@
 section.footer {
   min-height: 40vh;
   background-color: #000000;
+  background: linear-gradient(0deg, #000 0%, #000 60%, var(--black-color) 100%);
 }
 
 .footer .warpper {
@@ -8,7 +9,7 @@ section.footer {
   flex-direction: column;
   display: flex;
   width: 100%;
-  margin: auto 5%;
+  margin: auto 5% 5rem;
   gap: 7px;
 }
 
@@ -21,12 +22,21 @@ section.footer {
   position: absolute;
   right: 0;
   bottom: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .footer>.bg>h1 {
-  color: #1b1b1b;
+  color: var(--black-color);
   font-size: clamp(100px, 11vw, 140px);
   font-weight: 400;
+}
+
+.footer p.fade {
+  color: #2c2c2c;
 }
 
 .proto {
