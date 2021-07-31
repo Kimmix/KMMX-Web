@@ -301,11 +301,6 @@ section.title>.wrapper {
   position: fixed;
   padding: 20px;
   right: 0;
-  border-radius: 50%;
-}
-
-.fullscr-wrapper:hover {
-  border: 1px var(--acc2-color) solid;
 }
 
 svg.fs {
