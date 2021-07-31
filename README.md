@@ -7,6 +7,5 @@
 * Add more content
 * Add some art
 * Parallax
-* Add connection links
-* Footer
+* Add social links
 * Protogen grabing cursor? :)
