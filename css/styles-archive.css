@@ -32,6 +32,11 @@ h2.stardate {
   align-items: center;
   font-size: 40px;
   margin: 0 20px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .stardate .stardate-text {
