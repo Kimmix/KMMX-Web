@@ -5,12 +5,16 @@ section.footer {
 
 .footer .warpper {
   z-index: 1;
+  flex-direction: column;
+  display: flex;
   width: 100%;
   margin: auto 5%;
+  gap: 7px;
 }
 
 .footer .warpper h2 {
   font-size: 70px;
+  margin-bottom: 1rem;
 }
 
 .footer>.bg {
@@ -20,8 +24,8 @@ section.footer {
 }
 
 .footer>.bg>h1 {
-  color: #353535;
-  font-size: 140px;
+  color: #1b1b1b;
+  font-size: clamp(100px, 11vw, 140px);
   font-weight: 400;
 }
 
