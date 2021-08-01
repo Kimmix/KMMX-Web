@@ -9,7 +9,7 @@ section.about-me {
   margin: 0 10px;
   padding: 35px 10px;
   background-color: var(--card-color);
-  box-shadow: 20px 20px 40px var(--black-color);
+  box-shadow: 20px 20px 40px var(--black-color), -2px -2px 1px #ff446c70;
   border-radius: 8px;
   transition: transform .35s ease-in-out, box-shadow .35s ease-in-out;
   filter: blur(8px);
@@ -37,6 +37,22 @@ section.about-me {
   animation: floating 5s infinite ease-in-out alternate;
 }
 
+.about-me .title {
+  opacity: 0.7;
+  color: var(--black-color);
+  position: absolute;
+  right: 25px;
+  font-size: 7rem;
+  letter-spacing: 1rem;
+  line-height: 70px;
+  z-index: -1;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .about-me .bio {
   flex-grow: 1;
   display: flex;
@@ -46,8 +62,35 @@ section.about-me {
   transition: transform .35s ease-in-out;
 }
 
-.about-me>.card:hover .bio {
-  transform: scale3d(1.003, 1.003, 1);
+.bio h1 {
+  font-size: 3rem;
+  line-height: 38px;
+}
+
+.bio h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.bio h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 12px;
+  color: var(--acc2-color);
+  margin-bottom: 1rem;
+}
+
+.bio p.info {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.bio .fade {
+  color: var(--white2-color);
+}
+
+.about-me>.card:hover {
+  transform: scale3d(1.007, 1.007, 1);
 }
 
 .about-me.animate-onscroll>.card {
