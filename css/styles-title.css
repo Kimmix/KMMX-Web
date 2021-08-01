@@ -280,7 +280,7 @@ section.title>.wrapper {
 
 .E:hover:after, .E:active:after {
   content: "fficiency";
-  animation: reveal 700ms ease-out forwards;
+  animation: reveal 450ms ease-out forwards;
 }
 
 @keyframes reveal {
