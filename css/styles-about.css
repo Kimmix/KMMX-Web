@@ -69,12 +69,12 @@ section.about-me {
 }
 
 .bio h2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
 .bio h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 12px;
   color: var(--acc2-color);

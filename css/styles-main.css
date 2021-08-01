@@ -63,6 +63,12 @@ span.fade {
   color: var(--white2-color);
 }
 
+span.outline {
+  font-weight: 600;
+  color: var(--black2-color);
+  -webkit-text-stroke: 1px var(--white-color);
+}
+
 /* Intro animation */
 
 section.intro {

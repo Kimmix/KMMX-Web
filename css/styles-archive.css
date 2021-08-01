@@ -16,7 +16,8 @@ section.archive {
 }
 
 .archive h1 {
-  font-size: clamp(2rem, 13vw, 6.5em);
+  font-size: clamp(4.2rem, 10vw, 5.5em);
+  font-weight: 400;
 }
 
 .archive h1::before {
@@ -152,7 +153,7 @@ h2.stardate {
 
 .content p {
   padding-top: 0.5rem;
-  font-size: clamp(1.2rem, 2vw, 1.8em);
+  font-size: clamp(1.3rem, 1.8vw, 1.5em);
   font-weight: 400;
   opacity: 0.9;
 }
