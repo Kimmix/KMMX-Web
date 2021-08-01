@@ -153,6 +153,8 @@ section.title>.wrapper {
 }
 
 .swipe .subtitle h2 {
+  display: flex;
+  justify-content: flex-end;
   padding: 0;
   margin: 0;
   font-size: clamp(0.9rem, 4vw, 1.7em);
@@ -237,16 +239,26 @@ section.title>.wrapper {
 
 /* V.H.E. */
 
+.subtitle>h2 span {
+  display: flex;
+  overflow: hidden;
+}
+
+.V:after {
+  content: ".";
+}
+
 .V:hover, .V:active {
   color: var(--acc2-color);
 }
 
 .V:hover:after, .V:active:after {
   content: "ery";
+  animation: reveal 700ms ease-out forwards;
 }
 
-.V:hover .Vdot, .V:active .Vdot {
-  display: none;
+.H:after {
+  content: ".";
 }
 
 .H:hover, .H:active {
@@ -255,10 +267,11 @@ section.title>.wrapper {
 
 .H:hover:after, .H:active:after {
   content: "igh";
+  animation: reveal 700ms ease-out forwards;
 }
 
-.H:hover .Hdot, .H:active .Hdot {
-  display: none;
+.E:after {
+  content: ".";
 }
 
 .E:hover, .E:active {
@@ -267,10 +280,16 @@ section.title>.wrapper {
 
 .E:hover:after, .E:active:after {
   content: "fficiency";
+  animation: reveal 700ms ease-out forwards;
 }
 
-.E:hover .Edot, .E:active .Edot {
-  display: none;
+@keyframes reveal {
+  from {
+    max-width: 1rem;
+  }
+  to {
+    max-width: 200px;
+  }
 }
 
 /* Scroll */
