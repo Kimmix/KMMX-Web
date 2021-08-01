@@ -7,7 +7,7 @@ section.archive {
 
 .archive .warpper {
   display: flex;
-  margin: 0 25px;
+  margin: 3em 20px;
 }
 
 .content {
@@ -16,7 +16,7 @@ section.archive {
 }
 
 .archive h1 {
-  font-size: clamp(4.2rem, 10vw, 5.5em);
+  font-size: clamp(3.2rem, 10vw, 5.5em);
   font-weight: 400;
 }
 
