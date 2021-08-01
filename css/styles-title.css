@@ -45,7 +45,7 @@ svg#logo-stroke .stroke {
 }
 
 svg#logo-stroke.animate-onscroll .stroke {
-  animation: stroke-anim 4s linear forwards 500ms;
+  animation: stroke-anim 3.5s ease-out forwards 500ms;
 }
 
 @keyframes stroke-anim {

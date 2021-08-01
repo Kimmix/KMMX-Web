@@ -16,7 +16,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" as="style" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+    as="style" />
 
   <link rel="stylesheet" href="css/styles-main.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
@@ -113,7 +114,7 @@
     <span class="line"></span>
     <span class="scrollhint">>></span>
   </section>
-  <section class="about-me">
+  <section id="bio" class="about-me">
     <div class="wrapper">
       <div class="img-container">
         <img loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot">
@@ -141,7 +142,7 @@
       </div>
     </div>
   </section>
-  <section class="archive">
+  <section id="archive" class="archive">
     <div class="warpper">
       <div class="content">
         <h1>archive #00617</h1>
@@ -172,7 +173,10 @@
   </section>
   <section class="footer">
     <div class="warpper">
-      <h2>KMMX</h2>
+      <h2 onclick="topFunction()">KMMX</h2>
+      <p class="link">
+      <span onclick="onScrollTo('bio')">Bio</span> | <span onclick="onScrollTo('archive')">Archive</span>
+      </p>
       <p>Kimmix ©2021</p>
       <p>Just pure HTML / CSS / VanillaJS</p>
       <p class="fade">No framework needed</p>

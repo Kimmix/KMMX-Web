@@ -15,7 +15,11 @@ section.footer {
 
 .footer .warpper h2 {
   font-size: 70px;
-  margin-bottom: 1rem;
+  line-height: 58px;
+}
+
+.footer p.link {
+  margin-bottom: 1.5rem;
 }
 
 .footer>.bg {
