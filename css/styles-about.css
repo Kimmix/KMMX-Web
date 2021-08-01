@@ -64,6 +64,7 @@ section.about-me {
 
 .bio h1 {
   font-size: 3rem;
+  font-weight: 400;
   line-height: 38px;
 }
 
@@ -83,10 +84,6 @@ section.about-me {
 .bio p.info {
   font-size: 1rem;
   font-weight: 400;
-}
-
-.bio .fade {
-  color: var(--white2-color);
 }
 
 .about-me>.card:hover {

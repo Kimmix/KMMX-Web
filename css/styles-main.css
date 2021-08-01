@@ -55,6 +55,14 @@ section {
   perspective-origin: 0%;
 }
 
+span.bold {
+  font-weight: 600;
+}
+
+span.fade {
+  color: var(--white2-color);
+}
+
 /* Intro animation */
 
 section.intro {
