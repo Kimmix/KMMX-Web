@@ -4,15 +4,19 @@ section.about-me {
   margin: 0 auto;
 }
 
-.about-me>.wrapper {
-  background-color: var(--card-color);
+.about-me>.card {
+  display: flex;
+  margin: 0 10px;
   padding: 35px 10px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  background-color: var(--card-color);
+  box-shadow: 20px 20px 40px var(--black-color);
   border-radius: 8px;
   transition: transform .35s ease-in-out;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 
-.about-me>.wrapper:hover {
+.about-me>.card:hover {
   transform: scale3d(1.006, 1.006, 1);
 }
 
@@ -41,8 +45,23 @@ section.about-me {
   transition: transform .35s ease-in-out;
 }
 
-.about-me>.wrapper:hover .bio {
+.about-me>.card:hover .bio {
   transform: scale3d(1.003, 1.003, 1);
+}
+
+.about-me.animate-onscroll>.card {
+  animation: blur 900ms ease-in forwards;
+}
+
+@keyframes blur {
+  from {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+  to {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
 }
 
 @keyframes floating {
@@ -55,7 +74,7 @@ section.about-me {
 }
 
 @media screen and (max-width: 650px) {
-  .about-me>.wrapper {
+  .about-me>.card {
     flex-direction: column;
   }
   .about-me .bio {

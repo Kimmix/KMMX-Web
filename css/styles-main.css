@@ -32,6 +32,7 @@
 }
 
 html, body {
+  overflow-anchor: none;
   touch-action: manipulation;
   scroll-behavior: smooth;
   width: 100%;

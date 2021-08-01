@@ -52,6 +52,7 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
 
 animationObserver.observe(document.getElementById('logo-stroke'));
 animationObserver.observe(document.getElementById('stardate'));
+animationObserver.observe(document.getElementById('bio'));
 
 // Footer
 function topFunction() {
