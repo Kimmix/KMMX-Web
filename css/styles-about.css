@@ -11,13 +11,14 @@ section.about-me {
   background-color: var(--card-color);
   box-shadow: 20px 20px 40px var(--black-color);
   border-radius: 8px;
-  transition: transform .35s ease-in-out;
+  transition: transform .35s ease-in-out, box-shadow .35s ease-in-out;
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
 
 .about-me>.card:hover {
   transform: scale3d(1.006, 1.006, 1);
+  box-shadow: 30px 20px 60px var(--black-color);
 }
 
 .about-me .img-container {
