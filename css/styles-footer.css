@@ -1,7 +1,7 @@
 section.footer {
   min-height: 40vh;
-  background-color: #000000;
-  background: linear-gradient(0deg, #000 0%, #000 60%, var(--black-color) 100%);
+  background-color: var(--black-color);
+  background: linear-gradient(0deg, var(--black-color) 0%, var(--black-color) 60%, var(--black2-color) 100%);
 }
 
 .footer .warpper {
@@ -14,12 +14,30 @@ section.footer {
 }
 
 .footer .warpper h2 {
+  width: max-content;
   font-size: 70px;
   line-height: 58px;
 }
 
-.footer p.link {
-  margin-bottom: 1.5rem;
+.footer .link {
+  transition: color 200ms ease-in;
+}
+
+.footer .link:hover {
+  color: var(--acc2-color);
+}
+
+.footer-content {
+  margin-top: 1.5rem;
+  font-weight: 400;
+}
+
+.footer-content .owner {
+  font-weight: 500;
+}
+
+.footer-content .fade {
+  color: #2c2c2c;
 }
 
 .footer>.bg {
@@ -34,13 +52,9 @@ section.footer {
 }
 
 .footer>.bg>h1 {
-  color: var(--black-color);
+  color: var(--black2-color);
   font-size: clamp(100px, 11vw, 140px);
   font-weight: 400;
-}
-
-.footer p.fade {
-  color: #2c2c2c;
 }
 
 .proto {

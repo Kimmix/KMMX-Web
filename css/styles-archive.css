@@ -42,7 +42,7 @@ h2.stardate {
 .stardate .stardate-text {
   display: flex;
   position: relative;
-  color: var(--black-color);
+  color: var(--black2-color);
 }
 
 .stardate .stardate-text:hover {
@@ -52,7 +52,7 @@ h2.stardate {
 .stardate .stardate-text:hover:before {
   animation: none !important;
   width: 0.9em;
-  background-color: white;
+  background-color: var(--white-color);
 }
 
 .stardate .stardate-text:before {
@@ -60,7 +60,7 @@ h2.stardate {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: #d6d6d6;
+  background-color: var(--white2-color);
   width: 0.9em;
   height: 1.2em;
   -webkit-transform: translate(-50%, -55%);
@@ -110,13 +110,13 @@ h2.stardate {
 
 @keyframes blink-in {
   75% {
-    color: var(--black-color);
+    color: var(--black2-color);
   }
   90% {
     color: var(--acc2-color);
   }
   100% {
-    color: #aaa;
+    color: var(--white2-color);
   }
 }
 
