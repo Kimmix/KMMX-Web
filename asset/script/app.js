@@ -47,7 +47,7 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
     entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
   })
 }, {
-  threshold: 0.1
+  // threshold: 0.1,
 });
 
 animationObserver.observe(document.getElementById('logo-stroke'));
