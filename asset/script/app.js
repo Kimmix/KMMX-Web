@@ -8,6 +8,24 @@ if ("serviceWorker" in navigator) {
   })
 }
 
+// Switch app theme
+if (window.localStorage.getItem("isLightmode") === 'true') {
+  document.documentElement.style.setProperty('--white-color', '#000');
+  document.documentElement.style.setProperty('--white2-color', '#141414');
+  document.documentElement.style.setProperty('--black-color', '#ffffff');
+  document.documentElement.style.setProperty('--black2-color', '#E9EDF0');
+  document.documentElement.style.setProperty('--card-color', '#E6E9EF');
+}
+
+function switchTheme() {
+  if (window.localStorage.getItem("isLightmode") === 'true') {
+    window.localStorage.setItem("isLightmode", false)
+  } else {
+    window.localStorage.setItem("isLightmode", true)
+  }
+  location.reload();
+}
+
 // Fullscreen button and cusor animation
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
@@ -47,7 +65,7 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
     entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
   })
 }, {
-  // threshold: 0.1,
+  threshold: 0.05,
 });
 
 animationObserver.observe(document.getElementById('logo-stroke'));

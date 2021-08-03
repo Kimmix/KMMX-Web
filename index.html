@@ -31,11 +31,13 @@
 
 <body>
   <header>
-    <div id="fullscr" class="fullscr-wrapper">
-      <svg id="fsSvg" class="fs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-        <polygon class="corner-1" points="4.91 25 8.27 25 8.27 41.7 25 41.7 25 45.06 4.91 45.06 4.91 25" />
-        <polygon class="corner-2" points="45.09 25 41.73 25 41.73 8.3 25 8.3 25 4.94 45.09 4.94 45.09 25" />
-      </svg>
+    <div class="sidebutton">
+      <div id="fullscr" class="fullscr-wrapper">
+        <svg id="fsSvg" class="fs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <polygon class="corner-1" points="4.91 25 8.27 25 8.27 41.7 25 41.7 25 45.06 4.91 45.06 4.91 25" />
+          <polygon class="corner-2" points="45.09 25 41.73 25 41.73 8.3 25 8.3 25 4.94 45.09 4.94 45.09 25" />
+        </svg>
+      </div>
     </div>
     <section class="intro">
       <div class="text-warpper">
@@ -182,6 +184,7 @@
         <p>Just pure HTML / CSS / VanillaJS</p>
         <p class="fade">No framework needed</p>
         <p style="color: red;">Work in progress - Content not final!</p>
+        <button onclick="switchTheme()">switch theme</button>
       </div>
     </div>
     <div class="bg">

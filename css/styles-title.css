@@ -38,7 +38,7 @@
 
 svg#logo-stroke .stroke {
   fill: none;
-  stroke: #2e2e2e;
+  stroke: #2e2e2e7a;
   stroke-width: 4px;
   stroke-dasharray: 912;
   stroke-dashoffset: 912;
@@ -313,13 +313,21 @@ section.title>.wrapper {
 
 /* Icon on right */
 
-.fullscr-wrapper {
+.sidebutton {
   z-index: 10;
-  width: 25px;
+  width: 20px;
   height: auto;
   position: fixed;
-  padding: 20px;
+  padding: 10px 17px;
+  margin: 15px;
   right: 0;
+  backdrop-filter: blur(6px);
+  background-color: #3e3e3e40;
+  border-radius: 22%;
+}
+
+.fullscr-wrapper {
+  display: flex;
 }
 
 svg.fs {
