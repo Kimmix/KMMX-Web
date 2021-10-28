@@ -1,0 +1,22 @@
+section.contact {
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.contact .warpper {
+  display: flex;
+  margin: 3em 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact h1 {
+  font-size: clamp(3.2rem, 10vw, 5.5em);
+  font-weight: 400;
+}
+

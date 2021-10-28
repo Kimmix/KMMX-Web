@@ -28,6 +28,9 @@ section.archive {
 }
 
 h2.stardate {
+  position: sticky;
+  top: 0;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,6 +159,10 @@ h2.stardate {
   font-size: clamp(1.3rem, 1.8vw, 1.5em);
   font-weight: 400;
   opacity: 0.9;
+}
+
+p.log i.voice {
+  color: var(--acc2-color);
 }
 
 @media screen and (min-width: 1600px) {
