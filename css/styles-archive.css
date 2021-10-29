@@ -29,7 +29,7 @@ section.archive {
 
 h2.stardate {
   position: sticky;
-  top: 0;
+  top: 70px;
   height: max-content;
   display: flex;
   flex-direction: column;

@@ -1,12 +1,12 @@
 // Register service worker
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker
-      .register("serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-}
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", function () {
+//     navigator.serviceWorker
+//       .register("serviceWorker.js")
+//       .then(res => console.log("service worker registered"))
+//       .catch(err => console.log("service worker not registered", err))
+//   })
+// }
 
 // Switch app theme
 if (window.localStorage.getItem("isLightmode") === 'true') {
@@ -24,6 +24,14 @@ function switchTheme() {
     window.localStorage.setItem("isLightmode", true)
   }
   location.reload();
+}
+
+function changeImg(change) {
+  if (change) {
+    document.getElementById("bioImg").src = "asset/KMMX_Katana.webp";
+  } else {
+    document.getElementById("bioImg").src = "asset/KMMX_VRC1.webp";
+  }
 }
 
 // Fullscreen button and cusor animation

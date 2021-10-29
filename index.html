@@ -121,18 +121,24 @@
   <section id="bio" class="about-me">
     <div class="card">
       <div class="img-container">
-        <img loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot">
+        <!-- <img loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot"> -->
+        <img id="bioImg" loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot"
+          onclick="changeImg(false)">
       </div>
       <div class="bio">
-        <div class="title"><p>bi</p><p>o</p></div>
+        <div class="title">
+          <p>bi</p>
+          <p>o</p>
+        </div>
         <h1>KMMX <span class="bold">Protogen</span></h1>
         <h3>Uncommon Protogen</h3>
         <h2><span class="fade">Birth home:</span> LC2i - NSSR</h2>
         <h2><span class="fade">Age:</span> 25</h2>
         <h2><span class="fade">Like:</span> borger</h2>
-        <h2><span class="fade">Dislike:</span> politics</h2> 
-        <h2><span class="fade">Favorite music band:</span> Starset</h2> 
-        <p class="info">Kimmix(KMMX) is xxxxx. He really cares for people around him but most of the time doesn't really show any signs. Like to observe other people. Still struggling with social anxiety </p>
+        <h2><span class="fade">Dislike:</span> politics</h2>
+        <h2><span class="fade">Favorite music band:</span> Starset</h2>
+        <p class="info">Kimmix(KMMX) is xxxxx. He really cares for people around him but most of the time doesn't really
+          show any signs. Like to observe other people. Still struggling with social anxiety </p>
       </div>
     </div>
   </section>
@@ -140,17 +146,28 @@
     <div class="warpper">
       <div class="content">
         <h1>archive <span class="outline">#00617</span></h1>
-        <p class="log">Awakened in the lab out in the middle of nowhere. No sign of hostility nor any other life form in this abandoned
-        facility. Feeling light-headed and dizzy. I started to look around… It seems the door was locked from the inside… <i>was
-        it me who locked myself inside?</i> In front of me was a blinking panel. I instinctively placed my hand on the panel. I
-        feel a burst of Arcai energy flowing through me. <i class="voice">Operation successful. You are now free. ███████████.</i> The static noise was
-        interfering as the voice cut off. The panel split apart as some sort of weapon came out. I pulled out the handle to
-        reveal a katana. A spark of memory ran through my head… remembering that I was the owner of this katana. I started to
-        foolishly swing the sword around. I tried to let go as it holstered magnetically to my back. Looking around for a way
-        out of this place, it seemed the door was shut tight. I'll need to cut my way out; I pulled a katana from my back trying
-        to cut down the door, but it didn't work. After a furious attempt later, holding my grip tight, I begin to feel Arcai
-        energy flow through the katana as it begins to glow… hard light starts to form around me like some sort of armor. I took
-        a single swing, and the door burst open.</p>
+        <p class="log" onclick="changeImg(true)">Awakened in the lab out in the middle of nowhere. No sign of hostility
+          nor any other life form in
+          this abandoned
+          facility. Feeling light-headed and dizzy. I started to look around… It seems the door was locked from the
+          inside… <i>was
+            it me who locked myself inside?</i> In front of me was a blinking panel. I instinctively placed my hand on
+          the panel. I
+          feel a burst of Arcai energy flowing through me. <i class="voice">Operation successful. You are now free.
+            ███████████.</i> The static noise was
+          interfering as the voice cut off. The panel split apart as some sort of weapon came out. I pulled out the
+          handle to
+          reveal a katana. A spark of memory ran through my head… remembering that I was the original owner of this
+          katana. I tried to let go as it holstered magnetically to my back. Looking around
+          for a way
+          out of this place, it seemed the door was shut tight. I'll need to cut my way out; I pulled a katana from my
+          back trying
+          to cut down the door, but it didn't work. After a furious attempt later, holding my grip tight, I begin to
+          feel Arcai
+          energy flow through the katana as it begins to glow and so does my body… hard light starts to form around me
+          like some sort of
+          armor. I took
+          a single swing, and the door burst open.</p>
       </div>
       <h2 id="stardate" class="stardate">
         <div class="stardate-text st-order1">4</div>
@@ -168,7 +185,10 @@
     <div class="wrapper">
       <div class="content">
         <h1>Reference Sheet</h1>
-        <img src="https://lh3.google.com/u/0/d/17qes06VjCt5o8HEW2T5ZsEKuFnLVjjzX=w1920-h919-iv4" alt="refsheet">
+        <img loading=lazy src="asset/KMMX_Ref.png" alt="KMMX_Ref" >
+        <h3>Todo list</h3>
+        <p>New eye shape</p>
+        <p>Add hard light armor</p>
       </div>
     </div>
   </section>
@@ -176,8 +196,8 @@
     <div class="wrapper">
       <div class="content">
         <h1>About me</h1>
-        <h2>Twitter: @kimmix00</h2>
         <h2>Discord: Kimmix#7376</h2>
+        <h2>Twitter: @kimmix00</h2>
       </div>
     </div>
   </section>
@@ -186,7 +206,7 @@
       <h2 onclick="topFunction()" class="link">KMMX</h2>
       <div>
         <span onclick="onScrollTo('bio')" class="link">Bio</span> | <span onclick="onScrollTo('archive')"
-          class="link">Archive</span>
+          class="link">Archive</span> | <span onclick="onScrollTo('refsheet')" class="link">Ref</span> | <span onclick="onScrollTo('contact')" class="link">About me</span>
       </div>
       <div class="footer-content">
         <p class="owner">Kimmix ©2021</p>
