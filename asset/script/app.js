@@ -26,12 +26,8 @@ function switchTheme() {
   location.reload();
 }
 
-function changeImg(change) {
-  if (change) {
-    document.getElementById("bioImg").src = "asset/KMMX_Katana.webp";
-  } else {
-    document.getElementById("bioImg").src = "asset/KMMX_VRC1.webp";
-  }
+function changeImg(path) {
+  document.getElementById("bioImg").src = path;
 }
 
 // Fullscreen button and cusor animation
