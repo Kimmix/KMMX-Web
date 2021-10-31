@@ -1,5 +1,5 @@
 section.footer {
-  min-height: 75vh;
+  min-height: 45vh;
   background-color: var(--black-color);
   background: linear-gradient(0deg, var(--black-color) 0%, var(--black-color) 60%, var(--black2-color) 100%);
 }
