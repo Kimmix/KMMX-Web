@@ -80,8 +80,10 @@ animationObserver.observe(document.getElementById('bio'));
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+  changeImg('asset/KMMX_Sketch.webp')
 }
 
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
+  changeImg('asset/KMMX_Sketch.webp')
 }
