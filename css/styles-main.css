@@ -55,18 +55,26 @@ section {
   perspective-origin: 0%;
 }
 
-span.bold {
+.bold {
   font-weight: 600;
 }
 
-span.fade {
+.fade {
   color: var(--white2-color);
 }
 
-span.outline {
+.outline {
   font-weight: 600;
   color: var(--black2-color);
   -webkit-text-stroke: 1px var(--white-color);
+}
+
+.acc1 {
+  color: var(--acc1-color);
+}
+
+.acc2 {
+  color: var(--acc2-color);
 }
 
 img {
