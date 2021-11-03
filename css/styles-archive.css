@@ -81,35 +81,35 @@ h2.stardate {
 }
 
 .stardate-text.st-order1, .stardate-text.st-order1::before {
-  animation-delay: 900ms !important;
-}
-
-.stardate-text.st-order2, .stardate-text.st-order2::before {
-  animation-delay: 500ms !important;
-}
-
-.stardate-text.st-order3, .stardate-text.st-order3::before {
-  animation-delay: 400ms !important;
-}
-
-.stardate-text.st-order4, .stardate-text.st-order4::before {
-  animation-delay: 800ms !important;
-}
-
-.stardate-text.st-order5, .stardate-text.st-order5::before {
-  animation-delay: 900ms !important;
-}
-
-.stardate-text.st-order6, .stardate-text.st-order6::before {
-  animation-delay: 600ms !important;
-}
-
-.stardate-text.st-order7, .stardate-text.st-order7::before {
   animation-delay: 1400ms !important;
 }
 
+.stardate-text.st-order2, .stardate-text.st-order2::before {
+  animation-delay: 1000ms !important;
+}
+
+.stardate-text.st-order3, .stardate-text.st-order3::before {
+  animation-delay: 900ms !important;
+}
+
+.stardate-text.st-order4, .stardate-text.st-order4::before {
+  animation-delay: 1300ms !important;
+}
+
+.stardate-text.st-order5, .stardate-text.st-order5::before {
+  animation-delay: 1400ms !important;
+}
+
+.stardate-text.st-order6, .stardate-text.st-order6::before {
+  animation-delay: 1100ms !important;
+}
+
+.stardate-text.st-order7, .stardate-text.st-order7::before {
+  animation-delay: 1900ms !important;
+}
+
 .stardate-text.st-order8, .stardate-text.st-order8::before {
-  animation-delay: 800ms !important;
+  animation-delay: 1300ms !important;
 }
 
 @keyframes blink-in {
