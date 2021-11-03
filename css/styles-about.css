@@ -49,4 +49,7 @@ section.contact {
   .contact .contact-container {
     flex-direction: column;
   }
+  .about-container {
+    margin-left: 0;
+  }
 }
