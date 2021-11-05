@@ -46,6 +46,33 @@ section.contact {
   margin-left: 1em;
 }
 
+.social-link {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  width: fit-content;
+  transition: transform 1s;
+}
+
+.social-link img {
+  width: 20px;
+}
+
+.social-link:hover {
+  transform: translate3d(20px, 0, 0);
+}
+
+.social-link.discord:hover {
+  color: #5865F2;
+}
+
+.social-link.twitter:hover {
+  color: #1DA1F2;
+}
+
+.social-link.vrc:hover {
+  color: #008387;
+}
+
 @media screen and (max-width: 650px) {
   .contact .contact-container {
     flex-direction: column;
