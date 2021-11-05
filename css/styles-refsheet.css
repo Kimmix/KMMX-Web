@@ -1,4 +1,5 @@
 section.refsheet {
+  min-height: 75vh;
   justify-content: center;
   flex-direction: column;
   max-width: 1300px;
@@ -19,4 +20,3 @@ section.refsheet {
   font-size: clamp(3.2rem, 10vw, 5.5em);
   font-weight: 400;
 }
-

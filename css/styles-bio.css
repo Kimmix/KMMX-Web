@@ -37,6 +37,12 @@ section.info-card {
   animation: floating 5s infinite ease-in-out alternate;
 }
 
+.info-card .imgDesc-container {
+  display: flex;
+  writing-mode: sideways-lr;
+  font-size: 14px;
+}
+
 .info-card .title {
   opacity: 0.7;
   color: var(--black-color);
@@ -58,7 +64,7 @@ section.info-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: 3em;
+  /* margin-left: 3em; */
   transition: transform .35s ease-in-out;
 }
 
@@ -120,5 +126,12 @@ section.info-card {
   }
   .info-card .bio {
     margin: 40px 0 0 15px;
+  }
+  .info-card .img-container img {
+    animation: none;
+  }
+  .info-card .imgDesc-container {
+    writing-mode: unset;
+    flex-direction: row-reverse;
   }
 }

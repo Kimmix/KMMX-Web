@@ -1,4 +1,5 @@
 section.contact {
+  min-height: 85vh;
   justify-content: center;
   flex-direction: column;
   max-width: 1300px;

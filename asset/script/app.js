@@ -1,12 +1,12 @@
 // Register service worker
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker
-      .register("serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-}
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", function () {
+//     navigator.serviceWorker
+//       .register("serviceWorker.js")
+//       .then(res => console.log("service worker registered"))
+//       .catch(err => console.log("service worker not registered", err))
+//   })
+// }
 
 // Switch app theme
 if (window.localStorage.getItem("isLightmode") === 'true') {
@@ -26,8 +26,24 @@ function switchTheme() {
   location.reload();
 }
 
-function changeImg(path) {
-  document.getElementById("bioImg").src = path;
+function changeImg(imgCase) {
+  switch (imgCase) {
+    case 0:
+      document.getElementById("bioImg").src = "asset/KMMX_Katana.webp";
+      document.getElementById("bio_desc").innerHTML = "Arcai charged KMMX";
+      break;
+    case 1:
+      document.getElementById("bioImg").src = "asset/KMMX_Witchhat.webp";
+      document.getElementById("bio_desc").innerHTML = "Commission by MegaStone99";
+      break;
+    case 2:
+      document.getElementById("bioImg").src = "asset/KMMX_Sketch.webp";
+      document.getElementById("bio_desc").innerHTML = "Sketch by Cool Koinu(Discord access reward)";
+      break;
+    default:
+      document.getElementById("bioImg").src = "asset/KMMX_VRC1.webp";
+      document.getElementById("bio_desc").innerHTML = "Click around to find out 3 more img >w<";
+  }
 }
 
 // Fullscreen button and cusor animation
@@ -80,10 +96,10 @@ animationObserver.observe(document.getElementById('bio'));
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-  changeImg('asset/KMMX_Sketch.webp')
+  changeImg(2)
 }
 
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
-  changeImg('asset/KMMX_Sketch.webp')
+  changeImg(2)
 }
