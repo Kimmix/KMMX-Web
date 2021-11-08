@@ -8,6 +8,32 @@
 //   })
 // }
 
+// Use custom cursor on desktop only
+if (!detectMobile()) {
+  document.getElementsByTagName("head")[0].insertAdjacentHTML(
+    'beforeend',
+    '<link rel="stylesheet" href="css/cursor.css" />');
+  const body = document.getElementById('body');
+  body.insertAdjacentHTML('afterbegin', '<div class="cursor"></div>');
+  body.insertAdjacentHTML('afterbegin', '<div class="cursor-outer"></div>');
+}
+// https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
+function detectMobile() {
+  const toMatch = [
+    /Android/i,
+    /webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    /iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i
+  ];
+
+  return toMatch.some((toMatchItem) => {
+    return navigator.userAgent.match(toMatchItem);
+  });
+}
+
 // Switch app theme
 if (window.localStorage.getItem("isLightmode") === 'true') {
   document.documentElement.style.setProperty('--white-color', '#000');
