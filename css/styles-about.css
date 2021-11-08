@@ -73,6 +73,31 @@ section.contact {
   color: #008387;
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: #18b030;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0s ease-out 0s;
+  right: -100px;
+}
+
+.tooltip:active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  /* transition-delay: 1s; */
+}
+
 @media screen and (max-width: 800px) {
   .contact .contact-container {
     flex-direction: column;
