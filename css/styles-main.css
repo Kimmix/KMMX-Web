@@ -50,9 +50,9 @@ section {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  /* position: relative; */
-  perspective: 8px;
-  perspective-origin: 0%;
+  position: relative;
+  /* perspective: 8px;
+  perspective-origin: 0%; */
 }
 
 .bold {
@@ -227,5 +227,6 @@ section.intro {
   }
   100% {
     min-height: 0%;
+    display: none;
   }
 }

@@ -39,7 +39,8 @@ section.info-card {
 
 .info-card .imgDesc-container {
   display: flex;
-  writing-mode: sideways-lr;
+  flex-direction: row-reverse;
+  writing-mode: vertical-lr;
   font-size: 14px;
 }
 

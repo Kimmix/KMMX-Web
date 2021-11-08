@@ -57,9 +57,9 @@ section.contact {
   width: 20px;
 }
 
-.social-link:hover {
+/* .social-link:hover {
   transform: translate3d(20px, 0, 0);
-}
+} */
 
 .social-link.discord:hover {
   color: #5865F2;
