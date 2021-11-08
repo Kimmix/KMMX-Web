@@ -99,6 +99,10 @@ fsEnter.addEventListener('click', function (e) {
   }
 });
 
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text);
+}
+
 // fsEnter.addEventListener("mouseover", function (event) {
 //   document.documentElement.style.setProperty('--cursor-visibility', 'hidden');
 // }, false);
