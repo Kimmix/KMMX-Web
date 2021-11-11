@@ -21,7 +21,6 @@ if (!detectMobile()) {
 function detectMobile() {
   const toMatch = [
     /Android/i,
-    /webOS/i,
     /iPhone/i,
     /iPad/i,
     /iPod/i,
