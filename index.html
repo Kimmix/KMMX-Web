@@ -119,8 +119,7 @@
   <section id="bio" class="info-card">
     <div class="card">
       <div class="img-container">
-        <!-- <img loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot"> -->
-        <img id="bioImg" loading=lazy src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot" onclick="changeImg()">
+        <img id="bioImg" src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot" onclick="changeImg()">
       </div>
       <div class="imgDesc-container">
         <p id="bio_desc" class="fade">VRC Screenshot</p>
@@ -185,7 +184,11 @@
     <div class="wrapper">
       <div class="content">
         <h1>Reference <span class="outline">Sheet</span></h1>
-        <img loading=lazy src="asset/KMMX_Ref.png" alt="KMMX_Ref">
+        <!-- <img src="asset/KMMX_Ref.png" alt="KMMX_Ref"> -->
+        <picture>
+          <source media="(max-width: 650px)" srcset="asset/KMMX_Ref_L.png">
+          <img src="asset/KMMX_Ref.png" alt="KMMX_Ref">
+        </picture>
       </div>
     </div>
   </section>
@@ -195,7 +198,7 @@
         <h1>About <span class="outline">me</span></h1>
         <div class="contact-container">
           <div class="img-container">
-            <img loading=lazy src="asset/KMMX_inthebox.webp" alt="KMMX in the box" onclick="changeImg(1)">
+            <img src="asset/KMMX_inthebox.webp" alt="KMMX in the box" onclick="changeImg(1)">
           </div>
           <div class="about-container">
             <h3> 25 | Male | He/Him | Asexual</h3>

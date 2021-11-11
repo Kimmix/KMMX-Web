@@ -48,13 +48,15 @@ section.contact {
 
 .social-link {
   display: flex;
+  align-items: baseline;
   /* flex-direction: row-reverse; */
   width: fit-content;
   transition: transform 1s;
 }
 
 .social-link svg.link {
-  width: 20px;
+  width: 12px;
+  height: 12px;
 }
 
 /* .social-link:hover {

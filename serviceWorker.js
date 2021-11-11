@@ -7,6 +7,7 @@ const assets = [
   "/asset/KMMX_inthebox.webp",
   "/asset/KMMX_Katana.webp",
   "/asset/KMMX_Ref.png",
+  "/asset/KMMX_Ref_L.png",
   "/asset/KMMX_Sketch.webp",
   "/asset/KMMX_VRC1.webp",
   "/asset/KMMX_Witchhat.webp",
