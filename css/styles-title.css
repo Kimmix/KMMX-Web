@@ -116,7 +116,7 @@ section.title>.wrapper {
   display: flex;
   max-width: 1500px;
   justify-content: space-between;
-  margin: 0 10px;
+  margin: 3em 10px;
 }
 
 .header-wrapper {
