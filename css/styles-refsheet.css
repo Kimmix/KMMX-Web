@@ -25,7 +25,6 @@ section.refsheet {
   background-color: #000;
   color: #fff;
   display: inline-block;
-  margin: 8px;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -67,18 +66,19 @@ section.refsheet {
   left: 0;
   right: 0;
   align-items: center;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.1em;
   opacity: 0;
   z-index: 2;
   transition-delay: 0.1s;
   font-size: 2.5em;
-  font-weight: 400;
-  letter-spacing: 1px;
   text-transform: uppercase;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .hover-img:hover:before,
