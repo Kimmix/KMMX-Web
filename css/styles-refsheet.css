@@ -60,7 +60,7 @@ section.refsheet {
   backface-visibility: hidden;
 }
 
-.hover-img figcaption {
+.hover-img .caption {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -91,6 +91,6 @@ section.refsheet {
   opacity: 0.7;
 }
 
-.hover-img:hover figcaption {
+.hover-img:hover .caption {
   opacity: 0.8;
 }
