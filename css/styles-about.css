@@ -51,7 +51,7 @@ section.contact {
   align-items: baseline;
   /* flex-direction: row-reverse; */
   width: fit-content;
-  transition: transform 1s;
+  transition: color 0.4s ease-in;
 }
 
 .social-link svg.link {
