@@ -13,6 +13,7 @@ section.refsheet {
 
 .refsheet .content {
   display: flex;
+  width: 100%;
   max-width: 100%;
   flex-direction: row;
   gap: 1em;
@@ -62,6 +63,7 @@ section.refsheet {
   display: flex;
   flex-direction: row;
   align-items: end;
+  justify-content: center;
   gap: 1em;
 }
 
