@@ -13,24 +13,29 @@ section.refsheet {
 
 .refsheet .content {
   display: flex;
+  max-width: 100%;
   flex-direction: row;
   gap: 1em;
 }
 
 .refsheet .header {
   display: flex;
+  width: fit-content;
   flex-direction: column;
   align-items: end;
   justify-content: space-between;
 }
 
-.header img.color {
-  height: 440px;
-  width: 50px;
-}
-
-.header img.color::after {
-  content: "KMMX";
+.header h2 {
+  color: var(--white2-color);
+  font-size: 15em;
+  text-align: left;
+  width: 100%;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .refsheet h1 {
@@ -40,20 +45,32 @@ section.refsheet {
 
 .ref-img img {
   margin-top: 25%;
-  width: 480px;
+  /* width: 480px; */
   height: 1160px;
   object-fit: cover;
   object-position: 110% 0;
 }
 
 .ref-container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 1em;
+}
+
+.ref-container img.color {
+  height: 440px;
+  width: 75px;
+}
+
+.refimg-container {
   display: inline-block;
   overflow: hidden;
   position: relative;
 }
 
 .txt-overlay {
-  color: var(--black-color);
+  /* color: var(--black-color); */
   position: absolute;
   bottom: 0px;
   left: -72px;
@@ -67,9 +84,26 @@ section.refsheet {
   user-select: none;
 }
 
-
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 900px) {
+  .refsheet .header {
+    justify-content: baseline;
+  }
+  .header h2 {
+    display: none;
+  }
   .refsheet .content {
     flex-direction: column;
+  }
+  .ref-container {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  .ref-img img {
+    margin-top: 0;
+    width: 100%;
+    height: 820px;
+  }
+  .txt-overlay {
+    font-size: 13em;
   }
 }
