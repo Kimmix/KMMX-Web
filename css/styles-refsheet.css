@@ -1,5 +1,5 @@
 section.refsheet {
-  min-height: 75vh;
+  min-height: 100vh;
   justify-content: center;
   flex-direction: column;
   max-width: 1300px;
@@ -11,68 +11,54 @@ section.refsheet {
   margin: 3em 20px;
 }
 
-.content {
+.refsheet .content {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.refsheet .header {
   display: flex;
   flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.header img.color {
+  height: 440px;
+  width: 50px;
+}
+
+.header img.color::after {
+  content: "KMMX";
 }
 
 .refsheet h1 {
-  font-size: clamp(3.2rem, 10vw, 5.5em);
-  font-weight: 400;
+  font-size: clamp(3.2rem, 10vw, 6.5em);
+  /* font-weight: 400; */
 }
 
-.hover-img {
-  background-color: #000;
-  color: #fff;
+.ref-img img {
+  margin-top: 25%;
+  width: 480px;
+  height: 1160px;
+  object-fit: cover;
+  object-position: 110% 0;
+}
+
+.ref-container {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  text-align: center;
-  width: 100%;
 }
 
-.hover-img * {
-  box-sizing: border-box;
-  transition: all 0.45s ease;
-}
-
-.hover-img:before,
-.hover-img:after {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-top: 6em solid rgba(0, 0, 0, 0.5);
-  border-bottom: 6em solid rgba(0, 0, 0, 0.5);
+.txt-overlay {
+  color: var(--black-color);
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  bottom: 0px;
+  left: -72px;
   right: 0;
-  content: '';
-  transition: all 0.3s ease;
-  z-index: 1;
-  opacity: 0;
-  transform: scaleY(2);
-}
-
-.hover-img picture {
-  vertical-align: top;
-  max-width: 100%;
-  backface-visibility: hidden;
-}
-
-.hover-img .caption {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 0;
-  z-index: 2;
-  transition-delay: 0.1s;
-  font-size: 2.5em;
+  font-size: 17em;
   text-transform: uppercase;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -81,16 +67,9 @@ section.refsheet {
   user-select: none;
 }
 
-.hover-img:hover:before,
-.hover-img:hover:after {
-  transform: scale(1);
-  opacity: 1;
-}
 
-.hover-img:hover>picture {
-  opacity: 0.7;
-}
-
-.hover-img:hover .caption {
-  opacity: 0.8;
+@media screen and (max-width: 650px) {
+  .refsheet .content {
+    flex-direction: column;
+  }
 }

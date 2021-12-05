@@ -10,7 +10,7 @@ section.archive {
   margin: 3em 20px;
 }
 
-.content {
+.archive .content {
   display: flex;
   flex-direction: column;
 }
@@ -116,9 +116,11 @@ h2.stardate {
   75% {
     color: var(--black2-color);
   }
+
   90% {
     color: var(--acc2-color);
   }
+
   100% {
     color: var(--white2-color);
   }
@@ -128,19 +130,24 @@ h2.stardate {
   0% {
     width: 0.9em;
   }
+
   29% {
     width: 0.9em;
   }
+
   30% {
     width: 1px;
   }
+
   89% {
     width: 1px;
     background-color: var(--acc1-color);
   }
+
   90% {
     width: 0;
   }
+
   100% {
     width: 0;
   }
