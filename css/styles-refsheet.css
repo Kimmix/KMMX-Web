@@ -102,4 +102,8 @@ section.refsheet {
     font-size: 12em;
     line-height: 210px;
   }
+
+  .refimg-container:hover .txt-overlay {
+    left: -35px;
+  }
 }
