@@ -118,8 +118,8 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
 animationObserver.observe(document.getElementById('logo-stroke'));
 animationObserver.observe(document.getElementById('stardate'));
 animationObserver.observe(document.getElementById('bio'));
-animationObserver.observe(document.getElementById('box'));
-animationObserver.observe(document.getElementById('box-content'));
+// animationObserver.observe(document.getElementById('box'));
+// animationObserver.observe(document.getElementById('box-content'));
 
 // Footer
 function topFunction() {
