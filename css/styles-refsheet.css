@@ -63,7 +63,7 @@ section.refsheet {
   transition: transform 1s ease-out;
 }
 
-.refimg-container:hover img {
+.refimg-container.animate-onscroll img {
   transform: scale(1.07);
 }
 
@@ -86,7 +86,7 @@ section.refsheet {
   transition: left 1s ease-out;
 }
 
-.refimg-container:hover .txt-overlay {
+.refimg-container.animate-onscroll .txt-overlay {
   left: -50px;
 }
 
