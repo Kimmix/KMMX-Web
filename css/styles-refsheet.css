@@ -6,40 +6,12 @@ section.refsheet {
   margin: 0 auto;
 }
 
-.refsheet>.warpper {
-  display: flex;
-  margin: 3em 20px;
-  max-width: fit-content;
-}
-
-.refsheet .content {
-  display: flex;
-  width: 100%;
-  max-width: 100%;
-  flex-direction: row;
-  gap: 1em;
-}
-
-.header-overlay {
-  font-size: clamp(3.2rem, 10vw, 5.5em);
-  font-weight: 400;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: left 1s ease-out;
-  z-index: 2;
-}
-
 .ref-container {
   display: flex;
   flex-direction: row;
   align-items: end;
   justify-content: center;
-  gap: 1em;
+  width: 100%;
 }
 
 .ref-container img.color {
@@ -60,11 +32,30 @@ section.refsheet {
   height: 100vh;
   object-fit: cover;
   /* object-position: 110% 0; */
-  transition: transform 1s ease-out;
+  transition: transform 1.5s ease-out 1.2s;
+  animation: floating 3.5s infinite ease-in-out alternate;
 }
 
-.refimg-container.animate-onscroll img {
+.ref-container.animate-onscroll .ref-img>img {
   transform: scale(1.07);
+}
+
+.ref-container.animate-onscroll .txt-overlay {
+  left: -30px;
+}
+
+.header-overlay {
+  height: fit-content;
+  font-size: clamp(3.2rem, 10vw, 5.5em);
+  font-weight: 400;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 .txt-overlay {
@@ -83,11 +74,7 @@ section.refsheet {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-  transition: left 1s ease-out;
-}
-
-.refimg-container.animate-onscroll .txt-overlay {
-  left: -50px;
+  transition: left 1.5s ease-out 1.2s;
 }
 
 @media screen and (max-width: 900px) {
@@ -98,12 +85,8 @@ section.refsheet {
   }
 
   .txt-overlay {
-    left: -50px;
+    left: -60px;
     font-size: 12em;
     line-height: 210px;
-  }
-
-  .refimg-container:hover .txt-overlay {
-    left: -35px;
   }
 }
