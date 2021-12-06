@@ -2,13 +2,14 @@ section.refsheet {
   min-height: 100vh;
   justify-content: center;
   flex-direction: column;
-  max-width: 1300px;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
-.refsheet .warpper {
+.refsheet>.warpper {
   display: flex;
   margin: 3em 20px;
+  max-width: fit-content;
 }
 
 .refsheet .content {
@@ -19,44 +20,18 @@ section.refsheet {
   gap: 1em;
 }
 
-.refsheet .header {
-  display: flex;
-  width: fit-content;
-  flex-direction: column;
-  align-items: end;
-  justify-content: space-between;
-}
-
-.header h2 {
-  color: var(--white2-color);
-  font-size: 15em;
-  text-align: left;
-  width: 100%;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  transition: color 0.3s ease-in;
-}
-
-.header:hover h2 {
-  color: var(--acc2-color);
-}
-
-.refsheet h1 {
-  font-size: clamp(3.2rem, 10vw, 6.5em);
-  /* font-weight: 400; */
-}
-
-.ref-img img {
-  position: relative;
-  z-index: 1;
-  margin-top: 25%;
-  /* width: 480px; */
-  height: 1160px;
-  object-fit: cover;
-  object-position: 110% 0;
+.header-overlay {
+  font-size: clamp(3.2rem, 10vw, 5.5em);
+  font-weight: 400;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: left 1s ease-out;
+  z-index: 2;
 }
 
 .ref-container {
@@ -78,13 +53,30 @@ section.refsheet {
   position: relative;
 }
 
+.ref-img img {
+  position: relative;
+  z-index: 1;
+  /* width: 480px; */
+  height: 100vh;
+  object-fit: cover;
+  /* object-position: 110% 0; */
+  transition: transform 1s ease-out;
+}
+
+.refimg-container:hover img {
+  transform: scale(1.07);
+}
+
 .txt-overlay {
   /* color: var(--black-color); */
+  max-width: 900px;
+  margin: 0 auto;
   position: absolute;
   bottom: 0px;
   left: -72px;
   right: 0;
-  font-size: 17em;
+  font-size: 12em;
+  line-height: 210px;
   text-transform: uppercase;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -99,23 +91,6 @@ section.refsheet {
 }
 
 @media screen and (max-width: 900px) {
-  .refsheet .header {
-    justify-content: baseline;
-  }
-
-  .header h2 {
-    display: none;
-  }
-
-  .refsheet .content {
-    flex-direction: column;
-  }
-
-  .ref-container {
-    flex-direction: row-reverse;
-    align-items: flex-start;
-  }
-
   .ref-img img {
     margin-top: 0;
     width: 100%;
@@ -123,6 +98,7 @@ section.refsheet {
   }
 
   .txt-overlay {
-    font-size: 13em;
+    font-size: 12em;
+    line-height: 240px;
   }
 }
