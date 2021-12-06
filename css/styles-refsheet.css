@@ -98,7 +98,8 @@ section.refsheet {
   }
 
   .txt-overlay {
+    left: -50px;
     font-size: 12em;
-    line-height: 240px;
+    line-height: 210px;
   }
 }
