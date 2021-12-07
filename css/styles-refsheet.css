@@ -32,12 +32,11 @@ section.refsheet {
   height: 100vh;
   object-fit: cover;
   /* object-position: 110% 0; */
-  transition: transform 1.5s ease-out 1.2s;
-  animation: floating 3.5s infinite ease-in-out alternate;
+  transform: scale(0.90);
 }
 
 .ref-container.animate-onscroll .ref-img>img {
-  transform: scale(1.07);
+  animation: scale 1.5s ease-out forwards 1.2s, floating 3.5s infinite ease-in-out alternate 2.7s;
 }
 
 .ref-container.animate-onscroll .txt-overlay {
@@ -87,5 +86,15 @@ section.refsheet {
     left: -60px;
     font-size: 12em;
     line-height: 210px;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.90);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
