@@ -64,7 +64,7 @@ function changeImg(imgCase) {
       document.getElementById("bio_desc").innerHTML = "Sketch by Cool Koinu(Discord access reward)";
       break;
     default:
-      document.getElementById("bioImg").src = "asset/KMMX_VRC1.webp";
+      document.getElementById("bioImg").src = "asset/KMMX_VRC.webp";
       document.getElementById("bio_desc").innerHTML = "Click around to find out 3 more img >w<";
   }
 }
