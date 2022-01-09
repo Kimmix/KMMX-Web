@@ -48,7 +48,7 @@ section.refsheet {
   font-size: clamp(3.2rem, 10vw, 5.5em);
   font-weight: 400;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 20px;
   position: absolute;
   top: 0;
   bottom: 0;

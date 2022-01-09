@@ -5,7 +5,7 @@ section.archive {
   margin: 0 auto;
 }
 
-.archive .warpper {
+section.archive>.wrapper {
   display: flex;
   margin: 3em 20px;
 }

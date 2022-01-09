@@ -6,7 +6,7 @@ section.contact {
   margin: 0 auto;
 }
 
-.contact .warpper {
+section.contact>.wrapper {
   display: flex;
   margin: 3em 20px;
 }

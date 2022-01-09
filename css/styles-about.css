@@ -6,7 +6,7 @@ section.about {
   margin: 0 auto;
 }
 
-.about .warpper {
+.about .wrapper {
   display: flex;
   margin: 3em 20px;
 }

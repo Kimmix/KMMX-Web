@@ -107,7 +107,7 @@ section.intro {
   animation: slide-out-container 5s cubic-bezier(0.95, 0.01, 0.36, 0.8) forwards 2.8s;
 }
 
-.text-warpper {
+.text-wrapper {
   position: absolute;
   display: flex;
   flex-direction: column;
