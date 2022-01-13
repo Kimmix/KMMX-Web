@@ -171,9 +171,3 @@ h2.stardate {
 p.log i.voice {
   color: var(--acc2-color);
 }
-
-@media screen and (min-width: 1600px) {
-  .archive {
-    padding-left: 15%;
-  }
-}
