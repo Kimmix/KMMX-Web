@@ -7,7 +7,27 @@ section.archive {
 
 section.archive>.wrapper {
   display: flex;
+  flex-direction: row;
+  justify-content: end;
   margin: 3em 20px;
+}
+
+.ar-container {
+  display: flex;
+}
+
+.ar-container.l {
+  margin-right: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.ar-container.l>img {
+  width: 400px;
+}
+
+.ar-container.r {
+  max-width: 700px;
 }
 
 .archive .content {
@@ -170,4 +190,18 @@ h2.stardate {
 
 p.log i.voice {
   color: var(--acc2-color);
+}
+
+@media screen and (max-width: 650px) {
+  .ar-container.l {
+    display: none;
+  }
+
+  .ar-container.r {
+    background-image: url("../asset/Katana.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
