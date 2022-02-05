@@ -4,14 +4,14 @@ const assets = [
   "/favicon.png",
   "/asset/script/app.js",
   "/asset/script/cursor.js",
+  "/asset/Katana.png",
   "/asset/KIMMIX_CHIBI.webp",
   "/asset/KMMX_inthebox.webp",
   "/asset/KMMX_Katana2.webp",
   "/asset/KMMX_Ref.png",
-  "/asset/Katana.png",
   "/asset/maskable_icon.png",
   "/asset/splash.png",
-  "/css/styles-about.css",
+  "/css/cursor.css",
   "/css/styles-archive.css",
   "/css/styles-cardui.css",
   "/css/styles-contact.css",
@@ -19,7 +19,6 @@ const assets = [
   "/css/styles-main.css",
   "/css/styles-refsheet.css",
   "/css/styles-title.css",
-  "/css/cursor.css",
 ]
 
 self.addEventListener("install", installEvent => {

@@ -72,7 +72,6 @@ function changeImg(imgCase) {
 // Fullscreen button and cusor animation
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
-// let fsSvg = document.getElementsByClassName('fs')
 const elem = document.documentElement;
 fsEnter.addEventListener('click', function (e) {
   e.preventDefault();
@@ -100,13 +99,7 @@ function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
 
-// fsEnter.addEventListener("mouseover", function (event) {
-//   document.documentElement.style.setProperty('--cursor-visibility', 'hidden');
-// }, false);
-// fsEnter.addEventListener("mouseout", function (event) {
-//   document.documentElement.style.setProperty('--cursor-visibility', 'show');
-// }, false);
-
+// Animation triggering
 const animationObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
@@ -117,10 +110,7 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
 
 animationObserver.observe(document.getElementById('logo-stroke'));
 animationObserver.observe(document.getElementById('stardate'));
-animationObserver.observe(document.getElementById('bio'));
 animationObserver.observe(document.getElementById('ref'));
-// animationObserver.observe(document.getElementById('box'));
-// animationObserver.observe(document.getElementById('box-content'));
 
 // Footer
 function topFunction() {
@@ -128,7 +118,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
   changeImg(2)
 }
-
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
   changeImg(2)
