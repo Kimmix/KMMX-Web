@@ -44,11 +44,17 @@ section.info-card {
   font-size: 14px;
 }
 
-.info-card .title {
-  opacity: 0.7;
+.bio {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* margin-left: 3em; */
+  transition: transform .35s ease-in-out;
+}
+
+.bio .title {
   color: var(--black-color);
-  position: absolute;
-  right: 25px;
   font-size: 7rem;
   letter-spacing: 1rem;
   line-height: 70px;
@@ -60,13 +66,16 @@ section.info-card {
   user-select: none;
 }
 
-.info-card .bio {
-  flex-grow: 1;
+.bio .header {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.bio .header-list {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 10px;
-  /* margin-left: 3em; */
-  transition: transform .35s ease-in-out;
 }
 
 .bio h1 {
@@ -106,6 +115,7 @@ section.info-card {
     filter: blur(8px);
     -webkit-filter: blur(8px);
   }
+
   to {
     filter: blur(0px);
     -webkit-filter: blur(0px);
@@ -116,6 +126,7 @@ section.info-card {
   from {
     transform: translate(0, 0px);
   }
+
   to {
     transform: translate(0, 20px);
   }
@@ -125,12 +136,15 @@ section.info-card {
   .info-card>.card {
     flex-direction: column;
   }
+
   .info-card .bio {
     margin: 40px 0 0 15px;
   }
+
   .info-card .img-container img {
     animation: none;
   }
+
   .info-card .imgDesc-container {
     writing-mode: unset;
     flex-direction: row-reverse;

@@ -1,0 +1,179 @@
+section.cardui {
+  min-height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.cardui-container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+  min-width: 100%;
+  max-width: 1000px;
+}
+
+.cardui img {
+  z-index: 3;
+  width: 450px;
+  position: relative;
+  left: 170px;
+  top: -40px;
+}
+
+.card {
+  display: block;
+  border-radius: 20px;
+}
+
+.card.bg1 {
+  display: flex;
+  background: var(--acc2b-color);
+  background: linear-gradient(122deg, var(--acc2b-color) 0%, var(--acc2-color) 100%);
+  z-index: 1;
+  width: clamp(360px, 75vw, 660px);
+  height: 630px;
+  position: absolute;
+  left: 11%;
+  top: 18%;
+}
+
+.card.bg2 {
+  background-color: var(--white-color);
+  /* background-image: url("../asset/dot_bg.jpg"); */
+  z-index: 0;
+  width: 380px;
+  height: 250px;
+  position: absolute;
+  right: 32%;
+  top: 50px;
+}
+
+.chibi-container {
+  width: unset;
+}
+
+.card.fg {
+  background-color: var(--card-color);
+  box-shadow: 20px 20px 40px var(--black-color), -2px -2px 1px #ff446c70;
+  z-index: 1;
+  width: 800px;
+  height: fit-content;
+}
+
+.card-content {
+  margin: 40px 20px 20px 180px;
+}
+
+.bio {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .35s ease-in-out;
+  min-height: 440px;
+}
+
+.bio .title {
+  color: var(--black-color);
+  font-size: 7rem;
+  letter-spacing: 1rem;
+  line-height: 70px;
+  z-index: -1;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.bio .header {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.bio .header-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.bio h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 38px;
+}
+
+.bio h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.bio h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 12px;
+  color: var(--acc2-color);
+  margin-bottom: 1rem;
+}
+
+.bio p.info {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1200px) {
+  .cardui img {
+    left: 10px;
+    top: 200px;
+  }
+
+  .chibi-container {
+    width: 300px;
+  }
+
+  .card.fg {
+    margin-right: 30px;
+  }
+
+  .cardui img {
+    width: 320px;
+  }
+
+  .card-content {
+    margin: 40px 20px 20px;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cardui-container {
+    flex-direction: column;
+  }
+
+  .chibi-container {
+    width: unset;
+  }
+
+  .card-content {
+    margin: 40px 20px 20px;
+  }
+
+  .cardui img {
+    width: 100%;
+    left: 0;
+    top: 69px;
+  }
+
+  .bio .title {
+    display: none;
+  }
+
+  .card.fg {
+    width: fit-content;
+    margin: 10px;
+  }
+}

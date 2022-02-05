@@ -24,7 +24,8 @@
 
   <!-- <link defer rel="stylesheet" href="css/cursor.css" /> -->
   <link defer rel="stylesheet" href="css/styles-title.css" />
-  <link defer rel="stylesheet" href="css/styles-bio.css" />
+  <!-- <link defer rel="stylesheet" href="css/styles-bio.css" /> -->
+  <link defer rel="stylesheet" href="css/styles-cardui.css" />
   <link defer rel="stylesheet" href="css/styles-archive.css" />
   <link defer rel="stylesheet" href="css/styles-refsheet.css" />
   <link defer rel="stylesheet" href="css/styles-about.css" />
@@ -117,27 +118,51 @@
     <span class="line"></span>
     <span class="scrollhint">>></span>
   </section>
-  <section id="bio" class="info-card">
-    <div class="card">
-      <div class="img-container">
-        <img id="bioImg" src="asset/KMMX_VRC1.webp" alt="KMMX Protogen VRC Shot" onclick="changeImg()">
+  <section id="cardui" class="cardui">
+    <div class="cardui-container">
+      <div class="card bg1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
+          <defs>
+            <style>
+              .logo-fill-mono {
+                fill: #00000026
+              }
+            </style>
+          </defs>
+          <path class="logo-fill-mono"
+            d="M9.17 298.17L203.07 8.23v289.94l-57.9-91.9-136 91.9zM223.29 301.84V133.67l124.52 170.47-67.09-41.81-57.43 39.51z" />
+        </svg>
       </div>
-      <div class="imgDesc-container">
-        <p id="bio_desc" class="fade">VRC Screenshot</p>
+      <div class="card bg2"></div>
+      <div class="chibi-container">
+        <img src="./asset/KIMMIX_CHIBI.webp" alt="Chibi">
       </div>
-      <div class="bio">
-        <div class="title">
-          <p>bi</p>
-          <p>o</p>
+      <div class="card fg">
+        <div class="card-content">
+          <div class="bio">
+            <div class="header">
+              <div class="title">
+                <p>bi</p>
+                <p>o</p>
+              </div>
+              <div class="header-list">
+                <h1>KMMX <span class="bold">Protogen</span></h1>
+                <h3>Uncommon Protogen</h3>
+                <h2><span class="fade">Birth home:</span> LC2i - NSSR</h2>
+                <h2><span class="fade">Like:</span> borger</h2>
+                <h2><span class="fade">Dislike:</span> politics</h2>
+                <h2><span class="fade">Favorite music band:</span> Starset</h2>
+              </div>
+            </div>
+            <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+              been the industry's standard
+              dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+              type specimen
+              book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+              essentially
+              unchanged. It was popularised in the 1960s</p>
+          </div>
         </div>
-        <h1>KMMX <span class="bold">Protogen</span></h1>
-        <h3>Uncommon Protogen</h3>
-        <h2><span class="fade">Birth home:</span> LC2i - NSSR</h2>
-        <h2><span class="fade">Like:</span> borger</h2>
-        <h2><span class="fade">Dislike:</span> politics</h2>
-        <h2><span class="fade">Favorite music band:</span> Starset</h2>
-        <p class="info">Kimmix(KMMX) is xxxxx. He really cares for people around him but most of the time doesn't really
-          show any signs. Like to observe other people.</p>
       </div>
     </div>
   </section>
