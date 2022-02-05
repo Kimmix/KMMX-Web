@@ -1,12 +1,19 @@
+const versionNo = "1.1.1"
 // Register service worker
-// if ("serviceWorker" in navigator) {
-//   window.addEventListener("load", function () {
-//     navigator.serviceWorker
-//       .register("serviceWorker.js")
-//       .then(res => console.log("service worker registered"))
-//       .catch(err => console.log("service worker not registered", err))
-//   })
-// }
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker
+      .register("../../serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
+
+// Website version
+window.onload = function () {
+  console.log(versionNo);
+  document.getElementById('version').innerHTML = versionNo ? versionNo : 'err';
+};
 
 // Use custom cursor on desktop only
 if (!detectMobile()) {
