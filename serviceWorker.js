@@ -1,9 +1,4 @@
-// export const versionNo = "1.1.0"
-import { versionNo } from "./asset/script/app"
-const cacheName = `kmmx-site-v${versionNo}`
-console.log(versionNo);
-console.log('aaa');
-// const cacheName = `kmmx-site-vxxx`
+const cacheName = `kmmx-site-v1.1.1`
 const assets = [
   "/index.html",
   "/favicon.png",
