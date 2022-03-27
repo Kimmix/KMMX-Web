@@ -112,13 +112,19 @@ img {
 }
 
 .diagonal-stripes {
-  width: 700px;
-  height: 300px;
   background: repeating-linear-gradient(135deg,
       var(--black2-color),
       var(--black2-color) 10px,
       var(--acc2b-color) 10px,
       var(--acc2b-color) 20px);
+}
+
+.diagonal-stripes-w {
+  background: repeating-linear-gradient(135deg,
+      var(--black2-color),
+      var(--black2-color) 10px,
+      var(--white-color) 10px,
+      var(--white-color) 20px);
 }
 
 /* Intro animation */

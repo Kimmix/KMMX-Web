@@ -28,8 +28,9 @@ section.cardui {
   border-radius: 20px;
 }
 
-.card.bg1 {
+.box-deco.bg1 {
   display: flex;
+  border-radius: 20px;
   background: var(--acc2b-color);
   background: linear-gradient(122deg, var(--acc2b-color) 0%, var(--acc2-color) 100%);
   z-index: 1;
@@ -40,15 +41,23 @@ section.cardui {
   top: 18%;
 }
 
-.card.bg2 {
-  background-color: var(--white-color);
-  /* background-image: url("../asset/dot_bg.jpg"); */
+.box-deco.bg2 {
   z-index: 0;
+  border-radius: 10px;
   width: 380px;
   height: 250px;
   position: absolute;
   right: 32%;
   top: 50px;
+}
+
+.box-deco.bg3 {
+  z-index: 0;
+  width: 20px;
+  height: 70vh;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .chibi-container {
@@ -121,7 +130,7 @@ section.cardui {
 }
 
 .bio p.info {
-  font-size: 1.3rem;
+  font-size: clamp(1.3rem, 1.8vw, 1.5em);
   font-weight: 400;
 }
 
