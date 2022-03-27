@@ -180,6 +180,29 @@ section.cardui {
   opacity: 0.4;
 }
 
+.exp-bar {
+  display: flex;
+  gap: 7px;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.exp-bar .bar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exp-bar hr.hr1 {
+  border: 3px solid var(--white-color);
+}
+
+.exp-bar hr.hr2 {
+  border: 2px solid var(--white-color);
+  opacity: 0.35;
+}
+
 .bio p.info {
   font-size: clamp(1.3rem, 1.8vw, 1.5em);
   font-weight: 400;
