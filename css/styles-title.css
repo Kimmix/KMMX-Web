@@ -41,7 +41,7 @@
 
 svg#logo-stroke .stroke {
   fill: none;
-  stroke: #2e2e2e7a;
+  stroke: var(--acc2b-color);
   stroke-width: 4px;
   stroke-dasharray: 912;
   stroke-dashoffset: 912;
@@ -141,7 +141,7 @@ section.title>.wrapper {
 
 .swipe .title {
   width: 100%;
-  font-size: clamp(3rem, 18vw, 8em);
+  font-size: clamp(3rem, 18vw, 12em);
   letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);

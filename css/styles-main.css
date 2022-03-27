@@ -4,11 +4,20 @@
   --acc1-color: #f9826c;
   --acc2-color: #ff446c;
   --acc2b-color: #cb2040;
+  --white-color: #cedffc;
+  --white2-color: #adbfdd;
+  --black-color: #090711;
+  --black2-color: #110f1a;
+  --card-color: #0e0b16;
+  /* --acc1-color: #f9826c;
+  --acc2-color: #ff446c;
+  --acc2b-color: #cb2040;
   --white-color: #E9EDF0;
   --white2-color: #b3b7b9;
   --black-color: #000;
   --black2-color: #141414;
-  --card-color: #141517;
+  --card-color: #141517; */
+
   /* --white-color: #000;
   --white2-color: #141414;
   --black-color: #ffffff;
@@ -100,6 +109,16 @@ section {
 img {
   width: 100%;
   height: auto;
+}
+
+.diagonal-stripes {
+  width: 700px;
+  height: 300px;
+  background: repeating-linear-gradient(135deg,
+      var(--black2-color),
+      var(--black2-color) 10px,
+      var(--acc2b-color) 10px,
+      var(--acc2b-color) 20px);
 }
 
 /* Intro animation */

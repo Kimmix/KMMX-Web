@@ -59,7 +59,7 @@ section.cardui {
   background-color: var(--card-color);
   box-shadow: 20px 20px 40px var(--black-color), -2px -2px 1px #ff446c70;
   z-index: 1;
-  width: 800px;
+  max-width: 1000px;
   height: fit-content;
 }
 
@@ -102,18 +102,18 @@ section.cardui {
 }
 
 .bio h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 400;
   line-height: 38px;
 }
 
 .bio h2 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
 }
 
 .bio h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 12px;
   color: var(--acc2-color);
@@ -121,7 +121,7 @@ section.cardui {
 }
 
 .bio p.info {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
