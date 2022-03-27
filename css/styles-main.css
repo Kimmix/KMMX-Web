@@ -119,6 +119,22 @@ img {
       var(--acc2b-color) 20px);
 }
 
+.diagonal-stripes-thin {
+  background: repeating-linear-gradient(135deg,
+      var(--white2-color),
+      var(--white2-color) 1px,
+      var(--black2-color) 2px,
+      var(--black2-color) 10px);
+}
+
+.diagonal-stripes-dot {
+  background: repeating-linear-gradient(135deg,
+      var(--white2-color),
+      var(--white2-color) 1px,
+      var(--black2-color) 2px,
+      var(--black2-color) 5px);
+}
+
 .diagonal-stripes-w {
   background: repeating-linear-gradient(135deg,
       var(--black2-color),

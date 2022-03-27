@@ -129,6 +129,57 @@ section.cardui {
   margin-bottom: 1rem;
 }
 
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: clamp(1.3rem, 1.8vw, 1.5em);
+  font-family: monospace;
+  max-width: 600px;
+  white-space: nowrap;
+}
+
+.spec .spec-row {
+  display: flex;
+}
+
+.spec-row>.spec-title {
+  width: 250px;
+  display: flex;
+  align-items: baseline;
+}
+
+.spec-row>.spec-value::before {
+  content: " - ";
+  float: left;
+  opacity: 0.6;
+  padding: 0 8px;
+}
+
+.spec-row>.spec-value {
+  width: 70%;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.spec-row>.spec-unit {
+  min-width: 40px;
+  padding-left: 10px;
+}
+
+.spec-row .spec-fill-s {
+  height: 2px;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.spec-row .spec-fill {
+  height: 14px;
+  width: 100%;
+  opacity: 0.4;
+}
+
 .bio p.info {
   font-size: clamp(1.3rem, 1.8vw, 1.5em);
   font-weight: 400;
