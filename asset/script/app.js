@@ -122,3 +122,21 @@ function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
   changeImg(2)
 }
+
+// ---- EXP ----
+// https://stackoverflow.com/questions/21090221/calculate-days-remaining-until-next-birthday-in-javascript
+let today, bday, diff, days;
+const myBirthday = [27, 4];
+today = new Date();
+bday = new Date(today.getFullYear(), myBirthday[1] - 1, myBirthday[0]);
+if (today.getTime() > bday.getTime()) {
+  bday.setFullYear(bday.getFullYear() + 1);
+}
+diff = bday.getTime() - today.getTime();
+days = Math.floor(diff / (1000 * 60 * 60 * 24));
+let exp = (365 - days) / 365 * 100;
+if (exp <= 0) {
+  document.getElementById("exp").width = '100%';
+} else {
+  document.getElementById("exp").width = `${exp}%`;
+}
