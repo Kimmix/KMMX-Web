@@ -46,6 +46,63 @@ section.contact>.wrapper {
   margin-left: 1em;
 }
 
+.social-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.social-box .social-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  color: #000;
+  border: 3px solid;
+  transition: background-color 0.3s ease-in;
+}
+
+.social-item.discord {
+  width: 200px;
+  height: 200px;
+  border-color: #5865F2;
+}
+
+.social-item.discord:hover {
+  background-color: #5865F2;
+}
+
+.social-item.telegram {
+  width: 100px;
+  height: 100px;
+  border-color: #0088CC;
+}
+
+.social-item.telegram:hover {
+  background-color: #0088CC;
+}
+
+.social-item.twitter {
+  width: 100px;
+  height: 200px;
+  border-color: #1DA1F2;
+}
+
+.social-item.twitter:hover {
+  background-color: #1DA1F2;
+}
+
+.social-item.VRC {
+  width: 200px;
+  height: 100px;
+  border-color: #008387;
+}
+
+.social-item.VRC:hover {
+  background-color: #008387;
+}
+
 .social-link {
   display: flex;
   align-items: baseline;
