@@ -33,6 +33,7 @@ section.contact>.wrapper {
 .contact-container .img-container img {
   width: 100%;
   height: 100%;
+  border-radius: 1.25em;
   min-width: clamp(100px, 90vw, 520px);
   max-height: 780px;
   object-fit: cover;
@@ -52,55 +53,54 @@ section.contact>.wrapper {
   gap: 1rem;
 }
 
+.social-box svg {
+  width: 40px;
+  height: 40px;
+}
+
 .social-box .social-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white-color);
-  border-radius: 10px;
-  color: #000;
-  border: 3px solid;
-  transition: background-color 0.3s ease-in;
+  border-radius: 1.25em;
+  transition: fill 0.3s ease-in;
+}
+
+.social-item:hover {
+  box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+    8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+    17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+    36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+    99px 72px 143px rgba(0, 0, 0, 0.08);
+  fill: #fff !important;
 }
 
 .social-item.discord {
-  width: 200px;
-  height: 200px;
-  border-color: #5865F2;
-}
-
-.social-item.discord:hover {
-  background-color: #5865F2;
+  width: 150px;
+  height: 75px;
+  fill: #5e5cce;
+  background-color: #262431;
 }
 
 .social-item.telegram {
-  width: 100px;
-  height: 100px;
-  border-color: #0088CC;
-}
-
-.social-item.telegram:hover {
-  background-color: #0088CC;
+  width: 75px;
+  height: 75px;
+  fill: #0088CC;
+  background-color: #001925;
 }
 
 .social-item.twitter {
-  width: 100px;
-  height: 200px;
-  border-color: #1DA1F2;
-}
-
-.social-item.twitter:hover {
-  background-color: #1DA1F2;
+  width: 75px;
+  height: 75px;
+  fill: #1DA1F2;
+  background-color: #062030;
 }
 
 .social-item.VRC {
-  width: 200px;
-  height: 100px;
-  border-color: #008387;
-}
-
-.social-item.VRC:hover {
-  background-color: #008387;
+  width: 75px;
+  height: 75px;
+  fill: #008387;
+  background-color: #001f20;
 }
 
 .social-link {
