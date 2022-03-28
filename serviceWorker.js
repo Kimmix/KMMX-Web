@@ -21,11 +21,11 @@ const assets = [
   "/css/styles-title.css",
 ]
 
-self.addEventListener("install", installEvent => {
-  self.skipWaiting();
-  installEvent.waitUntil(
+self.addEventListener("install", async installEvent => {
+  await installEvent.waitUntil(
     caches.open(cacheName).then(cache => { cache.addAll(assets) })
   )
+  self.skipWaiting();
 })
 
 self.addEventListener("fetch", fetchEvent => {
