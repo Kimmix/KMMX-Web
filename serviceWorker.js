@@ -1,4 +1,4 @@
-const cacheName = `kmmx-site-v1.2.0`
+const cacheName = `kmmx-site-v1.2.2`
 const assets = [
   "/index.html",
   "/favicon.png",
@@ -22,6 +22,7 @@ const assets = [
 ]
 
 self.addEventListener("install", installEvent => {
+  self.skipWaiting();
   installEvent.waitUntil(
     caches.open(cacheName).then(cache => { cache.addAll(assets) })
   )
