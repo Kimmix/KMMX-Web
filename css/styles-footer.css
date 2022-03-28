@@ -23,7 +23,7 @@ section.footer {
 }
 
 .deco-container .deco2 {
-  width: 700px;
+  width: 100%;
   height: 30px;
 }
 
@@ -61,27 +61,4 @@ section.footer {
 
 .footer-content .fade {
   color: #2c2c2c;
-}
-
-.footer>.bg {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-.footer>.bg>h1 {
-  color: var(--black2-color);
-  font-size: clamp(100px, 11vw, 140px);
-  font-weight: 400;
-}
-
-.proto {
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }

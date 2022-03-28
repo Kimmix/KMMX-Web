@@ -133,7 +133,7 @@ section.cardui {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: clamp(1.3rem, 1.8vw, 1.5em);
+  font-size: clamp(1.2rem, 1.8vw, 1.5em);
   font-family: monospace;
   max-width: 600px;
   white-space: nowrap;
@@ -144,7 +144,7 @@ section.cardui {
 }
 
 .spec-row>.spec-title {
-  width: 250px;
+  width: 50%;
   display: flex;
   align-items: baseline;
 }

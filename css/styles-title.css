@@ -141,7 +141,7 @@ section.title>.wrapper {
 
 .swipe .title {
   width: 100%;
-  font-size: clamp(3rem, 18vw, 12em);
+  font-size: clamp(3rem, 18vw, 11em);
   letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);
