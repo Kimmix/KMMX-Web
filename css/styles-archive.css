@@ -251,12 +251,26 @@ svg.arcai-pattern {
   stroke-dasharray: 812;
 }
 
+svg.arcai-pattern >* {
+  transition: 400ms;
+  transform: scale(0.9);
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+svg.arcai-pattern >*:hover {
+  fill: #ee3d4948;
+  transform-origin: 50% 50%;
+  transform: scale(1);
+}
+
 svg.arcai-pattern.animate-onscroll {
-  animation: arcaiDraw 4s cubic-bezier(.56,-0.04,.32,.7) forwards;
+  animation: arcaiDraw 4s cubic-bezier(.56,-0.04,.32,.7) forwards 700ms;
 }
 
 @keyframes arcaiDraw {
   0% {
+    pointer-events: none;
     opacity: 0;
     fill: #ffffff00;
     stroke: #f71c1c;
@@ -272,14 +286,16 @@ svg.arcai-pattern.animate-onscroll {
     stroke-dashoffset: 0;
   }
   90% {
+    pointer-events: none;
     stroke: #f71c1c;
     stroke-width: 4px;
   }
   100% {
+    pointer-events: unset;
     opacity: 1;
     fill: #ee3d4a;
     stroke: #f71c1c00;
-    stroke-width: 0;
+    stroke-width: 0px;
     stroke-dashoffset: 0;
   }
 }
