@@ -96,26 +96,6 @@ function switchTheme() {
   location.reload();
 }
 
-function changeImg(imgCase) {
-  switch (imgCase) {
-    case 0:
-      document.getElementById("bioImg").src = "asset/KMMX_Katana.webp";
-      document.getElementById("bio_desc").innerHTML = "Arcai charged KMMX";
-      break;
-    case 1:
-      document.getElementById("bioImg").src = "asset/KMMX_Witchhat.webp";
-      document.getElementById("bio_desc").innerHTML = "Commission by MegaStone99";
-      break;
-    case 2:
-      document.getElementById("bioImg").src = "asset/KMMX_Sketch.webp";
-      document.getElementById("bio_desc").innerHTML = "Sketch by Cool Koinu(Discord access reward)";
-      break;
-    default:
-      document.getElementById("bioImg").src = "asset/KMMX_VRC.webp";
-      document.getElementById("bio_desc").innerHTML = "Click around to find out 3 more img >w<";
-  }
-}
-
 // Fullscreen button and cusor animation
 let fullscreen;
 const fsEnter = document.getElementById('fullscr');
@@ -164,11 +144,9 @@ animationObserver.observe(document.getElementById('ref'));
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-  changeImg(2)
 }
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
-  changeImg(2)
 }
 
 // ---- EXP ----
