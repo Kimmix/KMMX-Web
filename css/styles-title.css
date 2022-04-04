@@ -368,6 +368,22 @@ svg.fs.active:hover {
   transform: scale(1);
 }
 
+.update-notify {
+  display: none;
+  background: var(--white-color);
+  width: fit-content;
+  float: inline-end;
+  padding: 5px;
+  color: var(--acc2b-color);
+  transition: all 0.3s ease-in;
+}
+
+.update-notify:hover {
+  background: var(--acc2b-color);
+  color: var(--white-color);
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .header-wrapper {
     margin-bottom: 30vh;

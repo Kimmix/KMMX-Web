@@ -1,4 +1,4 @@
-const cacheName = 'kmmx-site-v1.2.7'
+const cacheName = 'kmmx-site-v1.2.8'
 const assets = [
   "/favicon.png",
   "/asset/script/cursor.js",
@@ -20,16 +20,22 @@ const assets = [
 // "/css/styles-refsheet.css",
 // "/css/styles-title.css",
 
-self.addEventListener("install", async installEvent => {
+self.addEventListener('install', async installEvent => {
   await installEvent.waitUntil(
     caches.open(cacheName).then(cache => { cache.addAll(assets) })
   )
 })
 
-self.addEventListener("fetch", fetchEvent => {
+self.addEventListener('fetch', fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request)
     })
   )
 })
+
+self.addEventListener('message', (event) => {
+  if (event.data === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});

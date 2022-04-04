@@ -1,5 +1,16 @@
 // Register service worker
 // https://whatwebcando.today/articles/handling-service-worker-updates/
+function invokeServiceWorkerUpdateFlow(registration) {
+  let notification = document.getElementById('update');
+  notification.display = 'initial'
+  notification.addEventListener('click', () => {
+    console.log('Updating')
+    if (registration.waiting) {
+      // let waiting Service Worker know it should became active
+      registration.waiting.postMessage('SKIP_WAITING')
+    }
+  })
+}
 if ('serviceWorker' in navigator) {
   // wait for the page to load
   window.addEventListener('load', async () => {
@@ -29,6 +40,7 @@ if ('serviceWorker' in navigator) {
         })
       }
     })
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
 
     let refreshing = false;
 
