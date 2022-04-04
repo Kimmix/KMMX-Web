@@ -1,8 +1,9 @@
 // Register service worker
 // https://whatwebcando.today/articles/handling-service-worker-updates/
 function invokeServiceWorkerUpdateFlow(registration) {
-  let notification = document.getElementById('update');
-  notification.display = 'initial'
+  console.log('New update avaliable')
+  const notification = document.getElementById('update');
+  notification.style.display = "flex";
   notification.addEventListener('click', () => {
     console.log('Updating')
     if (registration.waiting) {
