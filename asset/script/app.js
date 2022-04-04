@@ -149,20 +149,24 @@ function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
 }
 
-// ---- EXP ----
-// https://stackoverflow.com/questions/21090221/calculate-days-remaining-until-next-birthday-in-javascript
-let today, bday, diff, days;
+// Get age
 const myBirthday = [27, 4];
-today = new Date();
-bday = new Date(today.getFullYear(), myBirthday[1] - 1, myBirthday[0]);
+let today = new Date()
+let age = Math.floor((today - new Date(1996, myBirthday[1] - 1, myBirthday[0])) / 31557600000);
+document.getElementById("Page").innerHTML = age;
+document.getElementById("age").innerHTML = age;
+
+// Get EXP
+let bday = new Date(today.getFullYear(), myBirthday[1] - 1, myBirthday[0]);
 if (today.getTime() > bday.getTime()) {
   bday.setFullYear(bday.getFullYear() + 1);
 }
-diff = bday.getTime() - today.getTime();
-days = Math.floor(diff / (1000 * 60 * 60 * 24));
-let exp = (365 - days) / 365 * 100;
-if (exp <= 0) {
-  document.getElementById("exp").width = '100%';
+let days = Math.floor((bday.getTime() - today.getTime())) / (1000 * 60 * 60 * 24);
+let exp = (365.25 - days) / 365.25 * 100;
+if (exp < 0.5) {
+  document.getElementById("exp").style.width = '100%';
+  document.getElementById("exp-percent").innerHTML = 'FULL';
 } else {
-  document.getElementById("exp").width = `${exp}%`;
+  document.getElementById("exp").style.width = `${exp}%`;
+  document.getElementById("exp-percent").innerHTML = `${exp.toFixed(2)}%`;
 }

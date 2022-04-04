@@ -199,6 +199,7 @@ section.cardui {
 }
 
 .exp-bar hr.hr2 {
+  width: 100%;
   border: 2px solid var(--white-color);
   opacity: 0.35;
 }

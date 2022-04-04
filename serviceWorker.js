@@ -1,6 +1,8 @@
-const cacheName = 'kmmx-site-v1.3.0'
+const cacheName = 'kmmx-site-v1.3.2'
 const assets = [
+  "/index.html",
   "/favicon.png",
+  "/asset/script/app.js",
   "/asset/script/cursor.js",
   "/asset/KIMMIX_CHIBI.webp",
   "/asset/KMMX_inthebox.webp",
@@ -10,15 +12,14 @@ const assets = [
   "/asset/splash.png",
   "/asset/arcai_b.svg",
   "/css/cursor.css",
+  "/css/styles-archive.css",
+  "/css/styles-cardui.css",
+  "/css/styles-contact.css",
+  "/css/styles-footer.css",
+  "/css/styles-main.css",
+  "/css/styles-refsheet.css",
+  "/css/styles-title.css",
 ]
-// "/asset/script/app.js",
-// "/css/styles-archive.css",
-// "/css/styles-cardui.css",
-// "/css/styles-contact.css",
-// "/css/styles-footer.css",
-// "/css/styles-main.css",
-// "/css/styles-refsheet.css",
-// "/css/styles-title.css",
 
 self.addEventListener('install', async installEvent => {
   await installEvent.waitUntil(
