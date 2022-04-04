@@ -1,7 +1,6 @@
-const cacheName = 'kmmx-site-v1.2.6'
+const cacheName = 'kmmx-site-v1.2.7'
 const assets = [
   "/favicon.png",
-  "/asset/script/app.js",
   "/asset/script/cursor.js",
   "/asset/KIMMIX_CHIBI.webp",
   "/asset/KMMX_inthebox.webp",
@@ -12,6 +11,7 @@ const assets = [
   "/asset/arcai_b.svg",
   "/css/cursor.css",
 ]
+// "/asset/script/app.js",
 // "/css/styles-archive.css",
 // "/css/styles-cardui.css",
 // "/css/styles-contact.css",
@@ -24,7 +24,6 @@ self.addEventListener("install", async installEvent => {
   await installEvent.waitUntil(
     caches.open(cacheName).then(cache => { cache.addAll(assets) })
   )
-  self.skipWaiting();
 })
 
 self.addEventListener("fetch", fetchEvent => {
