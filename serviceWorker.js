@@ -1,4 +1,4 @@
-const cacheName = 'kmmx-site-v1.2.4'
+const cacheName = 'kmmx-site-v1.2.5'
 const assets = [
   "/index.html",
   "/favicon.png",
@@ -11,6 +11,7 @@ const assets = [
   "/asset/KMMX_Ref.png",
   "/asset/maskable_icon.png",
   "/asset/splash.png",
+  "/asset/arcai_b.svg",
   "/css/cursor.css",
   "/css/styles-archive.css",
   "/css/styles-cardui.css",

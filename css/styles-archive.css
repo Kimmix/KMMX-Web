@@ -23,7 +23,7 @@ section.archive>.wrapper {
   justify-content: center;
 }
 
-.ar-container.l>img {
+.ar-container.l>svg {
   width: 400px;
 }
 
@@ -245,13 +245,52 @@ p.log i.voice {
   color: var(--acc2-color);
 }
 
+svg.arcai-pattern {
+  fill: #ee3d4a;
+  opacity:0;
+  stroke-dasharray: 812;
+}
+
+svg.arcai-pattern.animate-onscroll {
+  animation: arcaiDraw 4s cubic-bezier(.56,-0.04,.32,.7) forwards;
+}
+
+@keyframes arcaiDraw {
+  0% {
+    opacity: 0;
+    fill: #ffffff00;
+    stroke: #f71c1c;
+    stroke-width: 4px;
+    stroke-dashoffset: 912;
+  }
+  40% {
+    opacity: 1;
+    fill: #ffffff00;
+  }
+  70% {
+    fill: #ffffff00;
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke: #f71c1c;
+    stroke-width: 4px;
+  }
+  100% {
+    opacity: 1;
+    fill: #ee3d4a;
+    stroke: #f71c1c00;
+    stroke-width: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .ar-container.l {
     display: none;
   }
 
   .ar-container.r {
-    background-image: url("../asset/Katana.png");
+    background-image: url("../asset/arcai_b.svg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
