@@ -246,9 +246,9 @@ p.log i.voice {
 }
 
 svg.arcai-pattern {
-  fill: #ee3d4a;
+  fill: var(--acc2b-color);
   opacity:0;
-  stroke-dasharray: 812;
+  stroke-dasharray: 1100;
 }
 
 svg.arcai-pattern >* {
@@ -262,6 +262,17 @@ svg.arcai-pattern >*:hover {
   fill: #ee3d4948;
   transform-origin: 50% 50%;
   transform: scale(1);
+  stroke-width: 0px !important;
+}
+svg.arcai-pattern >*:nth-child(3n-2):hover {
+  fill: var(--acc2b-color) !important;
+}
+svg.arcai-pattern >*:nth-child(2n-1):hover {
+  fill: var(--white-color) !important;
+}
+
+svg.arcai-pattern.animate-onscroll > :nth-child(3n-2) {
+  animation: arcaiDrawOutline 4s cubic-bezier(.56,-0.04,.32,.7) forwards 700ms;
 }
 
 svg.arcai-pattern.animate-onscroll {
@@ -272,30 +283,54 @@ svg.arcai-pattern.animate-onscroll {
   0% {
     pointer-events: none;
     opacity: 0;
-    fill: #ffffff00;
-    stroke: #f71c1c;
+    fill: #00000000;
+    stroke: var(--acc2b-color);
     stroke-width: 4px;
     stroke-dashoffset: 912;
   }
   40% {
     opacity: 1;
-    fill: #ffffff00;
   }
   70% {
-    fill: #ffffff00;
+    fill: #00000000;
     stroke-dashoffset: 0;
   }
-  90% {
+  80% {
     pointer-events: none;
-    stroke: #f71c1c;
+    stroke: var(--acc2b-color);
     stroke-width: 4px;
   }
   100% {
     pointer-events: unset;
     opacity: 1;
-    fill: #ee3d4a;
-    stroke: #f71c1c00;
+    fill: var(--acc2b-color);
+    stroke: #00000000;
     stroke-width: 0px;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes arcaiDrawOutline {
+  0% {
+    pointer-events: none;
+    opacity: 0;
+    fill: #00000000;
+    stroke: var(--acc2b-color);
+    stroke-width: 4px;
+    stroke-dashoffset: 912;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    pointer-events: unset;
+    opacity: 1;
+    fill: #00000000;
+    stroke: var(--acc2b-color);
+    stroke-width: 4px;
     stroke-dashoffset: 0;
   }
 }
