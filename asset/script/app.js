@@ -155,7 +155,7 @@ const scrollingObserver = new IntersectionObserver((entries, observer) => {
     }
   })
 }, {
-  rootMargin: '-200px',
+  rootMargin: '-100px 0px',
   threshold: 0.25,
 });
 
@@ -173,7 +173,7 @@ function onScrollTo(id) {
 }
 
 // Get age
-const myBirthday = [27, 4];
+const myBirthday = [27, 4]; // How dare you peek at my birtday (; ･`д･´)​
 let today = new Date()
 let age = Math.floor((today - new Date(1996, myBirthday[1] - 1, myBirthday[0])) / 31557600000);
 document.getElementById("Page").innerHTML = age;
