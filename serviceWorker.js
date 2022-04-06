@@ -1,4 +1,4 @@
-const cacheName = 'kmmx-site-v1.4.1'
+const cacheName = 'kmmx-site-v1.4.2'
 const assets = [
   "/index.html",
   "/favicon.png",
