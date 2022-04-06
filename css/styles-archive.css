@@ -296,9 +296,11 @@ svg.arcai-pattern.animate-onscroll {
     stroke-dashoffset: 0;
   }
   80% {
-    pointer-events: none;
     stroke: var(--acc2b-color);
     stroke-width: 4px;
+  }
+  99% {
+    pointer-events: none;
   }
   100% {
     pointer-events: unset;
@@ -324,6 +326,10 @@ svg.arcai-pattern.animate-onscroll {
   }
   70% {
     stroke-dashoffset: 0;
+  }
+
+  99% {
+    pointer-events: none;
   }
   100% {
     pointer-events: unset;
