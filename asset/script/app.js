@@ -140,6 +140,29 @@ animationObserver.observe(document.getElementById('stardate'));
 animationObserver.observe(document.getElementById('arcai'));
 animationObserver.observe(document.getElementById('ref'));
 
+// https://dev.to/ljcdev/introduction-to-scroll-animations-with-intersection-observer-d05
+const tabs = document.querySelectorAll(".dot")
+const pages = document.querySelectorAll(".page")
+// Scrolling triggering
+const scrollingObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const index = Array.from(pages).indexOf(entry.target)
+      tabs.forEach(tab => {
+        tab.classList.remove("active")
+      })
+      tabs[index].classList.add("active")
+    }
+  })
+}, {
+  rootMargin: '-200px',
+  threshold: 0.25,
+});
+
+pages.forEach(page => {
+  scrollingObserver.observe(page)
+})
+
 // Footer
 function topFunction() {
   document.body.scrollTop = 0;

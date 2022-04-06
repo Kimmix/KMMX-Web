@@ -1,0 +1,56 @@
+.navdot-warpper {
+  z-index: 4;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.navdot {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navdot > .dot {
+  width: 3px;
+  height: 3px;
+  padding: 3px;
+  border-radius: 100%;
+  background-color: white;
+  transform: scale(0.5);
+  transition: transform 150ms ease-out;
+}
+
+.navdot > .dot.active {
+  background-color: var(--acc2-color);
+
+  box-shadow: 0 0 0 0 #ffffff;
+	transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 #ffffffb3;
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px #ffffff00;
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 #ffffff00;
+	}
+}
+
+
+@media screen and (max-width: 1400px) {
+  .navbar {
+    display: none;
+  }
+}
