@@ -1,4 +1,4 @@
-const cacheName = 'kmmx-site-v1.4.3'
+const cacheName = 'kmmx-site-v1.4.4'
 const assets = [
   "/favicon.png",
   "/asset/script/app.js",
@@ -37,8 +37,22 @@ self.addEventListener('fetch', fetchEvent => {
   )
 })
 
-self.addEventListener('message', (event) => {
-  if (event.data === 'SKIP_WAITING') {
+self.addEventListener('activate', function (activateEvent) {
+  activateEvent.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function (cacheStoreName) {
+          return cacheStoreName !== cacheName
+        }).map(function (cacheStoreName) {
+          return caches.delete(cacheStoreName);
+        })
+      );
+    })
+  );
+});
+
+self.addEventListener('message', (messageEvent) => {
+  if (messageEvent.data === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
