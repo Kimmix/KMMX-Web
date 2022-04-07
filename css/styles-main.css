@@ -71,6 +71,7 @@ section {
 
 .fade {
   color: var(--white2-color) !important;
+  opacity: 0.4;
 }
 
 .outline {

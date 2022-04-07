@@ -193,3 +193,15 @@ if (exp < 0.5) {
   document.getElementById("exp").style.width = `${exp}%`;
   document.getElementById("exp-percent").innerHTML = `${exp.toFixed(2)}%`;
 }
+
+// Discord webhook
+function Firewebhook() {
+  let msg = document.getElementById("feedback").value;
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://discord.com/api/webhooks/961220418612629564/biNbz9AnDHdzBwDe5I7c37Zs-bYIxib_PvjUYnFFcz25z2m7NuBfwig8VcH23QVNeRVA", true); // Yes this is my api key there aren't way to secure on VanillaJS. If you use this you aren't hacker, just an asshole.
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    content: msg
+  }));
+  document.getElementById("feedback").value = null;
+}

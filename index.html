@@ -65,11 +65,11 @@
   </header>
   <div class="navdot-warpper">
     <div class="navdot">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+      <div class="dot" onclick="topFunction()"></div>
+      <div class="dot" onclick="onScrollTo('bio')"></div>
+      <div class="dot" onclick="onScrollTo('archive')"></div>
+      <div class="dot" onclick="onScrollTo('refsheet')"></div>
+      <div class="dot" onclick="onScrollTo('contact')"></div>
     </div>
   </div>
   <section class="title page">
@@ -117,7 +117,7 @@
           <span class="block2" id="block2"></span>
           <div class="subtitle">
             <h2>
-              <span class="V">V</span><span class="H">H</span><span class="E">E</span>OS 1.4.2
+              <span class="V">V</span><span class="H">H</span><span class="E">E</span>OS 1.4.3
             </h2>
             <div id="update" class="update-notify">
               New update available
@@ -297,7 +297,8 @@
               aromr. I took a
               slgnie sgniw, and the door bsrut onep.</p>
             <div class="glitch-overlay">
-              <div class="glitch" title="Decryption failed">Decryption failed</div>
+              <div class="glitch" title="Decryption">Decryption</div>
+              <div class="glitch" title="failed">failed</div>
             </div>
           </div>
           <div class="deco">
@@ -391,35 +392,11 @@
                 </svg>
               </div>
             </div>
-            <!-- <div class="social-link discord tooltip" onclick="copyToClipboard('Kimmix#0777')">
-              <h2>Discord: Kimmix#0777</h2>
-              <span class="tooltiptext">Copied!</span>
+            <div class="feedback-container">
+              <input type="text" id="feedback" maxlength="100"
+                placeholder="any feedback? or just send me msg anonymously">
+              <button onclick="Firewebhook()">SEND</button>
             </div>
-            <div class="social-link telegram tooltip" onclick="copyToClipboard('@kimmix0')">
-              <h2>Telegram: @kimmix0</h2>
-              <span class="tooltiptext">Copied!</span>
-            </div>
-            <div class="social-link twitter" onclick="window.open('https://twitter.com/kimmix00');">
-              <h2>Twitter: @kimmix00</h2>
-              <svg class="link" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850">
-                <g transform="matrix(1 0 0 -1 30.373 1426.9)">
-                  <path
-                    d="m1408 608v-320q0-119-84.5-203.5t-203.5-84.5h-832q-119 0-203.5 84.5t-84.5 203.5v832q0 119 84.5 203.5t203.5 84.5h704q14 0 23-9t9-23v-64q0-14-9-23t-23-9h-704q-66 0-113-47t-47-113v-832q0-66 47-113t113-47h832q66 0 113 47t47 113v320q0 14 9 23t23 9h64q14 0 23-9t9-23zm384 864v-512q0-26-19-45t-45-19-45 19l-176 176-652-652q-10-10-23-10t-23 10l-114 114q-10 10-10 23t10 23l652 652-176 176q-19 19-19 45t19 45 45 19h512q26 0 45-19t19-45z"
-                    fill="currentColor" />
-                </g>
-              </svg>
-            </div>
-            <div class="social-link vrc"
-              onclick="window.open('https://vrchat.com/home/user/usr_de54a658-5720-4e68-b7de-99eb31b644d7');">
-              <h2>VRChat: Kimmix0</h2>
-              <svg class="link" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850">
-                <g transform="matrix(1 0 0 -1 30.373 1426.9)">
-                  <path
-                    d="m1408 608v-320q0-119-84.5-203.5t-203.5-84.5h-832q-119 0-203.5 84.5t-84.5 203.5v832q0 119 84.5 203.5t203.5 84.5h704q14 0 23-9t9-23v-64q0-14-9-23t-23-9h-704q-66 0-113-47t-47-113v-832q0-66 47-113t113-47h832q66 0 113 47t47 113v320q0 14 9 23t23 9h64q14 0 23-9t9-23zm384 864v-512q0-26-19-45t-45-19-45 19l-176 176-652-652q-10-10-23-10t-23 10l-114 114q-10 10-10 23t10 23l652 652-176 176q-19 19-19 45t19 45 45 19h512q26 0 45-19t19-45z"
-                    fill="currentColor" />
-                </g>
-              </svg>
-            </div> -->
           </div>
         </div>
       </div>

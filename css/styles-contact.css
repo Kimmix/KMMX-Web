@@ -136,29 +136,36 @@ section.contact>.wrapper {
   color: #008387;
 }
 
-.tooltip {
-  position: relative;
+.feedback-container {
+  display: flex;
+	align-items: center;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 80px;
-  background-color: #18b030;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 0s ease-out 0s;
-  right: -100px;
+.feedback-container > input {
+  width: 100%;
+  border-radius: 1.25em;
+  background: #fff;
+  color: #a3a3a3;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
 }
 
-.tooltip:active .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  /* transition-delay: 1s; */
+.feedback-container > button {
+  display: inline-block;
+  margin-left: -96px;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  background: var(--acc2-color);
+  color: var(--black-color);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
 }
 
 @media screen and (max-width: 800px) {

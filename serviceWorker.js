@@ -1,6 +1,5 @@
-const cacheName = 'kmmx-site-v1.4.2'
+const cacheName = 'kmmx-site-v1.4.3'
 const assets = [
-  "/index.html",
   "/favicon.png",
   "/asset/script/app.js",
   "/asset/script/cursor.js",
@@ -12,16 +11,17 @@ const assets = [
   "/asset/splash.png",
   "/asset/arcai_b.svg",
   "/css/cursor.css",
-  "/css/styles-archive.css",
-  "/css/styles-cardui.css",
-  "/css/styles-contact.css",
-  "/css/styles-footer.css",
-  "/css/styles-main.css",
-  "/css/styles-navdot.css",
-  "/css/styles-quote.css",
-  "/css/styles-refsheet.css",
-  "/css/styles-title.css",
 ]
+// "/index.html",
+// "/css/styles-archive.css",
+// "/css/styles-cardui.css",
+// "/css/styles-contact.css",
+// "/css/styles-footer.css",
+// "/css/styles-main.css",
+// "/css/styles-navdot.css",
+// "/css/styles-quote.css",
+// "/css/styles-refsheet.css",
+// "/css/styles-title.css",
 
 self.addEventListener('install', async installEvent => {
   await installEvent.waitUntil(
