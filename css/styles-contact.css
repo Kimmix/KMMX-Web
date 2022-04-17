@@ -43,7 +43,7 @@ section.contact>.wrapper {
 .about-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   margin-left: 1em;
 }
 
@@ -53,26 +53,38 @@ section.contact>.wrapper {
   gap: 1rem;
 }
 
-.social-box svg {
-  width: 40px;
-  height: 40px;
-}
-
 .social-box .social-item {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 1.25em;
-  transition: fill 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  transition: scale 50ms ease-out;
 }
 
-.social-item:hover {
+.social-box .social-item:hover {
   box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
     8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
     17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
     36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
     99px 72px 143px rgba(0, 0, 0, 0.08);
   fill: #fff !important;
+  filter: brightness(85%);
+}
+
+.social-box .social-item:active {
+  scale: 0.9;
+}
+
+.social-box .social-item svg {
+  width: 40px;
+  height: 40px;
+  scale: 1;
+  transition: scale ease-in 300ms;
+}
+
+.social-box .social-item:hover svg {
+  scale: 1.2;
 }
 
 .social-item.discord {
@@ -137,35 +149,67 @@ section.contact>.wrapper {
 }
 
 .feedback-container {
+  position: relative;
   display: flex;
 	align-items: center;
 }
 
+.feedback-container::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient { 
+  0%{background-position:0 0}
+  100%{background-position:100% 0}
+}
+
 .feedback-container > input {
   width: 100%;
-  border-radius: 1.25em;
-  background: #fff;
-  color: #a3a3a3;
+  background: var(--black2-color);
+  color: #FEFFB8;
   font: inherit;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
-  border: 0;
+  font-size: 1.2em;
   outline: 0;
-  padding: 22px 18px;
+  padding: 10px 5px;
+  border: none;
 }
 
 .feedback-container > button {
-  display: inline-block;
   margin-left: -96px;
   border: 0;
-  outline: 0;
-  padding: 0;
-  transition: all 200ms ease-in;
-  cursor: pointer;
-  background: var(--acc2-color);
-  color: var(--black-color);
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  background: none;
   border-radius: 2px;
   padding: 12px 36px;
+}
+
+.feedback-container > button > svg {
+  fill: var(--white-color);
+  transform: scale(1.3);
+  transition: transform ease-in 200ms;
+}
+
+.feedback-container > button:hover > svg {
+  fill: #57E6E6;
+  transform: scale(1);
+}
+
+.feedback-container .input-counter {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -25px;
 }
 
 @media screen and (max-width: 800px) {

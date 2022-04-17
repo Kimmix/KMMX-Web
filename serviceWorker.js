@@ -1,7 +1,6 @@
-const cacheName = 'kmmx-site-v1.4.4'
+const cacheName = 'kmmx-site-v1.4.5'
 const assets = [
   "/favicon.png",
-  "/asset/script/app.js",
   "/asset/script/cursor.js",
   "/asset/KIMMIX_CHIBI.webp",
   "/asset/KMMX_inthebox.webp",

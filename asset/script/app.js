@@ -195,13 +195,25 @@ if (exp < 0.5) {
 }
 
 // Discord webhook
+let msg = document.getElementById("feedback");
 function Firewebhook() {
-  let msg = document.getElementById("feedback").value;
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "https://discord.com/api/webhooks/961220418612629564/biNbz9AnDHdzBwDe5I7c37Zs-bYIxib_PvjUYnFFcz25z2m7NuBfwig8VcH23QVNeRVA", true); // Yes this is my api key there aren't way to secure on VanillaJS. If you use this you aren't hacker, just an asshole.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({
-    content: msg
+    content: msg.value
   }));
-  document.getElementById("feedback").value = null;
+  msg.value = null;
+}
+// Execute a function when the user releases a key on the keyboard
+msg.addEventListener("keyup", ({ key }) => {
+  if (key === "Enter") {
+    Firewebhook()
+  }
+})
+
+function counter(e) {
+  let inputLength = e.value.length;
+  document.getElementById("msg-length").innerHTML = inputLength;
+  document.getElementById("input-counter").style.display = inputLength > 0 ? "initial" : "none";
 }
