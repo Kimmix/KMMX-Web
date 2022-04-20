@@ -204,13 +204,13 @@ async function Firewebhook() {
     .then(response => response.json())
     .then(ipify => {
       let ip = JSON.stringify(ipify.ip)
-      fetch(`https://discord.com/api/webhooks/${webhookId + 101293618}/${atob(webhookToken)}`,
+      fetch(`https://discord.com/api/webhooks/${webhookId + 50646809 * 2}/${atob(webhookToken)}`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ content: `IP:${ip} Msg: ${msg.value}` })
+          body: JSON.stringify({ content: `IP:${ip}\n${msg.value}` })
         })
         .then(response => {
           document.getElementById("feedback-container").classList.remove("loading");

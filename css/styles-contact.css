@@ -76,6 +76,17 @@ section.contact>.wrapper {
   scale: 0.9;
 }
 
+.social-item.discord:active::after, .social-item.telegram:active::after {
+  content: 'Copied!';
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 99;
+  text-align: center;
+  font-size: 0.7em;
+}
+
 .social-box .social-item svg {
   width: 40px;
   height: 40px;
