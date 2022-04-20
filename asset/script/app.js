@@ -196,15 +196,39 @@ if (exp < 0.5) {
 
 // Discord webhook
 let msg = document.getElementById("feedback");
-function Firewebhook() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://discord.com/api/webhooks/961220418612629564/biNbz9AnDHdzBwDe5I7c37Zs-bYIxib_PvjUYnFFcz25z2m7NuBfwig8VcH23QVNeRVA", true); // Yes this is my api key there aren't way to secure on VanillaJS. If you use this you aren't hacker, just an asshole.
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({
-    content: msg.value
-  }));
+// Yeah you can't really secure token key on VanillaJS but this will do 😏
+let webhookId = '966309917', webhookToken = 'RThTNG9VUktyQWpIRkQ2OVpnWHB0OTJxVGduLThvUDBHeE5rTHhCYko5dTlaRHVocUdrcThBUGJ6SWVPMWd5Q1IzNjY='
+async function Firewebhook() {
+  document.getElementById("feedback-container").classList.add("loading");
+  await fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(ipify => {
+      let ip = JSON.stringify(ipify.ip)
+      fetch(`https://discord.com/api/webhooks/${webhookId + 101293618}/${atob(webhookToken)}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ content: `IP:${ip} Msg: ${msg.value}` })
+        })
+        .then(response => {
+          document.getElementById("feedback-container").classList.remove("loading");
+          if (!response.ok) {
+            throw new Error('Webhook was not OK');
+          }
+        })
+        .catch((error) => {
+          document.getElementById("feedback").placeholder = "Error";
+          document.getElementById("feedback").disabled = true;
+          document.getElementById("feedback-container").classList.add("err");
+          console.error('Error:', error);
+        });
+    });
   msg.value = null;
+  document.getElementById("input-counter").style.display = "none"
 }
+
 // Execute a function when the user releases a key on the keyboard
 msg.addEventListener("keyup", ({ key }) => {
   if (key === "Enter") {

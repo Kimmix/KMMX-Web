@@ -154,6 +154,37 @@ section.contact>.wrapper {
 	align-items: center;
 }
 
+.feedback-container.err {
+  animation: shake 0.5s; 
+}
+
+.feedback-container.err::after {
+  background: red !important;
+}
+
+.feedback-container.err > button {
+  display: none !important;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.feedback-container.loading::after {
+  height: 40px !important;
+  border-radius: 0px !important;
+}
+
 .feedback-container::after {
   content: "";
   position: absolute;
@@ -161,13 +192,14 @@ section.contact>.wrapper {
   right: 0px;
   bottom: 0px;
   z-index: 999;
-  height: 2px;
+  height: 4px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-position: 0% 0%;
   background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
   background-size: 500% auto;
   animation: gradient 3s linear infinite;
+  transition: height ease-in 500ms;
 }
 
 @keyframes gradient { 
