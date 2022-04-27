@@ -196,34 +196,30 @@ if (exp < 0.5) {
 
 // Discord webhook
 let msg = document.getElementById("feedback");
-// Yeah you can't really secure token key on VanillaJS but this will do 😏
+// Yeah you can't really secure token key on VanillaJS
+// 🍍🍕 Begone Italian nerd
 let webhookId = '966309917', webhookToken = 'RThTNG9VUktyQWpIRkQ2OVpnWHB0OTJxVGduLThvUDBHeE5rTHhCYko5dTlaRHVocUdrcThBUGJ6SWVPMWd5Q1IzNjY='
 async function Firewebhook() {
   document.getElementById("feedback-container").classList.add("loading");
-  await fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(ipify => {
-      let ip = JSON.stringify(ipify.ip)
-      fetch(`https://discord.com/api/webhooks/${webhookId + 50646809 * 2}/${atob(webhookToken)}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ content: `IP:${ip}\n${msg.value}` })
-        })
-        .then(response => {
-          document.getElementById("feedback-container").classList.remove("loading");
-          if (!response.ok) {
-            throw new Error('Webhook was not OK');
-          }
-        })
-        .catch((error) => {
-          document.getElementById("feedback").placeholder = "Error";
-          document.getElementById("feedback").disabled = true;
-          document.getElementById("feedback-container").classList.add("err");
-          console.error('Error:', error);
-        });
+  await fetch(`https://discord.com/api/webhooks/${webhookId + 50646809 * 2}/${atob(webhookToken)}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ content: `${msg.value}` })
+    })
+    .then(response => {
+      document.getElementById("feedback-container").classList.remove("loading");
+      if (!response.ok) {
+        throw new Error('Webhook was not OK');
+      }
+    })
+    .catch((error) => {
+      document.getElementById("feedback").placeholder = "Error";
+      document.getElementById("feedback").disabled = true;
+      document.getElementById("feedback-container").classList.add("err");
+      console.error('Error:', error);
     });
   msg.value = null;
   document.getElementById("input-counter").style.display = "none"
