@@ -21,6 +21,13 @@ section.contact>.wrapper {
   font-weight: 400;
 }
 
+.contact .pill {
+  height: 10px;
+  width: 75px;
+  border-radius: 25px;
+  background-color: var(--acc2-color);
+}
+
 .contact .contact-container {
   display: flex;
   flex-direction: row;
