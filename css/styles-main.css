@@ -9,20 +9,6 @@
   --black-color: #090711;
   --black2-color: #110f1a;
   --card-color: #0e0b16;
-  /* --acc1-color: #f9826c;
-  --acc2-color: #ff446c;
-  --acc2b-color: #cb2040;
-  --white-color: #E9EDF0;
-  --white2-color: #b3b7b9;
-  --black-color: #000;
-  --black2-color: #141414;
-  --card-color: #141517; */
-
-  /* --white-color: #000;
-  --white2-color: #141414;
-  --black-color: #ffffff;
-  --black2-color: #E9EDF0;
-  --card-color: #E6E9EF; */
 }
 
 ::selection {
@@ -38,7 +24,6 @@
 * {
   margin: 0;
   padding: 0;
-  cursor: none;
 }
 
 *::-webkit-input-placeholder {

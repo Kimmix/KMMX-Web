@@ -1,16 +1,16 @@
-const cacheName = 'kmmx-site-v1.4.8'
-const assets = [
-  "/favicon.png",
-  "/asset/script/cursor.js",
-  "/asset/KIMMIX_CHIBI.webp",
-  "/asset/KMMX_inthebox.webp",
-  "/asset/KMMX_Katana2.webp",
-  "/asset/KMMX_Ref.png",
-  "/asset/maskable_icon.png",
-  "/asset/splash.png",
-  "/asset/arcai_b.svg",
-  "/css/cursor.css",
-]
+const cacheName = 'kmmx-site-v2.0.0'
+// const assets = [
+//   "/favicon.png",
+//   "/asset/script/cursor.js",
+//   "/asset/KIMMIX_CHIBI.webp",
+//   "/asset/KMMX_inthebox.webp",
+//   "/asset/KMMX_Katana2.webp",
+//   "/asset/KMMX_Ref.png",
+//   "/asset/maskable_icon.png",
+//   "/asset/splash.png",
+//   "/asset/arcai_b.svg",
+//   "/css/cursor.css",
+// ]
 // "/index.html",
 // "/css/styles-archive.css",
 // "/css/styles-cardui.css",

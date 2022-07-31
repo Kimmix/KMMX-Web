@@ -1,0 +1,16 @@
+section.intro {
+  min-height: 85vh;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.intro .empty-space {
+  min-height: 100vh;
+  position: relative;
+}
+
+.intro .empty-space img {
+  position: absolute;
+}
