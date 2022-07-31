@@ -54,47 +54,28 @@ if ('serviceWorker' in navigator) {
     })
   })
 }
+z
+// https://github.com/wagerfield/parallax
+const scene = document.getElementById('scene');
+const parallaxInstance = new Parallax(scene, {
+  relativeInput: true,
+  originY: 0
+});
 
-// Use custom cursor on desktop only
-if (!detectMobile()) {
-  document.getElementsByTagName("head")[0].insertAdjacentHTML(
-    'beforeend',
-    '<link rel="stylesheet" href="css/cursor.css" />');
-  const body = document.getElementById('body');
-  body.insertAdjacentHTML('afterbegin', '<div class="cursor"></div>');
-  body.insertAdjacentHTML('afterbegin', '<div class="cursor-outer"></div>');
-}
-// https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
-function detectMobile() {
-  const toMatch = [
-    /Android/i,
-    /iPhone/i,
-    /iPad/i,
-    /iPod/i,
-  ];
+// Animation triggering
+const sceneObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      parallaxInstance.enable();
+    } else {
+      parallaxInstance.disable();
+    }
+  })
+}, {
+  threshold: 0.05,
+});
 
-  return toMatch.some((toMatchItem) => {
-    return navigator.userAgent.match(toMatchItem);
-  });
-}
-
-// Switch app theme
-if (window.localStorage.getItem("isLightmode") === 'true') {
-  document.documentElement.style.setProperty('--white-color', '#000');
-  document.documentElement.style.setProperty('--white2-color', '#141414');
-  document.documentElement.style.setProperty('--black-color', '#ffffff');
-  document.documentElement.style.setProperty('--black2-color', '#E9EDF0');
-  document.documentElement.style.setProperty('--card-color', '#E6E9EF');
-}
-
-function switchTheme() {
-  if (window.localStorage.getItem("isLightmode") === 'true') {
-    window.localStorage.setItem("isLightmode", false)
-  } else {
-    window.localStorage.setItem("isLightmode", true)
-  }
-  location.reload();
-}
+sceneObserver.observe(scene);
 
 // Fullscreen button and cusor animation
 let fullscreen;
@@ -136,9 +117,6 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
 });
 
 animationObserver.observe(document.getElementById('logo-stroke'));
-animationObserver.observe(document.getElementById('stardate'));
-animationObserver.observe(document.getElementById('arcai'));
-animationObserver.observe(document.getElementById('ref'));
 
 // https://dev.to/ljcdev/introduction-to-scroll-animations-with-intersection-observer-d05
 const tabs = document.querySelectorAll(".dot")
@@ -170,70 +148,4 @@ function topFunction() {
 }
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
-}
-
-// Get age
-const myBirthday = [27, 4]; // How dare you peek at my birtday (; ･`д･´)​
-let today = new Date()
-let age = Math.floor((today - new Date(1996, myBirthday[1] - 1, myBirthday[0])) / 31557600000);
-document.getElementById("Page").innerHTML = age;
-document.getElementById("age").innerHTML = age;
-
-// Get EXP
-let bday = new Date(today.getFullYear(), myBirthday[1] - 1, myBirthday[0]);
-if (today.getTime() > bday.getTime()) {
-  bday.setFullYear(bday.getFullYear() + 1);
-}
-let days = Math.floor((bday.getTime() - today.getTime())) / (1000 * 60 * 60 * 24);
-let exp = (365.25 - days) / 365.25 * 100;
-if (exp < 0.5) {
-  document.getElementById("exp").style.width = '100%';
-  document.getElementById("exp-percent").innerHTML = 'FULL';
-} else {
-  document.getElementById("exp").style.width = `${exp}%`;
-  document.getElementById("exp-percent").innerHTML = `${exp.toFixed(2)}%`;
-}
-
-// Discord webhook
-let msg = document.getElementById("feedback");
-// Yeah you can't really secure token key on VanillaJS
-// 🍍🍕 Begone Italian nerd
-let webhookId = '966309917', webhookToken = 'RThTNG9VUktyQWpIRkQ2OVpnWHB0OTJxVGduLThvUDBHeE5rTHhCYko5dTlaRHVocUdrcThBUGJ6SWVPMWd5Q1IzNjY='
-async function Firewebhook() {
-  document.getElementById("feedback-container").classList.add("loading");
-  await fetch(`https://discord.com/api/webhooks/${webhookId + 50646809 * 2}/${atob(webhookToken)}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ content: `${msg.value}` })
-    })
-    .then(response => {
-      document.getElementById("feedback-container").classList.remove("loading");
-      if (!response.ok) {
-        throw new Error('Webhook was not OK');
-      }
-    })
-    .catch((error) => {
-      document.getElementById("feedback").placeholder = "Error";
-      document.getElementById("feedback").disabled = true;
-      document.getElementById("feedback-container").classList.add("err");
-      console.error('Error:', error);
-    });
-  msg.value = null;
-  document.getElementById("input-counter").style.display = "none"
-}
-
-// Execute a function when the user releases a key on the keyboard
-msg.addEventListener("keyup", ({ key }) => {
-  if (key === "Enter") {
-    Firewebhook()
-  }
-})
-
-function counter(e) {
-  let inputLength = e.value.length;
-  document.getElementById("msg-length").innerHTML = inputLength;
-  document.getElementById("input-counter").style.display = inputLength > 0 ? "initial" : "none";
 }
