@@ -37,7 +37,7 @@ section.gallery>.wrapper {
   flex: 1;
   justify-content: space-between;
   flex-wrap: wrap;
-  overflow-y: auto;
+  overflow-x: scroll;
   scrollbar-width: none;
 }
 
