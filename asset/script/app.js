@@ -54,7 +54,7 @@ if ('serviceWorker' in navigator) {
     })
   })
 }
-z
+
 // https://github.com/wagerfield/parallax
 const scene = document.getElementById('scene');
 const parallaxInstance = new Parallax(scene, {
