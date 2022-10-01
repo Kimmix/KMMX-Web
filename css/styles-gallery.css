@@ -45,7 +45,7 @@ section.gallery>.wrapper {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1500px;
+  max-height: 100vh;
   column-gap: 60px;
   row-gap: 20px;
 }
@@ -76,7 +76,7 @@ section.gallery>.wrapper {
   display: flex;
   max-width: 0px;
   writing-mode: vertical-rl;
-  text-orientation: upright;
+  text-orientation: mixed;
   justify-content: space-between;
   font-size: 12px;
   overflow: hidden;
