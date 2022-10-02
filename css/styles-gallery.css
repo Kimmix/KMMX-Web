@@ -72,6 +72,11 @@ section.gallery>.wrapper {
   object-position: bottom;
 }
 
+.gallery-col .spacer {
+  width: 500px;
+  height: 1px;
+}
+
 .g-img>.info {
   display: flex;
   max-width: 0px;
@@ -106,5 +111,9 @@ section.gallery>.wrapper {
     width: 100%;
     max-height: 90vh;
     flex-direction: row;
+  }
+
+  .gallery-col .spacer {
+    width: 0px;
   }
 }
