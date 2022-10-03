@@ -158,6 +158,9 @@ if (detectMobile()) {
   mobileObserver.observe(document.getElementById('auto-focus5'));
   mobileObserver.observe(document.getElementById('auto-focus6'));
   mobileObserver.observe(document.getElementById('auto-focus7'));
+  mobileObserver.observe(document.getElementById('auto-focus8'));
+  mobileObserver.observe(document.getElementById('auto-focus9'));
+  mobileObserver.observe(document.getElementById('auto-focus10'));
 }
 
 
