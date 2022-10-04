@@ -80,9 +80,10 @@ section {
 }
 
 .outline {
+  font-family: "Arial", sans-serif;
   font-weight: 600;
   color: var(--black2-color);
-  -webkit-text-stroke: 1px var(--white-color);
+  -webkit-text-stroke: 1.5px var(--white-color);
 }
 
 .acc1 {
