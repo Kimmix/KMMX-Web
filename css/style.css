@@ -1,0 +1,177 @@
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Cormorant Garamond";
+    }
+
+    .container {
+      background: #dfdfdf;
+    }
+
+    .container .hero {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      height: 100vh;
+    }
+
+    .container .hero .copy {
+      display: grid;
+      align-content: center;
+      padding: 0 1rem;
+      height: 100%;
+    }
+
+    .container .hero .copy blockquote {
+      font-size: 6vmin;
+      font-weight: 300;
+    }
+
+    .container .hero .copy blockquote span {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .container .hero .copy blockquote cite {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 4.5vmin;
+      display: block;
+      padding: 8px 0;
+    }
+
+    .container .hero .image-wrapper {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .container .hero .image-wrapper img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container .section-0 {
+      margin-top: 20vh;
+      text-align: center;
+    }
+
+    .container .section-0 p {
+      font-size: 5vw;
+    }
+
+    .container .section-0 cite {
+      font-size: 3vw;
+    }
+
+    .container .section-1 {
+      height: 100vh;
+      display: grid;
+      place-content: center;
+      padding: 0 1rem;
+    }
+
+    .container .section-1 .image-mask {
+      width: 80vw;
+      height: 80vh;
+      background: url("https://firebasestorage.googleapis.com/v0/b/hashnode-tutorials.appspot.com/o/bwimages%2Ftumblr_n92tblyC8d1s3sziio1_1280.jpg?alt=media&token=c5d75884-4bc3-46bb-815d-414d2ec68e4b");
+      background-size: cover;
+      background-position-x: 50%;
+      background-position-y: 90%;
+      background-size: 100%;
+    }
+
+    .container .section-1 .image-mask img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container .section-1 blockquote {
+      font-size: 9vmin;
+      font-weight: 300;
+    }
+
+    .container .section-1 blockquote span {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .container .section-1 blockquote cite {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 7.5vmin;
+      display: block;
+      padding: 8px 0;
+    }
+
+    .container .section-2 {
+      height: calc(300vh + 32px + 16px);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 40% 60%;
+    }
+
+    .container .section-2 blockquote {
+      font-size: 5vmin;
+      padding: 16px 16px 0 16px;
+    }
+
+    .container .section-2 blockquote cite {
+      display: block;
+    }
+
+    .container .section-2 .images-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 8px;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .container .section-2 .images-container img {
+      width: 100%;
+      max-height: 75vh;
+      height: 100%;
+      align-self: stretch;
+      object-fit: cover;
+    }
+
+    .container .section-3 {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 40% 60%;
+      position: relative;
+    }
+
+    .container .section-3 .image-wrapper {
+      height: 100%;
+      width: 100%;
+    }
+
+    .container .section-3 .image-wrapper img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container .section-3 .copy {
+      font-size: 8vmin;
+      height: 100vh;
+      width: 100%;
+      display: grid;
+      align-content: center;
+    }
+
+    .container .section-3 .copy blockquote {
+      margin: 0 32px;
+    }
+
+    .container .section-3 .copyright {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      font-size: 4vmin !important;
+    }
