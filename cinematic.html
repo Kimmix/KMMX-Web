@@ -22,16 +22,17 @@
   <link rel="stylesheet" href="css/styles-main.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
 
-  <link defer rel="stylesheet" href="css/styles-cinematic.css" />
+  <link rel="stylesheet" href="css/styles-cinematic.css" />
+  <link rel="stylesheet" href="asset/locomotive-scroll/locomotive-scroll.min.css" />
 </head>
 
-<body id="body">
+<body data-scroll-container>
   <section class="blank"></section>
   <section id="cinematic" class="cinematic page">
-    <div class="redtab"></div>
+    <div data-scroll data-scroll-speed="5" class="redtab"></div>
     <div class="wrapper">
       <div class="zone1">
-        <div class="dot-container">
+        <div data-scroll data-scroll-speed="4" class="dot-container">
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
@@ -82,20 +83,20 @@
           <span class="dot"></span>
         </div>
         <div class="job-label">
-          <h1 class="outline">Adventurer</h1>
-          <h1 class="outline">Traveler</h1>
-          <h1>Researcher</h1>
+          <h1 data-scroll data-scroll-speed="-1" class="outline">Adventurer</h1>
+          <h1 data-scroll data-scroll-speed="-1" class="outline">Traveler</h1>
+          <h1 data-scroll data-scroll-speed="-1">Researcher</h1>
         </div>
       </div>
       <div class="line"></div>
       <div class="zone2">
-        <div class="zone2-container">
+        <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1" class="zone2-container">
           <h1>Arcai</h1>
           <h1 class="outline" style="margin-left: 100px;">Researcher</h1>
         </div>
-        <h2 class="text-bg">Arcai</h2>
+        <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" class="text-bg">Arcai</h2>
       </div>
-      <div class="aencc">
+      <div data-scroll data-scroll-speed="3" class="aencc">
         <div class="redbar"></div>
         <p>AENCC Active/.</p>
         <div class="txtblock">
@@ -137,6 +138,7 @@
   </section>
   <section class="blank"></section>
 </body>
+<script src="asset/locomotive-scroll/locomotive-scroll.min.js"></script>
 <script src="asset/script/app_c.js"></script>
 
 </html>

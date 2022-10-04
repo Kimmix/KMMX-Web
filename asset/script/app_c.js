@@ -1,9 +1,51 @@
-// // Animation triggering
-// const animationObserver = new IntersectionObserver((entries, observer) => {
-//   entries.forEach(entry => {
-//     entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
-//   })
-// }, {
-//   threshold: 1,
-// });
-// animationObserver.observe(document.getElementById('job-label'));
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  multiplier: 1,
+  firefoxMultiplier: 20,
+  mobile: {
+    smooth: true,
+  },
+  tablet: {
+    smooth: true,
+  },
+})
+
+// gsap.registerPlugin(ScrollTrigger)
+
+
+// scroller.on('scroll', ScrollTrigger.update)
+
+// ScrollTrigger.scrollerProxy(
+//   '.container', {
+//   scrollTop(value) {
+//     return arguments.length ?
+//       scroller.scrollTo(value, 0, 0) :
+//       scroller.scroll.instance.scroll.y
+//   },
+//   getBoundingClientRect() {
+//     return {
+//       left: 0, top: 0,
+//       width: window.innerWidth,
+//       height: window.innerHeight
+//     }
+//   }
+// }
+// )
+
+
+// ScrollTrigger.create({
+//   trigger: '.image-mask',
+//   scroller: '.container',
+//   start: 'top+=30% 50%',
+//   end: 'bottom-=40% 50%',
+//   animation: gsap.to('.image-mask', { backgroundSize: '120%' }),
+//   scrub: 2,
+//   // markers: true
+// })
+
+
+// ScrollTrigger.addEventListener('refresh', () => scroller.update())
+
+
+// ScrollTrigger.refresh()
