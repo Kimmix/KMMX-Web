@@ -80,10 +80,10 @@ section {
 }
 
 .outline {
-  font-family: "Arial", sans-serif;
-  font-weight: 600;
-  color: var(--black2-color);
-  -webkit-text-stroke: 1.5px var(--white-color);
+  font-family: "Arial", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--black2-color) !important;
+  -webkit-text-stroke: 1.5px var(--white-color) !important;
 }
 
 .acc1 {
@@ -173,15 +173,6 @@ section.intro {
   margin: auto;
   font-size: clamp(1.7rem, -0.875rem + 8.333vw, 5rem);
   color: var(--white-color);
-}
-
-.text-1,
-.text-3,
-.text-4,
-.text-8,
-.text-10 {
-  color: var(--black2-color);
-  -webkit-text-stroke: 1px var(--white-color);
 }
 
 .text-0 {
