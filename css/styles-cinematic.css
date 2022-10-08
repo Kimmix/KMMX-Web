@@ -173,9 +173,20 @@ section.cinematic>.wrapper>.zone3 {
   align-items: center;
 }
 
+.cinematic .zone3 .solarsys {
+  padding-right: 36%;
+}
+
+.cinematic .zone3 h2 {
+  position: absolute;
+  padding-top: 17%;
+  padding-left: 12%;
+}
+
 .cinematic .zone3 .note {
   width: 100%;
   text-align: end;
+  margin-right: 35px;
 }
 
 
@@ -185,12 +196,15 @@ section.cinematic>.wrapper>.zone3 {
   }
 
   .cinematic .line {
-    left: -244px;
-    top: 846px;
-    transform: rotate(47deg) scaleY(-1);
+    top: 630px;
+    width: 150vw;
   }
 
   .cinematic .aencc {
     margin-top: 50vw;
+  }
+
+  .cinematic .zone3 .solarsys {
+    padding-right: 0;
   }
 }
