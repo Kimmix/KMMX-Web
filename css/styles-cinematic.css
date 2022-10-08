@@ -3,8 +3,9 @@
   height: 100px;
   position: absolute;
   background-color: var(--acc2b-color);
-  top: 29%;
+  top: 5%;
   right: 0;
+  z-index: 3;
 }
 
 section.cinematic {
@@ -93,13 +94,9 @@ section.cinematic>.wrapper>.zone2 {
 
 .cinematic .line {
   position: absolute;
-  width: 150vw;
-  height: 417px;
-  border-bottom: 2px solid var(--white2-color);
-  transform: rotate(40deg) scaleY(-1);
-  left: -400px;
-  top: 94vh;
-  background-color: var(--black2-color);
+  top: 15%;
+  left: 0;
+  width: 100vw;
   z-index: 1;
 }
 
@@ -117,7 +114,7 @@ section.cinematic>.wrapper>.zone2 {
 .cinematic .aencc>.txtblock {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 180px;
   gap: 4px;
 }
 
@@ -174,20 +171,6 @@ section.cinematic>.wrapper>.zone3 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.cinematic .zone3 .arc {
-  width: 1200px;
-  height: 1200px;
-  position: absolute;
-  border-radius: 50%;
-  border: 1px aliceblue solid;
-}
-
-.cinematic .zone3 .arc-block {
-  width: 600px;
-  height: 600px;
-  position: absolute;
 }
 
 .cinematic .zone3 .note {

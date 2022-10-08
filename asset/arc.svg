@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.37 1875.73">
+  <defs>
+    <style>
+      .arc-1 {
+        opacity: .1;
+        stroke-width: 3px;
+      }
+
+      .arc-1,
+      .arc-2 {
+        fill: none;
+        stroke: #cedffc;
+        stroke-miterlimit: 10;
+      }
+
+      .arc-2 {
+        opacity: .14;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="arc-1"
+      d="M380.85,772.48c-96,116.4-153.67,265.59-153.67,428.25,0,371.96,301.54,673.5,673.5,673.5,287.79,0,533.42-180.51,629.85-434.48" />
+    <line class="arc-2" x1="1920.69" y1="1806.73" x2=".69" y2=".73" />
+  </g>
+</svg>
