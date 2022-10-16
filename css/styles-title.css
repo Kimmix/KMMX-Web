@@ -1,6 +1,6 @@
 /* Title animation */
 
-.line {
+span.scrollline {
   height: 0;
   width: 14px;
   background: repeating-linear-gradient(to top, var(--white-color) 0, var(--white-color) 5px, transparent 5px, transparent 12px);

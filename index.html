@@ -23,14 +23,16 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" />
 
   <link defer rel="stylesheet" href="css/styles-contact.css" />
+  <link defer rel="stylesheet" href="css/styles-cinematic.css" />
   <link defer rel="stylesheet" href="css/styles-footer.css" />
   <link defer rel="stylesheet" href="css/styles-gallery.css" />
   <link defer rel="stylesheet" href="css/styles-intro.css" />
   <link defer rel="stylesheet" href="css/styles-title.css" />
   <link defer rel="stylesheet" href="css/styles-navdot.css" />
+  <link defer rel="stylesheet" href="asset/locomotive-scroll/locomotive-scroll.min.css" />
 </head>
 
-<body id="body">
+<body id="body" data-scroll-container>
   <header>
     <div class="sidebutton">
       <div id="fullscr" class="fullscr-wrapper">
@@ -40,37 +42,36 @@
         </svg>
       </div>
     </div>
-    <section class="intro">
-      <div class="text-wrapper">
-        <div class="text-0 text">Initializing completed</div>
+    <div class="navdot-warpper">
+      <div class="navdot">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
       </div>
-      <div class="text-wrapper">
-        <div class="text-1 text outline">...system initializing...</div>
-        <div class="text-2 text">...system initializing...</div>
-        <div class="text-3 text outline">...system initializing...</div>
-        <div class="text-4 text outline">...system initializing...</div>
-        <div class="text-5 text">...system initializing...</div>
-        <div class="text-6 text">...system initializing...</div>
-        <div class="text-7 text">...system initializing...</div>
-        <div class="text-8 text outline">...system initializing...</div>
-        <div class="text-9 text">...system initializing...</div>
-        <div class="text-10 text outline">...system initializing...</div>
-      </div>
-      <div class="text-wrapper">
-        <div class="text-error text">system initializing system initializing system initializing</div>
-      </div>
-    </section>
-  </header>
-  <div class="navdot-warpper">
-    <div class="navdot">
-      <div class="dot" onclick="topFunction()"></div>
-      <div class="dot" onclick="onScrollTo('bio')"></div>
-      <div class="dot" onclick="onScrollTo('archive')"></div>
-      <div class="dot" onclick="onScrollTo('refsheet')"></div>
-      <div class="dot" onclick="onScrollTo('contact')"></div>
     </div>
-  </div>
-  <section class="title page">
+  </header>
+  <!-- <section class="intro">
+    <div class="text-wrapper">
+      <div class="text-0 text">Initializing completed</div>
+    </div>
+    <div class="text-wrapper">
+      <div class="text-1 text outline">...system initializing...</div>
+      <div class="text-2 text">...system initializing...</div>
+      <div class="text-3 text outline">...system initializing...</div>
+      <div class="text-4 text outline">...system initializing...</div>
+      <div class="text-5 text">...system initializing...</div>
+      <div class="text-6 text">...system initializing...</div>
+      <div class="text-7 text">...system initializing...</div>
+      <div class="text-8 text outline">...system initializing...</div>
+      <div class="text-9 text">...system initializing...</div>
+      <div class="text-10 text outline">...system initializing...</div>
+    </div>
+    <div class="text-wrapper">
+      <div class="text-error text">system initializing system initializing system initializing</div>
+    </div>
+  </section> -->
+  <section class="title page" data-scroll-section>
     <div class="logo-bg">
       <svg id="logo-stroke" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
         <path class="stroke" d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
@@ -106,7 +107,6 @@
     </div>
     <div class="wrapper">
       <div class="header-wrapper">
-        <!-- <span class="lblock"></span> -->
         <div class="swipe">
           <span class="block1"></span>
           <div class="title">KMMX</div>
@@ -124,15 +124,270 @@
         </div>
       </div>
     </div>
-    <span class="line"></span>
+    <span class="scrollline"></span>
   </section>
-  <section class="intro">
+  <section class="intro" data-scroll-section>
     <div id="scene" class="empty-space">
       <img data-depth="0.2" src="asset/arcaibg1.png">
       <img data-depth="0.6" src="asset/arcaibg2.png">
     </div>
   </section>
-  <section id="gallery" class="gallery page">
+  <section id="cinematic" class="cinematic page" data-scroll-section>
+    <div data-scroll data-scroll-sticky data-scroll-target="#cinematic" class="redtab"></div>
+    <div class="wrapper">
+      <div class="zone1">
+        <div data-scroll data-scroll-speed="4" class="dot-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div data-scroll data-scroll-speed="-1" class="job-label">
+          <h1 class="outline">Adventurer</h1>
+          <h1 class="outline">Traveler</h1>
+          <h1>Researcher</h1>
+        </div>
+      </div>
+      <div data-scroll data-scroll-speed="-2" class="line">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.37 1875.73">
+          <defs>
+            <style>
+              .arc-1 {
+                opacity: .1;
+                stroke-width: 3px;
+              }
+
+              .arc-1,
+              .arc-2 {
+                fill: none;
+                stroke: #cedffc;
+                stroke-miterlimit: 10;
+              }
+
+              .arc-3 {
+                fill: #cb2040;
+                font-family: Montserrat-Bold, Montserrat;
+                font-size: 123px;
+              }
+
+              .arc-2 {
+                opacity: .14;
+                stroke-width: 2px;
+              }
+
+              .arc-4 {
+                letter-spacing: -.07em;
+              }
+            </style>
+          </defs>
+          <g id="Layer_1-2" data-name="Layer 1">
+            <path class="arc-1"
+              d="M623.62,586.68c-233.77,105.64-396.43,340.85-396.43,614.05,0,371.96,301.54,673.5,673.5,673.5,287.79,0,533.42-180.51,629.85-434.48" />
+            <text class="arc-3" transform="translate(1706.2 1675.58)">
+              <tspan class="arc-4" x="0" y="0">/</tspan>
+              <tspan x="39.24" y="0">/</tspan>
+            </text>
+            <line class="arc-2" x1="1920.69" y1="1806.73" x2=".69" y2=".73" />
+          </g>
+        </svg>
+      </div>
+      <div class="zone2">
+        <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1" class="zone2-container">
+          <h1>Arcai</h1>
+          <h1 class="outline" style="margin-left: 100px;">Researcher</h1>
+        </div>
+        <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" class="text-bg">Arcai</h2>
+      </div>
+      <div data-scroll data-scroll-speed="3" class="aencc">
+        <div class="redbar"></div>
+        <p>AENCC Active/.</p>
+        <div class="txtblock">
+          <div style="display: flex; gap: 6px;">
+            <div style="height: 16px; width: 6px; background-color: var(--white-color); ">
+            </div>
+            <div style="display: flex; width: 100%; flex-direction: column; gap: 2px;">
+              <div
+                style="width: 100%; height: 5px; margin-top: 5px; margin-left: 10px; background-color: var(--white-color);">
+              </div>
+              <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+                <div style="width: 75%;height: 5px;background-color: var(--white2-color); opacity: 0.4;"></div>
+                <div style="width: 12%;height: 12px;background-color: var(--white-color);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="width: 70%; height: 7px; align-self: end;  background-color: var(--white-color);"></div>
+          <div style="height: 4px; width: 80%; background-color: var(--white2-color); opacity: 0.7;"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
+            <path class="stroke" d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
+            <path class="stroke" d="M223.29 301.84 223.29 133.67 347.81 304.14 280.72 262.33 223.29 301.84z" />
+          </svg>
+        </div>
+      </div>
+      <div class="zone3">
+        <div class="zone3-container">
+          <div class="solarsys" data-scroll data-scroll-direction="horizontal" data-scroll-speed="1.2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 838.26 1366.3">
+              <defs>
+                <style>
+                  .starmap-1 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-2 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-3 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-4 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-5 {
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-size: 33px;
+                  }
+
+                  .starmap-5,
+                  .starmap-6 {
+                    fill: #cedffc;
+                  }
+
+                  .starmap-7 {
+                    stroke-width: 4px;
+                  }
+
+                  .starmap-7,
+                  .starmap-8 {
+                    fill: none;
+                    stroke: #cedffc;
+                    stroke-miterlimit: 10;
+                  }
+
+                  .starmap-9 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-10 {
+                    letter-spacing: -.02em;
+                  }
+
+                  .starmap-11 {
+                    letter-spacing: .01em;
+                  }
+
+                  .starmap-12 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-13 {
+                    letter-spacing: 0em;
+                  }
+
+                  .starmap-14 {
+                    opacity: .61;
+                  }
+                </style>
+              </defs>
+              <g>
+                <g class="starmap-14">
+                  <circle class="starmap-6" cx="495.15" cy="376.18" r="40.3" />
+                  <circle class="starmap-6" cx="204.74" cy="519.13" r="204.69" />
+                  <circle class="starmap-6" cx="396.88" cy="250.08" r="60.34" />
+                  <circle class="starmap-6" cx="439.75" cy="1017.96" r="139.85" />
+                  <path class="starmap-7" d="M837.5,1364.45S34.23,1032.77,226.37,.37" />
+                </g>
+                <text class="starmap-5" transform="translate(390.84 707.23)">
+                  <tspan x="0" y="0">Bi</tspan>
+                  <tspan class="starmap-11" x="33.76" y="0">r</tspan>
+                  <tspan x="47.49" y="0">th home</tspan>
+                </text>
+                <text class="starmap-5" transform="translate(555.46 447.17)">
+                  <tspan class="starmap-9" x="0" y="0">A</tspan>
+                  <tspan class="starmap-12" x="23.5" y="0">c</tspan>
+                  <tspan class="starmap-10" x="42.27" y="0">t</tspan>
+                  <tspan class="starmap-1" x="54.98" y="0">1</tspan>
+                </text>
+                <text class="starmap-5" transform="translate(444.66 637.17)">
+                  <tspan class="starmap-4" x="0" y="0">A</tspan>
+                  <tspan class="starmap-13" x="23.5" y="0">c</tspan>
+                  <tspan class="starmap-3" x="42.27" y="0">t</tspan>
+                  <tspan x="55.41" y="0">2</tspan>
+                </text>
+                <text class="starmap-5" transform="translate(611.16 1129.17)">
+                  <tspan class="starmap-9" x="0" y="0">A</tspan>
+                  <tspan class="starmap-12" x="23.5" y="0">c</tspan>
+                  <tspan class="starmap-2" x="42.27" y="0">t3</tspan>
+                </text>
+                <polyline class="starmap-8" points="553.46 433.79 521.03 433.79 507.25 420" />
+                <polyline class="starmap-8" points="388.46 696.79 356.03 696.79 342.25 683" />
+                <polyline class="starmap-8" points="442.46 622.79 410.03 622.79 396.25 609" />
+                <polyline class="starmap-8" points="606.46 1117.79 574.03 1117.79 560.25 1104" />
+              </g>
+            </svg>
+          </div>
+          <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="0.7">Current Location: ???</h2>
+        </div>
+        <div class="note">
+          <p>*Lore will be avaliable in 3.0 update</p>
+        </div>
+      </div>
+    </div>
+    <div class="wipe">
+      <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="-10"></div>
+      <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="30"></div>
+      <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="60"></div>
+      <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="-40"></div>
+    </div>
+  </section>
+  <section id="gallery" class="gallery page" data-scroll-section>
     <div class="wrapper">
       <div class="gallery-text">
         <div class="gallery-text container">
@@ -216,7 +471,7 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="contact page">
+  <section id="contact" class="contact page" data-scroll-section>
     <div class="wrapper">
       <div class="content">
         <div class="pill"></div>
@@ -286,7 +541,7 @@
       </div>
     </div>
   </section>
-  <section class="footer">
+  <section class="footer" data-scroll-section>
     <div class="deco-container">
       <div class="deco1"></div>
       <div class="diagonal-stripes deco2"></div>
@@ -307,7 +562,7 @@
     </div>
   </section>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="asset/locomotive-scroll/locomotive-scroll.min.js"></script>
 <script src="asset/script/app.js" defer></script>
 
 

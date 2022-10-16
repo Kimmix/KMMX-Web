@@ -55,54 +55,6 @@ if ('serviceWorker' in navigator) {
   })
 }
 
-// https://github.com/wagerfield/parallax
-const scene = document.getElementById('scene');
-const parallaxInstance = new Parallax(scene, {
-  relativeInput: true,
-  originY: 0
-});
-
-// Animation triggering
-const sceneObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      parallaxInstance.enable();
-    } else {
-      parallaxInstance.disable();
-    }
-  })
-}, {
-  threshold: 0.05,
-});
-
-sceneObserver.observe(scene);
-
-// Fullscreen button and cusor animation
-let fullscreen;
-const fsEnter = document.getElementById('fullscr');
-const elem = document.documentElement;
-fsEnter.addEventListener('click', function (e) {
-  e.preventDefault();
-  if (!fullscreen) {
-    fullscreen = true;
-    document.getElementById('fsSvg').classList.add("active")
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    }
-  }
-  else {
-    fullscreen = false;
-    document.getElementById('fsSvg').classList.remove("active")
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    }
-  }
-});
-
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
@@ -186,3 +138,16 @@ function topFunction() {
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
 }
+
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  multiplier: 1,
+  firefoxMultiplier: 20,
+  mobile: {
+    smooth: true,
+  },
+  tablet: {
+    smooth: true,
+  },
+})
