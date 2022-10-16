@@ -39,7 +39,7 @@ span.scrollline {
   overflow-x: hidden;
 }
 
-svg#logo-stroke .stroke {
+svg .stroke {
   fill: none;
   stroke: var(--acc2b-color);
   stroke-width: 4px;
@@ -47,7 +47,7 @@ svg#logo-stroke .stroke {
   stroke-dashoffset: 912;
 }
 
-svg#logo-stroke.animate-onscroll .stroke {
+svg.animate-onscroll .stroke {
   animation: stroke-anim 3.5s ease-out forwards 500ms;
 }
 
@@ -145,16 +145,22 @@ section.title>.wrapper {
   letter-spacing: 10px;
   text-align: center;
   color: var(--white-color);
-  animation: fadeIn 2s forwards 7.6s, fadeIn 3.5s forwards 13s;
   opacity: 0;
+}
+
+.swipe .title.animate-onscroll {
+  animation: fadeIn 2s forwards 7.6s, fadeIn 3.5s forwards 2.4s;
 }
 
 .swipe .subtitle {
   width: 100%;
-  animation: fadeIn 2s forwards 7.8s;
   opacity: 0;
   margin-right: 2rem;
   cursor: pointer;
+}
+
+.swipe .subtitle.animate-onscroll {
+  animation: fadeIn 2s forwards 2.6s;
 }
 
 .swipe .subtitle h2 {
@@ -175,7 +181,10 @@ section.title>.wrapper {
   position: absolute;
   display: flex;
   background-color: var(--acc1-color);
-  animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6.3s, mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 12s;
+}
+
+.swipe span.block1.animate-onscroll {
+  animation: mainBlock 1.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 1.3s, mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 5s;
 }
 
 .swipe span.block2 {
@@ -185,7 +194,10 @@ section.title>.wrapper {
   position: absolute;
   display: flex;
   background-color: var(--acc2-color);
-  animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 6s;
+}
+
+.swipe span.block2.animate-onscroll {
+  animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards 1.1s;
 }
 
 @keyframes mainBlock {
@@ -260,11 +272,13 @@ section.title>.wrapper {
   content: ".";
 }
 
-.V:hover, .V:active {
+.V:hover,
+.V:active {
   color: var(--acc2-color);
 }
 
-.V:hover:after, .V:active:after {
+.V:hover:after,
+.V:active:after {
   content: "ery";
   animation: reveal 700ms ease-out forwards;
 }
@@ -273,11 +287,13 @@ section.title>.wrapper {
   content: ".";
 }
 
-.H:hover, .H:active {
+.H:hover,
+.H:active {
   color: var(--acc2-color);
 }
 
-.H:hover:after, .H:active:after {
+.H:hover:after,
+.H:active:after {
   content: "igh";
   animation: reveal 700ms ease-out forwards;
 }
@@ -286,11 +302,13 @@ section.title>.wrapper {
   content: ".";
 }
 
-.E:hover, .E:active {
+.E:hover,
+.E:active {
   color: var(--acc2-color);
 }
 
-.E:hover:after, .E:active:after {
+.E:hover:after,
+.E:active:after {
   content: "fficiency";
   animation: reveal 450ms ease-out forwards;
 }
@@ -350,16 +368,19 @@ svg.fs {
   transition: transform 150ms ease-out;
 }
 
-.fullscr-wrapper:hover svg.fs, svg.fs.active {
+.fullscr-wrapper:hover svg.fs,
+svg.fs.active {
   fill: var(--acc2-color);
   transform: scale(1.5);
 }
 
-.fullscr-wrapper:hover svg.fs .corner-1, svg.fs.active .corner-1 {
+.fullscr-wrapper:hover svg.fs .corner-1,
+svg.fs.active .corner-1 {
   transform: translateX(-10px);
 }
 
-.fullscr-wrapper:hover svg.fs .corner-2, svg.fs.active .corner-2 {
+.fullscr-wrapper:hover svg.fs .corner-2,
+svg.fs.active .corner-2 {
   transform: translateX(10px);
 }
 

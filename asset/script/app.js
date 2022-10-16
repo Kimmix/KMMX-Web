@@ -68,7 +68,11 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
   threshold: 0.05,
 });
 
-animationObserver.observe(document.getElementById('logo-stroke'));
+animationObserver.observe(document.getElementById('ao_logo-stroke'));
+animationObserver.observe(document.getElementById('ao_title'));
+animationObserver.observe(document.getElementById('ao_subtitle'));
+animationObserver.observe(document.getElementById('ao_block1'));
+animationObserver.observe(document.getElementById('ao_block2'));
 
 // https://dev.to/ljcdev/introduction-to-scroll-animations-with-intersection-observer-d05
 const tabs = document.querySelectorAll(".dot")
