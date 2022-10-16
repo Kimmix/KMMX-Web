@@ -202,9 +202,7 @@ section.cinematic>.wrapper>.zone3 {
 .wipe>div {
   width: 100%;
   height: 25%;
-  background: #fff;
-  /* animation: up 2s ease-in-out infinite; */
-  /* transform: scaleY(0); */
+  margin: -5px 0;
   background: var(--acc2b-color);
 }
 
