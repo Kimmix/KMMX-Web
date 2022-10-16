@@ -70,6 +70,12 @@ section.gallery>.wrapper {
   height: auto;
   object-fit: cover;
   object-position: bottom;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .gallery-col .spacer {
@@ -86,6 +92,12 @@ section.gallery>.wrapper {
   font-size: 12px;
   overflow: hidden;
   transition: max-width 200ms ease-in-out;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .g-img>.info>h3 {

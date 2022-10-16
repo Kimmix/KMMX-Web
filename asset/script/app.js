@@ -59,6 +59,19 @@ function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
 
+// LocomotiveScroll
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  firefoxMultiplier: 20,
+  mobile: {
+    smooth: true,
+  },
+  tablet: {
+    smooth: true,
+  },
+})
+
 // Animation triggering
 const animationObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -97,6 +110,26 @@ pages.forEach(page => {
   scrollingObserver.observe(page)
 })
 
+// Drag gallery
+const galleryDrag = document.getElementById('gallery-drag');
+let galleryPos = { left: 0, x: 0 };
+const mouseDownHandler = (e) => {
+  galleryPos = {
+    left: galleryDrag.scrollLeft,
+    x: e.clientX,
+  };
+  document.addEventListener('mousemove', mouseMoveHandler);
+  document.addEventListener('mouseup', mouseUpHandler);
+};
+const mouseMoveHandler = (e) => {
+  galleryDrag.scrollLeft = galleryPos.left - (e.clientX - galleryPos.x);
+};
+const mouseUpHandler = () => {
+  document.removeEventListener('mousemove', mouseMoveHandler);
+  document.removeEventListener('mouseup', mouseUpHandler);
+};
+galleryDrag.addEventListener('mousedown', mouseDownHandler);
+
 // Mobile gallery auto focus
 let mobileObserver = null;
 if (detectMobile()) {
@@ -118,7 +151,6 @@ if (detectMobile()) {
   mobileObserver.observe(document.getElementById('auto-focus9'));
   mobileObserver.observe(document.getElementById('auto-focus10'));
 }
-
 
 // https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
 function detectMobile() {
@@ -142,16 +174,3 @@ function topFunction() {
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
 }
-
-const scroller = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  multiplier: 1,
-  firefoxMultiplier: 20,
-  mobile: {
-    smooth: true,
-  },
-  tablet: {
-    smooth: true,
-  },
-})
