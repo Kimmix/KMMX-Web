@@ -151,20 +151,11 @@ if (detectMobile()) {
   mobileObserver.observe(document.getElementById('auto-focus9'));
   mobileObserver.observe(document.getElementById('auto-focus10'));
 }
-
-// https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
-function detectMobile() {
-  const toMatch = [
-    /Android/i,
-    /iPhone/i,
-    /iPad/i,
-    /iPod/i,
-  ];
-
-  return toMatch.some((toMatchItem) => {
-    return navigator.userAgent.match(toMatchItem);
-  });
-}
+// https://htmldom.dev/detect-mobile-browsers/
+const detectMobile = function () {
+  const match = window.matchMedia('(pointer:coarse)');
+  return match && match.matches;
+};
 
 // Footer
 function topFunction() {
