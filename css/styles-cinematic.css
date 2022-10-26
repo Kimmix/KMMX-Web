@@ -153,6 +153,7 @@ section.cinematic>.wrapper>.zone3 {
   justify-content: center;
   align-items: center;
   z-index: 2;
+  padding-bottom: 200px;
 }
 
 .cinematic .zone3 .zone3-container {
@@ -166,6 +167,11 @@ section.cinematic>.wrapper>.zone3 {
 .cinematic .zone3 .solarsys {
   padding-right: 36%;
   width: 100%;
+}
+
+.cinematic .zone3 .solarsys>img {
+  position: relative;
+  left: -20%;
 }
 
 .cinematic .zone3 h2 {
