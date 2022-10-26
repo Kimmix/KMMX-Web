@@ -86,7 +86,7 @@ section.cinematic>.wrapper>.zone2 {
 
 .cinematic .line {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 0;
   width: 100vw;
   z-index: 2;
@@ -94,8 +94,6 @@ section.cinematic>.wrapper>.zone2 {
 
 .cinematic .aencc {
   margin-left: auto;
-  margin-right: 20px;
-  margin-top: 170px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -154,7 +152,6 @@ section.cinematic>.wrapper>.zone3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 170px;
   z-index: 2;
 }
 
