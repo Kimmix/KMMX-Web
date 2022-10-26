@@ -13,7 +13,7 @@
   gap: 10px;
 }
 
-.navdot > .dot {
+.navdot > #sectiondot {
   width: 3px;
   height: 3px;
   padding: 3px;
@@ -23,7 +23,7 @@
   transition: transform 150ms ease-out;
 }
 
-.navdot > .dot.active {
+.navdot > #sectiondot.active {
   background-color: var(--acc2-color);
 
   box-shadow: 0 0 0 0 #ffffff;

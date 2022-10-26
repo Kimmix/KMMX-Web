@@ -73,6 +73,7 @@ const scroller = new LocomotiveScroll({
 })
 
 // Animation triggering
+const animateOnscroll = document.querySelectorAll('#animate-onscroll')
 const animationObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     entry.target.classList.toggle('animate-onscroll', entry.isIntersecting)
@@ -80,16 +81,20 @@ const animationObserver = new IntersectionObserver((entries, observer) => {
 }, {
   threshold: 0.05,
 });
+animateOnscroll.forEach(ele => {
+  animationObserver.observe(ele)
+})
 
-animationObserver.observe(document.getElementById('ao_logo-stroke'));
-animationObserver.observe(document.getElementById('ao_title'));
-animationObserver.observe(document.getElementById('ao_subtitle'));
-animationObserver.observe(document.getElementById('ao_block1'));
-animationObserver.observe(document.getElementById('ao_block2'));
-
+// Navdot
+const pages = document.querySelectorAll("section");
+const navdot = document.getElementById("navdot");
+pages.forEach(e => {
+  const newdot = document.createElement("div");
+  newdot.setAttribute("id", "sectiondot");
+  navdot.appendChild(newdot)
+})
 // https://dev.to/ljcdev/introduction-to-scroll-animations-with-intersection-observer-d05
-const tabs = document.querySelectorAll(".dot")
-const pages = document.querySelectorAll(".page")
+const tabs = document.querySelectorAll("#sectiondot")
 // Scrolling triggering
 const scrollingObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -102,33 +107,11 @@ const scrollingObserver = new IntersectionObserver((entries, observer) => {
     }
   })
 }, {
-  rootMargin: '-100px 0px',
-  threshold: 0.25,
+  threshold: 0.05,
 });
-
 pages.forEach(page => {
   scrollingObserver.observe(page)
 })
-
-// Drag gallery
-const galleryDrag = document.getElementById('gallery-drag');
-let galleryPos = { left: 0, x: 0 };
-const mouseDownHandler = (e) => {
-  galleryPos = {
-    left: galleryDrag.scrollLeft,
-    x: e.clientX,
-  };
-  document.addEventListener('mousemove', mouseMoveHandler);
-  document.addEventListener('mouseup', mouseUpHandler);
-};
-const mouseMoveHandler = (e) => {
-  galleryDrag.scrollLeft = galleryPos.left - (e.clientX - galleryPos.x);
-};
-const mouseUpHandler = () => {
-  document.removeEventListener('mousemove', mouseMoveHandler);
-  document.removeEventListener('mouseup', mouseUpHandler);
-};
-galleryDrag.addEventListener('mousedown', mouseDownHandler);
 
 // Mobile gallery auto focus
 // https://htmldom.dev/detect-mobile-browsers/
@@ -139,6 +122,7 @@ const detectMobile = function () {
 let mobileObserver = null;
 if (detectMobile()) {
   console.log('Mobile Detected!');
+  const mobileAF = document.querySelectorAll('#auto-focus')
   mobileObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       entry.target.classList.toggle('focus', entry.isIntersecting)
@@ -146,16 +130,29 @@ if (detectMobile()) {
   }, {
     threshold: 0.7,
   });
-  mobileObserver.observe(document.getElementById('auto-focus1'));
-  mobileObserver.observe(document.getElementById('auto-focus2'));
-  mobileObserver.observe(document.getElementById('auto-focus3'));
-  mobileObserver.observe(document.getElementById('auto-focus4'));
-  mobileObserver.observe(document.getElementById('auto-focus5'));
-  mobileObserver.observe(document.getElementById('auto-focus6'));
-  mobileObserver.observe(document.getElementById('auto-focus7'));
-  mobileObserver.observe(document.getElementById('auto-focus8'));
-  mobileObserver.observe(document.getElementById('auto-focus9'));
-  mobileObserver.observe(document.getElementById('auto-focus10'));
+  mobileAF.forEach(ele => {
+    mobileObserver.observe(ele)
+  })
+} else {
+  // Drag gallery
+  const galleryDrag = document.getElementById('gallery-drag');
+  let galleryPos = { left: 0, x: 0 };
+  const mouseDownHandler = (e) => {
+    galleryPos = {
+      left: galleryDrag.scrollLeft,
+      x: e.clientX,
+    };
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  };
+  const mouseMoveHandler = (e) => {
+    galleryDrag.scrollLeft = galleryPos.left - (e.clientX - galleryPos.x);
+  };
+  const mouseUpHandler = () => {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  };
+  galleryDrag.addEventListener('mousedown', mouseDownHandler);
 }
 
 // Footer
