@@ -131,8 +131,14 @@ const mouseUpHandler = () => {
 galleryDrag.addEventListener('mousedown', mouseDownHandler);
 
 // Mobile gallery auto focus
+// https://htmldom.dev/detect-mobile-browsers/
+const detectMobile = function () {
+  const match = window.matchMedia('(pointer:coarse)');
+  return match && match.matches;
+};
 let mobileObserver = null;
 if (detectMobile()) {
+  console.log('Mobile Detected!');
   mobileObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       entry.target.classList.toggle('focus', entry.isIntersecting)
@@ -151,11 +157,6 @@ if (detectMobile()) {
   mobileObserver.observe(document.getElementById('auto-focus9'));
   mobileObserver.observe(document.getElementById('auto-focus10'));
 }
-// https://htmldom.dev/detect-mobile-browsers/
-const detectMobile = function () {
-  const match = window.matchMedia('(pointer:coarse)');
-  return match && match.matches;
-};
 
 // Footer
 function topFunction() {

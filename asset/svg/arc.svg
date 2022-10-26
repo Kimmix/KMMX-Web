@@ -1,0 +1,41 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.37 1875.73">
+  <defs>
+    <style>
+      .arc-1 {
+        opacity: .1;
+        stroke-width: 3px;
+      }
+
+      .arc-1,
+      .arc-2 {
+        fill: none;
+        stroke: #cedffc;
+        stroke-miterlimit: 10;
+      }
+
+      .arc-3 {
+        fill: #cb2040;
+        font-family: Montserrat-Bold, Montserrat;
+        font-size: 123px;
+      }
+
+      .arc-2 {
+        opacity: .14;
+        stroke-width: 2px;
+      }
+
+      .arc-4 {
+        letter-spacing: -.07em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="arc-1"
+      d="M623.62,586.68c-233.77,105.64-396.43,340.85-396.43,614.05,0,371.96,301.54,673.5,673.5,673.5,287.79,0,533.42-180.51,629.85-434.48" />
+    <text class="arc-3" transform="translate(1706.2 1675.58)">
+      <tspan class="arc-4" x="0" y="0">/</tspan>
+      <tspan x="39.24" y="0">/</tspan>
+    </text>
+    <line class="arc-2" x1="1920.69" y1="1806.73" x2=".69" y2=".73" />
+  </g>
+</svg>
