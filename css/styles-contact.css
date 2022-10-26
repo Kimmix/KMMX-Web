@@ -16,11 +16,6 @@ section.contact>.wrapper {
   flex-direction: column;
 }
 
-.contact h1 {
-  font-size: clamp(3.2rem, 10vw, 5.5em);
-  font-weight: 400;
-}
-
 .contact .pill {
   height: 10px;
   width: 75px;

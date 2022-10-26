@@ -323,25 +323,6 @@ section.title>.wrapper {
   }
 }
 
-/* Scroll */
-
-.scrollhint {
-  color: var(--acc2-color);
-  font-size: 20px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  position: absolute;
-  right: 10px;
-  bottom: 2rem;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  animation: fadebounce 1.6s infinite 10.3s;
-  opacity: 0;
-}
-
 /* Icon on right */
 
 .sidebutton {

@@ -61,6 +61,14 @@ body {
   -webkit-tap-highlight-color: #00000000;
 }
 
+h1 {
+  font-size: clamp(3.2rem, 10vw, 6.5em);
+}
+
+h2 {
+  font-size: clamp(2.2rem, 6vw, 4.5em);
+}
+
 section {
   width: 100%;
   min-height: 100vh;
