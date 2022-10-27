@@ -59,18 +59,6 @@ function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
 
-// LocomotiveScroll
-const scroller = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  firefoxMultiplier: 20,
-  mobile: {
-    smooth: true,
-  },
-  tablet: {
-    smooth: true,
-  },
-})
 
 // Animation triggering
 const animateOnscroll = document.querySelectorAll('#animate-onscroll')
@@ -163,3 +151,18 @@ function topFunction() {
 function onScrollTo(id) {
   document.getElementById(id).scrollIntoView(true);
 }
+
+// LocomotiveScroll
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  scrollFromAnywhere: true,
+  reloadOnContextChange: true,
+  smooth: true,
+  firefoxMultiplier: 20,
+  mobile: {
+    smooth: true,
+  },
+  tablet: {
+    smooth: true,
+  },
+})
