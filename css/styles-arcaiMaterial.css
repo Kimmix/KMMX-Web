@@ -50,4 +50,8 @@ section.arcaiMaterial .am_footer {
   height: 40px;
 }
 
-@media screen and (max-width: 800px) {}
+@media screen and (max-width: 1024px) {
+  section.arcaiMaterial .am_header h1 {
+    padding-left: 10px;
+  }
+}

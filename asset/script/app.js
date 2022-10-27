@@ -156,9 +156,9 @@ function onScrollTo(id) {
 const scroller = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   scrollFromAnywhere: true,
-  reloadOnContextChange: true,
+  // reloadOnContextChange: true,
   smooth: true,
-  firefoxMultiplier: 20,
+  firefoxMultiplier: 50,
   mobile: {
     smooth: true,
   },
