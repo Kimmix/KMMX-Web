@@ -1,12 +1,8 @@
 section.gallery {
-  min-height: 100vh;
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: fill-available;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1700px;
+  max-width: 2000px;
 }
 
 section.gallery>.wrapper {
@@ -21,7 +17,6 @@ section.gallery>.wrapper {
 }
 
 .gallery-text.container {
-  font-size: 3em;
   writing-mode: vertical-rl;
   text-orientation: upright;
 }
@@ -85,7 +80,7 @@ section.gallery>.wrapper {
 }
 
 .gallery-col .spacer {
-  width: 500px;
+  width: 650px;
   height: 1px;
 }
 
