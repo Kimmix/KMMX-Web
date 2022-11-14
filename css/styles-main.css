@@ -309,7 +309,6 @@ div.intro {
 
 @keyframes delete-out-container {
   99% {
-    opacity: 0;
     height: initial;
   }
 

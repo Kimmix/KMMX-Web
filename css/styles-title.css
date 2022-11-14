@@ -39,7 +39,7 @@ span.scrollline {
   overflow-x: hidden;
 }
 
-svg .stroke {
+.title svg .stroke {
   fill: none;
   stroke: var(--acc2b-color);
   stroke-width: 4px;
@@ -47,7 +47,7 @@ svg .stroke {
   stroke-dashoffset: 912;
 }
 
-svg.animate-onscroll .stroke {
+.title svg.animate-onscroll .stroke {
   animation: stroke-anim 3.5s ease-out forwards 500ms;
 }
 
@@ -57,7 +57,7 @@ svg.animate-onscroll .stroke {
   }
 }
 
-svg#logoFill {
+.title svg#logoFill {
   margin-top: 10vw;
   animation: hover 5s infinite alternate 8.5s, fadeIn 2s 8.5s, show 1s infinite 9.5s;
   opacity: 0;
