@@ -40,6 +40,7 @@ section.arcaiMaterial .am_left {
 section.arcaiMaterial .am_right {
   flex: 1;
   background-color: var(--white2-color);
+  margin-top: -70vh;
 }
 
 section.arcaiMaterial .am_footer {

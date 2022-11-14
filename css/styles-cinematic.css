@@ -1,3 +1,18 @@
+.arcaibg-container {
+  position: relative;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arcaibg-container img.arcaibg {
+  position: absolute;
+  height: 100%;
+  width: auto;
+}
+
 .redtab {
   width: 10px;
   height: 100px;
