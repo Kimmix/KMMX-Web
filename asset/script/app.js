@@ -1,3 +1,9 @@
+// Fading FavIcon
+const favicon = document.querySelector('link[rel="icon"]')
+document.addEventListener("visibilitychange", () => {
+  const hidden = document.hidden
+  favicon.setAttribute("href", `/favicon${hidden ? "-hidden" : ""}.png`)
+})
 // Register service worker
 // https://whatwebcando.today/articles/handling-service-worker-updates/
 function invokeServiceWorkerUpdateFlow(registration) {
