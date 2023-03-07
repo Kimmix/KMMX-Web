@@ -1,4 +1,4 @@
-const cacheName = 'kmmx-site-v1.4.8'
+const cacheName = 'kmmx-site-v1.4.9'
 const assets = [
   "/favicon.png",
   "/asset/script/cursor.js",
