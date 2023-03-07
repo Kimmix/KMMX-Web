@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KMMX Control</title>
+  <meta name="description" content="KMMX BLE Control" />
+
+  <meta name="theme-color" content="#141414" />
+  <meta name="apple-mobile-web-app-status-bar" content="#141414" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" type="image/png" href="../favicon.png" />
+  <link rel="mask-icon" href="../asset/maskable_icon.png" color="#f9826c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+    as="style" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:wght@600&display=swap" />
+
+  <link defer rel="stylesheet" href="../css/normalize.css" />
+  <link defer rel="stylesheet" href="../css/styles-main.css" />
+  <link defer rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section id="pairingMode">
+    <h1 id="notSupported">Your device does not support this tech!!!</h1>
+    <button onclick="startBLE()">Click Me</button>
+  </section>
+  <section id="paredMode">
+    <!-- <button onclick="onWriteButtonClick(1)">On</button>
+    <button onclick="onWriteButtonClick(0)">Off</button> -->
+    <input type="range" min="1" max="255" value="value" id="brightness">
+  </section>
+
+  <script defer src="control.js"></script>
+</body>
+
+</html>
