@@ -61,6 +61,20 @@ if ('serviceWorker' in navigator) {
   })
 }
 
+// Background music control
+var audio = document.getElementById("bgAudio");
+var audioPlayer = document.getElementById("audioPlayer");
+audioPlayer.onclick = function play() {
+  if (audioPlayer.classList.contains("stop")) {
+    audioPlayer.classList.remove("stop");
+    audio.play();
+  }
+  else {
+    audioPlayer.classList.add("stop");
+    audio.pause();
+  }
+}
+
 // Use custom cursor on desktop only
 if (!detectMobile()) {
   document.getElementsByTagName("head")[0].insertAdjacentHTML(
