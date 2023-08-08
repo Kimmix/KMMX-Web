@@ -99,6 +99,13 @@ h3 {
   gap: 10px;
 }
 
+.sub-button {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+}
+
 button {
   display: inline-block;
   background-color: var(--black3-color);
@@ -110,27 +117,21 @@ button {
   margin: 5px;
   height: 100px;
   max-width: 70%;
+  transform: translateZ(0);
   transition: max-width 0.5s ease,
     background-color 0.5s ease,
     color 0.5s ease;
 }
 
-.sub-button {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 10px;
-}
-
 .sub-button button {
-  min-width: 100px;
-  max-width: 50%;
+  width: 100%;
+  max-width: 50px;
 }
 
 .active {
   background-color: var(--white-color);
   color: var(--black-color);
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 
