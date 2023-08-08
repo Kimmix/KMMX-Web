@@ -73,6 +73,12 @@ h3 {
   height: 50px;
 }
 
+.expression hr {
+  border: none;
+  border-top: 2px solid var(--white2-color);
+  margin: 0 10%;
+}
+
 .expression-title {
   display: flex;
   justify-content: space-between;
@@ -102,15 +108,22 @@ button {
   border-radius: 12px;
   padding: 10px 20px;
   margin: 5px;
-  height: 70px;
+  height: 100px;
   max-width: 70%;
   transition: max-width 0.5s ease,
     background-color 0.5s ease,
     color 0.5s ease;
 }
 
+.sub-button {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+}
+
 .sub-button button {
-  min-width: 70px;
+  min-width: 100px;
   max-width: 50%;
 }
 
