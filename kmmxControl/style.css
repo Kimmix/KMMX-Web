@@ -1,17 +1,15 @@
-h1 {
-  display: none;
-}
-
 body {
   display: flex;
   justify-content: center;
   margin: 0 15px;
   width: auto;
+  overflow: hidden;
 }
 
 section.control-panel {
   /* max-width: 800px; */
   flex-direction: column;
+  gap: 18px;
 }
 
 .status-header {
@@ -71,6 +69,7 @@ h3 {
 /* EXPRESSION */
 .expression {
   display: flex;
+  flex-direction: column;
   height: 50px;
 }
 
@@ -87,6 +86,40 @@ h3 {
   margin-right: calc(10% - 30px);
 }
 
+.expression-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+button {
+  display: inline-block;
+  background-color: var(--black3-color);
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 10px 20px;
+  margin: 5px;
+  height: 70px;
+  max-width: 70%;
+  transition: max-width 0.5s ease,
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+.sub-button button {
+  min-width: 70px;
+  max-width: 50%;
+}
+
+.active {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  max-width: 100%;
+}
+
 
 /* FOOTER */
 footer {
@@ -99,7 +132,6 @@ footer hr {
   border: none;
   border-top: 2px solid var(--white2-color);
   margin: 10px 0;
-  /* Adjust margin as needed */
 }
 
 .timer {

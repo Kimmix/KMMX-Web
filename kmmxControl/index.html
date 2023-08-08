@@ -25,7 +25,6 @@
   <link defer rel="stylesheet" href="../css/normalize.css" />
   <link defer rel="stylesheet" href="../css/styles-main.css" />
   <link defer rel="stylesheet" href="style.css" />
-  <script src="control.js"></script>
 </head>
 
 <body>
@@ -44,6 +43,16 @@
       <div class="expression-title">
         <h2>Expression</h2>
         <img class="dotted-array" src="asset/svg/dot-array.svg" alt="dotted array">
+      </div>
+      <div class="expression-container">
+        <button class="toggle-button" onclick="toggleButton(1)">1</button>
+        <button class="toggle-button" onclick="toggleButton(2)">2</button>
+        <button class="toggle-button" onclick="toggleButton(3)">3</button>
+        <!-- <div class="sub-button">
+          <button class="toggle-button" onclick="toggleButton(4)">4</button>
+          <button class="toggle-button" onclick="toggleButton(5)">5</button>
+          <button class="toggle-button" onclick="toggleButton(6)">6</button>
+        </div> -->
       </div>
     </div>
   </section>
@@ -66,7 +75,7 @@
       </div>
     </div>
   </footer>
-
+  <script defer src="control.js"></script>
 </body>
 
 </html>

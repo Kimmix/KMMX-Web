@@ -69,10 +69,27 @@ function updateStatusAndTimer() {
   const seconds = timerValue % 60;
   const formattedTimer = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   timerElement.textContent = formattedTimer;
-  console.log(formattedTimer);
 }
 
 timerInterval = setInterval(() => {
   timerValue++;
   updateStatusAndTimer();
 }, 1000);
+
+
+let activeButton = null;
+
+function toggleButton(buttonNumber) {
+  const button = document.querySelector(`.toggle-button:nth-child(${buttonNumber})`);
+
+  if (activeButton !== null) {
+    activeButton.classList.remove('active');
+  }
+
+  if (activeButton !== button) {
+    button.classList.add('active');
+    activeButton = button;
+  } else {
+    activeButton = null;
+  }
+}
