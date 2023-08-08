@@ -79,8 +79,8 @@ timerInterval = setInterval(() => {
 
 let activeButton = null;
 
-function toggleButton(buttonNumber) {
-  const button = document.querySelector(`.toggle-button:nth-child(${buttonNumber})`);
+function toggleButton(buttonId) {
+  const button = document.getElementById(buttonId);
 
   if (activeButton !== null) {
     activeButton.classList.remove('active');
