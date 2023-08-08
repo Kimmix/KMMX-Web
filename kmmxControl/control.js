@@ -1,5 +1,6 @@
 let myDescriptor;
-var brightness = document.getElementById("brightness").value;
+// const brightness = document.getElementById("brightness").value;
+const statusElement = document.getElementById("status");
 
 function startBLE() {
   navigator.bluetooth.requestDevice({
@@ -7,7 +8,7 @@ function startBLE() {
     // optionalServices: ['d0e21a4b-d38e-460f-90f7-8c8082284aee']
     filters: [
       { name: "KMMX-BLE" },
-      { services: ['00001800-0000-1000-8000-00805f9b34fb', '00001801-0000-1000-8000-00805f9b34fb', 'd0e21a4b-d38e-460f-90f7-8c8082284aee'] },
+      { services: ['c1449275-bf34-40ab-979d-e34a1fdbb129'] },
     ]
   })
     .then(device => {
@@ -19,7 +20,7 @@ function startBLE() {
       return device.gatt.connect();
     })
     .then(server => server.getPrimaryService('c1449275-bf34-40ab-979d-e34a1fdbb129'))
-    .then(service => service.getCharacteristic('49a36bb2-1c66-4e5c-8ff3-28e55a64beb3'))
+    .then(service => service.getCharacteristic('9fdfd124-966b-44f7-8331-778c4d1512fc'))
     .then(characteristic => {
       myDescriptor = characteristic
       brightness = characteristic.properties.read
@@ -27,6 +28,7 @@ function startBLE() {
     })
     .then(_ => {
       console.log('Device connected');
+      statusElement.textContent = "Connected";
     })
     .catch(error => { console.error(error); });
 }
@@ -34,6 +36,7 @@ function startBLE() {
 function onDisconnected(event) {
   const device = event.target;
   console.log(`Device ${device.name} is disconnected.`);
+  statusElement.textContent = "Disconnected";
 }
 
 function onWriteButtonClick(value) {
@@ -49,11 +52,27 @@ function onWriteButtonClick(value) {
     });
 }
 
+try {
+  navigator.bluetooth.getAvailability()
+} catch (error) {
+  console.error('This browser does not support BLE!');
+}
 
-navigator.bluetooth.getAvailability().then(isAvailable => {
-  console.log(isAvailable);
-  if (!isAvailable) {
-    console.log('lol');
-    document.getElementById('notSupported').style.display = "block"
-  }
-});
+
+let isConnected = true;
+let timerValue = 0;
+let timerInterval;
+
+function updateStatusAndTimer() {
+  const timerElement = document.getElementById("timer");
+  const minutes = Math.floor(timerValue / 60);
+  const seconds = timerValue % 60;
+  const formattedTimer = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  timerElement.textContent = formattedTimer;
+  console.log(formattedTimer);
+}
+
+timerInterval = setInterval(() => {
+  timerValue++;
+  updateStatusAndTimer();
+}, 1000);

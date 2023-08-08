@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KMMX Control</title>
-  <meta name="description" content="KMMX BLE Control" />
+  <meta name="description" content="KMMX BLE Control Panel" />
 
   <meta name="theme-color" content="#141414" />
   <meta name="apple-mobile-web-app-status-bar" content="#141414" />
@@ -25,20 +25,48 @@
   <link defer rel="stylesheet" href="../css/normalize.css" />
   <link defer rel="stylesheet" href="../css/styles-main.css" />
   <link defer rel="stylesheet" href="style.css" />
+  <script src="control.js"></script>
 </head>
 
 <body>
-  <section id="pairingMode">
-    <h1 id="notSupported">Your device does not support this tech!!!</h1>
-    <button onclick="startBLE()">Click Me</button>
+  <div class="status-header">
+    <img class="status-pill" src="asset/svg/pill.svg" alt="Status pill">
+  </div>
+  <section id="pairingMode" class="control-panel">
+    <div class="header">
+      <img class="glow-icon" src="asset/svg/control-icon.svg" alt="Icon">
+      <div class="header-title">
+        <h2>KMMX</h2>
+        <h3>Control panel</h3>
+      </div>
+    </div>
+    <div class="expression">
+      <div class="expression-title">
+        <h2>Expression</h2>
+        <img class="dotted-array" src="asset/svg/dot-array.svg" alt="dotted array">
+      </div>
+    </div>
   </section>
-  <section id="paredMode">
-    <!-- <button onclick="onWriteButtonClick(1)">On</button>
-    <button onclick="onWriteButtonClick(0)">Off</button> -->
-    <input type="range" min="1" max="255" value="value" id="brightness">
-  </section>
+  <footer>
+    <hr>
+    <div class="footer-container">
+      <div class="connection-stat">
+        <span id="status">Disconnected</span>
+        <p>&nbsp;·&nbsp;</p>
+        <span id="timer" class="timer">0:00</span>
+      </div>
+      <div class="footer-info">
+        <div class="footer-info-l">
+          <p>Kimmix ©2023</p>
+          <p class="sub">Authorized use only</p>
+        </div>
+        <div class="footer-info-r">
+          <p class="sub">V1.0</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <script defer src="control.js"></script>
 </body>
 
 </html>
