@@ -1,0 +1,79 @@
+:root {
+    --white-color: #FFFFFF;
+    --white2-color: #CEDFFC;
+    --grey-color: #C6C6C6;
+    --black-color: #0B0B0C;
+    --black2-color: #101014;
+    --black3-color: #16161A;
+
+    --primary-color: #CB2040;
+    --primary-hover-color: #FF446C;
+    --secondary-color: #FF446C;
+    --tertiary-color: #F9826C;
+    --blue-color: #92ECF5;
+
+    --background-color: #EFEFEF;
+    --text-color: #000000;
+}
+
+body {
+    font-family:
+        'Montserrat',
+        system-ui,
+        'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji';
+    font-weight: bold;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    touch-action: manipulation;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: #00000000;
+}
+
+/* Basic Styles */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 2.1rem;
+}
+h3 {
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* FLEX */
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    &.row {
+        flex-direction: row;
+    }
+}
+
+/* @media (min-width:320px) {
+    .flex {
+        flex-direction: column;
+    }
+
+} */
