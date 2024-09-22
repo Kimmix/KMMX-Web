@@ -1,5 +1,5 @@
 :root {
-    --background-color: var(--white-color);
+    --background-color: var(--white2-color);
     --text-color: var(--black-color);
 }
 
@@ -17,17 +17,21 @@
 }
 
 .logo {
+    --space: 200px;
     flex-grow: 1;
     width: 100%;
     align-items: flex-end;
     justify-content: flex-end;
     padding-right: 50px;
     overflow: hidden;
+    margin-bottom: calc(var(--space) * -1);;
+    z-index: 1;
 
     svg {
-        max-height: 550px;
+        max-height: 700px;
         min-width: 500px;
         view-transition-name: aa-logo;
+        padding-bottom: var(--space);
     }
 }
 
