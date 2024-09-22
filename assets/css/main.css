@@ -53,10 +53,11 @@ body {
     .footer-right {
         margin-top: auto;
         align-items: flex-end;
+        --box-size: 50px;
 
         .box {
-            width: 65px;
-            height: 65px;
+            width: var(--box-size);
+            height: var(--box-size);
             border-radius: 20%;
             background-color: var(--grey-color);
         }
