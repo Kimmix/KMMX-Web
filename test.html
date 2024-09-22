@@ -3,83 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Box</title>
+    <title>Tooltip Hover with Copy</title>
     <style>
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             font-family: Arial, sans-serif;
         }
-
-        .info-box {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            border-radius: 50%;
+        .center-box {
+            position: relative;
+            padding: 20px;
+            margin: 10px;
+            background-color: #007BFF;
+            color: white;
             cursor: pointer;
-            transition: width 0.3s ease, height 0.3s ease;
-            overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
-
-        .info-icon {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            border-radius: 50%;
-            background-color: #007bff;
-            transition: background-color 0.3s ease;
-        }
-
-        .info-text {
+        .tooltip {
+            position: fixed;
             display: none;
-            color: white;
-            background-color: #007bff;
             padding: 10px;
+            background-color: #333;
+            color: #fff;
             border-radius: 5px;
             font-size: 14px;
-            margin-left: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none;
         }
-
-        .info-box.expanded {
-            width: 350px;
-            height: 50px;
-            border-radius: 25px;
-        }
-
-        .info-box.expanded .info-text {
-            display: block;
-            opacity: 1;
-        }
-
-        .info-icon:hover {
-            background-color: #0056b3;
+        .tooltip.copied {
+            color: blue;
         }
     </style>
 </head>
 <body>
-    <div class="info-box" onclick="toggleInfoBox()">
-        <div class="info-icon">i</div>
-        <div class="info-text">
-            This web contains experiential web API. Please use Chrome for the best experience.
-        </div>
+    <div class="center-box" data-tooltip="Message 1" id="hover-box-1">
+        Hover over me 1!
+        <div class="tooltip">Message 1</div>
+    </div>
+
+    <div class="center-box" data-tooltip="Message 2" id="hover-box-2">
+        Hover over me 2!
+        <div class="tooltip">Message 2</div>
+    </div>
+
+    <div class="center-box" data-tooltip="Message 3" id="hover-box-3">
+        Hover over me 3!
+        <div class="tooltip">Message 3</div>
     </div>
 
     <script>
-        function toggleInfoBox() {
-            const infoBox = document.querySelector('.info-box');
-            infoBox.classList.toggle('expanded');
-        }
+        const hoverBoxes = document.querySelectorAll('.center-box');
+
+        hoverBoxes.forEach(hoverBox => {
+            const tooltip = hoverBox.querySelector('.tooltip');
+            const originalText = hoverBox.getAttribute('data-tooltip');
+
+            hoverBox.addEventListener('mouseenter', function(event) {
+                tooltip.style.display = 'block';
+            });
+
+            hoverBox.addEventListener('mousemove', function(event) {
+                tooltip.style.left = `${event.pageX}px`;
+                tooltip.style.top = `${event.pageY + 20}px`;
+            });
+
+            hoverBox.addEventListener('mouseleave', function() {
+                tooltip.style.display = 'none';
+            });
+
+            hoverBox.addEventListener('click', function() {
+                // Copy the specific tooltip text to clipboard
+                navigator.clipboard.writeText(originalText).then(() => {
+                    // Change tooltip text to indicate it has been copied and apply blue color
+                    tooltip.innerText = 'Copied!';
+                    tooltip.classList.add('copied');
+
+                    // Change it back after 2 seconds
+                    setTimeout(() => {
+                        tooltip.innerText = originalText;
+                        tooltip.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+        });
     </script>
 </body>
 </html>

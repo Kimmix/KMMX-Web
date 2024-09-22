@@ -1,5 +1,5 @@
 :root {
-    --white-color: #FFF;
+    --white-color: #FFFFFF;
     --white2-color: #EFEFEF;
     --white3-color: #C6C6C6;
     --black-color: #0B0B0C;
@@ -11,12 +11,18 @@
     --secondary-color: #FF446C;
     --tertiary-color: #F9826C;
     --blue-color: #92ECF5;
+    --green-color: #69f35c;
     --grey-color: #CEDFFC;
 }
 
 ::selection {
     color: var(--primary-color);
     background-color: var(--background-color);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
 }
 
 body {
@@ -35,6 +41,7 @@ body {
     color: var(--text-color);
     touch-action: manipulation;
     scroll-behavior: smooth;
+    scrollbar-width: none;
     -webkit-tap-highlight-color: #00000000;
 }
 

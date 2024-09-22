@@ -30,10 +30,12 @@ body {
     p {
         color: var(--grey-color);
         font-weight: 400;
+        text-align: left;
     }
 
     .footer-left {
         align-items: flex-start;
+        flex-basis: 350px;
 
         svg {
             height: 150px;
@@ -42,8 +44,8 @@ body {
     }
 
     .footer-center {
-        flex: 0;
-        margin-top: auto;
+        position: absolute;
+        bottom: 0;
 
         svg {
             height: 50px;
@@ -53,16 +55,37 @@ body {
     .footer-right {
         margin-top: auto;
         align-items: flex-end;
+        flex-basis: 350px;
         --box-size: 50px;
 
-        .box {
+        .color-box {
             width: var(--box-size);
             height: var(--box-size);
             border-radius: 20%;
             background-color: var(--grey-color);
+            cursor: pointer;
+            position: relative;
         }
 
-        .color-box {
+        .tooltip {
+            position: fixed;
+            display: none;
+            padding: 7px;
+            background-color: var(--black-color);
+            color: var(--grey-color);
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 4;
+
+            &.copied {
+                color: var(--green-color) !important;
+            }
+        }
+
+
+        .color-box-container {
             justify-content: end;
             gap: 10px;
             margin-right: 0;
@@ -70,44 +93,87 @@ body {
             margin-bottom: 14px;
 
 
-            .box:nth-child(1) {
+            .color-box:nth-child(1) {
                 background-color: var(--primary-color);
+
+                .tooltip {
+                    color: var(--primary-color);
+                }
             }
 
-            .box:nth-child(2) {
+            .color-box:nth-child(2) {
                 background-color: var(--secondary-color);
+
+                .tooltip {
+                    color: var(--secondary-color);
+                }
             }
 
-            .box:nth-child(3) {
+            .color-box:nth-child(3) {
                 background-color: var(--tertiary-color);
+
+                .tooltip {
+                    color: var(--tertiary-color);
+                }
             }
 
-            .box:nth-child(4) {
+            .color-box:nth-child(4) {
                 background-color: var(--white-color);
+
+                .tooltip {
+                    color: var(--white-color);
+                }
             }
 
-            .box:nth-child(5) {
+            .color-box:nth-child(5) {
                 background-color: var(--white2-color);
+
+                .tooltip {
+                    color: var(--white2-color);
+                }
             }
 
-            .box:nth-child(6) {
+            .color-box:nth-child(6) {
                 background-color: var(--white3-color);
+
+                .tooltip {
+                    color: var(--white3-color);
+                }
             }
 
-            .box:nth-child(7) {
+            .color-box:nth-child(7) {
                 background-color: var(--black-color);
+
+                .tooltip {
+                    background-color: var(--white2-color);
+                    color: var(--black-color);
+                }
             }
 
-            .box:nth-child(8) {
+            .color-box:nth-child(8) {
                 background-color: var(--black2-color);
+
+                .tooltip {
+                    background-color: var(--white2-color);
+                    color: var(--black2-color);
+                }
             }
 
-            .box:nth-child(9) {
+            .color-box:nth-child(9) {
                 background-color: var(--black3-color);
+
+                .tooltip {
+                    background-color: var(--white2-color);
+                    color: var(--black3-color);
+                }
             }
 
-            .box:nth-child(10) {
+            .color-box:nth-child(10) {
                 background-color: var(--grey-color);
+
+                .tooltip {
+                    color: var(--grey-color);
+                }
             }
         }
     }
