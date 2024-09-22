@@ -1,3 +1,8 @@
+:root {
+    --background-color: var(--white-color);
+    --text-color: var(--black-color);
+}
+
 .kmmx {
     position: absolute;
     top: 0;

@@ -1,5 +1,10 @@
+:root {
+    --background-color: var(--black2-color);
+    --text-color: var(--white-color);
+}
+
 body {
-    background-color: var(--black2-color);
+    background-color: var(--background-color);
 }
 
 .logo {
