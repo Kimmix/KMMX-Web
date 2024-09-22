@@ -1,0 +1,19 @@
+body {
+    background-color: var(--black2-color);
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    margin: 14px;
+    cursor: pointer;
+
+    svg {
+        view-transition-name: aa-logo;
+    }
+}
+
+.main {
+    height: 100vh;
+}

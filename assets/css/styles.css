@@ -44,9 +44,11 @@ img {
 h1 {
     font-size: 4rem;
 }
+
 h2 {
     font-size: 2.1rem;
 }
+
 h3 {
     font-size: 1.3rem;
 }
@@ -70,6 +72,11 @@ p {
         flex-direction: row;
     }
 }
+
+@view-transition {
+    navigation: auto;
+}
+
 
 /* @media (min-width:320px) {
     .flex {

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVG with Gradient Effect</title>
+    <meta charset="UTF-8">
+    <!-- Include Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            display: flex;
+            width: 500px;
+            height: 500px;
+            /* background-color: #171717; */
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            gap: 2rem;
+        }
+
+        .content {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+        }
+
+        .svg-animation {
+            width: 24rem;
+            height: 24rem;
+            transition-property: all;
+            transition-duration: 200ms;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main-container">
+        <section class="card" id="card">
+            <div class="content">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63" class="svg-animation">
+                    <defs>
+                        <style>
+                            .svgGlow {
+                                stroke: url(#emeraldGradient);
+                                fill: none;
+                                stroke-miterlimit: 10;
+                                stroke-width: 8px;
+                            }
+                        </style>
+                        <radialGradient id="emeraldGradient" gradientUnits="userSpaceOnUse" r="45%" cx="50%" cy="50%">
+                            <stop offset="1" stop-color="#000" />
+                        </radialGradient>
+                    </defs>
+                    <path class="svgGlow"
+                        d="M14.55 662.77 L449.27 13.17 L449.27 662.77 L319.52 458.63 L14.55 662.77 Z" />
+                    <path class="svgGlow"
+                        d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
+                </svg>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript code -->
+    <script>
+        // Get references to elements
+        const card = document.getElementById('card');
+        const gradient = document.getElementById('emeraldGradient');
+
+        let mouseOnCard = false;
+
+        // Create the stop element for mouseOnCard
+        const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stopElement.setAttribute('stop-color', '#CB2040');
+
+        // Event handlers
+        card.addEventListener('mouseenter', () => {
+            mouseOnCard = true;
+            // Add the stop element
+            gradient.insertBefore(stopElement, gradient.firstChild);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            mouseOnCard = false;
+            // Remove the stop element
+            if (gradient.contains(stopElement)) {
+                gradient.removeChild(stopElement);
+            }
+            // Reset gradient center to default
+            gradient.setAttribute('cx', '50%');
+            gradient.setAttribute('cy', '50%');
+        });
+
+        card.addEventListener('mousemove', (event) => {
+            if (mouseOnCard) {
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                const cxPercentage = (x / rect.width) * 100 - 24;
+                const cyPercentage = (y / rect.height) * 100;
+
+                gradient.setAttribute('cx', `${cxPercentage}%`);
+                gradient.setAttribute('cy', `${cyPercentage}%`);
+            }
+        });
+    </script>
+</body>
+
+</html>

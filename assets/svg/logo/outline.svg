@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63" class="svg-animation">
   <defs>
     <style>
-      .cls-1 {
-        stroke: #000;
-      }
-
-      .cls-1, .cls-2 {
+      .svgGlow {
+        stroke: url(#emeraldGradient);
         fill: none;
         stroke-miterlimit: 10;
         stroke-width: 8px;
       }
-
-      .cls-2 {
-        stroke: #282828;
-      }
     </style>
+    <radialGradient id="emeraldGradient" gradientUnits="userSpaceOnUse" r="45%" cx="50%" cy="50%">
+      <stop offset="1" stop-color="#000" />
+    </radialGradient>
   </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <g>
-      <polygon class="cls-1" points="14.55 662.77 449.27 13.17 449.27 662.77 319.52 458.63 14.55 662.77"/>
-      <polygon class="cls-2" points="776.55 677.65 496.38 295.82 496.38 671.86 623.66 584.26 776.55 677.65"/>
-    </g>
-  </g>
+  <path class="svgGlow" d="M14.55 662.77 L449.27 13.17 L449.27 662.77 L319.52 458.63 L14.55 662.77 Z" />
+  <path class="svgGlow" d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
 </svg>
