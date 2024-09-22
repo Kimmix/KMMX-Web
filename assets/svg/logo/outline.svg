@@ -1,17 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63" class="svg-animation">
-  <defs>
-    <style>
-      .svgGlow {
-        stroke: url(#emeraldGradient);
-        fill: none;
-        stroke-miterlimit: 10;
-        stroke-width: 8px;
-      }
-    </style>
-    <radialGradient id="emeraldGradient" gradientUnits="userSpaceOnUse" r="45%" cx="50%" cy="50%">
-      <stop offset="1" stop-color="#000" />
-    </radialGradient>
-  </defs>
   <path class="svgGlow" d="M14.55 662.77 L449.27 13.17 L449.27 662.77 L319.52 458.63 L14.55 662.77 Z" />
   <path class="svgGlow" d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
 </svg>

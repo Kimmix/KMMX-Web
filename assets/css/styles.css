@@ -11,6 +11,7 @@
     --secondary-color: #FF446C;
     --tertiary-color: #F9826C;
     --blue-color: #92ECF5;
+    --grey-color: #CEDFFC;
 }
 
 ::selection {
@@ -60,9 +61,25 @@ p {
     color: var(--text-color);
 }
 
+hr {
+    display: block;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid var(--grey-color);
+    margin: 1em 0;
+    padding: 0;
+    opacity: 0.4;
+}
+
+.fade {
+    opacity: 0.4;
+}
+
 /* FLEX */
 .flex {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;

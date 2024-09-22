@@ -20,5 +20,94 @@ body {
 }
 
 .main {
-    height: 100vh;
+    min-height: 100vh;
+}
+
+.footer {
+    width: 95%;
+    margin-bottom: 20px;
+
+    p {
+        color: var(--grey-color);
+        font-weight: 400;
+    }
+
+    .footer-left {
+        align-items: flex-start;
+
+        svg {
+            height: 150px;
+            margin: 12px 0;
+        }
+    }
+
+    .footer-center {
+        flex: 0;
+        margin-top: auto;
+
+        svg {
+            height: 50px;
+        }
+    }
+
+    .footer-right {
+        margin-top: auto;
+        align-items: flex-end;
+
+        .box {
+            width: 65px;
+            height: 65px;
+            border-radius: 20%;
+            background-color: var(--grey-color);
+        }
+
+        .color-box {
+            justify-content: end;
+            gap: 10px;
+            margin-right: 0;
+            margin-top: 10px;
+            margin-bottom: 14px;
+
+
+            .box:nth-child(1) {
+                background-color: var(--primary-color);
+            }
+
+            .box:nth-child(2) {
+                background-color: var(--secondary-color);
+            }
+
+            .box:nth-child(3) {
+                background-color: var(--tertiary-color);
+            }
+
+            .box:nth-child(4) {
+                background-color: var(--white-color);
+            }
+
+            .box:nth-child(5) {
+                background-color: var(--white2-color);
+            }
+
+            .box:nth-child(6) {
+                background-color: var(--white3-color);
+            }
+
+            .box:nth-child(7) {
+                background-color: var(--black-color);
+            }
+
+            .box:nth-child(8) {
+                background-color: var(--black2-color);
+            }
+
+            .box:nth-child(9) {
+                background-color: var(--black3-color);
+            }
+
+            .box:nth-child(10) {
+                background-color: var(--grey-color);
+            }
+        }
+    }
 }
