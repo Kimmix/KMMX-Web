@@ -18,7 +18,7 @@
 
 .logo {
     flex-grow: 1;
-    flex-basis: 350px;
+    flex-basis: 500px;
     width: 50%;
     align-items: flex-end;
     padding-right: 50px;
@@ -26,7 +26,7 @@
 
     img {
         max-height: 550px;
-        min-width: 580px;
+        min-width: 500px;
     }
 }
 
@@ -89,10 +89,14 @@
     color: white;
 }
 
-@media (max-width:1110px) {
+@media (max-width:900px) {
     .kmmx {
         top: 0;
         bottom: unset;
+    }
+
+    .boot-menu {
+        margin-bottom: auto;
     }
 
 }
@@ -113,7 +117,8 @@ a::after {
     height: 4px;
     bottom: 0;
     left: 0;
-    background-color: var(--primary-color); /* Modern vibrant color */
+    background-color: var(--primary-color);
+    /* Modern vibrant color */
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
