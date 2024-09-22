@@ -45,7 +45,9 @@ body {
 
     .footer-center {
         position: absolute;
-        bottom: 0;
+        bottom: -46px;
+        background-color: var(--background-color);
+        padding: 0 10px;
 
         svg {
             height: 50px;
