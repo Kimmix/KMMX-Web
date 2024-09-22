@@ -19,24 +19,24 @@ function hideBox() {
 
 //? SVG Glow effect
 // Get references to elements
-const card = document.getElementById('card');
-const gradient = document.getElementById('emeraldGradient');
+const glowContainer = document.getElementById('glowContainer');
+const gradient = document.getElementById('redGradient');
 
-let mouseOnCard = false;
+let mouseOnContainer = false;
 
-// Create the stop element for mouseOnCard
+// Create the stop element for mouseOnContainer
 const stopElement = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
 stopElement.setAttribute('stop-color', '#CB2040');
 
 // Event handlers
-card.addEventListener('mouseenter', () => {
-    mouseOnCard = true;
+glowContainer.addEventListener('mouseenter', () => {
+    mouseOnContainer = true;
     // Add the stop element
     gradient.insertBefore(stopElement, gradient.firstChild);
 });
 
-card.addEventListener('mouseleave', () => {
-    mouseOnCard = false;
+glowContainer.addEventListener('mouseleave', () => {
+    mouseOnContainer = false;
     // Remove the stop element
     if (gradient.contains(stopElement)) {
         gradient.removeChild(stopElement);
@@ -46,9 +46,9 @@ card.addEventListener('mouseleave', () => {
     gradient.setAttribute('cy', '50%');
 });
 
-card.addEventListener('mousemove', (event) => {
-    if (mouseOnCard) {
-        const rect = card.getBoundingClientRect();
+glowContainer.addEventListener('mousemove', (event) => {
+    if (mouseOnContainer) {
+        const rect = glowContainer.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
 
