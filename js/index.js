@@ -1,3 +1,7 @@
+function gotoMain() {
+    location.assign("/main.html");
+}
+
 function moveBox(index) {
     const hoverBox = document.querySelector('.hover-box');
     const options = document.querySelectorAll('.option');
