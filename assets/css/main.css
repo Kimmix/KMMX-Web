@@ -18,12 +18,23 @@ body {
     z-index: 1;
 }
 
-.hero-title {
-    position: relative;
+.hero {
+    background-color: aliceblue;
+}
+
+.video-overlay {
+    height: 300px;
+    width: 100%;
     z-index: 2;
-    color: white;
-    font-size: 4rem;
-    text-align: center;
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 0%, var(--background-color) 85%);
+}
+
+.hero-bg {
+    object-position: 25% top;
+    padding-right: 20%;
+    padding-bottom: 100%;
 }
 
 .logo {
@@ -32,6 +43,7 @@ body {
     width: 50px;
     margin: 27px;
     cursor: pointer;
+    z-index: 5;
 
     svg {
         view-transition-name: aa-logo;
