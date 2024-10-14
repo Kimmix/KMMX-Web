@@ -19,7 +19,8 @@ body {
 }
 
 .hero {
-    background-color: aliceblue;
+    background: linear-gradient(45deg, rgba(228, 38, 64, 0.5), rgba(114, 0, 15, 0.7)), url(/assets/svg/hero/BG.webp);
+    background-size: cover;
 }
 
 .video-overlay {
@@ -35,6 +36,15 @@ body {
     object-position: 25% top;
     padding-right: 20%;
     padding-bottom: 100%;
+    mix-blend-mode: overlay;
+}
+
+.hero-particle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    mix-blend-mode: color-dodge;
 }
 
 .logo {
