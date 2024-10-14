@@ -76,7 +76,8 @@ body {
     z-index: 0;
     padding-right: 30%;
     min-width: 1000px;
-    min-height: 100vh;
+    height: 100vh;
+    transform: translateY(-2px);
 }
 
 .hero-particle {
@@ -91,6 +92,7 @@ body {
     }
 
     &.front {
+        top: 20%;
         left: 12%;
         mix-blend-mode: difference;
         max-width: 1500px;

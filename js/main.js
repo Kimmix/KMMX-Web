@@ -54,7 +54,7 @@ function parallax(event) {
     particles.forEach((particle) => {
         const position = parseFloat(particle.getAttribute("value"));
         const x = (innerWidth - pageX * position) / 90;
-        const y = (innerHeight - pageY * position) / 90;
+        const y = (innerHeight - pageY * position) / 160;
         particle.style.transform = `translate(${x}px, ${y}px)`;
     });
 }
