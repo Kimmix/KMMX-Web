@@ -112,6 +112,12 @@ hr {
     }
 }
 
+@media (max-width:1025px) {
+    .hide-mb {
+        display: none;
+    }
+}
+
 @view-transition {
     navigation: auto;
 }
