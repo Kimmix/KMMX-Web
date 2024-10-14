@@ -1,3 +1,46 @@
+//? mouse parallax
+const particles = document.querySelectorAll(".hero-particle");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            document.addEventListener("mousemove", throttledParallax);
+        } else {
+            document.removeEventListener("mousemove", throttledParallax);
+        }
+    });
+});
+
+// Observe each particle
+particles.forEach((particle) => observer.observe(particle));
+
+// Throttled mousemove event handler
+const throttledParallax = throttle(parallax, 16);
+
+function parallax(event) {
+    const { innerWidth, innerHeight } = window;
+    const { pageX, pageY } = event;
+
+    particles.forEach((particle) => {
+        const position = parseFloat(particle.getAttribute("value"));
+        const x = (innerWidth - pageX * position) / 90;
+        const y = (innerHeight - pageY * position) / 90;
+        particle.style.transform = `translate(${x}px, ${y}px)`;
+    });
+}
+
+// Throttle function to limit execution frequency
+function throttle(func, limit) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
+}
+
 //? Color box copy
 const hoverBoxes = document.querySelectorAll('.color-box');
 
