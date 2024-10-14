@@ -7,6 +7,19 @@ body {
     background-color: var(--background-color);
 }
 
+.logo {
+    position: absolute;
+    top: 0;
+    width: 60px;
+    margin: 27px;
+    cursor: pointer;
+    z-index: 1;
+
+    svg {
+        view-transition-name: aa-logo;
+    }
+}
+
 /* Hero */
 
 .transparent-video {
@@ -25,6 +38,7 @@ body {
     background: url(/assets/hero/BG.webp);
     background-size: cover;
     background-position-x: 200px;
+    max-width: unset;
 }
 
 .video-overlay {
@@ -83,18 +97,10 @@ body {
     }
 }
 
-.logo {
-    position: absolute;
-    top: 0;
-    width: 60px;
-    margin: 27px;
-    cursor: pointer;
-    z-index: 1;
-
-    svg {
-        view-transition-name: aa-logo;
-    }
-}
+/* character */
+ .character {
+    padding-top: 2%;
+ }
 
 /* Main */
 
@@ -102,10 +108,104 @@ body {
     min-height: 100vh;
 }
 
+/* styling */
+.styling {
+    text-align: left;
+    max-width: 1800px;
+}
+
+
+.color-1 {
+    background: var(--primary-color);
+}
+
+.color-2 {
+    background: var(--secondary-color);
+}
+
+.color-3 {
+    background: var(--tertiary-color);
+}
+
+.color-4 {
+    background: var(--blue-color);
+}
+
+.color-5 {
+    background: var(--green-color);
+}
+
+.color-6 {
+    background: var(--grey-color);
+}
+
+.seperator {
+    width: 100%;
+    position: relative;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.sectionHeading {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.sectionTitle {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #848484;
+}
+
+.sectionSeperator {
+    position: relative;
+    padding-top: 5px;
+    margin: 0 auto;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+ul#colors {
+    width: 100%;
+    position: relative;
+    padding-top: 30px;
+    margin: 0 auto;
+    margin-bottom: 75px;
+    text-align: center;
+    list-style: none;
+}
+
+li.colorCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.colorHex {
+    position: relative;
+    color: #D1D1D1;
+    top: 120px;
+    right: 6px;
+}
+
+#typography {
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+    margin: 0 auto;
+    margin-bottom: 75px;
+}
+
 /* Footer */
 
 .footer {
     width: 95%;
+    max-width: 1800px;
     margin-bottom: 20px;
 
     p {
