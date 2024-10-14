@@ -1,22 +1,32 @@
 //? mouse parallax
 const particles = document.querySelectorAll(".hero-particle");
 
+// Detect desktop or mobile environment
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+// Initialize IntersectionObserver
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            document.addEventListener("mousemove", throttledParallax);
+            if (isMobile) {
+                enableAccelerometerParallax();
+            } else {
+                document.addEventListener("mousemove", throttledParallax);
+            }
         } else {
             document.removeEventListener("mousemove", throttledParallax);
+            if (isMobile) disableAccelerometerParallax();
         }
     });
 });
 
-// Observe each particle
+// Observe particles
 particles.forEach((particle) => observer.observe(particle));
 
-// Throttled mousemove event handler
+// Throttle function for smoother performance
 const throttledParallax = throttle(parallax, 16);
 
+// Desktop parallax effect
 function parallax(event) {
     const { innerWidth, innerHeight } = window;
     const { pageX, pageY } = event;
@@ -28,6 +38,45 @@ function parallax(event) {
         particle.style.transform = `translate(${x}px, ${y}px)`;
     });
 }
+
+// Mobile parallax effect using accelerometer
+function handleMotion(event) {
+    const { gamma, beta } = event; // gamma: left-to-right tilt, beta: front-to-back tilt
+    const x = gamma / 2; // Adjust sensitivity
+    const y = beta / 2;
+
+    particles.forEach((particle) => {
+        const position = parseFloat(particle.getAttribute("value"));
+        const offsetX = x * position;
+        const offsetY = y * position;
+        particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
+}
+
+// Enable accelerometer parallax
+function enableAccelerometerParallax() {
+    if (window.DeviceMotionEvent) {
+        window.addEventListener("deviceorientation", handleMotion);
+    }
+}
+
+// Disable accelerometer parallax
+function disableAccelerometerParallax() {
+    window.removeEventListener("deviceorientation", handleMotion);
+}
+
+// Throttle function to limit event frequency
+function throttle(func, limit) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
+}
+
 
 // Throttle function to limit execution frequency
 function throttle(func, limit) {
