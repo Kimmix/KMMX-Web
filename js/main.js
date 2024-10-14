@@ -1,3 +1,23 @@
+// Check device type
+function getDeviceType() {
+    const ua = navigator.userAgent;
+
+    if (/Mobi|Android/i.test(ua)) {
+        return 'Mobile';
+    }
+    if (/iPad|Tablet|PlayBook|Silk/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2)) {
+        return 'Tablet';
+    }
+    return 'Desktop';
+}
+
+// Display the detected device type
+document.addEventListener('DOMContentLoaded', () => {
+    const deviceType = getDeviceType();
+    document.getElementById('deviceType').textContent = `You are using a ${deviceType} device.`;
+});
+
+
 //? mouse parallax
 const particles = document.querySelectorAll(".hero-particle");
 
