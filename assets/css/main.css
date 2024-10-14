@@ -53,9 +53,9 @@ body {
 
 .hero-text {
     position: absolute;
-    font-size: 220px;
+    font-size: 280px;
     color: var(--background-color);
-    transform: rotate(59deg) translateY(-46%);
+    transform: rotate(58.5deg) translateY(-38%);
 }
 
 .hero-bg {
