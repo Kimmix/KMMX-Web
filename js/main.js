@@ -110,6 +110,13 @@ function throttle(func, limit) {
     };
 }
 
+document.querySelectorAll('.triangle').forEach(triangle => {
+    const randomStart = Math.floor(Math.random() * 360) - 180; // Random between -180 and 180 degrees
+    const randomEnd = Math.floor(Math.random() * 360) - 180;   // Random between -180 and 180 degrees
+    triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
+    triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
+});
+
 //? Color box copy
 const hoverBoxes = document.querySelectorAll('.color-box');
 

@@ -99,10 +99,123 @@ body {
     }
 }
 
+.triangles {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    margin-left: 30%;
+    mix-blend-mode: color-burn;
+}
+
+.triangle {
+    animation: particle 9.5s ease-in infinite;
+    align-self: flex-end;
+    transform: translateY(100%);
+    width: 0;
+    height: 0;
+    border-left: 3em solid transparent;
+    border-right: 3em solid transparent;
+    border-bottom: 3em solid var(--primary-color);
+    --rotation-start: -50deg;
+    --rotation-end: 20deg;
+}
+
+.triangle:nth-child(2) {
+    border-left-width: 2em;
+    border-right-width: 2em;
+    border-bottom-width: 2em;
+    animation-delay: 1s;
+    animation-duration: 17s;
+    filter: blur(5px);
+}
+
+.triangle:nth-child(3) {
+    border-left-width: 2.5em;
+    border-right-width: 2.5em;
+    border-bottom-width: 2.5em;
+    animation-delay: 1.5s;
+    animation-duration: 8s;
+    filter: blur();
+}
+
+.triangle:nth-child(4) {
+    border-left-width: 1em;
+    border-right-width: 1em;
+    border-bottom-width: 1em;
+    animation-delay: 3.5s;
+    filter: blur(3px);
+    animation-duration: 13s;
+}
+
+.triangle:nth-child(5) {
+    border-left-width: 5em;
+    border-right-width: 5em;
+    border-bottom-width: 5.25em;
+    animation-delay: 4s;
+    filter: blur(2px);
+    animation-duration: 11s;
+}
+
+.triangle:nth-child(6) {
+    border-left-width: 7em;
+    border-right-width: 7em;
+    border-bottom-width: 7.5em;
+    animation-delay: 7s;
+    filter: blur(1px);
+    animation-duration: 9s;
+}
+
+.triangle:nth-child(7) {
+    border-left-width: 4em;
+    border-right-width: 4em;
+    border-bottom-width: 4em;
+    filter: blur(2.5px);
+    animation-duration: 12s;
+}
+
+.triangle:nth-child(8) {
+    border-left-width: 6em;
+    border-right-width: 6em;
+    border-bottom-width: 6em;
+    animation-delay: 5s;
+    filter: blur(6px);
+    animation-duration: 18s;
+}
+
+.triangle:nth-child(9) {
+    border-left-width: 1em;
+    border-right-width: 1em;
+    border-bottom-width: 1.5em;
+    filter: blur(0.5px);
+    animation-duration: 9s;
+}
+
+.triangle:nth-child(9) {
+    border-left-width: 3em;
+    border-right-width: 3em;
+    border-bottom-width: 3em;
+    animation-delay: 6s;
+    filter: blur(0.5px);
+    animation-duration: 12s;
+}
+
+@keyframes particle {
+    from {
+        transform: translateY(100%) rotate(var(--rotation-start));
+    }
+
+    to {
+        transform: translateY(calc(-100vh + -100%)) rotate(var(--rotation-end));
+    }
+}
+
 /* character */
- .character {
+.character {
     padding-top: 2%;
- }
+}
 
 /* Main */
 
