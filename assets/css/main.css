@@ -92,7 +92,7 @@ body {
     }
 
     &.front {
-        top: 20%;
+        /* top: 20%; */
         left: 12%;
         mix-blend-mode: difference;
         max-width: 1500px;
@@ -101,12 +101,12 @@ body {
 
 .triangles {
     height: 100%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     overflow: hidden;
     position: absolute;
     z-index: 0;
-    margin-left: 30%;
     mix-blend-mode: color-burn;
 }
 
