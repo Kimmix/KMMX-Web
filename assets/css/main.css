@@ -96,6 +96,7 @@ body {
         left: 12%;
         mix-blend-mode: difference;
         max-width: 1500px;
+        z-index: 3;
     }
 }
 
