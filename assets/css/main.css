@@ -79,6 +79,7 @@ body {
     min-width: 1000px;
     height: 100vh;
     transform: translateY(-2px);
+    object-position: 60%;
 }
 
 .hero-particle {
