@@ -39,6 +39,7 @@ body {
     background-size: cover;
     background-position-x: 200px;
     max-width: unset;
+    padding: unset;
 }
 
 .video-overlay {
@@ -227,106 +228,114 @@ body {
 /* styling */
 .styling {
     text-align: left;
-    max-width: 1800px;
-}
 
 
-.color-1 {
-    background: var(--primary-color);
-}
 
-.color-2 {
-    background: var(--secondary-color);
-}
+    .color-1 {
+        background: var(--primary-color);
+    }
 
-.color-3 {
-    background: var(--tertiary-color);
-}
+    .color-2 {
+        background: var(--secondary-color);
+    }
 
-.color-4 {
-    background: var(--blue-color);
-}
+    .color-3 {
+        background: var(--tertiary-color);
+    }
 
-.color-5 {
-    background: var(--green-color);
-}
+    .color-4 {
+        background: var(--blue-color);
+    }
 
-.color-6 {
-    background: var(--grey-color);
-}
+    .color-5 {
+        background: var(--green-color);
+    }
 
-.seperator {
-    width: 100%;
-    position: relative;
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    border-bottom: 1px solid #EDEDED;
-}
+    .color-6 {
+        background: var(--grey-color);
+    }
 
-.sectionHeading {
-    width: 100%;
-    margin: 0 auto;
-    text-align: left;
-}
+    .seperator {
+        width: 100%;
+        position: relative;
+        padding-top: 20px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #EDEDED;
+    }
 
-.sectionTitle {
-    font-family: sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    color: #848484;
-}
+    .sectionHeading {
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+    }
 
-.sectionSeperator {
-    position: relative;
-    padding-top: 5px;
-    margin: 0 auto;
-    border-bottom: 1px solid #CCCCCC;
-}
+    .sectionTitle {
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+        color: #848484;
+    }
 
-ul#colors {
-    width: 100%;
-    position: relative;
-    padding-top: 30px;
-    margin: 0 auto;
-    margin-bottom: 75px;
-    text-align: center;
-    list-style: none;
-}
+    .sectionSeperator {
+        position: relative;
+        padding-top: 5px;
+        margin: 0 auto;
+        border-bottom: 1px solid #CCCCCC;
+    }
 
-li.colorCircle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 20px;
-}
+    ul#colors {
+        width: 100%;
+        position: relative;
+        padding-top: 30px;
+        margin: 0 auto;
+        margin-bottom: 75px;
+        text-align: center;
+        list-style: none;
+    }
 
-.colorHex {
-    position: relative;
-    color: #D1D1D1;
-    top: 120px;
-    right: 6px;
-}
+    li.colorCircle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 20px;
+    }
 
-#typography {
-    width: 100%;
-    position: relative;
-    padding-top: 10px;
-    margin: 0 auto;
-    margin-bottom: 75px;
+    .colorHex {
+        position: relative;
+        color: #D1D1D1;
+        top: 120px;
+        right: 6px;
+    }
+
+    #typography {
+        width: 100%;
+        position: relative;
+        padding-top: 10px;
+        margin: 0 auto;
+        margin-bottom: 75px;
+    }
 }
 
 /* Footer */
 
 .footer {
-    width: 95%;
-    max-width: 1800px;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+    max-width: var(--max-width);
+    margin-top: 200px;
     margin-bottom: 20px;
+
+    .link {
+        font-weight: 500;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
 
     p {
         color: var(--grey-color);
-        font-weight: 600;
+        font-weight: 300;
         text-align: left;
     }
 
@@ -334,17 +343,16 @@ li.colorCircle {
         align-items: flex-start;
         flex-basis: 350px;
 
-        svg {
+        img {
+            object-fit: contain;
             height: 150px;
+            width: auto;
             margin: 12px 0;
         }
     }
 
     .footer-center {
-        position: absolute;
-        bottom: -46px;
-        background-color: var(--background-color);
-        padding: 0 10px;
+        margin-top: auto;
 
         svg {
             height: 50px;

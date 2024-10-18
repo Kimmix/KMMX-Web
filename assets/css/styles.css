@@ -13,6 +13,9 @@
     --blue-color: #92ECF5;
     --green-color: #69f35c;
     --grey-color: #CEDFFC;
+
+    --max-width: 2000px;
+    --side-padding: 36px;
 }
 
 ::selection {
@@ -53,7 +56,9 @@ body {
 
 section {
     width: 100vw;
-    max-width: 1800px;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+    max-width: var(--max-width);
     min-height: 50vh;
     margin: 0 auto;
     overflow: hidden;
