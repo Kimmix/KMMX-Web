@@ -73,32 +73,39 @@ img {
 
 h1 {
     font-size: clamp(3rem, 8vw + 1rem, 6rem);
+    font-weight: 900; /* Extra bold for h1 */
 }
 
 h2 {
     font-size: clamp(2.5rem, 7vw + 1rem, 5rem);
+    font-weight: 800; /* Slightly less bold */
 }
 
 h3 {
     font-size: clamp(2rem, 6vw + 0.75rem, 4rem);
+    font-weight: 700; /* Semi-bold */
 }
 
 h4 {
     font-size: clamp(1.75rem, 5vw + 0.5rem, 3.5rem);
+    font-weight: 600; /* Medium boldness */
 }
 
 h5 {
     font-size: clamp(1.5rem, 4vw + 0.25rem, 3rem);
+    font-weight: 500; /* Medium weight */
 }
 
 h6 {
     font-size: clamp(1.25rem, 3vw, 2.5rem);
+    font-weight: 400; /* Regular weight */
 }
 
+
 p {
-    font-size: clamp(1rem, 2.5vw + 0.5rem, 1.5rem);
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--text-color);
 }
 
