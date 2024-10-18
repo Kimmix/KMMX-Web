@@ -16,6 +16,7 @@
 
     --max-width: 2000px;
     --side-padding: 36px;
+    --side-padding-mobile: 20px;
 }
 
 ::selection {
@@ -155,6 +156,10 @@ hr {
 @media (max-width:1025px) {
     .hide-mb {
         display: none;
+    }
+    section {
+        padding-left: var(--side-padding-mobile);
+        padding-right: var(--side-padding-mobile);
     }
 }
 

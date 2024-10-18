@@ -484,3 +484,10 @@ body {
         }
     }
 }
+
+@media (max-width:1025px) {
+    .footer {
+        padding-left: var(--side-padding-mobile);
+        padding-right: var(--side-padding-mobile);
+    }
+}
