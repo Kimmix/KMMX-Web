@@ -128,36 +128,36 @@ document.querySelectorAll('.triangle').forEach(triangle => {
 var heroVideo = document.getElementById("heroVideo");
 
 var io = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        heroVideo.play();
-      } else {
-        heroVideo.pause();
-      }
-    });
-  },
-  {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1
-  }
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroVideo.play();
+            } else {
+                heroVideo.pause();
+            }
+        });
+    },
+    {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1
+    }
 );
 
 // after confirming the element exists, look for the #heroVideo when visible in viewport
 if (heroVideo) {
-  io.observe(heroVideo)
+    io.observe(heroVideo)
 }
 
 //? Gallery
 fetch('/assets/gallery/galleryItems.json')
-        .then(response => response.json())
-        .then(galleryItems => {
-            const galleryContainer = document.getElementById('galleryContainer');
+    .then(response => response.json())
+    .then(galleryItems => {
+        const galleryContainer = document.getElementById('galleryContainer');
 
-            galleryItems.forEach(item => {
-                const galleryItem = `
-                    <div id="auto-focus" class="g-img" style="max-height: ${item.maxHeight};">
+        galleryItems.forEach(item => {
+            const galleryItem = `
+                    <div class="g-img" style="max-height: ${item.maxHeight};">
                         <img src="${item.imgSrc}" loading="lazy"
                             style="height: ${item.height}; object-position: ${item.objectPosition};">
                         <div class="info">
@@ -166,7 +166,7 @@ fetch('/assets/gallery/galleryItems.json')
                         </div>
                     </div>
                 `;
-                galleryContainer.innerHTML += galleryItem;
-            });
-        })
-        .catch(error => console.error('Error loading gallery items:', error));
+            galleryContainer.innerHTML += galleryItem;
+        });
+    })
+    .catch(error => console.error('Error loading gallery items:', error));
