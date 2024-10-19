@@ -175,21 +175,21 @@ function hidePopup() {
 closeBtn.addEventListener('click', hidePopup);
 
 // Close the popup when clicking outside the image
-popup.addEventListener('click', function(event) {
+popup.addEventListener('click', function (event) {
     if (event.target === popup) {
         hidePopup();
     }
 });
 
 // Close the popup when pressing the ESC key
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         hidePopup();
     }
 });
 
 // Event delegation for showing popup when clicking on an image
-galleryContainer.addEventListener('click', function(event) {
+galleryContainer.addEventListener('click', function (event) {
     const target = event.target.closest('.g-img');
     if (target) {
         const img = target.querySelector('img');
@@ -200,6 +200,22 @@ galleryContainer.addEventListener('click', function(event) {
         }
     }
 });
+
+// Function to scroll the gallery to the right-most position after a delay
+function scrollToRightMost() {
+    const galleryContent = document.getElementById('gallery-drag');
+
+    // Delay to allow CSS animation to finish
+    setTimeout(() => {
+        const maxScrollLeft = galleryContent.scrollWidth - galleryContent.clientWidth;
+
+        // Scroll to the maximum possible left position
+        galleryContent.scrollTo({
+            left: maxScrollLeft,
+            behavior: 'smooth' // Smooth scroll
+        });
+    }, 220); // Adjust this delay (in ms) if necessary to match your animation timing
+}
 
 // Fetch gallery items and insert into the DOM
 fetch('/assets/gallery/galleryItems.json')
@@ -216,5 +232,9 @@ fetch('/assets/gallery/galleryItems.json')
         `).join('');
 
         galleryContainer.innerHTML = galleryMarkup;
+
+        // Attach hover event to the last gallery item to scroll right-most
+        const lastGalleryItem = galleryContainer.querySelector('.g-img:last-child');
+        lastGalleryItem.addEventListener('mouseenter', scrollToRightMost);
     })
     .catch(error => console.error('Error loading gallery items:', error));

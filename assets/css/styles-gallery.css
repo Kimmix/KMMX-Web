@@ -17,7 +17,6 @@ section.gallery>.wrapper {
 }
 
 .gallery-text {
-  z-index: 0;
   display: flex;
   width: 125px;
 }
@@ -34,7 +33,6 @@ section.gallery>.wrapper {
 }
 
 .gallery-content {
-  z-index: 1;
   display: flex;
   height: 100vh;
   flex: 1;
@@ -85,6 +83,18 @@ section.gallery>.wrapper {
   user-select: none;
   pointer-events: none;
   transition: transform 200ms ease-out;
+}
+
+/* Ensure image doesn't expand out of bounds */
+.gallery-col>.g-img:last-child {
+  margin-right: auto; /* Prevent it from extending out of bounds */
+}
+
+/* Prevent hover crop or overflow on the last element */
+.gallery-col>.g-img:last-child:hover {
+  right: 0;
+  position: relative;
+  z-index: 5;
 }
 
 .gallery-col>.g-img:hover img {
@@ -226,3 +236,9 @@ section.gallery>.wrapper {
   font-weight: normal;
 }
 
+/* Optional: Enable smooth scrolling in the gallery */
+#gallery-drag {
+  scroll-behavior: smooth;
+  overflow-x: auto; /* Ensure horizontal scrolling is enabled */
+  white-space: nowrap; /* Ensure all items are in a single line */
+}
