@@ -149,10 +149,11 @@ if (heroVideo) {
     io.observe(heroVideo)
 }
 
-// Popup elements
+// Cached DOM elements
 const popup = document.getElementById('popup');
 const popupImg = document.getElementById('popup-img');
 const closeBtn = document.querySelector('.popup .close');
+const galleryContainer = document.getElementById('galleryContainer');
 
 // Function to show the full-size image in popup
 function showPopup(imgSrc) {
@@ -160,50 +161,53 @@ function showPopup(imgSrc) {
     popupImg.src = imgSrc;
 }
 
-// Close the popup when 'x' is clicked
-closeBtn.onclick = function () {
+// Function to hide the popup
+function hidePopup() {
     popup.style.display = 'none';
 }
 
-// Close the popup when clicking outside the image
-popup.onclick = function (event) {
-    if (event.target === popup) {
-        popup.style.display = 'none';
-    }
-}
+// Close the popup when the close button is clicked
+closeBtn.addEventListener('click', hidePopup);
 
-// Close the popup when pressing the ESC key
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        popup.style.display = 'none';
+// Close the popup when clicking outside the image
+popup.addEventListener('click', function(event) {
+    if (event.target === popup) {
+        hidePopup();
     }
 });
 
-// Fetch gallery items and add click event for full-size popup
+// Close the popup when pressing the ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        hidePopup();
+    }
+});
+
+// Event delegation for showing popup when clicking on an image
+galleryContainer.addEventListener('click', function(event) {
+    const target = event.target.closest('.g-img');
+    if (target) {
+        const img = target.querySelector('img');
+        if (img) {
+            showPopup(img.src);
+        }
+    }
+});
+
+// Fetch gallery items and insert into the DOM
 fetch('/assets/gallery/galleryItems.json')
     .then(response => response.json())
     .then(galleryItems => {
-        const galleryContainer = document.getElementById('galleryContainer');
-
-        galleryItems.forEach(item => {
-            const galleryItem = `
-                <div class="g-img" style="max-height: ${item.maxHeight};">
-                    <img src="${item.imgSrc}" loading="lazy" style="height: ${item.height}; object-position: ${item.objectPosition};">
-                    <div class="info">
-                        <h3>${item.title}</h3>
-                        <h4>${item.artist}</h4>
-                    </div>
+        const galleryMarkup = galleryItems.map(item => `
+            <div class="g-img" style="max-height: ${item.maxHeight};">
+                <img src="${item.imgSrc}" loading="lazy" style="height: ${item.height}; object-position: ${item.objectPosition};">
+                <div class="info">
+                    <h3>${item.title}</h3>
+                    <h4>${item.artist}</h4>
                 </div>
-            `;
-            galleryContainer.innerHTML += galleryItem;
-        });
+            </div>
+        `).join('');
 
-        // Add click event listener to each .g-img div for popup
-        document.querySelectorAll('.g-img').forEach(galleryDiv => {
-            galleryDiv.addEventListener('click', function () {
-                const img = galleryDiv.querySelector('img');
-                showPopup(img.src);
-            });
-        });
+        galleryContainer.innerHTML = galleryMarkup;
     })
     .catch(error => console.error('Error loading gallery items:', error));
