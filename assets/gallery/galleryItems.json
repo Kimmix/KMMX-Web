@@ -1,0 +1,82 @@
+[
+    {
+      "imgSrc": "assets/gallery/img1.webp",
+      "height": "1810px",
+      "maxHeight": "1220px",
+      "objectPosition": "50%",
+      "title": "Commission",
+      "artist": "Galaxee B."
+    },
+    {
+      "imgSrc": "assets/gallery/img4.webp",
+      "height": "960px",
+      "maxHeight": "600px",
+      "objectPosition": "53% -86px",
+      "title": "Chibi Commission",
+      "artist": "CoolKoinu"
+    },
+    {
+      "imgSrc": "assets/gallery/img2.webp",
+      "height": "1160px",
+      "maxHeight": "660px",
+      "objectPosition": "66% -143px",
+      "title": "Discord sketch reward",
+      "artist": "CoolKoinu"
+    },
+    {
+      "imgSrc": "assets/gallery/img7.webp",
+      "height": "1190px",
+      "maxHeight": "420px",
+      "objectPosition": "34% -196px",
+      "title": "Commission",
+      "artist": "Phachara"
+    },
+    {
+      "imgSrc": "assets/gallery/img9.webp",
+      "height": "930px",
+      "maxHeight": "250px",
+      "objectPosition": "100% -288px",
+      "title": "Gift art",
+      "artist": "TaiyaSami"
+    },
+    {
+      "imgSrc": "assets/gallery/img5.webp",
+      "height": "660px",
+      "maxHeight": "520px",
+      "objectPosition": "97% -79px",
+      "title": "Commission",
+      "artist": "Rusul"
+    },
+    {
+      "imgSrc": "assets/gallery/img10.webp",
+      "height": "1120px",
+      "maxHeight": "1000px",
+      "objectPosition": "43% -115px",
+      "title": "VRC Photoshoot",
+      "artist": "Me :3"
+    },
+    {
+      "imgSrc": "assets/gallery/img6.webp",
+      "height": "1060px",
+      "maxHeight": "410px",
+      "objectPosition": "43% -613px",
+      "title": "Confused YCH",
+      "artist": "KinqBVG"
+    },
+    {
+      "imgSrc": "assets/gallery/img12.webp",
+      "height": "1130px",
+      "maxHeight": "530px",
+      "objectPosition": "44% -90px",
+      "title": "Pancake YCH",
+      "artist": "Marsh_da_m3llo"
+    },
+    {
+      "imgSrc": "assets/gallery/img8.webp",
+      "height": "700px",
+      "maxHeight": "550px",
+      "objectPosition": "98% -38px",
+      "title": "Icon Commission",
+      "artist": "PulterGuts"
+    }
+  ]

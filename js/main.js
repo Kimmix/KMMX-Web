@@ -148,3 +148,25 @@ var io = new IntersectionObserver(
 if (heroVideo) {
   io.observe(heroVideo)
 }
+
+//? Gallery
+fetch('/assets/gallery/galleryItems.json')
+        .then(response => response.json())
+        .then(galleryItems => {
+            const galleryContainer = document.getElementById('galleryContainer');
+
+            galleryItems.forEach(item => {
+                const galleryItem = `
+                    <div id="auto-focus" class="g-img" style="max-height: ${item.maxHeight};">
+                        <img src="${item.imgSrc}" loading="lazy"
+                            style="height: ${item.height}; object-position: ${item.objectPosition};">
+                        <div class="info">
+                            <h3>${item.title}</h3>
+                            <h4>${item.artist}</h4>
+                        </div>
+                    </div>
+                `;
+                galleryContainer.innerHTML += galleryItem;
+            });
+        })
+        .catch(error => console.error('Error loading gallery items:', error));
