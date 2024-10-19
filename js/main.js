@@ -62,8 +62,11 @@ function parallax(event) {
 // Mobile parallax effect using accelerometer
 function handleMotion(event) {
     const { gamma, beta } = event; // gamma: left-to-right tilt, beta: front-to-back tilt
-    const x = gamma / 2; // Adjust sensitivity
-    const y = beta / 2;
+    const x = clamp((beta - 90) * 0.4, -70, 30); // x-axis rotation (tilt forward/backward)
+    const y = clamp(gamma * 0.6, -100, 20); // y-axis rotation (tilt left/right)
+
+    console.log('handleMotion');
+
 
     particles.forEach((particle) => {
         const position = parseFloat(particle.getAttribute("value"));
@@ -71,6 +74,10 @@ function handleMotion(event) {
         const offsetY = y * position;
         particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     });
+}
+
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
 }
 
 // Enable accelerometer parallax

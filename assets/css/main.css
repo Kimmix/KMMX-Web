@@ -486,6 +486,9 @@ body {
 }
 
 @media (max-width:1025px) {
+    .hero-bg {
+        object-position: 160%;
+    }
     .footer {
         padding-left: var(--side-padding-mobile);
         padding-right: var(--side-padding-mobile);
