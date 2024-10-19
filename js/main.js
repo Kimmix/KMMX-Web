@@ -152,13 +152,18 @@ if (heroVideo) {
 // Cached DOM elements
 const popup = document.getElementById('popup');
 const popupImg = document.getElementById('popup-img');
+const popupTitle = document.getElementById('popup-title');
+const popupArtist = document.getElementById('popup-artist');
 const closeBtn = document.querySelector('.popup .close');
 const galleryContainer = document.getElementById('galleryContainer');
 
-// Function to show the full-size image in popup
-function showPopup(imgSrc) {
+// Function to show the full-size image, title, and artist in popup
+function showPopup(imgSrc, title, artist) {
     popup.style.display = 'flex';
+    popup.style.flexDirection = 'column';
     popupImg.src = imgSrc;
+    popupTitle.textContent = title;
+    popupArtist.textContent = artist;
 }
 
 // Function to hide the popup
@@ -188,8 +193,10 @@ galleryContainer.addEventListener('click', function(event) {
     const target = event.target.closest('.g-img');
     if (target) {
         const img = target.querySelector('img');
+        const title = target.querySelector('h3').textContent;
+        const artist = target.querySelector('h4').textContent;
         if (img) {
-            showPopup(img.src);
+            showPopup(img.src, title, artist);
         }
     }
 });
