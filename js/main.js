@@ -123,3 +123,27 @@ document.querySelectorAll('.triangle').forEach(triangle => {
     triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
     triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
 });
+
+var heroVideo = document.getElementById("heroVideo");
+
+var io = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heroVideo.play();
+      } else {
+        heroVideo.pause();
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  }
+);
+
+// after confirming the element exists, look for the #heroVideo when visible in viewport
+if (heroVideo) {
+  io.observe(heroVideo)
+}
