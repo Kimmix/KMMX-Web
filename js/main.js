@@ -124,6 +124,7 @@ document.querySelectorAll('.triangle').forEach(triangle => {
     triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
 });
 
+// Auto pause video
 var heroVideo = document.getElementById("heroVideo");
 
 var io = new IntersectionObserver(
