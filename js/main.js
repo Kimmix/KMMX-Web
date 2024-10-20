@@ -235,8 +235,6 @@ fetch('/assets/gallery/galleryItems.json')
 
         // Attach hover event to the last gallery item to scroll right-most
         const lastGalleryItem = galleryContainer.querySelector('.g-img:last-child');
-        const lastGalleryItem1 = galleryContainer.querySelector('.g-img:nth-last-child(2)');
         lastGalleryItem.addEventListener('mouseenter', scrollToRightMost);
-        lastGalleryItem1.addEventListener('mouseenter', scrollToRightMost);
     })
     .catch(error => console.error('Error loading gallery items:', error));
