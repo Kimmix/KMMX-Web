@@ -99,7 +99,7 @@ section.gallery>.wrapper {
 
 .gallery-col>.g-img:hover img {
   transform: scale(1.05);
-  width: 94%;
+  width: calc(100% - 30px);
 }
 
 .gallery-col .spacer {
@@ -133,7 +133,7 @@ section.gallery>.wrapper {
 
 .gallery-col>.g-img:hover>.info,
 .gallery-col>.g-img.focus>.info {
-  max-width: 100%;
+  max-width: 30px;
   width: 100%;
 }
 
