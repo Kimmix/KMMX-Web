@@ -1,82 +1,322 @@
 [
-    {
-      "imgSrc": "assets/gallery/img1.webp",
-      "height": "1810px",
-      "maxHeight": "1220px",
-      "objectPosition": "50%",
-      "title": "Commission",
-      "artist": "Galaxee B."
-    },
-    {
-      "imgSrc": "assets/gallery/img4.webp",
-      "height": "960px",
-      "maxHeight": "600px",
-      "objectPosition": "53% -86px",
-      "title": "Chibi Commission",
-      "artist": "CoolKoinu"
-    },
-    {
-      "imgSrc": "assets/gallery/img2.webp",
-      "height": "1160px",
-      "maxHeight": "660px",
-      "objectPosition": "66% -143px",
-      "title": "Discord sketch reward",
-      "artist": "CoolKoinu"
-    },
-    {
-      "imgSrc": "assets/gallery/img7.webp",
-      "height": "1190px",
-      "maxHeight": "420px",
-      "objectPosition": "34% -196px",
-      "title": "Commission",
-      "artist": "Phachara"
-    },
-    {
-      "imgSrc": "assets/gallery/img9.webp",
-      "height": "930px",
-      "maxHeight": "250px",
-      "objectPosition": "100% -288px",
-      "title": "Gift art",
-      "artist": "TaiyaSami"
-    },
-    {
-      "imgSrc": "assets/gallery/img5.webp",
-      "height": "660px",
-      "maxHeight": "520px",
-      "objectPosition": "97% -79px",
-      "title": "Commission",
-      "artist": "Rusul"
-    },
-    {
-      "imgSrc": "assets/gallery/img10.webp",
-      "height": "1120px",
-      "maxHeight": "1000px",
-      "objectPosition": "43% -115px",
-      "title": "VRC Photoshoot",
-      "artist": "Me :3"
-    },
-    {
-      "imgSrc": "assets/gallery/img6.webp",
-      "height": "1060px",
-      "maxHeight": "410px",
-      "objectPosition": "43% -613px",
-      "title": "Confused YCH",
-      "artist": "KinqBVG"
-    },
-    {
-      "imgSrc": "assets/gallery/img11.webp",
-      "height": "1130px",
-      "maxHeight": "530px",
-      "objectPosition": "44% -90px",
-      "title": "Pancake YCH",
-      "artist": "Marsh_da_m3llo"
-    },
-    {
-      "imgSrc": "assets/gallery/img8.webp",
-      "height": "700px",
-      "maxHeight": "550px",
-      "objectPosition": "98% -38px",
-      "title": "Icon Commission",
-      "artist": "PulterGuts"
-    }
-  ]
+  {
+    "imgSrc": "assets/gallery/img1.webp",
+    "height": "1810px",
+    "maxHeight": "1220px",
+    "objectPosition": "50%",
+    "title": "Commission",
+    "artist": "Galaxee B."
+  },
+  {
+    "imgSrc": "assets/gallery/img2.webp",
+    "height": "1160px",
+    "maxHeight": "750px",
+    "objectPosition": "36% -143px",
+    "title": "Discord sketch reward",
+    "artist": "CoolKoinu"
+  },
+  {
+    "imgSrc": "assets/gallery/img4.webp",
+    "height": "960px",
+    "maxHeight": "500px",
+    "objectPosition": "53% -86px",
+    "title": "Chibi Commission",
+    "artist": "CoolKoinu"
+  },
+  {
+    "imgSrc": "assets/gallery/img7.webp",
+    "height": "1190px",
+    "maxHeight": "320px",
+    "objectPosition": "34% -196px",
+    "title": "Commission",
+    "artist": "Phachara"
+  },
+  {
+    "imgSrc": "assets/gallery/img9.webp",
+    "height": "930px",
+    "maxHeight": "250px",
+    "objectPosition": "100% -288px",
+    "title": "Gift art",
+    "artist": "TaiyaSami"
+  },
+  {
+    "imgSrc": "assets/gallery/img5.webp",
+    "height": "660px",
+    "maxHeight": "520px",
+    "objectPosition": "97% -79px",
+    "title": "Commission",
+    "artist": "Rusul"
+  },
+  {
+    "imgSrc": "assets/gallery/img6.webp",
+    "height": "1030px",
+    "maxHeight": "380px",
+    "objectPosition": "43% -83px",
+    "title": "Confused YCH",
+    "artist": "KinqBVG"
+  },
+  {
+    "imgSrc": "assets/gallery/img11.webp",
+    "height": "1130px",
+    "maxHeight": "530px",
+    "objectPosition": "44% -90px",
+    "title": "Pancake YCH",
+    "artist": "Marsh_da_m3llo"
+  },
+  {
+    "imgSrc": "assets/gallery/img10.webp",
+    "height": "1120px",
+    "maxHeight": "1000px",
+    "objectPosition": "43% -115px",
+    "title": "VRC Photoshoot",
+    "artist": "Me :3"
+  },
+  {
+    "imgSrc": "assets/gallery/img8.webp",
+    "height": "500px",
+    "maxHeight": "350px",
+    "objectPosition": "108% 30px",
+    "title": "Icon Commission",
+    "artist": "PulterGuts"
+  },
+  {
+    "imgSrc": "assets/gallery/img14.webp",
+    "height": "600px",
+    "maxHeight": "556px",
+    "objectPosition": "41% 1px",
+    "title": "Commission",
+    "artist": "Champ Santiviboon"
+  },
+  {
+    "imgSrc": "assets/gallery/img13.webp",
+    "height": "700px",
+    "maxHeight": "500px",
+    "objectPosition": "70% 30px",
+    "title": "Commission",
+    "artist": "Sunsnak"
+  },
+  {
+    "imgSrc": "assets/gallery/img15.webp",
+    "height": "700px",
+    "maxHeight": "600px",
+    "objectPosition": "23% -50px",
+    "title": "Commission",
+    "artist": "Sunsnak"
+  },
+  {
+    "imgSrc": "assets/gallery/img16.webp",
+    "height": "700px",
+    "maxHeight": "350px",
+    "objectPosition": "60% -250px",
+    "title": "Gift art",
+    "artist": "Rift Wolf"
+  },
+  {
+    "imgSrc": "assets/gallery/img20.webp",
+    "height": "680px",
+    "maxHeight": "430px",
+    "objectPosition": "34% -160px",
+    "title": "Chibi Commission",
+    "artist": "KuroPe'ngin"
+  },
+  {
+    "imgSrc": "assets/gallery/img17.webp",
+    "height": "800px",
+    "maxHeight": "710px",
+    "objectPosition": "0% -29px",
+    "title": "Commission Omakase",
+    "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img19.webp",
+    "height": "400px",
+    "maxHeight": "660px",
+    "objectPosition": "20% 0",
+    "title": "Gift art",
+    "artist": "Demez"
+  },
+  {
+    "imgSrc": "assets/gallery/img21.webp",
+    "height": "680px",
+    "maxHeight": "570px",
+    "objectPosition": "29% -72px",
+    "title": "Free art",
+    "artist": "LIZArdFail"
+  },
+  {
+    "imgSrc": "assets/gallery/img23.webp",
+    "height": "500px",
+    "maxHeight": "750px",
+    "objectPosition": "30% -38px",
+    "title": "Commission",
+    "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img22.webp",
+    "height": "1200px",
+    "maxHeight": "1300px",
+    "objectPosition": "50% 10px",
+    "title": "Commission",
+    "artist": "Milkypaw24"
+  },
+  {
+    "imgSrc": "assets/gallery/img27.webp",
+    "height": "500px",
+    "maxHeight": "750px",
+    "objectPosition": "40% 0",
+    "title": "Commission",
+    "artist": "Mr Jairo"
+  },
+  {
+    "imgSrc": "assets/gallery/img12.webp",
+    "height": "930px",
+    "maxHeight": "850px",
+    "objectPosition": "26% 32px",
+    "title": "Commission",
+    "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img32.webp",
+    "height": "740px",
+    "maxHeight": "640px",
+    "objectPosition": "28% -18px",
+    "title": "Commission",
+    "artist": "ZoleDream"
+  },
+  {
+    "imgSrc": "assets/gallery/img24.webp",
+    "height": "1200px",
+    "maxHeight": "350px",
+    "objectPosition": "28% -750px",
+    "title": "Gift art",
+    "artist": "Viper"
+  },
+  {
+    "imgSrc": "assets/gallery/img25.webp",
+    "height": "700px",
+    "maxHeight": "450px",
+    "objectPosition": "25% -100px",
+    "title": "Commission",
+    "artist": "K_Night FluffyWolf"
+  },
+  {
+    "imgSrc": "assets/gallery/img28.webp",
+    "height": "330px",
+    "maxHeight": "330px",
+    "objectPosition": "80% 1px",
+    "title": "Gift art",
+    "artist": "Tom"
+  },
+  {
+    "imgSrc": "assets/gallery/img30.webp",
+    "height": "800px",
+    "maxHeight": "510px",
+    "objectPosition": "50% -130px",
+    "title": "Halloween YCH",
+    "artist": "Three bob"
+  },
+  {
+    "imgSrc": "assets/gallery/img31.webp",
+    "height": "720px",
+    "maxHeight": "670px",
+    "objectPosition": "23% 36px",
+    "title": "Chibi Commission",
+    "artist": "Aufstr"
+  },
+  {
+    "imgSrc": "assets/gallery/img29.webp",
+    "height": "960px",
+    "maxHeight": "570px",
+    "objectPosition": "33% -52px",
+    "title": "Big scarf YCH",
+    "artist": "Sir Burnt"
+  },
+  {
+    "imgSrc": "assets/gallery/img34.webp",
+    "height": "470px",
+    "maxHeight": "430px",
+    "objectPosition": "50% 30px",
+    "title": "YCH",
+    "artist": "Colvyri"
+  },
+  {
+    "imgSrc": "assets/gallery/img35.webp",
+    "height": "540px",
+    "maxHeight": "250px",
+    "objectPosition": "50% -168px",
+    "title": "Sketch commission",
+    "artist": "foxydream001"
+  },
+  {
+    "imgSrc": "assets/gallery/img36.webp",
+    "height": "650px",
+    "maxHeight": "610px",
+    "objectPosition": "13% -25px",
+    "title": "Chibi Commission",
+    "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img37.webp",
+    "height": "590px",
+    "maxHeight": "520px",
+    "objectPosition": "78% -36px",
+    "title": "Chibi Commission",
+    "artist": "Jina Sang"
+  },
+  {
+    "imgSrc": "assets/gallery/img18.webp",
+    "height": "300px",
+    "maxHeight": "250px",
+    "objectPosition": "38% -20px",
+    "title": "Gift art",
+    "artist": "Ignesous"
+  },
+  {
+    "imgSrc": "assets/gallery/img38.webp",
+    "height": "810px",
+    "maxHeight": "670px",
+    "objectPosition": "18% 32px",
+    "title": "Gift art",
+    "artist": "Tom"
+  },
+  {
+    "imgSrc": "assets/gallery/img39.webp",
+    "height": "540px",
+    "maxHeight": "520px",
+    "objectPosition": "18% 0px",
+    "title": "Chibi Commission",
+    "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img40.webp",
+    "height": "520px",
+    "maxHeight": "530px",
+    "objectPosition": "58% 62px",
+    "title": "Lemonade YCH",
+    "artist": "MonMonRawRaw"
+  },
+  {
+    "imgSrc": "assets/gallery/img41.webp",
+    "height": "1030px",
+    "maxHeight": "460px",
+    "objectPosition": "31% 42px",
+    "title": "BLÅHAJ YCH",
+    "artist": "Colvyri"
+  },
+  {
+    "imgSrc": "assets/gallery/img42.webp",
+    "height": "630px",
+    "maxHeight": "410px",
+    "objectPosition": "108% -20px",
+    "title": "Mystery wheel commission",
+    "artist": "Venzeam"
+  },
+  {
+    "imgSrc": "assets/gallery/img44.webp",
+    "height": "700px",
+    "maxHeight": "520px",
+    "objectPosition": "10% -30px",
+    "title": "Birthday gift commission",
+    "artist": "Milkypaw24"
+  }
+]
