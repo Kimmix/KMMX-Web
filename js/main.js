@@ -214,7 +214,7 @@ function scrollToRightMost() {
             left: maxScrollLeft,
             behavior: 'smooth' // Smooth scroll
         });
-    }, 220); // Adjust this delay (in ms) if necessary to match your animation timing
+    }, 300); // Adjust this delay (in ms) if necessary to match your animation timing
 }
 
 // Fetch gallery items and insert into the DOM
