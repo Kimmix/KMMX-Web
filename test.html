@@ -3,97 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tooltip Hover with Copy</title>
+    <title>Parallax Scrolling</title>
     <style>
-        * {
+        /* Basic styles */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
             height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .parallax-section {
+            height: 100vh;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            font-family: Arial, sans-serif;
-        }
-        .center-box {
-            position: relative;
-            padding: 20px;
-            margin: 10px;
-            background-color: #007BFF;
             color: white;
-            cursor: pointer;
-            border-radius: 10px;
+            font-size: 3rem;
         }
-        .tooltip {
-            position: fixed;
-            display: none;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 14px;
-            white-space: nowrap;
-            pointer-events: none;
+
+        #section1 {
+            background-image: url('your-image1.jpg');
         }
-        .tooltip.copied {
-            color: blue;
+
+        #section2 {
+            background-image: url('your-image2.jpg');
+        }
+
+        .content-section {
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 1.5rem;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="center-box" data-tooltip="Message 1" id="hover-box-1">
-        Hover over me 1!
-        <div class="tooltip">Message 1</div>
+
+    <div class="parallax-section" id="section1">
+        <h1>Welcome to Parallax</h1>
     </div>
 
-    <div class="center-box" data-tooltip="Message 2" id="hover-box-2">
-        Hover over me 2!
-        <div class="tooltip">Message 2</div>
+    <div class="content-section">
+        <p>This is a regular content section. Scroll down to see the parallax effect.</p>
     </div>
 
-    <div class="center-box" data-tooltip="Message 3" id="hover-box-3">
-        Hover over me 3!
-        <div class="tooltip">Message 3</div>
+    <div class="parallax-section" id="section2">
+        <h1>Another Parallax Section</h1>
+    </div>
+
+    <div class="content-section">
+        <p>More content here. Enjoy the scrolling!</p>
     </div>
 
     <script>
-        const hoverBoxes = document.querySelectorAll('.center-box');
-
-        hoverBoxes.forEach(hoverBox => {
-            const tooltip = hoverBox.querySelector('.tooltip');
-            const originalText = hoverBox.getAttribute('data-tooltip');
-
-            hoverBox.addEventListener('mouseenter', function(event) {
-                tooltip.style.display = 'block';
-            });
-
-            hoverBox.addEventListener('mousemove', function(event) {
-                tooltip.style.left = `${event.pageX}px`;
-                tooltip.style.top = `${event.pageY + 20}px`;
-            });
-
-            hoverBox.addEventListener('mouseleave', function() {
-                tooltip.style.display = 'none';
-            });
-
-            hoverBox.addEventListener('click', function() {
-                // Copy the specific tooltip text to clipboard
-                navigator.clipboard.writeText(originalText).then(() => {
-                    // Change tooltip text to indicate it has been copied and apply blue color
-                    tooltip.innerText = 'Copied!';
-                    tooltip.classList.add('copied');
-
-                    // Change it back after 2 seconds
-                    setTimeout(() => {
-                        tooltip.innerText = originalText;
-                        tooltip.classList.remove('copied');
-                    }, 2000);
-                });
+        window.addEventListener('scroll', function() {
+            const parallaxSections = document.querySelectorAll('.parallax-section');
+            parallaxSections.forEach(section => {
+                let scrollPosition = window.scrollY;
+                section.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
             });
         });
     </script>
+
 </body>
 </html>

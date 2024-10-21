@@ -160,20 +160,28 @@
     "artist": "Milkypaw24"
   },
   {
-    "imgSrc": "assets/gallery/img27.webp",
-    "height": "500px",
-    "maxHeight": "750px",
-    "objectPosition": "40% 0",
-    "title": "Commission",
-    "artist": "Mr Jairo"
-  },
-  {
     "imgSrc": "assets/gallery/img12.webp",
-    "height": "930px",
+    "height": "870px",
     "maxHeight": "850px",
-    "objectPosition": "26% 32px",
+    "objectPosition": "24% -8px",
     "title": "Commission",
     "artist": "WolsealMI"
+  },
+  {
+    "imgSrc": "assets/gallery/img40.webp",
+    "height": "520px",
+    "maxHeight": "530px",
+    "objectPosition": "58% 62px",
+    "title": "Lemonade YCH",
+    "artist": "MonMonRawRaw"
+  },
+  {
+    "imgSrc": "assets/gallery/img27.webp",
+    "height": "950px",
+    "maxHeight": "590px",
+    "objectPosition": "50% -230px",
+    "title": "Commission",
+    "artist": "Mr Jairo"
   },
   {
     "imgSrc": "assets/gallery/img32.webp",
@@ -278,22 +286,6 @@
     "objectPosition": "18% 32px",
     "title": "Gift art",
     "artist": "Tom"
-  },
-  {
-    "imgSrc": "assets/gallery/img39.webp",
-    "height": "540px",
-    "maxHeight": "520px",
-    "objectPosition": "18% 0px",
-    "title": "Chibi Commission",
-    "artist": "WolsealMI"
-  },
-  {
-    "imgSrc": "assets/gallery/img40.webp",
-    "height": "520px",
-    "maxHeight": "530px",
-    "objectPosition": "58% 62px",
-    "title": "Lemonade YCH",
-    "artist": "MonMonRawRaw"
   },
   {
     "imgSrc": "assets/gallery/img41.webp",

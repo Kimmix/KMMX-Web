@@ -34,10 +34,8 @@ body {
 }
 
 .hero {
-    /* background: linear-gradient(45deg, rgba(228, 38, 64, 0.5), rgba(88, 0, 12, 0.7)), url(/assets/hero/BG.webp); */
-    background: url(/assets/hero/BG.webp);
+    background: url(/assets/hero/BG.webp) no-repeat 200px 0;
     background-size: cover;
-    background-position-x: 200px;
     max-width: unset;
     padding: unset;
 }

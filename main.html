@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/styles-gallery.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
 </head>
 
 <body>
@@ -73,6 +74,11 @@
     <section class="refSheet">
         <h3>OC Reference sheet</h3>
     </section>
+    <section class="sticky">
+        <div class="sticky-header">
+            <h1>Your journey defines who you are.</h1>
+        </div>
+    </section>
     <section class="upnext">
         <h3>Upnext in Update 3.0</h3>
         <p>three</p>
@@ -84,7 +90,7 @@
                     <h2>Gallery</h2>
                 </div>
             </div>
-            <div id="gallery-drag" class="gallery-content">
+            <div data-lenis-prevent-wheel id="gallery-drag" class="gallery-content">
                 <div class="gallery-col" id="galleryContainer">
                 </div>
                 <div class="spacer"></div>
@@ -204,6 +210,9 @@
     </footer>
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="js\main.js"></script>
 <script src="js\favicon.js"></script>
 

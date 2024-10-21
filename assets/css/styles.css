@@ -32,6 +32,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -52,7 +53,7 @@ body {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -webkit-tap-highlight-color: #00000000;
-    width: 100%;
+    width: 100vw;
 }
 
 section {
