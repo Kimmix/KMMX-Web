@@ -1,18 +1,32 @@
 // Initialize Lenis
-const lenis = new Lenis()
+document.addEventListener("DOMContentLoaded", () => {
+    const lenis = new Lenis()
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    })
+    gsap.ticker.lagSmoothing(0);
 
-// Listen for the scroll event and log the event data
-// lenis.on('scroll', (e) => {
-//   console.log(e);
-// });
+    gsap.registerPlugin(ScrollTrigger);
+    const stickySection = document.querySelector(".sticky");
+    const stickyHeader = document.querySelector(".sticky-header");
+    const stickyHeight = window.innerHeight * 2;
 
-// Use requestAnimationFrame to continuously update the scroll
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
+    ScrollTrigger.create({
+        trigger: stickySection,
+        start: "top top",
+        end: `+=${stickyHeight}px`,
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            const maxTranslate = stickyHeader.offsetWidth - window.innerWidth;
+            const translateX = -progress * maxTranslate;
+            gsap.set(stickyHeader, { x: translateX });
+        },
+    })
 
-requestAnimationFrame(raf);
+})
 
 // Check device type
 function getDeviceType() {
