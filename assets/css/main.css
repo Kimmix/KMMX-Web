@@ -332,6 +332,7 @@ body {
         width: 420vw;
         height: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         will-change: transform;
@@ -340,11 +341,14 @@ body {
     .sticky-header h1 {
         margin: 0;
         color: var(--black-color);
-        font-size: 16vw;
+        font-size: 28vw;
         font-weight: 200;
         letter-spacing: -0.05em;
         line-height: 100%;
         white-space: nowrap;
+    }
+    .sticky-header h1:nth-child(2) {
+        align-self: flex-end;
     }
 
 }
