@@ -84,7 +84,7 @@ body {
         top: 0;
         left: 0;
         width: 80%;
-        overflow: visible;
+        /* overflow: visible; */
 
         &.back {
             max-width: 1700px;
@@ -341,7 +341,7 @@ body {
     .sticky-header h1 {
         margin: 0;
         color: var(--black-color);
-        font-size: 28vw;
+        font-size: clamp(3rem, 16vw + 2rem, 29rem);
         font-weight: 200;
         letter-spacing: -0.05em;
         line-height: 100%;
