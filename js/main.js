@@ -198,12 +198,6 @@ function showContent(sectionId, event) {
 }
 
 document.querySelectorAll('.stat-bar').forEach((div) => {
-    const position = div.getAttribute('data-position'); // Get the position from data attribute
-    // div.style.background = `linear-gradient(
-    //   90deg,
-    //   rgba(203, 32, 64, 1) 0%,
-    //   rgba(137, 59, 133, 1) ${position},
-    //   rgba(60, 64, 93, 1) 100%
-    // )`;
+    const position = div.getAttribute('data-position');
     div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
   });
