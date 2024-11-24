@@ -311,7 +311,7 @@ body {
                 color: var(--primary-color);
                 transform: scaleY(0.85);
                 letter-spacing: -1px;
-                transition: color 0.3s ease-out;
+                transition: color 0.5s ease-out;
 
                 &:hover {
                     color: var(--primary-hover-color);
@@ -320,10 +320,12 @@ body {
 
             p {
                 opacity: 0.7;
-                transition: opacity 0.3s ease-out 0.1s;
+                transition: opacity 0.5s ease-out 0.1s;
+                transition: text-shadow 0.4s ease-out;
 
                 &:hover {
                     opacity: 1;
+                    text-shadow: 0 0 8px #fff;
                 }
             }
         }
@@ -331,7 +333,7 @@ body {
     }
 
     .character-detail {
-        min-height: 300px;
+        height: 400px;
         overflow: hidden;
 
         .sidebar {
