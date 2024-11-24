@@ -333,7 +333,7 @@ body {
     }
 
     .character-detail {
-        height: 400px;
+        height: 500px;
         overflow: hidden;
 
         .sidebar {
@@ -377,18 +377,23 @@ body {
                     display: block;
                 }
 
-                p {
+                p.info-text {
                     text-indent: 50px;
                 }
             }
 
+        }
+        .stat-section {
+            display: flex;
+            align-items: center;
         }
 
         .stat-container {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: flex-start;
+            margin-bottom: 20px;
 
             .stat-row {
                 display: flex;
@@ -426,7 +431,7 @@ body {
                     .stat-bar {
                         background: linear-gradient(90deg, #cb2040 0%, #893b85 50%, #3c405d 100%);
                         height: 15px;
-                        border-radius: 1px;
+                        border-radius: 3px;
                     }
 
                 }

@@ -87,13 +87,14 @@
         <div class="character-detail">
             <div class="sidebar">
                 <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
-                <a href="#stat" onclick="showContent('stat', event)">Stat</a>
+                <a href="#stat" onclick="showContent('stat', event)">Arcai stat</a>
                 <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
             </div>
             <div class="content">
                 <!-- Info Section -->
                 <div id="info" class="content-section active">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                    <p class="info-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
                         of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                         but also the leap into electronic typesetting, remaining essentially unchanged. It was
@@ -104,66 +105,65 @@
 
                 <!-- Stat Section -->
                 <div id="stat" class="content-section">
-                    <div class="stat-container">
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Strength</span>
-                                <span class="bg-loop"></span>
-                                <span>35</span>
-                            </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="20%"></div>
-                            </div>
+                    <div class="stat-section">
+                        <div class="chart-container">
+                            <canvas id="radarChart" width="450" height="400"></canvas>
                         </div>
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Intelligence</span>
-                                <span class="bg-loop"></span>
-                                <span>60</span>
+                        <div>
+                            <p class="bold">The FBRCC (Fabric) Model</p>
+                            <div class="stat-container">
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Focus</span>
+                                        <span class="bg-loop"></span>
+                                        <span>25</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="20%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Bandwidth</span>
+                                        <span class="bg-loop"></span>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="5%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Reach</span>
+                                        <span class="bg-loop"></span>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="20%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Capacity</span>
+                                        <span class="bg-loop"></span>
+                                        <span>25</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="25%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Control</span>
+                                        <span class="bg-loop"></span>
+                                        <span>30</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="40%"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="80%"></div>
-                            </div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Speed</span>
-                                <span class="bg-loop"></span>
-                                <span>50</span>
-                            </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="60%"></div>
-                            </div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Recovery</span>
-                                <span class="bg-loop"></span>
-                                <span>50</span>
-                            </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="60%"></div>
-                            </div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Magic Skills</span>
-                                <span class="bg-loop"></span>
-                                <span>70</span>
-                            </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="90%"></div>
-                            </div>
-                        </div>
-                        <div class="stat-row">
-                            <div class="stat-header">
-                                <span>Combat Skills</span>
-                                <span class="bg-loop"></span>
-                                <span>40</span>
-                            </div>
-                            <div class="stat-bar-container">
-                                <div class="stat-bar" data-position="30%"></div>
-                            </div>
+                            <p><span class="bold">Arcai mastery:</span> Materialization</p>
                         </div>
                     </div>
                 </div>
@@ -299,6 +299,7 @@
 </body>
 
 <script src="js/main.js"></script>
+<script src="js/radarChart.js"></script>
 <script src="js/favicon.js"></script>
 <script src="js/external/gsap.min.js"></script>
 <script src="js/external/ScrollTrigger.min.js"></script>
