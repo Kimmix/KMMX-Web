@@ -244,6 +244,8 @@ body {
 /* character */
 .character {
     padding-top: 2%;
+    /* Temp */
+    min-height: 150vh;
 
     .bio-bg {
         z-index: -1;
@@ -383,9 +385,11 @@ body {
             }
 
         }
+
         .stat-section {
             display: flex;
             align-items: center;
+            gap: 30px;
         }
 
         .stat-container {
@@ -436,6 +440,16 @@ body {
 
                 }
 
+            }
+
+            a {
+                margin-top: auto;
+                margin-left: auto;
+                transition: color 0.3s ease-out;
+
+                &:hover {
+                    color: var(--primary-color);
+                }
             }
         }
 
