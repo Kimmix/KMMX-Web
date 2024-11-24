@@ -245,6 +245,14 @@ body {
 .character {
     padding-top: 2%;
 
+    .bio-bg {
+        z-index: -1;
+        width: 390px;
+        height: auto;
+        position: absolute;
+        object-fit: contain;
+    }
+
     .character-header {
         display: flex;
         color: var(--grey-color);
@@ -254,32 +262,69 @@ body {
             font-weight: 700;
             width: 20%;
             margin-right: 20px;
+            opacity: 0.8;
+            transition: opacity, text-shadow 0.3s ease-out;
+
+            &:hover {
+                opacity: 1;
+                text-shadow: 7px -5px 12px #a5a3a3b0;
+            }
         }
 
         .character-name {
             display: flex;
             width: 75%;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-end;
+            height: 250px;
 
             h1 {
                 font-weight: 700;
                 letter-spacing: 0.8rem;
+                z-index: 3;
+                transform: scaleY(1.05);
+            }
+
+            h2 {
+                position: absolute;
+                font-size: clamp(2.5rem, 7vw + 9rem, 20rem);
+                margin-left: 120px;
+                margin-bottom: 30px;
+                color: var(--background-color);
+                -webkit-text-stroke: 2px var(--grey-color);
+                opacity: 0.55;
+                transform: scaleY(0.95);
+                z-index: 2;
             }
 
             .character-species {
                 display: flex;
                 flex-direction: column;
-                line-height: 40px;
+                justify-content: flex-end;
                 text-align: right;
+                height: 100%;
+                line-height: 30px;
+                margin-bottom: -30px;
             }
 
             h6 {
-                color: var(--primary-color)
+                color: var(--primary-color);
+                transform: scaleY(0.85);
+                letter-spacing: -1px;
+                transition: color 0.3s ease-out;
+
+                &:hover {
+                    color: var(--primary-hover-color);
+                }
             }
 
             p {
-                opacity: 0.8;
+                opacity: 0.7;
+                transition: opacity 0.3s ease-out 0.1s;
+
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
 
@@ -313,12 +358,14 @@ body {
             a.active {
                 color: var(--primary-color);
                 opacity: 1;
+                cursor: default;
             }
         }
 
         .content {
             float: left;
             width: 75%;
+            margin-top: 40px;
 
             .content-section {
                 display: none;
@@ -542,6 +589,7 @@ body {
 
     .sticky-header h1:nth-child(2) {
         align-self: flex-end;
+        margin-right: 15%;
     }
 
 }
