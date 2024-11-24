@@ -1,3 +1,13 @@
+:root {
+  --background-color: var(--black2-color);
+  --text-color: var(--white2-color);
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+
 /* Improved layout for gallery section */
 section.gallery {
   display: flex;
@@ -5,7 +15,6 @@ section.gallery {
   flex-direction: column;
   margin: 0 auto;
   max-width: 2000px;
-  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -234,11 +243,4 @@ section.gallery>.wrapper {
   font-size: 1rem;
   margin: 0;
   font-weight: normal;
-}
-
-/* Optional: Enable smooth scrolling in the gallery */
-#gallery-drag {
-  scroll-behavior: smooth;
-  overflow-x: auto; /* Ensure horizontal scrolling is enabled */
-  white-space: nowrap; /* Ensure all items are in a single line */
 }

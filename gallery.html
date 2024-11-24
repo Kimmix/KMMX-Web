@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KMMX - Main Page</title>
+    <meta name="description" content="Main page for KMMX" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#141414" />
+    <meta name="apple-mobile-web-app-status-bar" content="#141414" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="view-transition" content="same-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/gallery.css">
+</head>
+
+<body>
+    <section id="gallery" class="gallery page">
+        <div class="wrapper">
+            <div class="gallery-text">
+                <div class="gallery-text container">
+                    <h2>Gallery</h2>
+                </div>
+            </div>
+            <div class="gallery-content">
+                <div class="gallery-col" id="galleryContainer">
+                </div>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Popup container for full-size image with title and artist -->
+    <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <img class="popup-content" id="popup-img">
+        <div class="popup-info">
+            <h3 id="popup-title"></h3>
+            <h4 id="popup-artist"></h4>
+        </div>
+    </div>
+</body>
+
+<script src="js/gallery.js"></script>
+<script src="js/favicon.js"></script>
+
+</html>
