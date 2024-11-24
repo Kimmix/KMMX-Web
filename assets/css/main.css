@@ -633,6 +633,7 @@ body {
 
     p {
         color: var(--grey-color);
+        font-size: clamp(1rem, 0.7vw + 0.25rem, 1.25rem);
     }
 
     .footer-left {
