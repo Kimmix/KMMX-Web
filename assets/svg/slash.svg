@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.37 19.57">
+    <defs>
+        <style>
+            .slash {
+                fill: #fff;
+            }
+        </style>
+    </defs>
+    <g>
+        <polygon class="slash" points="7.53 0 9.37 0 1.81 19.57 0 19.57 7.53 0" />
+    </g>
+</svg>

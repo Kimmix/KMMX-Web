@@ -1,78 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax Scrolling</title>
-    <style>
-        /* Basic styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
-
-        .parallax-section {
-            height: 100vh;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        #section1 {
-            background-image: url('your-image1.jpg');
-        }
-
-        #section2 {
-            background-image: url('your-image2.jpg');
-        }
-
-        .content-section {
-            height: 100vh;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-            font-size: 1.5rem;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repeating Horizontal SVG Background</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #f0f0f0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="blue" stroke-width="5" fill="none"/></svg>');
+      background-repeat: repeat-x;
+      background-size: auto 100px; /* Adjust the height as desired */
+    }
+  </style>
 </head>
 <body>
-
-    <div class="parallax-section" id="section1">
-        <h1>Welcome to Parallax</h1>
-    </div>
-
-    <div class="content-section">
-        <p>This is a regular content section. Scroll down to see the parallax effect.</p>
-    </div>
-
-    <div class="parallax-section" id="section2">
-        <h1>Another Parallax Section</h1>
-    </div>
-
-    <div class="content-section">
-        <p>More content here. Enjoy the scrolling!</p>
-    </div>
-
-    <script>
-        window.addEventListener('scroll', function() {
-            const parallaxSections = document.querySelectorAll('.parallax-section');
-            parallaxSections.forEach(section => {
-                let scrollPosition = window.scrollY;
-                section.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-            });
-        });
-    </script>
-
 </body>
 </html>
