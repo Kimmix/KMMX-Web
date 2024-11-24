@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimmix Bio</title>
+    <style>
+        body {
+            background-color: #121212;
+            /* Dark background */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bio-header {
+            font-size: 2rem;
+            letter-spacing: 0.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .bio-header span {
+            margin-left: auto;
+            color: red;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+        }
+
+        .sidebar {
+            float: left;
+            width: 20%;
+            margin-right: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            color: red;
+        }
+
+        .content {
+            float: left;
+            width: 75%;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .stat-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stat-bar-container {
+            background: #333;
+            height: 10px;
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-bar {
+            background: linear-gradient(to right, red, purple);
+            height: 100%;
+            border-radius: 5px;
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+
+        .stat-row span {
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .equipment-graphic {
+            text-align: right;
+        }
+
+        .equipment-graphic img {
+            max-width: 100px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bio-header">
+            <div>Kimmix</div>
+            <span>Uncommon Protogen</span>
+        </div>
+        <div class="clearfix">
+            <div class="sidebar">
+                <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
+                <a href="#stat" onclick="showContent('stat', event)">Stat</a>
+                <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
+            </div>
+            <div class="content">
+                <!-- Info Section -->
+                <div id="info" class="content-section active">
+                    KMMX or Kimmix. A researcher, a lone traveler, and self-independence. While was born on EI, he
+                    chooses to leave his birth home and travel on a lone journey to learn more about Arcai. Fear of
+                    betrayal, he never trusts people easily but wanted to share his knowledge. He chooses to leave
+                    behind a copy of the log on his findings for others to find. Usually shy and avoids people, but is
+                    very observant from a distance. Upon researching Arcai technology study he can use Arcai power to
+                    create force matter materialization which helps to aid his travel journey.
+                </div>
+
+                <!-- Stat Section -->
+                <div id="stat" class="content-section">
+                    <div class="stat-container">
+                        <div class="stat-row">
+                            <span>Strength</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Intelligence</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>60</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Speed</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>50</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Recovery</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>50</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Magic Skills</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>70</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Combat Skills</span>
+                            <div class="stat-bar-container">
+                                <div class="stat-bar"></div>
+                            </div>
+                            <span>40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Section -->
+                <div id="equipment" class="content-section">
+                    <div>AENCC</div>
+                    <div class="equipment-graphic">
+                        <img src="equipment-placeholder.png" alt="Equipment Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(sectionId, event) {
+            event.preventDefault();
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all sidebar links
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show the selected section and activate the link
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

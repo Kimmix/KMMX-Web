@@ -178,3 +178,21 @@ var io = new IntersectionObserver(
 if (heroVideo) {
     io.observe(heroVideo)
 }
+
+//! BIO
+function showContent(sectionId, event) {
+    event.preventDefault();
+    // Hide all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove active class from all sidebar links
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Show the selected section and activate the link
+    document.getElementById(sectionId).classList.add('active');
+    event.target.classList.add('active');
+}
