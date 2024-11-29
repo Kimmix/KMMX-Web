@@ -54,6 +54,7 @@ body {
     scrollbar-width: none;
     -webkit-tap-highlight-color: #00000000;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 section {
