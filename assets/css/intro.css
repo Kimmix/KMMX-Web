@@ -1,0 +1,171 @@
+/* Intro animation */
+
+section.intro {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: var(--black2-color);
+    animation: slide-out-container 6s ease-out forwards;
+}
+
+.text-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.text {
+    margin: auto;
+    font-size: clamp(1.7rem, -0.875rem + 8.333vw, 5rem);
+    color: var(--white-color);
+}
+
+.text-1,
+.text-3,
+.text-4,
+.text-8,
+.text-10 {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--black2-color);
+    -webkit-text-stroke: 1px var(--white-color);
+}
+
+.text-0 {
+    font-size: clamp(1rem, 100px, 3.5rem);
+    animation: slide-out 1.5s linear 3.5s;
+    opacity: 0;
+}
+
+.text-1 {
+    animation: blink 0.8s linear 0.9s, blink 0.5s linear 2s;
+    opacity: 0;
+}
+
+.text-2 {
+    animation: blink 0.8s linear 0.8s, blink 0.6s linear 2s;
+    opacity: 0;
+}
+
+.text-3 {
+    animation: blink 0.8s linear 0.7s, blink 0.65s linear 2s;
+    opacity: 0;
+}
+
+.text-4 {
+    animation: blink 0.8s linear 0.9s, blink 0.7s linear 2s;
+    opacity: 0;
+}
+
+.text-5 {
+    animation: blink 0.8s linear 0.7s, blink 0.75s linear 2s;
+    opacity: 0;
+}
+
+.text-6 {
+    animation: blink 0.8s linear 0.8s, blink 0.75s linear 2s;
+    opacity: 0;
+}
+
+.text-7 {
+    animation: blink 0.8s linear 0.9s, blink 0.7s linear 2s;
+    opacity: 0;
+}
+
+.text-8 {
+    animation: blink 0.8s linear 0.7s, blink 0.65s linear 2s;
+    opacity: 0;
+}
+
+.text-9 {
+    animation: blink 0.8s linear 0.6s, blink 0.6s linear 2s;
+    opacity: 0;
+}
+
+.text-10 {
+    animation: blink 0.8s linear 0.8s, blink 0.5s linear 2s;
+    opacity: 0;
+}
+
+.text-error {
+    font-size: clamp(4rem, 400px, 20rem);
+    color: red;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 100%;
+    height: 100vh;
+    animation: blink 0.8s linear 2.8s;
+    opacity: 0;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 100%;
+    }
+
+    99% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 100%;
+    }
+
+    19% {
+        opacity: 100%;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    69% {
+        opacity: 100%;
+    }
+
+    70% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-out-container {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        min-height: 0%;
+        display: none;
+    }
+}

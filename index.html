@@ -24,8 +24,9 @@
         rel="stylesheet">
     <!-- Prefetch -->
     <!-- <link rel="prefetch" href="assets/video/kmmx_hero.mov" as="video" type="video/mp4"> -->
-    <link rel="prefetch" href="/main.html" as="document" />
+    <link rel="prefetch" href="main.html" as="document" />
     <link rel="prefetch" href="assets/css/main.css" as="style">
+    <link rel="prefetch" href="assets/css/intro.css" as="style">
     <link rel="prefetch" href="js/main.js" as="script" />
     <link rel="prefetch" href="assets/video/kmmx_hero.webm" as="video" type="video/webm">
     <link rel="prefetch" href="assets/hero/BG_overlay.svg" as="image">
@@ -40,7 +41,7 @@
     <div class="flex landing-page">
         <div id="glowContainer" class="flex logo">
             <!-- <img src="assets/svg/logo/outline.svg" alt="Logo outline"> -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63" class="svg-animation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63">
                 <defs>
                     <style>
                         .svgGlow {
@@ -61,16 +62,16 @@
         </div>
         <div class="flex boot-menu">
             <p class="version">V2.0.0</p>
-            <h3 class="header">LE/3.551 AL-M</h3>
+            <h3 class="header loader">LE/3.551 AL-M</h3>
             <h2>Initiate </h2>
             <h1>boot sequence?</h1>
             <div class="option-container" onmouseenter="showBox()" onmouseleave="hideBox()">
-                <div class="option" id="yes" onmouseover="moveBox(0)" onclick='gotoMain()'>YES
+                <div href="main.html" class="option" id="yes" onmouseover="moveBox(0)" onclick='gotoMain(event)'>YES
                 </div>
                 <div class="option" id="no" onmouseover="moveBox(1)">NO</div>
                 <div class="hover-box"></div>
             </div>
-            <a href="https://kimmix.anthro.asia/" target="_blank">
+            <a href="https://kimmix.anthro.asia/" target="_blank" class="underScroll">
                 < go back to v1 </a>
                     <!-- <div class="flex log">
                         <h2>LOG A8.10.00.24</h2>

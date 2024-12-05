@@ -1,5 +1,6 @@
 function gotoMain(event) {
     // location.assign("/main.html");
+    event.preventDefault();
     if (document.startViewTransition) {
         document.startViewTransition(() => {
             window.location.href = "/main.html";

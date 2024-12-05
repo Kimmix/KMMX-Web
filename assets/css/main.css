@@ -13,7 +13,7 @@ body {
     width: 60px;
     margin: 27px;
     cursor: pointer;
-    z-index: 9;
+    z-index: 99;
 
     svg {
         view-transition-name: aa-logo;
