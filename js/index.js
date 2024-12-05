@@ -1,13 +1,12 @@
 function gotoMain(event) {
     // location.assign("/main.html");
-    event.preventDefault();
     if (document.startViewTransition) {
         document.startViewTransition(() => {
-            window.location.href = event.target.href;
+            window.location.href = "/main.html";
         });
     } else {
         // Fallback for unsupported browsers
-        window.location.href = event.target.href;
+        window.location.href = "/main.html";
     }
 }
 
