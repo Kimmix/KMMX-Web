@@ -1,5 +1,14 @@
-function gotoMain() {
-    location.assign("/main.html");
+function gotoMain(event) {
+    // location.assign("/main.html");
+    event.preventDefault();
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            window.location.href = event.target.href;
+        });
+    } else {
+        // Fallback for unsupported browsers
+        window.location.href = event.target.href;
+    }
 }
 
 function moveBox(index) {
