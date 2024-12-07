@@ -1,13 +1,9 @@
 async function generateCode() {
-  const time = Math.floor(Date.now() / 60000);
-  const hash = await sha256("4E!$cp2W3R%RkX" + time);
+  const hash = await sha256("4E!$cp2W3R%RkX" + Math.floor(Date.now() / 600000));
   return hash.substring(0, 4);
 }
 async function sha256(message) {
-  const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(message)))).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
 // Fading FavIcon
