@@ -6,7 +6,7 @@ section.intro {
     height: 100vh;
     z-index: 10;
     background-color: var(--black2-color);
-    animation: slide-out-container 6s ease-out forwards;
+    animation: slide-out-container 6.5s linear forwards;
 }
 
 .text-wrapper {
@@ -155,12 +155,12 @@ section.intro {
 }
 
 @keyframes slide-out-container {
-    0% {
+    35% {
         opacity: 1;
     }
 
-    80% {
-        opacity: 1;
+    70% {
+        opacity: 0.7;
     }
 
     100% {
