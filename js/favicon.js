@@ -1,13 +1,8 @@
-const SECRET_KEY = env.SECRET_KEY;
-
-// Function to generate the code based on time
 async function generateCode() {
-  const time = Math.floor(Date.now() / 60000); // 60-second intervals
-  const hash = await sha256(SECRET_KEY + time); // Await the hash computation
-  return hash.substring(0, 4); // First 6 characters of the hash
+  const time = Math.floor(Date.now() / 60000);
+  const hash = await sha256("4E!$cp2W3R%RkX" + time);
+  return hash.substring(0, 4);
 }
-
-// SHA-256 hash function
 async function sha256(message) {
   const msgBuffer = new TextEncoder().encode(message);
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -20,7 +15,7 @@ const favicon = document.querySelector('link[rel="icon"]');
 const originalTitle = document.title;
 document.addEventListener("visibilitychange", async () => {
   if (document.hidden) {
-    document.title = await generateCode();
+    // document.title = await generateCode();
     favicon.setAttribute("href", '/favicon-hidden.png');
   } else {
     document.title = originalTitle;
@@ -28,6 +23,7 @@ document.addEventListener("visibilitychange", async () => {
   }
 });
 
+//* Debug
 async function sendCode() {
   const codeElement = document.getElementById("code");
   const resultElement = document.getElementById("result");
@@ -37,7 +33,7 @@ async function sendCode() {
   codeElement.textContent = `Generated Code: ${code}`;
 
   // Send the code to the validation endpoint
-  const response = await fetch(`${env.API_HOST}/validate-code?code=${code}`);
+  const response = await fetch(`https://kmmx-be.kimmix05.workers.dev/validate-code?code=${code}`);
   const data = await response.json();
 
   // Display the validation result
