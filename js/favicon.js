@@ -29,7 +29,7 @@ async function sendCode() {
   codeElement.textContent = `Generated Code: ${code}`;
 
   // Send the code to the validation endpoint
-  const response = await context.env.worker.fetch(`/validate-code?code=${code}`);
+  const response = await fetch(`https://kmmx-be.kimmix05.workers.dev/validate-code?code=${code}`);
   const data = await response.json();
 
   // Display the validation result
