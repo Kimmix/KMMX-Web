@@ -215,16 +215,16 @@ window.addEventListener('scroll', () => {
         // Calculate visible percentage
         const visibleHeight = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
         const totalHeight = professionContainer.offsetHeight;
-        const percentage = (visibleHeight / totalHeight) * 100;
-        console.log(percentage);
-
-
+        const percentage = Math.round((visibleHeight / totalHeight) * 100);
+        // console.log(percentage);
         professionItems.forEach((item, index) => {
-            // Add .highlight when percentage exceeds a threshold
-            if (percentage > index * 20 && percentage <= (index + 1) * 20) {
+            item.classList.remove('highlight');
+            if (index === 0 && percentage > 0 && percentage <= 35) {
                 item.classList.add('highlight');
-            } else {
-                item.classList.remove('highlight');
+            } else if (index === 1 && percentage > 35 && percentage <= 49) {
+                item.classList.add('highlight');
+            } else if (index === 2 && percentage >= 50) {
+                item.classList.add('highlight');
             }
         });
     } else {
