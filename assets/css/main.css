@@ -357,7 +357,7 @@ body {
         /* height: 500px;
         overflow: hidden; */
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: row;
 
         .sidebar {
             width: 20%;
@@ -387,10 +387,8 @@ body {
         }
 
         .content {
-            flex: 1;
             width: 100%;
             margin-top: 40px;
-            min-width: 450px;
             max-width: 1500px;
 
             .content-section {
@@ -1068,7 +1066,11 @@ body {
     }
 
     .character {
-        & .character-header {
+        .character-detail {
+            flex-direction: column;
+
+        }
+        .character-header {
             .character-name {
                 height: 160px;
             }
