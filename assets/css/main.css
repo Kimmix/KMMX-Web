@@ -30,6 +30,7 @@ body {
     width: fit-content;
     height: 100%;
     object-fit: cover;
+    object-position: 15% top;
     margin-inline: auto;
     z-index: 1;
 }
@@ -1022,6 +1023,10 @@ body {
 }
 
 @media (max-width:1025px) {
+    .transparent-video {
+        width: -webkit-fill-available;
+    }
+
     .hero-bg {
         object-position: 160%;
     }
