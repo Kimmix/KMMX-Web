@@ -38,6 +38,7 @@ body {
     background-size: cover;
     max-width: unset;
     padding: unset;
+    min-height: 100vh;
 
     .video-overlay {
         position: absolute;
@@ -244,8 +245,6 @@ body {
 /* character */
 .character {
     padding-top: 2%;
-    /* Temp */
-    min-height: 150vh;
 
     .bio-bg {
         z-index: -1;
@@ -480,10 +479,182 @@ body {
     }
 }
 
-/* Main */
+/* Star chart */
+.star-chart {
+    overflow: visible;
 
-.main {
-    min-height: 100vh;
+    img.arcai-shard {
+        width: 320px;
+        margin-left: 50px;
+        z-index: 2;
+    }
+
+    img.star-map {
+        width: 110vw;
+        max-width: none;
+        margin-left: -70px;
+        margin-top: -580px;
+    }
+
+    .aencc {
+        position: sticky;
+        right: 0;
+        top: 90%;
+        margin-bottom: 10%;
+        margin-top: -100px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--grey-color);
+        }
+
+        .txtblock {
+            display: flex;
+            flex-direction: column;
+            width: 180px;
+            gap: 4px;
+
+            .tb-1 {
+                display: flex;
+                gap: 6px;
+
+                .v-bar {
+                    height: 16px;
+                    width: 6px;
+                    background-color: var(--grey-color);
+                }
+
+                .tb-1-r {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 100%;
+                    gap: 4px;
+
+                    .tb-1-r-bar1 {
+                        width: 90%;
+                        height: 5px;
+                        align-self: end;
+                        background-color: var(--grey-color);
+                    }
+
+                    .tb-1-r-1 {
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+                        gap: 10px;
+
+                        .tb-1-r-1-bar1 {
+                            width: 100%;
+                            height: 5px;
+                            background-color: var(--grey-color);
+                            opacity: 0.4;
+                        }
+
+                        .tb-1-r-1-bar2 {
+                            width: 20px;
+                            height: 9px;
+                            background-color: var(--grey-color);
+                        }
+                    }
+                }
+            }
+
+            .tb-2 {
+                display: flex;
+                gap: 6px;
+
+                .tb-2-l {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    width: 100%;
+
+                    .tb-2-l-bar1 {
+                        width: 70%;
+                        height: 7px;
+                        align-self: end;
+                        background-color: var(--grey-color);
+                    }
+
+                    .tb-2-l-bar2 {
+                        height: 4px;
+                        width: 80%;
+                        background-color: var(--white2-color);
+                        opacity: 0.7;
+                    }
+
+                    .redbar {
+                        width: 10%;
+                        height: 7px;
+                        background-color: var(--primary-color);
+                        animation: width 9s infinite ease-in-out alternate;
+                    }
+                }
+
+                .tb-2-r {
+                    width: 25px;
+
+                    svg {
+                        align-self: flex-end;
+                        width: 25px;
+                        height: auto;
+                        stroke-width: 4px;
+                        fill: none;
+                        stroke: var(--white-color);
+                        animation: stroke-width 8s infinite ease-in alternate;
+                    }
+                }
+            }
+        }
+    }
+
+    .location-container {
+        position: relative;
+        top: -520px;
+        margin-left: auto;
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        height: 150px;
+        color: var(--grey-color);
+
+        .location {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        h1 {
+            align-self: flex-end;
+            color: var(--primary-color);
+        }
+    }
+
+}
+
+@keyframes stroke-width {
+    from {
+        stroke-width: 4px;
+    }
+
+    to {
+        stroke-width: 14px;
+    }
+}
+
+@keyframes width {
+    from {
+        width: 10%;
+    }
+
+    to {
+        width: 70%;
+    }
 }
 
 /* styling */

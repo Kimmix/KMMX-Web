@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1961.31 2097.73">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .1;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke: #cedffc;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 7px;
+      }
+
+      .cls-3 {
+        opacity: .14;
+        stroke-width: 2px;
+      }
+
+      .cls-5 {
+        fill: #101014;
+      }
+
+      .cls-4 {
+        stroke-width: 4px;
+      }
+
+      .cls-6 {
+        fill: #cedffc;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <polygon class="cls-5" points="1960.63 1806.73 40.63 .73 40.63 1804.73 1960.63 1806.73"/>
+      <line class="cls-3" x1="1960.63" y1="1806.73" x2="40.63" y2=".73"/>
+      <g>
+        <path class="cls-1" d="m712.45,634.85c-214.23,141.11-337.87,398.98-294.89,668.78,58.52,367.33,403.74,617.67,771.08,559.15,284.21-45.28,498.38-262.18,553.65-528.17"/>
+        <circle class="cls-6" cx="614.31" cy="1156.62" r="40.3"/>
+        <circle class="cls-6" cx="40.31" cy="1160.62" r="40.3"/>
+        <circle class="cls-6" cx="516.04" cy="1030.52" r="60.34"/>
+        <circle class="cls-6" cx="323.91" cy="1299.57" r="204.69"/>
+        <path class="cls-4" d="m678.15,600.88c-215.57,152.37-354.52,391.93-354.52,661.35,0,460.33,405.63,833.5,906,833.5,38.92,0,77.26-2.26,114.88-6.64"/>
+        <g>
+          <circle class="cls-6" cx="558.92" cy="1798.4" r="139.85"/>
+          <ellipse class="cls-2" cx="561.63" cy="1804.73" rx="195.2" ry="84.09" transform="translate(-1145.17 992.74) rotate(-47.27)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -40,7 +40,7 @@
             <path class="fill" d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
         </svg>
     </div>
-    <section class="intro">
+    <!-- <section class="intro">
         <div class="text-wrapper">
             <div class="text-0 text">Initializing completed</div>
         </div>
@@ -59,45 +59,43 @@
         <div class="text-wrapper">
             <div class="text-error text">system initializing system initializing system initializing</div>
         </div>
-    </section>
-    <section class="hero">
-        <div class="flex main">
-            <video autoplay muted loop playsinline class="transparent-video" id="heroVideo">
-                <source src="assets/video/kmmx_hero.mov" type='video/mp4; codecs="hvc1"'>
-                <source src="assets/video/kmmx_hero.webm" type="video/webm">
-                <!-- <img src="assets/video/kmmx_hero_fallback.webp" alt="fallback"> -->
-            </video>
-            <div class="red-overlay"></div>
-            <div class='triangles'>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-                <div class='triangle'></div>
-            </div>
-            <h1 class="hero-text hide-mb">KMMX</h1>
-            <img class="hero-bg" src="assets/hero/BG_overlay.svg">
-            <img class="hero-particle back" value="1" src="assets/hero/particle_b.svg">
-            <img class="hero-particle front" value="8" src="assets/hero/particle_f.svg">
-            <div class="video-overlay back"></div>
-            <div class="video-overlay"></div>
+    </section> -->
+    <section class="flex hero unselectable">
+        <video autoplay muted loop playsinline class="transparent-video" id="heroVideo">
+            <source src="assets/video/kmmx_hero.mov" type='video/mp4; codecs="hvc1"'>
+            <source src="assets/video/kmmx_hero.webm" type="video/webm">
+            <!-- <img src="assets/video/kmmx_hero_fallback.webp" alt="fallback"> -->
+        </video>
+        <div class="red-overlay"></div>
+        <div class='triangles'>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
+            <div class='triangle'></div>
         </div>
+        <h1 class="hero-text hide-mb">KMMX</h1>
+        <img class="hero-bg" src="assets/hero/BG_overlay.svg">
+        <img class="hero-particle back" value="1" src="assets/hero/particle_b.svg">
+        <img class="hero-particle front" value="8" src="assets/hero/particle_f.svg">
+        <div class="video-overlay back"></div>
+        <div class="video-overlay"></div>
     </section>
     <div class="hero-credit">
         <p>Art by WolsealMI</p>
         <p>Animation by Kenta AN</p>
     </div>
     <section class="character">
-        <img class="bio-bg" src="assets\svg\bio_bg.svg">
+        <img class="bio-bg unselectable" src="assets\svg\bio_bg.svg">
         <div class="character-header">
-            <h3 class="bio">bi<br>o</h3>
+            <h3 class="bio unselectable">bi<br>o</h3>
             <div class="character-name">
-                <h2 class="outline">KIMMIX</h2>
+                <h2 class="outline unselectable">KIMMIX</h2>
                 <h1>KIMMIX</h1>
                 <div class="character-species">
                     <h6>Uncommon</h6>
@@ -201,6 +199,60 @@
             </div>
         </div>
     </section>
+    <section class="star-chart">
+        <div class="aencc">
+            <p>AENCC Active/.</p>
+            <div class="txtblock">
+                <div class="tb-1">
+                    <div class="v-bar"></div>
+                    <div class="tb-1-r">
+                        <div class="tb-1-r-bar1"></div>
+                        <div class="tb-1-r-1">
+                            <div class="tb-1-r-1-bar1"></div>
+                            <div class="tb-1-r-1-bar2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tb-2">
+                    <div class="tb-2-l">
+                        <div class="tb-2-l-bar1"></div>
+                        <div class="tb-2-l-bar2"></div>
+                        <div class="redbar"></div>
+                    </div>
+                    <div class="tb-2-r">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
+                            <path d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
+                            <path d="M223.29 301.84 223.29 133.67 347.81 304.14 280.72 262.33 223.29 301.84z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex row">
+            <img class="arcai-shard" src="assets/svg/arcai_shard.svg" alt="arcai_shard">
+            <div class="flex">
+                <div>
+                    <h1>Adventurer</h1>
+                    <h1>Traveler</h1>
+                    <h1>Researcher</h1>
+                </div>
+                <div>
+                    <h1>Arcai</h1>
+                    <h1>Arcai</h1>
+                    <h1 class="outline">Researcher</h1>
+                </div>
+            </div>
+        </div>
+        <img class="star-map unselectable" src="assets/svg/star_map.svg" alt="">
+        <div class="location-container">
+            <div class="location">
+                <h5>Current Location: </h5>
+                <p>{{EN_KIMMIX_PLANETARY_LOCATION}}</p>
+            </div>
+            <h1>//</h1>
+        </div>
+
+    </section>
     <div class="sticky">
         <div class="sticky-header">
             <h1>Your journey defines</h1>
@@ -261,7 +313,6 @@
             </li>
         </ul>
 
-        <h1>Send Secret Code for Validation</h1>
         <div id="code">Click the button to generate a code</div>
         <button onclick="sendCode()">Send Code</button>
         <div id="result"></div>
