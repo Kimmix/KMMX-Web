@@ -94,10 +94,6 @@ function handleMotion(event) {
     const { gamma, beta } = event; // gamma: left-to-right tilt, beta: front-to-back tilt
     const x = clamp(gamma * 0.6, -100, 20);
     const y = clamp((beta - 90) * 0.4, -70, 30);
-
-    console.log('handleMotion');
-
-
     particles.forEach((particle) => {
         const position = parseFloat(particle.getAttribute("value"));
         const offsetX = x * position;
@@ -210,12 +206,9 @@ const professionItems = professionContainer.querySelectorAll('#profession');
 window.addEventListener('scroll', () => {
     const rect = professionContainer.getBoundingClientRect();
     const totalHeight = professionContainer.offsetHeight;
-
     // Calculate scroll percentage
     const percentage = Math.max(0, Math.min(100, ((window.innerHeight - rect.top) / totalHeight) * 100));
-    console.log(percentage);
-
-
+    // console.log(percentage);
     // Apply highlighting based on percentage ranges
     professionItems.forEach((item, index) => {
         item.classList.remove('highlight'); // Reset all highlights
