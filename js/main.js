@@ -200,4 +200,34 @@ function showContent(sectionId, event) {
 document.querySelectorAll('.stat-bar').forEach((div) => {
     const position = div.getAttribute('data-position');
     div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
-  });
+});
+
+
+//! Star-chart
+const professionContainer = document.querySelector('.star-chart');
+const professionItems = professionContainer.querySelectorAll('#profession');
+
+window.addEventListener('scroll', () => {
+    const rect = professionContainer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.bottom > 0 && rect.top < windowHeight) {
+        // Calculate visible percentage
+        const visibleHeight = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
+        const totalHeight = professionContainer.offsetHeight;
+        const percentage = (visibleHeight / totalHeight) * 100;
+        console.log(percentage);
+
+
+        professionItems.forEach((item, index) => {
+            // Add .highlight when percentage exceeds a threshold
+            if (percentage > index * 20 && percentage <= (index + 1) * 20) {
+                item.classList.add('highlight');
+            } else {
+                item.classList.remove('highlight');
+            }
+        });
+    } else {
+        professionItems.forEach(item => item.classList.remove('highlight'));
+    }
+});

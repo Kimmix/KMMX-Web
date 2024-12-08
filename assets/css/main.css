@@ -490,7 +490,7 @@ body {
     }
 
     img.star-map {
-        width: 110vw;
+        width: 104vw;
         max-width: none;
         margin-left: -70px;
         margin-top: -580px;
@@ -505,6 +505,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        z-index: 3;
 
         p {
             font-size: 1rem;
@@ -613,14 +614,67 @@ body {
         }
     }
 
+    .profession-container {
+        display: flex;
+        justify-content: space-between;
+        color: var(--grey-color);
+
+        .profession {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 2%;
+
+            .profession-1 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 100px;
+                height: 100%;
+
+                #profession {
+                    padding: 20px 0;
+                    opacity: 0.6;
+                    transition: all 500ms linear;
+
+                    &.highlight {
+                        opacity: 1;
+                        -webkit-text-stroke: unset;
+                        color: var(--grey-color);
+                    }
+                }
+
+                .profession-sticky {
+                    position: sticky;
+                    top: 230px;
+                }
+
+            }
+
+            .bg-text-container {
+                position: relative;
+
+                .bg-text {
+                    font-size: clamp(13rem, 17vw + 9rem, 66rem);
+                    font-weight: 500;
+                    opacity: 0.03;
+                    position: absolute;
+                    top: -310px;
+                    animation: slide-left auto linear;
+                    animation-timeline: scroll(block);
+                    z-index: -1;
+                }
+            }
+        }
+    }
+
     .location-container {
         position: relative;
-        top: -520px;
+        top: -36vw;
         margin-left: auto;
         display: flex;
         justify-content: space-between;
-        width: 70%;
-        height: 150px;
+        width: 60vw;
+        height: 180px;
         color: var(--grey-color);
 
         .location {
@@ -632,10 +686,22 @@ body {
         h1 {
             align-self: flex-end;
             color: var(--primary-color);
+            font-weight: 600;
         }
     }
 
 }
+
+@keyframes slide-left {
+    from {
+        transform: translateX(2000px);
+    }
+
+    to {
+        transform: translateX(-9000px);
+    }
+}
+
 
 @keyframes stroke-width {
     from {
