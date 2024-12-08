@@ -261,6 +261,7 @@ body {
         color: var(--grey-color);
 
         .bio {
+            padding-top: 20px;
             line-height: 40px;
             font-weight: 700;
             width: 20%;
@@ -450,6 +451,7 @@ body {
 
                 &:hover {
                     color: var(--primary-color);
+                    cursor: help;
                 }
             }
         }
@@ -495,7 +497,7 @@ body {
         width: 104vw;
         max-width: none;
         margin-left: -70px;
-        margin-top: -580px;
+        margin-top: -900px;
     }
 
     .aencc {
@@ -675,7 +677,7 @@ body {
         margin-left: auto;
         display: flex;
         justify-content: space-between;
-        width: 60vw;
+        width: calc(22vw + 35rem);
         height: 180px;
         color: var(--grey-color);
 
@@ -696,11 +698,11 @@ body {
 
 @keyframes slide-left {
     from {
-        transform: translateX(2000px);
+        transform: translateX(150%);
     }
 
     to {
-        transform: translateX(-9000px);
+        transform: translateX(-800%);
     }
 }
 
@@ -1029,6 +1031,18 @@ body {
 
     .hero-bg {
         object-position: 160%;
+    }
+
+    .profession-container {
+        justify-content: flex-end !important;
+    }
+
+    .location-container {
+        width: 70% !important;
+    }
+
+    img.star-map{
+        margin-top: -400px !important;
     }
 
     .footer {

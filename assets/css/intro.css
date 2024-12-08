@@ -7,6 +7,8 @@ section.intro {
     z-index: 10;
     background-color: var(--black2-color);
     animation: slide-out-container 6.5s linear forwards;
+    margin: auto 0;
+    max-width: none;
 }
 
 .text-wrapper {
@@ -96,7 +98,7 @@ section.intro {
 }
 
 .text-error {
-    font-size: clamp(4rem, 400px, 20rem);
+    font-size: clamp(4rem, 10vw + 300px, 40vw);
     color: red;
     overflow: hidden;
     text-overflow: clip;
