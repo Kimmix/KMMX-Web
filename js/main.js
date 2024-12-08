@@ -209,25 +209,22 @@ const professionItems = professionContainer.querySelectorAll('#profession');
 
 window.addEventListener('scroll', () => {
     const rect = professionContainer.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+    const totalHeight = professionContainer.offsetHeight;
 
-    if (rect.bottom > 0 && rect.top < windowHeight) {
-        // Calculate visible percentage
-        const visibleHeight = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
-        const totalHeight = professionContainer.offsetHeight;
-        const percentage = Math.round((visibleHeight / totalHeight) * 100);
-        // console.log(percentage);
-        professionItems.forEach((item, index) => {
-            item.classList.remove('highlight');
-            if (index === 0 && percentage > 0 && percentage <= 35) {
-                item.classList.add('highlight');
-            } else if (index === 1 && percentage > 35 && percentage <= 49) {
-                item.classList.add('highlight');
-            } else if (index === 2 && percentage >= 50) {
-                item.classList.add('highlight');
-            }
-        });
-    } else {
-        professionItems.forEach(item => item.classList.remove('highlight'));
-    }
+    // Calculate scroll percentage
+    const percentage = Math.max(0, Math.min(100, ((window.innerHeight - rect.top) / totalHeight) * 100));
+    console.log(percentage);
+
+
+    // Apply highlighting based on percentage ranges
+    professionItems.forEach((item, index) => {
+        item.classList.remove('highlight'); // Reset all highlights
+        if (index === 0 && percentage > 0 && percentage <= 30) {
+            item.classList.add('highlight');
+        } else if (index === 1 && percentage > 30 && percentage <= 49) {
+            item.classList.add('highlight');
+        } else if (index === 2 && percentage >= 50) {
+            item.classList.add('highlight');
+        }
+    });
 });

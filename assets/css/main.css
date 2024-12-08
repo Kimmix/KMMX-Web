@@ -25,11 +25,12 @@ body {
 .transparent-video {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: -44px;
+    right: 0;
+    width: fit-content;
     height: 100%;
     object-fit: cover;
-    object-position: 15% top;
+    margin-inline: auto;
     z-index: 1;
 }
 

@@ -3,6 +3,11 @@
     --text-color: var(--black-color);
 }
 
+body {
+    background-color: var(--background-color);
+    height: 100vh;
+}
+
 .kmmx {
     position: absolute;
     top: 0;
@@ -11,9 +16,8 @@
 }
 
 .landing-page {
-    background-color: var(--background-color);
-    height: 100vh;
-    max-width: 2000px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
