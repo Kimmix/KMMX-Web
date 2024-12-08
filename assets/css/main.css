@@ -225,6 +225,7 @@ body {
     right: 0;
     writing-mode: vertical-rl;
     white-space: nowrap;
+    z-index: 4;
 
     p {
         font-size: 1rem;
@@ -280,15 +281,31 @@ body {
             width: 75%;
             justify-content: space-between;
             align-items: flex-end;
-            height: 250px;
+            height: 200px;
 
             h1 {
                 font-weight: 700;
                 letter-spacing: 0.8rem;
                 z-index: 3;
                 transform: scaleY(1.05);
+
+                &::after {
+                    content: "KIMMIX";
+                    font-size: clamp(2.5rem, 5vw + 7rem, 20rem);
+                    font-family: 'Open Sans', sans-serif;
+                    color: var(--background-color);
+                    -webkit-text-stroke: 2px var(--grey-color);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    margin-left: 10%;
+                    opacity: 0.55;
+                    transform: scaleY(0.95);
+                    z-index: -1;
+                }
             }
 
+            /*
             h2 {
                 position: absolute;
                 font-size: clamp(2.5rem, 7vw + 9rem, 20rem);
@@ -299,7 +316,7 @@ body {
                 opacity: 0.55;
                 transform: scaleY(0.95);
                 z-index: 2;
-            }
+            } */
 
             .character-species {
                 display: flex;
@@ -1050,16 +1067,26 @@ body {
         object-position: 160%;
     }
 
-    .profession-container {
-        justify-content: flex-end !important;
+    .character {
+        & .character-header {
+            .character-name {
+                height: 160px;
+            }
+        }
     }
 
-    .location-container {
-        width: 70% !important;
-    }
+    .star-chart {
+        .profession-container {
+            justify-content: flex-end;
+        }
 
-    img.star-map {
-        margin-top: -400px !important;
+        .location-container {
+            width: 70%;
+        }
+
+        img.star-map {
+            margin-top: -400px;
+        }
     }
 
     .footer {
