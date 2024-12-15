@@ -57,7 +57,7 @@ body {
     scrollbar-color: transparent transparent;
     -webkit-tap-highlight-color: #00000000;
     width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 section {

@@ -530,6 +530,7 @@ body {
         max-width: none;
         margin-left: -70px;
         margin-top: -800px;
+        position: relative;
     }
 
     .aencc {
@@ -1083,11 +1084,14 @@ body {
         }
 
         .location-container {
-            width: 70%;
+            width: 90%;
+            top: -20px;
         }
 
         img.star-map {
-            margin-top: -400px;
+            margin-top: -180px;
+            height: 100vh;
+            width: auto;
         }
     }
 
