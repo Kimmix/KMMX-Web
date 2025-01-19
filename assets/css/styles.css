@@ -70,6 +70,7 @@ section {
     width: 100vw;
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
+    width: 100%;
     max-width: var(--max-width);
     min-height: 50vh;
     margin: 0 auto;
@@ -81,6 +82,12 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
 }
 
 h1 {
