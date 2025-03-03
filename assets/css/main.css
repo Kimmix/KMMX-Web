@@ -929,11 +929,6 @@ body {
             margin-bottom: 30px;
         }
 
-        p {
-            color: var(--grey-color);
-            font-size: clamp(1rem, 0.7vw + 0.25rem, 1.25rem);
-        }
-
         img {
             object-fit: contain;
             height: 130px;
