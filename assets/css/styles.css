@@ -84,12 +84,6 @@ img {
     object-fit: cover;
 }
 
-p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-color);
-}
-
 h1 {
     font-size: clamp(3rem, 8vw + 1rem, 6rem);
     font-weight: 900;
@@ -129,7 +123,7 @@ h6 {
 
 p {
     font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
-    font-weight: 300;
+    font-weight: 200;
     line-height: 1.5;
     color: var(--text-color);
 }
