@@ -68,43 +68,50 @@ body {
         }
     }
 
+    /* Yes/No */
+    .option-container {
+        display: inline-flex;
+        position: relative;
+        margin: 22px 0;
+
+        .option {
+            padding: 10px 20px;
+            font-size: 4rem;
+            line-height: 0.9;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            color: black;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+        .hover-box {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background-color: black;
+            transition: all 0.3s ease;
+            z-index: 0;
+            opacity: 0;
+        }
+
+    }
+
+    .backbtn-container {
+        margin-bottom: 5%;
+    }
+
     * {
         font-weight: 200;
     }
 }
 
-/* Yes/No */
-.option-container {
-    display: inline-flex;
-    position: relative;
-    margin: 22px 0;
-}
 
-.option {
-    padding: 10px 20px;
-    font-size: 3rem;
-    line-height: 0.9;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    color: black;
-    transition: color 0.3s ease;
-}
-
-.hover-box {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    background-color: black;
-    transition: all 0.3s ease;
-    z-index: 0;
-    opacity: 0;
-}
-
-.option:hover {
-    color: white;
-}
 
 a {
     position: relative;
@@ -113,25 +120,25 @@ a {
     font-size: 24px;
     font-weight: bold;
     padding-bottom: 1px;
-}
 
-a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-color);
-    /* Modern vibrant color */
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        /* Modern vibrant color */
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
 
-a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
 }
 
 .log {

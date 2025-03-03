@@ -85,13 +85,13 @@ img {
 }
 
 h1 {
-    font-size: clamp(3rem, 8vw + 1rem, 6rem);
+    font-size: clamp(4.5rem, 6vw + 1.6rem, 9rem);
     font-weight: 900;
     /* Extra bold for h1 */
 }
 
 h2 {
-    font-size: clamp(2.5rem, 7vw + 1rem, 5rem);
+    font-size: clamp(1.5rem, 3vw + 2rem, 6rem);
     font-weight: 800;
     /* Slightly less bold */
 }
