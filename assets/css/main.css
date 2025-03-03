@@ -522,7 +522,7 @@ body {
     overflow: visible;
 
     img.arcai-shard {
-        width: 320px;
+        width: 280px;
         margin-left: 50px;
         z-index: 2;
     }
@@ -531,7 +531,7 @@ body {
         /* width: 104vw; */
         max-width: none;
         margin-left: -70px;
-        margin-top: -800px;
+        margin-top: -400px;
         position: relative;
     }
 
@@ -894,7 +894,9 @@ body {
 
 
 /* Footer */
-
+.footer-spacer {
+    height: 50vw;
+}
 .footer {
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
@@ -902,20 +904,35 @@ body {
     max-width: var(--max-width);
     margin-top: 200px;
     margin-bottom: 20px;
+    align-items: flex-end;
+    position: relative;
 
-    .link {
-        margin-top: 8px;
-        margin-bottom: 30px;
+    .footer-bg {
+        position: absolute;
+        z-index: -1;
+
+        .footer-overlay {
+            position: relative;
+            bottom: 150px;
+            height: 200px;
+            width: 100%;
+            background-image: linear-gradient(to bottom, transparent 0%, var(--background-color) 60%);
+            z-index: 2;
+        }
     }
-
-    p {
-        color: var(--grey-color);
-        font-size: clamp(1rem, 0.7vw + 0.25rem, 1.25rem);
-    }
-
     .footer-left {
         align-items: flex-start;
         flex-basis: 350px;
+
+        .link {
+            margin-top: 8px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: var(--grey-color);
+            font-size: clamp(1rem, 0.7vw + 0.25rem, 1.25rem);
+        }
 
         img {
             object-fit: contain;
@@ -1074,6 +1091,7 @@ body {
             flex-direction: column;
 
         }
+
         .character-header {
             .character-name {
                 height: 160px;
