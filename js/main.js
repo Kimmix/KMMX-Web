@@ -44,7 +44,7 @@ function getDeviceType() {
 // Display the detected device type
 document.addEventListener('DOMContentLoaded', () => {
     const deviceType = getDeviceType();
-    document.getElementById('deviceType').textContent = `You are using a ${deviceType} device.`;
+    document.getElementById('deviceType').textContent = `Detected ${deviceType} device.`;
 });
 
 
