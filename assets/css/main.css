@@ -261,7 +261,7 @@ body {
 
         .bio {
             padding-top: 20px;
-            line-height: 60px;
+            line-height: 50px;
             font-weight: 100;
             width: 20%;
             margin-right: 20px;
@@ -361,17 +361,19 @@ body {
         .sidebar {
             width: 20%;
             min-width: 200px;
+            padding-left: 10px;
 
             a {
                 display: block;
                 color: var(--white-color);
                 text-decoration: none;
                 margin-bottom: 10px;
+                height: 25px;
                 font-size: 1.2rem;
+                font-weight: 300;
                 opacity: 0.4;
                 transition: opacity 0.3s ease-out;
                 transition: color 0.7s ease-in;
-                font-weight: 300;
             }
 
             a:hover {
