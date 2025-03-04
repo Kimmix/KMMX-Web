@@ -72,3 +72,48 @@ glowContainer.addEventListener('mousemove', (event) => {
         gradient.setAttribute('cy', `${cyPercentage}%`);
     }
 });
+
+// Log
+const logLines = [
+    "System Boot Initiated...",
+    "Loading core modules...",
+    "Core modules loaded successfully.",
+    "Initializing subsystems...",
+    "Subsystem Alpha: Online",
+    "Subsystem Beta: Online",
+    "ERROR: Subsystem Gamma: Segmentation fault.",
+    "Attempting to restart Subsystem Gamma...",
+    "Subsystem Gamma: Restart successful.",
+    "Running diagnostics...",
+    "Diagnostics complete: All systems operational.",
+    "System ready for user input."
+];
+
+let currentLine = 0;
+const logContent = document.getElementById('logContent');
+
+function typeLine() {
+    if (currentLine < logLines.length) {
+        const line = logLines[currentLine];
+        const lineElement = document.createElement('div');
+        lineElement.className = 'line typing';
+        logContent.appendChild(lineElement);
+
+        let charIndex = 0;
+        const interval = setInterval(() => {
+            if (charIndex < line.length) {
+                lineElement.innerHTML += line[charIndex];
+                charIndex++;
+            } else {
+                lineElement.classList.remove('typing');
+                clearInterval(interval);
+                currentLine++;
+                setTimeout(typeLine, 500); // Delay before typing the next line
+            }
+        }, 50); // Typing speed
+    }
+}
+
+if (logContent) {
+    typeLine();
+}

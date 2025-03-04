@@ -303,19 +303,6 @@ body {
                 }
             }
 
-            /*
-            h2 {
-                position: absolute;
-                font-size: clamp(2.5rem, 7vw + 9rem, 20rem);
-                margin-left: 120px;
-                margin-bottom: 30px;
-                color: var(--background-color);
-                -webkit-text-stroke: 2px var(--grey-color);
-                opacity: 0.55;
-                transform: scaleY(0.95);
-                z-index: 2;
-            } */
-
             .character-species {
                 display: flex;
                 flex-direction: column;
