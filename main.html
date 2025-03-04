@@ -60,199 +60,205 @@
             <div class="text-error text">system initializing system initializing system initializing</div>
         </div>
     </section> -->
-    <section class="hero unselectable">
-        <video autoplay muted loop playsinline class="transparent-video" id="heroVideo">
-            <source src="assets/video/kmmx_hero.mov" type='video/mp4; codecs="hvc1"'>
-            <source src="assets/video/kmmx_hero.webm" type="video/webm">
-            <!-- <img src="assets/video/kmmx_hero_fallback.webp" alt="fallback"> -->
-        </video>
-        <div class="red-overlay"></div>
-        <div class='triangles'>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
-            <div class='triangle'></div>
+    <div id="parallax">
+        <section class="hero unselectable">
+            <video autoplay muted loop playsinline class="transparent-video" id="heroVideo">
+                <source src="assets/video/kmmx_hero.mov" type='video/mp4; codecs="hvc1"'>
+                <source src="assets/video/kmmx_hero.webm" type="video/webm">
+                <!-- <img src="assets/video/kmmx_hero_fallback.webp" alt="fallback"> -->
+            </video>
+            <div class="red-overlay"></div>
+            <div class='triangles'>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+                <div class='triangle'></div>
+            </div>
+            <h1 class="hero-text hide-mb">KMMX</h1>
+            <img class="hero-bg" src="assets/hero/BG_overlay.svg">
+            <img class="hero-particle back" value="1" src="assets/hero/particle_b.svg">
+            <img class="hero-particle front" value="8" src="assets/hero/particle_f.svg">
+            <div class="video-overlay back"></div>
+            <div class="video-overlay"></div>
+        </section>
+        <div class="hero-credit" data-speed="5">
+            <p>Art by WolsealMI</p>
+            <p>Animation by Kenta AN</p>
         </div>
-        <h1 class="hero-text hide-mb">KMMX</h1>
-        <img class="hero-bg" src="assets/hero/BG_overlay.svg">
-        <img class="hero-particle back" value="1" src="assets/hero/particle_b.svg">
-        <img class="hero-particle front" value="8" src="assets/hero/particle_f.svg">
-        <div class="video-overlay back"></div>
-        <div class="video-overlay"></div>
-    </section>
-    <div class="hero-credit">
-        <p>Art by WolsealMI</p>
-        <p>Animation by Kenta AN</p>
-    </div>
-    <section class="character">
-        <img class="bio-bg unselectable" src="assets\svg\bio_bg.svg">
-        <div class="character-header">
-            <h3 class="bio hide-mb unselectable">bi<br>o</h3>
-            <div class="character-name">
-                <!-- <h2 class="outline unselectable">KIMMIX</h2> -->
-                <h1>KIMMIX</h1>
-                <div class="character-species">
-                    <h6>Uncommon</h6>
-                    <p>Protogen</p>
+        <section class="character" data-speed="1.3">
+            <img class="bio-bg unselectable" src="assets\svg\bio_bg.svg">
+            <div class="character-header">
+                <h3 class="bio hide-mb unselectable">bi<br>o</h3>
+                <div class="character-name">
+                    <!-- <h2 class="outline unselectable">KIMMIX</h2> -->
+                    <h1>KIMMIX</h1>
+                    <div class="character-species">
+                        <h6>Uncommon</h6>
+                        <p>Protogen</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="character-detail">
-            <div class="sidebar">
-                <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
-                <a href="#stat" onclick="showContent('stat', event)">Arcai stat</a>
-                <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
-            </div>
-            <div class="content">
-                <!-- Info Section -->
-                <div id="info" class="content-section active">
-                    <p class="info-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.</p>
+            <div class="character-detail">
+                <div class="sidebar">
+                    <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
+                    <a href="#stat" onclick="showContent('stat', event)">Arcai stat</a>
+                    <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
                 </div>
+                <div class="content">
+                    <!-- Info Section -->
+                    <div id="info" class="content-section active">
+                        <p class="info-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley
+                            of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages,
+                            and more recently with desktop publishing software like Aldus PageMaker including versions
+                            of
+                            Lorem Ipsum.</p>
+                    </div>
 
-                <!-- Stat Section -->
-                <div id="stat" class="content-section">
-                    <div class="stat-section">
-                        <div class="chart-container">
-                            <canvas id="radarChart" width="450" height="400"></canvas>
-                        </div>
-                        <div class="stat-section-r">
-                            <p class="bold">The FBRCC (Fabric) Model</p>
-                            <div class="stat-container">
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Focus</span>
-                                        <span class="bg-loop"></span>
-                                        <span>25</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="60%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Bandwidth</span>
-                                        <span class="bg-loop"></span>
-                                        <span>5</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="10%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Reach</span>
-                                        <span class="bg-loop"></span>
-                                        <span>15</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="45%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Capacity</span>
-                                        <span class="bg-loop"></span>
-                                        <span>25</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="60%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Control</span>
-                                        <span class="bg-loop"></span>
-                                        <span>30</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="85%"></div>
-                                    </div>
-                                </div>
-                                <a href="https://docs.google.com/document/d/1pZNkybm4JnZjy91ek9I3K00zvt1NQmgKzhZTUsIU0sc/preview?rm=demo&tab=t.0#heading=h.qx6qns3rqf68"
-                                    target="_blank">Learn more about Arcai</a>
+                    <!-- Stat Section -->
+                    <div id="stat" class="content-section">
+                        <div class="stat-section">
+                            <div class="chart-container">
+                                <canvas id="radarChart" width="450" height="400"></canvas>
                             </div>
-                            <p><span class="bold">Arcai mastery:</span> Materialization</p>
+                            <div class="stat-section-r">
+                                <p class="bold">The FBRCC (Fabric) Model</p>
+                                <div class="stat-container">
+                                    <div class="stat-row">
+                                        <div class="stat-header">
+                                            <span>Focus</span>
+                                            <span class="bg-loop"></span>
+                                            <span>25</span>
+                                        </div>
+                                        <div class="stat-bar-container">
+                                            <div class="stat-bar" data-position="60%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-row">
+                                        <div class="stat-header">
+                                            <span>Bandwidth</span>
+                                            <span class="bg-loop"></span>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="stat-bar-container">
+                                            <div class="stat-bar" data-position="10%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-row">
+                                        <div class="stat-header">
+                                            <span>Reach</span>
+                                            <span class="bg-loop"></span>
+                                            <span>15</span>
+                                        </div>
+                                        <div class="stat-bar-container">
+                                            <div class="stat-bar" data-position="45%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-row">
+                                        <div class="stat-header">
+                                            <span>Capacity</span>
+                                            <span class="bg-loop"></span>
+                                            <span>25</span>
+                                        </div>
+                                        <div class="stat-bar-container">
+                                            <div class="stat-bar" data-position="60%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-row">
+                                        <div class="stat-header">
+                                            <span>Control</span>
+                                            <span class="bg-loop"></span>
+                                            <span>30</span>
+                                        </div>
+                                        <div class="stat-bar-container">
+                                            <div class="stat-bar" data-position="85%"></div>
+                                        </div>
+                                    </div>
+                                    <a href="https://docs.google.com/document/d/1pZNkybm4JnZjy91ek9I3K00zvt1NQmgKzhZTUsIU0sc/preview?rm=demo&tab=t.0#heading=h.qx6qns3rqf68"
+                                        target="_blank">Learn more about Arcai</a>
+                                </div>
+                                <p><span class="bold">Arcai mastery:</span> Materialization</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Equipment Section -->
+                    <div id="equipment" class="content-section">
+                        <div class="equipment-graphic">
+                            <img src="assets\svg\aencc.svg" alt="Equipment Graphic">
+                        </div>
+                        <h6>AENCC</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="star-chart">
+            <div class="profession-container">
+                <!-- <img class="arcai-shard hide-mb" src="assets/svg/arcai_shard.svg" alt="arcai_shard" data-speed="3"> -->
+                <div class="profession" data-speed="-1.2">
+                    <div class="profession-1">
+                        <h1 id="profession" class="outline">Adventurer</h1>
+                        <h1 id="profession" class="outline">Traveler</h1>
+                        <div class="profession-sticky">
+                            <h1 id="profession" class="outline">Researcher</h1>
+                        </div>
+                        <div class="bg-text-container">
+                            <h1 class="bg-text">Arcai</h1>
                         </div>
                     </div>
                 </div>
-
-                <!-- Equipment Section -->
-                <div id="equipment" class="content-section">
-                    <div class="equipment-graphic">
-                        <img src="assets\svg\aencc.svg" alt="Equipment Graphic">
-                    </div>
-                    <h6>AENCC</h6>
-                </div>
             </div>
-        </div>
-    </section>
-    <section class="star-chart">
-        <div class="profession-container">
-            <img class="arcai-shard hide-mb" src="assets/svg/arcai_shard.svg" alt="arcai_shard">
-            <div class="profession">
-                <div class="profession-1">
-                    <h1 id="profession" class="outline">Adventurer</h1>
-                    <h1 id="profession" class="outline">Traveler</h1>
-                    <div class="profession-sticky">
-                        <h1 id="profession" class="outline">Researcher</h1>
+            <div class="aencc">
+                <p>AENCC Active/.</p>
+                <div class="txtblock">
+                    <div class="tb-1">
+                        <div class="v-bar"></div>
+                        <div class="tb-1-r">
+                            <div class="tb-1-r-bar1"></div>
+                            <div class="tb-1-r-1">
+                                <div class="tb-1-r-1-bar1"></div>
+                                <div class="tb-1-r-1-bar2"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-text-container">
-                        <h1 class="bg-text">Arcai</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="aencc">
-            <p>AENCC Active/.</p>
-            <div class="txtblock">
-                <div class="tb-1">
-                    <div class="v-bar"></div>
-                    <div class="tb-1-r">
-                        <div class="tb-1-r-bar1"></div>
-                        <div class="tb-1-r-1">
-                            <div class="tb-1-r-1-bar1"></div>
-                            <div class="tb-1-r-1-bar2"></div>
+                    <div class="tb-2">
+                        <div class="tb-2-l">
+                            <div class="tb-2-l-bar1"></div>
+                            <div class="tb-2-l-bar2"></div>
+                            <div class="redbar"></div>
+                        </div>
+                        <div class="tb-2-r">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
+                                <path d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
+                                <path d="M223.29 301.84 223.29 133.67 347.81 304.14 280.72 262.33 223.29 301.84z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
-                <div class="tb-2">
-                    <div class="tb-2-l">
-                        <div class="tb-2-l-bar1"></div>
-                        <div class="tb-2-l-bar2"></div>
-                        <div class="redbar"></div>
-                    </div>
-                    <div class="tb-2-r">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
-                            <path d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
-                            <path d="M223.29 301.84 223.29 133.67 347.81 304.14 280.72 262.33 223.29 301.84z" />
-                        </svg>
-                    </div>
+            </div>
+            <img class="star-map unselectable" src="assets/svg/star_map.svg" alt="" data-speed="0.1">
+            <div class="location-container" data-speed="-6">
+                <div class="location">
+                    <h5>Current Location: </h5>
+                    <p>{{EN_KIMMIX_PLANETARY_LOCATION}}</p>
                 </div>
+                <h1>//</h1>
             </div>
-        </div>
-        <img class="star-map unselectable" src="assets/svg/star_map.svg" alt="">
-        <div class="location-container">
-            <div class="location">
-                <h5>Current Location: </h5>
-                <p>{{EN_KIMMIX_PLANETARY_LOCATION}}</p>
-            </div>
-            <h1>//</h1>
-        </div>
 
-    </section>
+        </section>
+    </div>
     <div class="sticky">
         <div class="sticky-header">
             <h1>Your journey defines</h1>

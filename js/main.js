@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         lenis.raf(time * 1000);
     })
     gsap.ticker.lagSmoothing(0);
-
     gsap.registerPlugin(ScrollTrigger);
     const stickySection = document.querySelector(".sticky");
     const stickyHeader = document.querySelector(".sticky-header");
@@ -24,9 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const translateX = -progress * maxTranslate;
             gsap.set(stickyHeader, { x: translateX });
         },
-    })
+    });
 
-})
+    gsap.utils.toArray("[data-speed]").forEach(layer => {
+        let speed = layer.dataset.speed;
+        let movement = -(layer.offsetHeight * speed)
+        gsap.to(layer, {
+            y: movement,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#parallax",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        }, 0)
+    });
+});
 
 // Check device type
 function getDeviceType() {
