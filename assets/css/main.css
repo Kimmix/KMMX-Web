@@ -281,7 +281,8 @@ body {
             width: 75%;
             justify-content: space-between;
             align-items: flex-end;
-            height: 200px;
+            height: 250px;
+            overflow: hidden;
 
             h1 {
                 font-weight: 700;
@@ -758,11 +759,12 @@ body {
 
 /* About me */
 .aboutme {
-    padding-top: 15vh;
+    padding-top: 35vh;
 
     .aboutme-container {
-        display: flex;
         gap: 20px;
+        text-align: left;
+        align-items: flex-start;
 
         .pop-out-image {
             aspect-ratio: 1;
@@ -802,6 +804,10 @@ body {
                     }
                 }
             }
+        }
+
+        .aboutme-text {
+            margin-right: auto;
         }
     }
 }
@@ -1135,6 +1141,16 @@ body {
         .character-header {
             .character-name {
                 height: 160px;
+                width: 100%;
+                .character-species {
+                    margin-bottom: 0;
+                }
+            }
+
+            h1 {
+                &::after {
+                    font-size: calc(11vw + 3.4rem) !important;
+                }
             }
         }
     }
@@ -1142,6 +1158,11 @@ body {
     .star-chart {
         .profession-container {
             justify-content: flex-end;
+            .profession {
+                .profession-1 {
+                    height: 480px;
+                }
+            }
         }
 
         .location-container {
@@ -1153,6 +1174,21 @@ body {
             margin-top: -180px;
             height: 100vh;
             width: auto;
+        }
+    }
+
+    .aboutme {
+        & .aboutme-container {
+            & .pop-out-image {
+                width: 100%;
+
+                & figure {
+                    img {
+                        left: 50%;
+                        width: 90%;
+                    }
+                }
+            }
         }
     }
 
