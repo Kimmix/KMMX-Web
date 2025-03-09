@@ -756,6 +756,53 @@ body {
     }
 }
 
+/* About me */
+.aboutme {
+    padding-top: 20vh;
+    .aboutme-container {
+        display: flex;
+        gap: 20px;
+        .pop-out-image {
+            aspect-ratio: 1;
+            position: relative;
+            width: 45rem;
+            height: 56vh;
+            outline: 4px dashed transparent;
+            transition: outline 0.2s, transform 0.2s;
+
+            figure {
+                margin: 0;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+
+                &:last-of-type {
+                    overflow: visible;
+                    clip-path: inset(-200% 0 0 0);
+                }
+
+                img {
+                    /* aspect-ratio: 1; */
+                    left: 68%;
+                    object-fit: cover;
+                    position: absolute;
+                    translate: -50% 0;
+                    top: 0%;
+                    width: 100%;
+                    filter: brightness(var(--b, 1));
+
+                    &:first-of-type {
+                        filter: brightness(1);
+                    }
+                }
+            }
+        }
+    }
+}
 /* styling */
 .styling {
     text-align: left;
