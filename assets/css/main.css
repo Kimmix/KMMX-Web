@@ -758,10 +758,12 @@ body {
 
 /* About me */
 .aboutme {
-    padding-top: 20vh;
+    padding-top: 15vh;
+
     .aboutme-container {
         display: flex;
         gap: 20px;
+
         .pop-out-image {
             aspect-ratio: 1;
             position: relative;
@@ -803,6 +805,7 @@ body {
         }
     }
 }
+
 /* styling */
 .styling {
     text-align: left;
