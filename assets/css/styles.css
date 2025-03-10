@@ -16,7 +16,7 @@
 
     --max-width: 2400px;
     --side-padding: 36px;
-    --side-padding-mobile: 20px;
+    --side-margin-mobile: 10px;
 }
 
 ::selection {
@@ -58,7 +58,7 @@ body {
     -webkit-tap-highlight-color: #00000000;
     display: flex;
     flex-direction: column;
-    max-width: var(--max-width);
+    /* max-width: var(--max-width); */
     margin: 0 auto;
     width: 100%;
     height: 100svh;
@@ -92,7 +92,7 @@ p {
 }
 
 h1 {
-    font-size: clamp(4.5rem, 6vw + 1.6rem, 9rem);
+    font-size: clamp(4rem, 6vw + 1.6rem, 9rem);
     font-weight: 900;
     /* Extra bold for h1 */
 }
@@ -195,8 +195,9 @@ hr {
     }
 
     section {
-        padding-left: var(--side-padding-mobile);
-        padding-right: var(--side-padding-mobile);
+        margin-left: var(--side-margin-mobile);
+        margin-right: var(--side-margin-mobile);
+        padding: 0;
     }
 }
 

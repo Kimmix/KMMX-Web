@@ -23,7 +23,6 @@ body {
 
 .logo {
     --space: 200px;
-    flex-grow: 1;
     width: 100%;
     align-items: flex-end;
     justify-content: flex-end;
@@ -47,7 +46,6 @@ body {
     width: 100%;
     align-items: start;
     text-align: left;
-    padding: 0 10px;
 
     .version {
         text-align: end;
@@ -76,7 +74,7 @@ body {
 
         .option {
             padding: 10px 20px;
-            font-size: 4rem;
+            font-size: clamp(3rem, 5vw, 4rem);
             line-height: 0.9;
             cursor: pointer;
             position: relative;

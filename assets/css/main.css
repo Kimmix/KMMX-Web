@@ -24,7 +24,8 @@ body {
 
 .transparent-video {
     position: absolute;
-    left: -44px;
+    left: 50%;
+    transform: translateX(-50%) translateX(clamp(-43px, (-25vw + 600px), 350px));
     width: fit-content;
     height: 100%;
     object-fit: cover;
@@ -951,9 +952,8 @@ body {
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
     width: 100%;
-    max-width: var(--max-width);
+    /* max-width: var(--max-width); */
     margin-top: 200px;
-    margin-bottom: 20px;
     align-items: flex-end;
     position: relative;
 
@@ -971,161 +971,171 @@ body {
         }
     }
 
-    .footer-left {
-        align-items: flex-start;
-        flex-basis: 350px;
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: var(--max-width);
+        padding: 20px 0;
 
-        .link {
-            margin-top: 8px;
-            margin-bottom: 30px;
-        }
+        .footer-left {
+            align-items: flex-start;
+            flex-basis: 350px;
 
-        img {
-            object-fit: contain;
-            height: 130px;
-            width: auto;
-            margin: 12px 0;
-        }
-    }
+            .link {
+                margin-top: 8px;
+                margin-bottom: 30px;
+            }
 
-    .footer-center {
-        margin-top: auto;
-
-        svg {
-            height: 50px;
-        }
-    }
-
-    .footer-right {
-        margin-top: auto;
-        align-items: flex-end;
-        flex-basis: 350px;
-        --box-size: 50px;
-
-        .color-box {
-            width: var(--box-size);
-            height: var(--box-size);
-            border-radius: 20%;
-            background-color: var(--grey-color);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .tooltip {
-            position: fixed;
-            display: none;
-            padding: 7px;
-            background-color: var(--black-color);
-            color: var(--grey-color);
-            border-radius: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 4;
-
-            &.copied {
-                color: var(--green-color) !important;
+            img {
+                object-fit: contain;
+                height: 130px;
+                width: auto;
+                margin: 12px 0;
             }
         }
 
+        .footer-center {
+            margin-top: auto;
 
-        .color-box-container {
-            justify-content: end;
-            gap: 10px;
-            margin-right: 0;
-            margin-top: 10px;
-            margin-bottom: 14px;
-
-
-            .color-box:nth-child(1) {
-                background-color: var(--primary-color);
-
-                .tooltip {
-                    color: var(--primary-color);
-                }
+            svg {
+                height: 50px;
             }
+        }
 
-            .color-box:nth-child(2) {
-                background-color: var(--secondary-color);
+        .footer-right {
+            margin-top: auto;
+            align-items: flex-end;
+            flex-basis: 350px;
+            --box-size: 50px;
 
-                .tooltip {
-                    color: var(--secondary-color);
-                }
-            }
-
-            .color-box:nth-child(3) {
-                background-color: var(--tertiary-color);
-
-                .tooltip {
-                    color: var(--tertiary-color);
-                }
-            }
-
-            .color-box:nth-child(4) {
-                background-color: var(--white-color);
-
-                .tooltip {
-                    color: var(--white-color);
-                }
-            }
-
-            .color-box:nth-child(5) {
-                background-color: var(--white2-color);
-
-                .tooltip {
-                    color: var(--white2-color);
-                }
-            }
-
-            .color-box:nth-child(6) {
-                background-color: var(--white3-color);
-
-                .tooltip {
-                    color: var(--white3-color);
-                }
-            }
-
-            .color-box:nth-child(7) {
-                background-color: var(--black-color);
-
-                .tooltip {
-                    background-color: var(--white2-color);
-                    color: var(--black-color);
-                }
-            }
-
-            .color-box:nth-child(8) {
-                background-color: var(--black2-color);
-
-                .tooltip {
-                    background-color: var(--white2-color);
-                    color: var(--black2-color);
-                }
-            }
-
-            .color-box:nth-child(9) {
-                background-color: var(--black3-color);
-
-                .tooltip {
-                    background-color: var(--white2-color);
-                    color: var(--black3-color);
-                }
-            }
-
-            .color-box:nth-child(10) {
+            .color-box {
+                width: var(--box-size);
+                height: var(--box-size);
+                border-radius: 20%;
                 background-color: var(--grey-color);
+                cursor: pointer;
+                position: relative;
+            }
 
-                .tooltip {
-                    color: var(--grey-color);
+            .tooltip {
+                position: fixed;
+                display: none;
+                padding: 7px;
+                background-color: var(--black-color);
+                color: var(--grey-color);
+                border-radius: 5px;
+                font-size: 12px;
+                white-space: nowrap;
+                pointer-events: none;
+                z-index: 4;
+
+                &.copied {
+                    color: var(--green-color) !important;
+                }
+            }
+
+
+            .color-box-container {
+                justify-content: end;
+                gap: 10px;
+                margin-right: 0;
+                margin-top: 10px;
+                margin-bottom: 14px;
+
+
+                .color-box:nth-child(1) {
+                    background-color: var(--primary-color);
+
+                    .tooltip {
+                        color: var(--primary-color);
+                    }
+                }
+
+                .color-box:nth-child(2) {
+                    background-color: var(--secondary-color);
+
+                    .tooltip {
+                        color: var(--secondary-color);
+                    }
+                }
+
+                .color-box:nth-child(3) {
+                    background-color: var(--tertiary-color);
+
+                    .tooltip {
+                        color: var(--tertiary-color);
+                    }
+                }
+
+                .color-box:nth-child(4) {
+                    background-color: var(--white-color);
+
+                    .tooltip {
+                        color: var(--white-color);
+                    }
+                }
+
+                .color-box:nth-child(5) {
+                    background-color: var(--white2-color);
+
+                    .tooltip {
+                        color: var(--white2-color);
+                    }
+                }
+
+                .color-box:nth-child(6) {
+                    background-color: var(--white3-color);
+
+                    .tooltip {
+                        color: var(--white3-color);
+                    }
+                }
+
+                .color-box:nth-child(7) {
+                    background-color: var(--black-color);
+
+                    .tooltip {
+                        background-color: var(--white2-color);
+                        color: var(--black-color);
+                    }
+                }
+
+                .color-box:nth-child(8) {
+                    background-color: var(--black2-color);
+
+                    .tooltip {
+                        background-color: var(--white2-color);
+                        color: var(--black2-color);
+                    }
+                }
+
+                .color-box:nth-child(9) {
+                    background-color: var(--black3-color);
+
+                    .tooltip {
+                        background-color: var(--white2-color);
+                        color: var(--black3-color);
+                    }
+                }
+
+                .color-box:nth-child(10) {
+                    background-color: var(--grey-color);
+
+                    .tooltip {
+                        color: var(--grey-color);
+                    }
                 }
             }
         }
     }
+
 }
 
 @media (max-width:1025px) {
     .transparent-video {
-        width: -webkit-fill-available;
+        width: 100%;
+        transform: translateX(-50%);
     }
 
     .hero-bg {
@@ -1133,6 +1143,8 @@ body {
     }
 
     .character {
+        padding-top: 0;
+
         .character-detail {
             flex-direction: column;
 
@@ -1142,6 +1154,7 @@ body {
             .character-name {
                 height: 160px;
                 width: 100%;
+
                 .character-species {
                     margin-bottom: 0;
                 }
@@ -1158,6 +1171,7 @@ body {
     .star-chart {
         .profession-container {
             justify-content: flex-end;
+
             .profession {
                 .profession-1 {
                     height: 480px;
