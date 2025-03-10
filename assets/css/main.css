@@ -1244,6 +1244,7 @@ body {
                 object-position: 5% -50px;
                 height: 70vh;
             }
+
             .footer-overlay {
                 bottom: 170px;
             }
@@ -1267,6 +1268,11 @@ body {
                 align-items: baseline;
                 width: 100%;
                 flex-direction: column-reverse;
+
+                p {
+                    width: 100%;
+                    text-align: left;
+                }
             }
         }
     }
