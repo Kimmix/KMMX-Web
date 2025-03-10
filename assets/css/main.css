@@ -771,7 +771,7 @@ body {
             aspect-ratio: 1;
             position: relative;
             width: 45rem;
-            height: 56vh;
+            height: 820px;
             outline: 4px dashed transparent;
             transition: outline 0.2s, transform 0.2s;
 
@@ -1192,11 +1192,12 @@ body {
     }
 
     .aboutme {
-        & .aboutme-container {
-            & .pop-out-image {
+        .aboutme-container {
+            .pop-out-image {
                 width: 100%;
+                height: 1000px;
 
-                & figure {
+                figure {
                     img {
                         left: 50%;
                         width: 90%;

@@ -175,7 +175,7 @@ hr {
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin: 0 auto;
 
     &.row {
@@ -198,6 +198,10 @@ hr {
         margin-left: var(--side-margin-mobile);
         margin-right: var(--side-margin-mobile);
         padding: 0;
+    }
+
+    .flex {
+        flex-wrap: wrap;
     }
 }
 
