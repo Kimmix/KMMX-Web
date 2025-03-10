@@ -43,6 +43,7 @@ body {
 
     .video-overlay {
         position: absolute;
+        left: 0;
         bottom: 0;
         height: 400px;
         width: 100%;
@@ -1134,7 +1135,7 @@ body {
 
 @media (max-width:1025px) {
     .transparent-video {
-        width: 100%;
+        width: 102vw;
         transform: translateX(-50%);
     }
 
@@ -1144,6 +1145,10 @@ body {
 
     .character {
         padding-top: 0;
+
+        .bio-bg {
+            height: 100%;
+        }
 
         .character-detail {
             flex-direction: column;
@@ -1200,10 +1205,13 @@ body {
                 figure {
                     img {
                         left: 50%;
-                        width: 90%;
+                        width: 100%;
                     }
                 }
             }
+        }
+        .aboutme-text{
+            margin-top: -290px;
         }
     }
 
