@@ -1148,6 +1148,7 @@ body {
         .hero-bg {
             object-position: 70%;
         }
+
         .video-overlay {
             height: 200px;
         }
@@ -1229,12 +1230,44 @@ body {
         }
 
         .aboutme-text {
-            margin-top: -230px;
+            margin-top: -150px;
         }
     }
 
     .footer {
-        padding-left: var(--side-padding-mobile);
-        padding-right: var(--side-padding-mobile);
+        padding-left: var(--side-margin-mobile);
+        padding-right: var(--side-margin-mobile);
+        margin-top: 40vh;
+
+        .footer-bg {
+            img {
+                object-position: 5% -50px;
+                height: 70vh;
+            }
+            .footer-overlay {
+                bottom: 170px;
+            }
+        }
+
+        .footer-container {
+            flex-direction: column;
+
+            .footer-left {
+                width: 100%;
+            }
+
+            .footer-center {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            .footer-right {
+                flex-basis: 0;
+                align-items: baseline;
+                width: 100%;
+                flex-direction: column-reverse;
+            }
+        }
     }
 }
