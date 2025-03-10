@@ -1144,8 +1144,14 @@ body {
         z-index: 1;
     }
 
-    .hero-bg {
-        object-position: 160%;
+    .hero {
+        .hero-bg {
+            object-position: 340%;
+        }
+
+        .hero-particle {
+            width: 100%;
+        }
     }
 
     .character {
