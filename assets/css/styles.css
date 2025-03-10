@@ -150,7 +150,7 @@ hr {
 .outline {
     font-family: 'Open Sans', sans-serif !important;
     font-weight: 600 !important;
-    color: var(--black2-color);
+    color: transparent;
     -webkit-text-stroke: 1px var(--white-color);
 }
 
@@ -195,9 +195,9 @@ hr {
     }
 
     section {
-        margin-left: var(--side-margin-mobile);
-        margin-right: var(--side-margin-mobile);
-        padding: 0;
+        padding-left: var(--side-margin-mobile);
+        padding-right: var(--side-margin-mobile);
+        /* margin: 0; */
     }
 
     .flex {
