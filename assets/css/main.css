@@ -1148,6 +1148,9 @@ body {
         .hero-bg {
             object-position: 70%;
         }
+        .video-overlay {
+            height: 200px;
+        }
     }
 
     .character {
