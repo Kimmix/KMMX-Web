@@ -1146,11 +1146,7 @@ body {
 
     .hero {
         .hero-bg {
-            object-position: 340%;
-        }
-
-        .hero-particle {
-            /* width: 100%; */
+            object-position: 70%;
         }
     }
 
