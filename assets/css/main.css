@@ -1264,10 +1264,11 @@ body {
             }
 
             .footer-right {
-                flex-basis: 0;
-                align-items: baseline;
                 width: 100%;
+                flex-basis: 0;
                 flex-direction: column-reverse;
+                flex-wrap: wrap;
+                align-items: baseline;
 
                 p {
                     width: 100%;
