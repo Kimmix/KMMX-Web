@@ -74,7 +74,7 @@ section {
     max-width: var(--max-width);
     min-height: 50vh;
     margin: 0 auto;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 /* Basic Styles */

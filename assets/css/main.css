@@ -763,6 +763,7 @@ body {
 /* About me */
 .aboutme {
     padding-top: 35vh;
+    padding-bottom: 10vh;
 
     .aboutme-container {
         gap: 20px;

@@ -25,6 +25,7 @@ body {
 .logo {
     --space: 200px;
     width: 100%;
+    display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     padding-right: 50px;
@@ -47,6 +48,7 @@ body {
     width: 100%;
     align-items: start;
     text-align: left;
+    padding: 0 2em;
 
     .version {
         text-align: end;
@@ -146,12 +148,6 @@ a {
     right: 10px;
     text-align: left;
     margin: 0;
-    align-items: baseline;
-
-    * {
-        font-weight: 400;
-        line-height: 1.15;
-    }
 
     .line {
         padding-left: 20px;
@@ -168,5 +164,11 @@ a {
 @keyframes blink {
     50% {
         border-color: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .boot-menu {
+        padding: 0 1em;
     }
 }
