@@ -1281,6 +1281,16 @@ body {
         }
     }
 
+    .reference-sheet {
+        .reference-sheet-container {
+            img {
+                height: 80svh;
+                object-fit: cover;
+                object-position: 0% top;
+            }
+        }
+    }
+
     .aboutme {
         .aboutme-container {
             .pop-out-image {
