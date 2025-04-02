@@ -1205,7 +1205,14 @@ body {
 
         .location-container {
             width: 90%;
-            top: -20px;
+            top: -1200px;
+            justify-content: flex-end;
+            align-items: baseline;
+            height: 100%;
+
+            .location {
+                writing-mode: vertical-rl;
+            }
         }
 
         img.star-map {
@@ -1219,7 +1226,7 @@ body {
         .aboutme-container {
             .pop-out-image {
                 width: 100%;
-                height: 65vh;
+                height: 56vh;
 
                 figure {
                     img {

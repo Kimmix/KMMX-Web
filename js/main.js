@@ -1,3 +1,8 @@
+// Detect desktop or mobile environment
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+// const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(navigator.userAgent) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+// const isDesktop = !isMobile && !isTablet;
+
 // Initialize Lenis
 document.addEventListener("DOMContentLoaded", () => {
     const lenis = new Lenis()
@@ -48,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: pop,
                 scrub: 1,
-                start: "bottom bottom+=50",
-                end: "top top+=50"
+                start: isMobile ? "bottom bottom+=10" : "bottom bottom+=50",
+                end: isMobile ? "top top+=150" : "top top+=50"
             },
             filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
             yPercent: -30
@@ -80,8 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //? mouse parallax
 const particles = document.querySelectorAll(".hero-particle");
 
-// Detect desktop or mobile environment
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 // Initialize IntersectionObserver
 const observer = new IntersectionObserver((entries) => {
