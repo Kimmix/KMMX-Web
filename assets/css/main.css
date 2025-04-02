@@ -788,12 +788,14 @@ body {
             z-index: -1;
             background: conic-gradient(from var(--gradient-angle),
                     var(--black-color),
-                    var(--primary-color),
+                    var(--black-color),
+                    var(--primary-hover-color),
+                    var(--black-color),
                     var(--black-color),
                     var(--black-color),
                     var(--primary-color));
             border-radius: inherit;
-            animation: rotation 14s linear infinite;
+            animation: rotation 20s linear infinite;
         }
 
         &::after {
