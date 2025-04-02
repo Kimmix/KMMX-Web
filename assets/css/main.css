@@ -398,6 +398,7 @@ body {
 
                 p.info-text {
                     text-indent: 50px;
+                    line-break: auto;
                 }
             }
 
