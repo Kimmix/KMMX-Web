@@ -761,6 +761,61 @@ body {
     }
 }
 
+/* Refernce Sheet */
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.reference-sheet {
+    padding-top: 20%;
+
+    .sectionTitle {
+        padding-bottom: 1rem;
+    }
+
+
+    .reference-sheet-container {
+        border-radius: 0.5rem;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: -0.3rem;
+            z-index: -1;
+            background: conic-gradient(from var(--gradient-angle),
+                    var(--black-color),
+                    var(--primary-color),
+                    var(--black-color),
+                    var(--black-color),
+                    var(--primary-color));
+            border-radius: inherit;
+            animation: rotation 14s linear infinite;
+        }
+
+        &::after {
+            filter: blur(3.5rem);
+        }
+
+        img {
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        --gradient-angle: 0deg;
+    }
+
+    to {
+        --gradient-angle: 360deg;
+    }
+}
+
 /* About me */
 .aboutme {
     padding-top: 35vh;
