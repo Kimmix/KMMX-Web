@@ -78,7 +78,7 @@ body {
         min-width: 1000px;
         height: 100vh;
         transform: translateY(-2px);
-        object-position: 60%;
+        object-position: 100%;
     }
 
     .hero-particle {
@@ -269,6 +269,7 @@ body {
             width: 20%;
             margin-right: 20px;
             opacity: 0.8;
+            z-index: -1;
             transition: opacity, text-shadow 0.3s ease-out;
 
             &:hover {
