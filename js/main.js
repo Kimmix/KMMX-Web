@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: pop,
                 scrub: 1,
-                start: isMobile ? "bottom bottom+=10" : "bottom bottom+=50",
-                end: isMobile ? "top top+=150" : "top top+=50"
+                start: isMobile ? "bottom bottom+=5" : "bottom bottom+=50",
+                end: "top top+=50"
             },
             filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
             yPercent: -30
