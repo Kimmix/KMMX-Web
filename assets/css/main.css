@@ -123,6 +123,11 @@ body {
         overflow-y: visible;
         max-width: var(--video-max-width);
 
+        .shard {
+            position: absolute;
+            width: auto;
+        }
+
         &.background {
             .shard {
                 z-index: 1;
@@ -218,14 +223,6 @@ body {
                 left: 20%;
                 height: 200px;
             }
-        }
-
-        .shard {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 120px;
-            width: auto;
         }
     }
 
