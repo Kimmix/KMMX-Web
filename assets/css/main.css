@@ -30,7 +30,7 @@ body {
     height: 110vh;
     object-fit: cover;
     object-position: 15% -20px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero {
@@ -110,6 +110,123 @@ body {
         transform: translateY(-2px);
         object-position: 100%;
         max-width: var(--video-max-width);
+    }
+
+    .arcai-shards {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        overflow-y: visible;
+        max-width: var(--video-max-width);
+
+        &.background {
+            .shard {
+                z-index: 1;
+            }
+
+            .shard:nth-child(1) {
+                filter: blur(7px);
+                top: 0%;
+                left: 15%;
+                height: 150px;
+            }
+
+            .shard:nth-child(2) {
+                filter: blur(1px);
+                top: 20%;
+                left: 50%;
+                height: 140px;
+            }
+
+            .shard:nth-child(3) {
+                filter: blur(4px);
+                top: 45%;
+                left: 48%;
+                height: 260px;
+            }
+
+            .shard:nth-child(4) {
+                top: 20%;
+                left: 2%;
+                height: 200px;
+            }
+
+            .shard:nth-child(5) {
+                filter: blur(2px);
+                top: 49%;
+                left: 5%;
+                height: 90px;
+            }
+        }
+
+        &.foreground {
+            mix-blend-mode: difference;
+
+            .shard {
+                z-index: 3;
+            }
+
+            .shard:nth-child(1) {
+                filter: blur(3px);
+                top: 5%;
+                left: 45%;
+                height: 180px;
+            }
+
+            .shard:nth-child(2) {
+                filter: blur(2px);
+                top: 50%;
+                left: 45%;
+                height: 200px;
+            }
+
+            .shard:nth-child(3) {
+                filter: blur(1px);
+                top: 64%;
+                left: 80%;
+                height: 390px;
+            }
+
+            .shard:nth-child(4) {
+                filter: blur(2px);
+                top: 76%;
+                left: 4%;
+                height: 220px;
+            }
+
+            .shard:nth-child(5) {
+                filter: blur(2px);
+                top: 32%;
+                left: 7%;
+                height: 150px;
+            }
+
+            .shard:nth-child(6) {
+                filter: blur(3px);
+                top: 85%;
+                left: 57%;
+                height: 250px;
+            }
+
+            .shard:nth-child(7) {
+                filter: blur(2px);
+                top: 90%;
+                left: 20%;
+                height: 200px;
+            }
+        }
+
+        .shard {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 120px;
+            width: auto;
+        }
     }
 
     .hero-particle {

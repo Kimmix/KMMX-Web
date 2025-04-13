@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //? mouse parallax
-const particles = document.querySelectorAll(".hero-particle");
+const particles = document.querySelectorAll(".shard");
 
 
 // Initialize IntersectionObserver
