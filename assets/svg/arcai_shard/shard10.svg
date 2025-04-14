@@ -1,14 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.57 200.7">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #c61414;
-        opacity: .65;
-      }
-    </style>
-  </defs>
-  <g id="Layer_4" data-name="Layer 4">
-    <path class="cls-1" d="M95.69,0S-.41,82.87,0,83.11c.55.31,22.04,107.74,51.5,117.6,3.5.4,72.5-34.6,72.5-34.6,2.42-12.57-3.61-70.38-3.8-71.17S98.14,37.61,95.69,0Z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.57 200.7">
+  <path fill="#c61414"
+    d="M95.69 0S-.41 82.87 0 83.11c.55.31 22.04 107.74 51.5 117.6 3.5.4 72.5-34.6 72.5-34.6 2.42-12.57-3.61-70.38-3.8-71.17S98.14 37.61 95.69 0Z"
+    opacity=".65" />
 </svg>
