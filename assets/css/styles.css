@@ -184,10 +184,11 @@ hr {
 }
 
 @media (max-width:1025px) {
-    html {
+    html,body {
         overflow-x: hidden;
         scrollbar-width: none;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+        width: 100vw;
     }
 
     .hide-mb {
