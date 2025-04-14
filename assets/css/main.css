@@ -25,18 +25,18 @@ body {
 .transparent-video {
     position: relative;
     left: 50%;
-    transform: translateX(-47%) translateX(clamp(-43px, (-25vw + 600px), 350px));
+    transform: translateX(-47%) translateX(clamp(-43px, (-27vw + 600px), 350px));
     width: auto;
     height: 110vh;
     object-fit: cover;
-    object-position: 15% -20px;
+    object-position: 15% -30px;
     z-index: 2;
 }
 
 .hero {
     background: url(/assets/hero/BG.webp) no-repeat 200px 0;
     background-size: cover;
-    background-position: right;
+    background-position: center;
     max-width: var(--video-max-width);
     padding: unset;
     min-height: 100vh;
@@ -49,7 +49,7 @@ body {
         height: 400px;
         width: 100%;
         margin-bottom: -2%;
-        background-image: linear-gradient(to bottom, transparent 0%, var(--background-color) 75%);
+        background-image: linear-gradient(to bottom, transparent 0%, var(--background-color) 55%);
         z-index: 2;
 
         &.back {
@@ -75,12 +75,14 @@ body {
             position: absolute;
 
             &.left {
-                background: linear-gradient(to left, #00000000 0%, #00000042 60%, var(--background-color) 100%);;
+                background: linear-gradient(to left, #00000000 0%, #00000042 60%, var(--background-color) 100%);
+                ;
             }
 
             &.right {
                 right: 0;
-                background: linear-gradient(to right, #00000000 0%, #00000042 60%, var(--background-color) 100%);;
+                background: linear-gradient(to right, #00000000 0%, #00000042 60%, var(--background-color) 100%);
+                ;
             }
         }
     }
@@ -95,12 +97,13 @@ body {
     .hero-bg {
         position: absolute;
         top: 0;
-        padding-right: 30%;
+        padding-right: 25%;
         min-width: 1000px;
-        height: 100vh;
+        height: 114vh;
         transform: translateY(-2px);
         object-position: 100%;
         max-width: var(--video-max-width);
+        opacity: 0.85;
     }
 
     .arcai-shards {
@@ -133,17 +136,17 @@ body {
             }
 
             .shard:nth-child(2) {
-                filter: blur(1px);
+                filter: blur(5px);
                 top: 20%;
                 left: 50%;
                 height: 140px;
             }
 
             .shard:nth-child(3) {
-                filter: blur(4px);
-                top: 45%;
-                left: 48%;
-                height: 260px;
+                filter: blur(9px);
+                top: 55%;
+                left: 47%;
+                height: 160px;
             }
 
             .shard:nth-child(4) {
@@ -153,10 +156,38 @@ body {
             }
 
             .shard:nth-child(5) {
-                filter: blur(2px);
+                filter: blur(7px);
                 top: 49%;
                 left: 5%;
                 height: 90px;
+            }
+
+            .shard:nth-child(6) {
+                filter: blur(3px);
+                top: 85%;
+                left: 57%;
+                height: 250px;
+            }
+
+            .shard:nth-child(7) {
+                filter: blur(2px);
+                top: 39%;
+                left: 7%;
+                height: 200px;
+            }
+
+            .shard:nth-child(8) {
+                filter: blur(6px);
+                top: 78%;
+                left: 80%;
+                height: 220px;
+            }
+
+            .shard:nth-child(9) {
+                filter: blur(1px);
+                top: 29%;
+                left: 50%;
+                height: 200px;
             }
         }
 
