@@ -30,6 +30,25 @@ function hideBox() {
     hoverBox.style.opacity = '0';
 }
 
+//? Check if the browser is Chromium-based
+document.addEventListener("DOMContentLoaded", function () {
+    const isChromium = !!window.chrome;
+    if (!isChromium) {
+        const warning = document.createElement("div");
+        warning.style.position = "fixed";
+        warning.style.bottom = "0";
+        warning.style.left = "0";
+        warning.style.width = "100%";
+        warning.style.backgroundColor = "#CB2040";
+        warning.style.color = "#fff";
+        warning.style.textAlign = "center";
+        warning.style.padding = "10px";
+        warning.style.zIndex = "1000";
+        warning.innerText = "For the best experience, please use Chrome or a Chromium-based browser.";
+        document.body.appendChild(warning);
+    }
+});
+
 //? SVG Glow effect
 // Get references to elements
 const glowContainer = document.getElementById('glowContainer');
