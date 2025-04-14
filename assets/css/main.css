@@ -8,16 +8,20 @@ body {
     background-color: var(--background-color);
 }
 
-.logo {
-    position: absolute;
+.sticky-header {
+    position: sticky;
     top: 0;
-    width: 60px;
-    margin: 27px;
-    cursor: pointer;
+    height: 0px;
     z-index: 99;
 
-    svg {
-        view-transition-name: aa-logo;
+    .logo {
+        width: 60px;
+        margin: 27px;
+        cursor: pointer;
+
+        svg {
+            view-transition-name: aa-logo;
+        }
     }
 }
 
