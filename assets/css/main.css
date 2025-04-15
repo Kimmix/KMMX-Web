@@ -994,8 +994,8 @@ body {
             aspect-ratio: 1;
             position: relative;
             width: 35%;
+            max-width: 550px;
             height: 50vh;
-            transition: outline 0.2s, transform 0.2s;
 
             figure {
                 margin: 0;
