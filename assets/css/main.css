@@ -15,16 +15,19 @@ body {
     z-index: 99;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding: 0.75rem;
     background: rgba(16, 16, 20, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(203, 32, 64, 0.1);
-    border-radius: 0.75rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: fit-content;
 
     .logo {
-        width: 45px;
+        width: 32px;
+        height: 32px;
         cursor: pointer;
         transition: transform 0.3s ease;
 
@@ -34,6 +37,8 @@ body {
 
         svg {
             view-transition-name: aa-logo;
+            width: 100%;
+            height: 100%;
         }
     }
 }
@@ -41,18 +46,20 @@ body {
 .notification {
     opacity: 0;
     transform: translateX(-20px);
-    background: rgba(203, 32, 64, 0.8);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
     color: #FFFFFF;
     font-size: 0.9rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    max-width: 0;
+    overflow: hidden;
+    margin: 0;
 }
 
 .notification.show {
     opacity: 1;
     transform: translateX(0);
+    max-width: 700px;
+    margin: 0 1rem;
 }
 
 /* Hero */

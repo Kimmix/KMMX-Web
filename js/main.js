@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set age and handle feedback form
     const ageElement = document.getElementById('age');
     if (ageElement) {
-        ageElement.textContent = calculateAge(1996) + " years old";
+        ageElement.textContent = calculateAge(1996);
     }
 
     // Feedback form handling
