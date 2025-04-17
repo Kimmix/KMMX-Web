@@ -1049,21 +1049,106 @@ body {
                 border-radius: 2rem;
                 background: linear-gradient(45deg, var(--black3-color), var(--black2-color));
                 transition: all 0.3s ease;
-                border: 1px solid var(--black3-color);
+
+                &.twitter {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a2733);
+                    &:hover {
+                        animation: twitter-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(135deg, #0d1b2a, #1DA1F2, #1a8cd8);
+                        box-shadow: 0 5px 15px rgba(29, 161, 242, 0.2);
+
+                        .social-icon {
+                            background: #1DA1F2;
+                            color: #ffffff;
+                        }
+                    }
+                }
+
+                &.instagram {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #331a24);
+                    &:hover {
+                        animation: instagram-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+                        box-shadow: 0 5px 15px rgba(228, 64, 95, 0.2);
+
+                        .social-icon {
+                            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                &.github {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1f1a);
+                    &:hover {
+                        animation: github-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(135deg, #1a2f1a, #2ea043, #238636);
+                        box-shadow: 0 5px 15px rgba(46, 160, 67, 0.2);
+
+                        .social-icon {
+                            background: #2ea043;
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                &.facebook {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1f33);
+                    &:hover {
+                        animation: facebook-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(135deg, #1a2f4d, #1877f2, #0062e0);
+                        box-shadow: 0 5px 15px rgba(24, 119, 242, 0.2);
+
+                        .social-icon {
+                            background: #1877f2;
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                &.discord {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1a33);
+                    &:hover {
+                        animation: discord-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(135deg, #404EED, #5865F2, #7289da);
+                        box-shadow: 0 5px 15px rgba(88, 101, 242, 0.2);
+
+                        .social-icon {
+                            background: #5865F2;
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                &.vrchat {
+                    background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1a29);
+                    &:hover {
+                        animation: vrchat-pulse 2s ease-in-out infinite;
+                        background: linear-gradient(135deg, #0c5c73, #15A5DC, #1ebef0);
+                        box-shadow: 0 5px 15px rgba(21, 165, 220, 0.2);
+
+                        .social-icon {
+                            background: #15A5DC;
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
 
                 &:hover {
                     transform: translateY(-2px);
-                    border-color: var(--primary-color);
-                    box-shadow: 0 5px 15px rgba(203, 32, 64, 0.2);
 
                     .social-icon {
-                        background: var(--primary-color);
                         transform: scale(1.1);
-                        animation: elegant-pulse 2s ease-in-out infinite;
-                    }
-
-                    span {
-                        color: var(--primary-color);
                     }
                 }
 
@@ -1081,11 +1166,13 @@ body {
                         width: 1.2rem;
                         height: 1.2rem;
                         fill: var(--black2-color);
+                        transition: fill 0.3s ease;
                     }
 
                     &.twitter {
                         font-size: 1.2rem;
                         color: var(--black2-color);
+                        transition: color 0.3s ease;
                     }
 
                     &.instagram svg {
@@ -1112,6 +1199,78 @@ body {
     }
     100% {
         box-shadow: 0 0 0 0 rgba(203, 32, 64, 0);
+    }
+}
+
+@keyframes twitter-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(29, 161, 242, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(29, 161, 242, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(29, 161, 242, 0);
+    }
+}
+
+@keyframes instagram-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(228, 64, 95, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(228, 64, 95, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(228, 64, 95, 0);
+    }
+}
+
+@keyframes github-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 160, 67, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(46, 160, 67, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 160, 67, 0);
+    }
+}
+
+@keyframes facebook-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(24, 119, 242, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(24, 119, 242, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(24, 119, 242, 0);
+    }
+}
+
+@keyframes discord-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(88, 101, 242, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(88, 101, 242, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(88, 101, 242, 0);
+    }
+}
+
+@keyframes vrchat-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(21, 165, 220, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(21, 165, 220, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(21, 165, 220, 0);
     }
 }
 
