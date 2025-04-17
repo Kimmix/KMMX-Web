@@ -60,6 +60,39 @@ document.addEventListener("DOMContentLoaded", () => {
             yPercent: -30
         });
     });
+
+    // Set age and handle feedback form
+    const ageElement = document.getElementById('age');
+    if (ageElement) {
+        ageElement.textContent = calculateAge(1996) + " years old";
+    }
+
+    // Feedback form handling
+    const feedbackForm = document.getElementById("feedbackMessage");
+    const sendButton = document.getElementById("sendFeedback");
+
+    if (sendButton && feedbackForm) {
+        // Add input event listener to check content as user types
+        feedbackForm.addEventListener("input", () => {
+            const message = feedbackForm.value.trim();
+            if (message) {
+                sendButton.disabled = false;
+            }
+        });
+
+        sendButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const message = feedbackForm.value.trim();
+
+            // Double check the message content
+            if (message && message.length > 0) {
+                showNotification("Thank you for your feedback!");
+                feedbackForm.value = ""; // Clear the form
+            } else {
+                showNotification("Please enter a message before sending.");
+            }
+        });
+    }
 });
 
 // Check device type
@@ -253,6 +286,24 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Calculate age
+function calculateAge(birthYear) {
+    const currentDate = new Date();
+    return currentDate.getFullYear() - birthYear;
+}
+
+// Show notification
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const notificationMessage = notification.querySelector('.notification-message');
+    notificationMessage.textContent = message;
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
 
 // Social links hover effects
 document.querySelectorAll('.social-link').forEach(link => {
