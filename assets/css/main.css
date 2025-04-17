@@ -1031,6 +1031,73 @@ body {
 
         .aboutme-text {
             margin-right: auto;
+
+            .social-links {
+                display: flex;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                text-decoration: none;
+                color: var(--white2-color);
+                padding: 0.5rem 1rem;
+                border-radius: 2rem;
+                background: linear-gradient(45deg, var(--black3-color), var(--black2-color));
+                transition: all 0.3s ease;
+                border: 1px solid var(--black3-color);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    border-color: var(--primary-color);
+                    box-shadow: 0 5px 15px rgba(203, 32, 64, 0.2);
+
+                    .social-icon {
+                        background: var(--primary-color);
+                        transform: rotate(360deg);
+                    }
+
+                    span {
+                        color: var(--primary-color);
+                    }
+                }
+
+                .social-icon {
+                    width: 2rem;
+                    height: 2rem;
+                    background: var(--grey-color);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.5s ease;
+
+                    svg {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        fill: var(--black2-color);
+                    }
+
+                    &.twitter {
+                        font-size: 1.2rem;
+                        color: var(--black2-color);
+                    }
+
+                    &.instagram svg {
+                        width: 1.1rem;
+                        height: 1.1rem;
+                    }
+                }
+
+                span {
+                    font-weight: 500;
+                    transition: color 0.3s ease;
+                }
+            }
         }
     }
 }

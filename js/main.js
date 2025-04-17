@@ -253,3 +253,24 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Social links hover effects
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('mouseenter', e => {
+        const icon = e.currentTarget.querySelector('.social-icon');
+        gsap.to(icon, {
+            scale: 1.1,
+            duration: 0.3,
+            ease: "back.out(1.7)"
+        });
+    });
+
+    link.addEventListener('mouseleave', e => {
+        const icon = e.currentTarget.querySelector('.social-icon');
+        gsap.to(icon, {
+            scale: 1,
+            duration: 0.3,
+            ease: "back.out(1.7)"
+        });
+    });
+});
