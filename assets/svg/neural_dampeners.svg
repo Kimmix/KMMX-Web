@@ -12,7 +12,7 @@
     <!-- Main structure -->
     <g transform="translate(400,400)">
         <!-- Neural network connections -->
-        <g stroke="#CB2040" stroke-width="2" fill="none">
+        <g stroke="#fff" stroke-width="3" fill="none">
             <path d="M-200,-200 Q0,-100 200,-200">
                 <animate attributeName="d"
                     values="M-200,-200 Q0,-100 200,-200;M-200,-200 Q0,-150 200,-200;M-200,-200 Q0,-100 200,-200"

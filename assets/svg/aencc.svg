@@ -65,7 +65,7 @@
         <!-- Main crystal forms -->
         <path d="M150,100 L300,50 L400,150 L350,300 L200,350 L100,250 Z"
               fill="none"
-              stroke="#CB2040"
+              stroke="#fff"
               stroke-width="2">
             <animate attributeName="stroke-width"
                      values="2;3;2"
@@ -85,19 +85,19 @@
         </path>
 
         <!-- Reinforcement structures with dash animation -->
-        <path d="M100,100 L400,400" stroke="#CB2040" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
+        <path d="M100,100 L400,400" stroke="#fff" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
             <animate attributeName="stroke-dashoffset"
                      values="0;10"
                      dur="1s"
                      repeatCount="indefinite"/>
         </path>
-        <path d="M150,400 L450,100" stroke="#CB2040" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
+        <path d="M150,400 L450,100" stroke="#fff" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
             <animate attributeName="stroke-dashoffset"
                      values="0;10"
                      dur="1s"
                      repeatCount="indefinite"/>
         </path>
-        <path d="M50,250 L450,250" stroke="#CB2040" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
+        <path d="M50,250 L450,250" stroke="#fff" stroke-width="0.5" stroke-opacity="0.5" stroke-dasharray="5,5">
             <animate attributeName="stroke-dashoffset"
                      values="0;10"
                      dur="1s"
@@ -159,13 +159,13 @@
         </g>
         <!-- Repeat for other nodes with different timing -->
         <g class="node" transform="translate(300,50)">
-            <circle r="4" fill="#CB2040" filter="url(#enhancedGlow)">
+            <circle r="4" fill="#fff" filter="url(#enhancedGlow)">
                 <animate attributeName="r"
                          values="4;6;4"
                          dur="2s"
                          repeatCount="indefinite"/>
             </circle>
-            <circle r="8" fill="#CB2040" opacity="0.2" filter="url(#energyPulse)">
+            <circle r="8" fill="#fff" opacity="0.2" filter="url(#energyPulse)">
                 <animate attributeName="r"
                          values="8;12;8"
                          dur="2s"
@@ -177,13 +177,13 @@
             </circle>
         </g>
         <g class="node" transform="translate(400,150)">
-            <circle r="4" fill="#CB2040" filter="url(#enhancedGlow)">
+            <circle r="4" fill="#fff" filter="url(#enhancedGlow)">
                 <animate attributeName="r"
                          values="4;6;4"
                          dur="1.8s"
                          repeatCount="indefinite"/>
             </circle>
-            <circle r="8" fill="#CB2040" opacity="0.2" filter="url(#energyPulse)">
+            <circle r="8" fill="#fff" opacity="0.2" filter="url(#energyPulse)">
                 <animate attributeName="r"
                          values="8;12;8"
                          dur="1.8s"
@@ -195,13 +195,13 @@
             </circle>
         </g>
         <g class="node" transform="translate(350,300)">
-            <circle r="4" fill="#CB2040" filter="url(#enhancedGlow)">
+            <circle r="4" fill="#fff" filter="url(#enhancedGlow)">
                 <animate attributeName="r"
                          values="4;6;4"
                          dur="2.2s"
                          repeatCount="indefinite"/>
             </circle>
-            <circle r="8" fill="#CB2040" opacity="0.2" filter="url(#energyPulse)">
+            <circle r="8" fill="#fff" opacity="0.2" filter="url(#energyPulse)">
                 <animate attributeName="r"
                          values="8;12;8"
                          dur="2.2s"
@@ -213,13 +213,13 @@
             </circle>
         </g>
         <g class="node" transform="translate(200,350)">
-            <circle r="4" fill="#CB2040" filter="url(#enhancedGlow)">
+            <circle r="4" fill="#fff" filter="url(#enhancedGlow)">
                 <animate attributeName="r"
                          values="4;6;4"
                          dur="1.7s"
                          repeatCount="indefinite"/>
             </circle>
-            <circle r="8" fill="#CB2040" opacity="0.2" filter="url(#energyPulse)">
+            <circle r="8" fill="#fff" opacity="0.2" filter="url(#energyPulse)">
                 <animate attributeName="r"
                          values="8;12;8"
                          dur="1.7s"
@@ -231,13 +231,13 @@
             </circle>
         </g>
         <g class="node" transform="translate(100,250)">
-            <circle r="4" fill="#CB2040" filter="url(#enhancedGlow)">
+            <circle r="4" fill="#fff" filter="url(#enhancedGlow)">
                 <animate attributeName="r"
                          values="4;6;4"
                          dur="1.9s"
                          repeatCount="indefinite"/>
             </circle>
-            <circle r="8" fill="#CB2040" opacity="0.2" filter="url(#energyPulse)">
+            <circle r="8" fill="#fff" opacity="0.2" filter="url(#energyPulse)">
                 <animate attributeName="r"
                          values="8;12;8"
                          dur="1.9s"

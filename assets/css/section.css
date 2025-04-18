@@ -604,7 +604,6 @@ body {
 
                     h3 {
                         font-size: clamp(1.2rem, 1.5vw, 1.8rem);
-                        color: var(--primary-color);
                         letter-spacing: 0.1em;
                     }
 
