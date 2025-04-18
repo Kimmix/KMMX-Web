@@ -856,7 +856,7 @@ body {
                 }
 
                 &:hover {
-                    border-color: rgba(203, 32, 64, 0.3);
+                    border-color: var(--primary-color);
                     background: rgba(16, 16, 20, 0.4);
 
                     &::before {
