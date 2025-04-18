@@ -1098,7 +1098,7 @@ body {
 
                     &:hover {
                         animation: twitter-pulse 2s ease-in-out infinite;
-                        background: linear-gradient(135deg, #0d1b2a, #1DA1F2, #1a8cd8);
+                        background: linear-gradient(135deg, #97c9ff, #1DA1F2, #1a8cd8);
                         box-shadow: 0 5px 15px rgba(29, 161, 242, 0.2);
 
                         .social-icon {
@@ -1118,7 +1118,7 @@ body {
 
                     &:hover {
                         animation: facebook-pulse 2s ease-in-out infinite;
-                        background: linear-gradient(135deg, #1a2f4d, #1877f2, #0062e0);
+                        background: linear-gradient(135deg, #103c7a, #1877f2, #0062e0);
                         box-shadow: 0 5px 15px rgba(24, 119, 242, 0.2);
 
                         .social-icon {
@@ -1154,7 +1154,7 @@ body {
 
                     &:hover {
                         animation: vrchat-pulse 2s ease-in-out infinite;
-                        background: linear-gradient(135deg, #0e1013, #07242b, #084858);
+                        background: linear-gradient(135deg, #07242b, #0c2c34, #084858);
                         box-shadow: 0 5px 15px rgba(7, 36, 43, 0.3);
 
                         .social-icon {
@@ -1319,11 +1319,11 @@ body {
         }
 
         &.twitter {
-            background: linear-gradient(135deg, #0d1b2a, #1DA1F2, #1a8cd8);
+            background: linear-gradient(135deg, #97c9ff, #1DA1F2, #1a8cd8);
         }
 
         &.facebook {
-            background: linear-gradient(135deg, #1a2f4d, #1877f2, #0062e0);
+            background: linear-gradient(135deg, #103c7a, #1877f2, #0062e0);
         }
 
         &.discord {
@@ -1331,7 +1331,7 @@ body {
         }
 
         &.vrchat {
-            background: linear-gradient(135deg, #0e1013, #07242b, #084858);
+            background: linear-gradient(135deg, #07242b, #0c2c34, #084858);
         }
 
         .splash-icon {
