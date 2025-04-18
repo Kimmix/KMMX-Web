@@ -464,24 +464,28 @@ body {
         }
 
         .equipment-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
+            min-height: 400px;
+            position: relative;
 
             .equipment-card {
+                flex: 1 1 300px;
                 background: rgba(16, 16, 20, 0.3);
                 border-radius: 1rem;
                 backdrop-filter: blur(8px);
                 padding: 2rem;
                 cursor: pointer;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
                 border: 1px solid rgba(203, 32, 64, 0.1);
                 position: relative;
                 isolation: isolate;
                 transform: translateZ(0);
                 backface-visibility: hidden;
                 perspective: 1000px;
-                will-change: transform;
+                will-change: transform, opacity;
+                transform-style: preserve-3d;
                 overflow: hidden;
                 --glow-opacity: 0;
 
@@ -521,19 +525,27 @@ body {
                 }
 
                 &.expanded {
-                    grid-column: 1 / -1;
-                    display: grid;
-                    grid-template-columns: 300px 1fr;
+                    flex: 1 1 100%;
+                    display: flex;
+                    flex-wrap: wrap;
                     gap: 2rem;
-                    align-items: start;
                     order: -1;
-                    animation: expandCard 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
                     @media (max-width: 768px) {
-                        grid-template-columns: 1fr;
-                        order: unset;
+                        order: 0;
+                    }
 
-                        .equipment-image {
+                    .equipment-header {
+                        width: 100%;
+                        margin-bottom: 2rem;
+                    }
+
+                    .equipment-image {
+                        flex: 0 0 300px;
+                        position: relative;
+
+                        @media (max-width: 768px) {
+                            flex: 1 1 100%;
                             text-align: center;
 
                             img {
@@ -541,19 +553,6 @@ body {
                                 margin: 1rem auto;
                             }
                         }
-
-                        .equipment-details {
-                            padding-top: 1rem;
-                        }
-                    }
-
-                    .equipment-header {
-                        grid-column: 1 / -1;
-                        margin-bottom: 2rem;
-                    }
-
-                    .equipment-image {
-                        position: relative;
 
                         &::after {
                             content: '';
@@ -566,36 +565,29 @@ body {
                     }
 
                     .equipment-details {
+                        flex: 1;
                         max-height: 1000px;
                         opacity: 1;
-                        transform: translateY(0);
-                    }
-
-                    .expand-indicator {
-                        transform: rotate(180deg);
-                    }
-
-                    img {
-                        margin: 0;
-                        filter: drop-shadow(0 0 20px rgba(203, 32, 64, 0.3));
+                        transform: translateY(0) translate3d(0, 0, 0);
+                        transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                        will-change: transform, opacity;
 
                         @media (max-width: 768px) {
-                            max-width: 250px;
-                            margin: 1rem auto;
+                            flex: 1 1 100%;
+                            padding-top: 1rem;
                         }
                     }
 
                     &.closing {
-                        animation: none;
-                        transform: scale(0.98);
+                        transform: scale(0.98) translate3d(0, 0, 0);
                         opacity: 0.8;
-                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
                         .equipment-details {
-                            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                             max-height: 0;
                             opacity: 0;
-                            transform: translateY(10px);
+                            transform: translateY(10px) translate3d(0, 0, 0);
                         }
 
                         .equipment-image img {
@@ -618,7 +610,7 @@ body {
 
                     .expand-indicator {
                         color: var(--primary-color);
-                        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
                     }
                 }
 
@@ -642,9 +634,9 @@ body {
                     max-height: 0;
                     opacity: 0;
                     overflow: hidden;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    transform: translateY(10px);
-                    transform: translateZ(0);
+                    transform: translateY(5px) translate3d(0, 0, 0);
+                    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                    will-change: transform, opacity;
                     backface-visibility: hidden;
 
                     &.visible {

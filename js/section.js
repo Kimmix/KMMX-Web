@@ -114,35 +114,38 @@ function toggleEquipment(card) {
     const wasExpanded = card.classList.contains('expanded');
     const equipmentSection = card.parentElement;
     const cards = Array.from(equipmentSection.children);
-    const isMobile = window.innerWidth <= 768;
 
-    // Use transform instead of transition for better performance
+    cards.forEach(c => {
+        c.style.willChange = 'transform, opacity';
+    });
+
     requestAnimationFrame(() => {
         if (wasExpanded) {
             card.classList.add('closing');
 
             setTimeout(() => {
                 card.classList.remove('expanded', 'closing');
-
-                // Reset styles
                 cards.forEach(c => c.style.willChange = 'auto');
             }, 300);
         } else {
-            // Collapse other cards
             cards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.style.willChange = 'transform';
-                    otherCard.classList.remove('expanded', 'closing');
+                if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                    otherCard.classList.add('closing');
+                    setTimeout(() => {
+                        otherCard.classList.remove('expanded', 'closing');
+                    }, 250);
                 }
             });
 
-            requestAnimationFrame(() => {
-                card.classList.add('expanded');
-                // Reset will-change after animation
-                setTimeout(() => {
-                    cards.forEach(c => c.style.willChange = 'auto');
-                }, 300);
-            });
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    card.classList.add('expanded');
+                });
+            }, 30);
+
+            setTimeout(() => {
+                cards.forEach(c => c.style.willChange = 'auto');
+            }, 300);
         }
     });
 }
