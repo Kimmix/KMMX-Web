@@ -424,10 +424,7 @@ body {
 
                         .stat-meter {
                             .meter-fill {
-                                background: linear-gradient(90deg,
-                                    var(--primary-color) 0%,
-                                    #893b85 60%,
-                                    #3c405d 100%);
+                                background: linear-gradient(90deg, rgb(203, 32, 64) 0%, rgb(137, 59, 133) 85%, rgb(60, 64, 93) 100%);
                             }
                         }
                     }
@@ -499,9 +496,7 @@ body {
 
                             .meter-fill {
                                 height: 100%;
-                                background: linear-gradient(90deg,
-                                    rgba(255, 255, 255, 0.7) 0%,
-                                    rgba(255, 255, 255, 0.4) 100%);
+                                background: linear-gradient(270deg, var(--primary-color) 30%, #0c0c0ca2 100%);
                                 border-radius: 3px;
                                 position: relative;
                                 transform-origin: left;
