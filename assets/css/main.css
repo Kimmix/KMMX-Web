@@ -1049,7 +1049,6 @@ body {
                 }
 
                 img {
-                    /* aspect-ratio: 1; */
                     left: 68%;
                     object-fit: cover;
                     position: absolute;
@@ -1086,8 +1085,17 @@ body {
                 background: linear-gradient(45deg, var(--black3-color), var(--black2-color));
                 transition: all 0.3s ease;
 
+                &:hover {
+                    transform: translateY(-2px);
+
+                    .social-icon {
+                        transform: scale(1.1);
+                    }
+                }
+
                 &.twitter {
                     background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a2733);
+
                     &:hover {
                         animation: twitter-pulse 2s ease-in-out infinite;
                         background: linear-gradient(135deg, #0d1b2a, #1DA1F2, #1a8cd8);
@@ -1095,6 +1103,7 @@ body {
 
                         .social-icon {
                             background: #1DA1F2;
+
                             svg {
                                 fill: #ffffff;
                                 width: 1.2rem;
@@ -1106,6 +1115,7 @@ body {
 
                 &.facebook {
                     background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1f33);
+
                     &:hover {
                         animation: facebook-pulse 2s ease-in-out infinite;
                         background: linear-gradient(135deg, #1a2f4d, #1877f2, #0062e0);
@@ -1113,6 +1123,7 @@ body {
 
                         .social-icon {
                             background: #1877f2;
+
                             svg {
                                 fill: #ffffff;
                             }
@@ -1122,6 +1133,7 @@ body {
 
                 &.discord {
                     background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #1a1a33);
+
                     &:hover {
                         animation: discord-pulse 2s ease-in-out infinite;
                         background: linear-gradient(135deg, #404EED, #5865F2, #7289da);
@@ -1129,6 +1141,7 @@ body {
 
                         .social-icon {
                             background: #5865F2;
+
                             svg {
                                 fill: #ffffff;
                             }
@@ -1138,6 +1151,7 @@ body {
 
                 &.vrchat {
                     background: linear-gradient(135deg, #1a1a1a, #1a1a1a, #07242b);
+
                     &:hover {
                         animation: vrchat-pulse 2s ease-in-out infinite;
                         background: linear-gradient(135deg, #0e1013, #07242b, #084858);
@@ -1145,18 +1159,11 @@ body {
 
                         .social-icon {
                             background: #084858;
+
                             svg {
                                 fill: #ffffff;
                             }
                         }
-                    }
-                }
-
-                &:hover {
-                    transform: translateY(-2px);
-
-                    .social-icon {
-                        transform: scale(1.1);
                     }
                 }
 
@@ -1196,27 +1203,165 @@ body {
             }
         }
     }
+
+    .feedback-form {
+        margin: 2rem 0;
+        position: relative;
+
+        h6 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            color: rgba(206, 223, 252, 0.7);
+            background: var(--background-color);
+            padding: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 1.2rem;
+            margin: 0.5rem 0;
+            background: transparent;
+            border: 1px solid rgba(60, 64, 93, 0.3);
+            border-radius: 8px;
+            color: #CEDFFC;
+            font-family: 'Open Sans', sans-serif;
+            resize: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            &:focus {
+                outline: none;
+                border-color: #CB2040;
+                box-shadow: 0 0 0 4px rgba(203, 32, 64, 0.1);
+                background: rgba(203, 32, 64, 0.03);
+            }
+
+            &::placeholder {
+                color: rgba(206, 223, 252, 0.3);
+                transition: opacity 0.3s ease;
+            }
+
+            &:focus::placeholder {
+                opacity: 0;
+            }
+        }
+
+        .feedback-btn {
+            background: linear-gradient(135deg, #CB2040, #FF446C);
+            color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(203, 32, 64, 0.2);
+
+                &::before {
+                    left: 100%;
+                }
+            }
+
+            &:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 8px rgba(203, 32, 64, 0.2);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.2),
+                        transparent);
+                transition: 0.5s;
+            }
+        }
+    }
+
+
+    .social-splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--background-color);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &.twitter {
+            background: linear-gradient(135deg, #0d1b2a, #1DA1F2, #1a8cd8);
+        }
+
+        &.facebook {
+            background: linear-gradient(135deg, #1a2f4d, #1877f2, #0062e0);
+        }
+
+        &.discord {
+            background: linear-gradient(135deg, #404EED, #5865F2, #7289da);
+        }
+
+        &.vrchat {
+            background: linear-gradient(135deg, #0e1013, #07242b, #084858);
+        }
+
+        .splash-icon {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: #FFFFFF;
+            }
+        }
+    }
 }
 
-@keyframes elegant-pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(203, 32, 64, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(203, 32, 64, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(203, 32, 64, 0);
-    }
-}
+
 
 @keyframes twitter-pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(29, 161, 242, 0.4);
     }
+
     50% {
         box-shadow: 0 0 0 15px rgba(29, 161, 242, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(29, 161, 242, 0);
     }
@@ -1226,9 +1371,11 @@ body {
     0% {
         box-shadow: 0 0 0 0 rgba(24, 119, 242, 0.4);
     }
+
     50% {
         box-shadow: 0 0 0 15px rgba(24, 119, 242, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(24, 119, 242, 0);
     }
@@ -1238,9 +1385,11 @@ body {
     0% {
         box-shadow: 0 0 0 0 rgba(88, 101, 242, 0.4);
     }
+
     50% {
         box-shadow: 0 0 0 15px rgba(88, 101, 242, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(88, 101, 242, 0);
     }
@@ -1250,9 +1399,11 @@ body {
     0% {
         box-shadow: 0 0 0 0 rgba(7, 36, 43, 0.4);
     }
+
     50% {
         box-shadow: 0 0 0 15px rgba(7, 36, 43, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(7, 36, 43, 0);
     }
@@ -1840,12 +1991,10 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
     transition: 0.5s;
 }
 

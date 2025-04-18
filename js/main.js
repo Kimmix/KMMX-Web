@@ -325,3 +325,60 @@ document.querySelectorAll('.social-link').forEach(link => {
         });
     });
 });
+
+// Handle social link clicks with splash screen
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const platform = link.classList[1];
+        const href = link.getAttribute('href');
+        const splash = document.querySelector('.social-splash');
+        const splashIcon = splash.querySelector('.splash-icon');
+
+        // Reset any ongoing animations and states
+        gsap.killTweensOf(splashIcon);
+        gsap.killTweensOf(splash);
+        splash.style.opacity = '';
+        splashIcon.style.opacity = '';
+        gsap.set(splashIcon, { scale: 0 });
+
+        // Remove any existing platform classes
+        splash.className = 'social-splash';
+
+        // Clone the icon and make it white
+        const iconClone = link.querySelector('.social-icon svg').cloneNode(true);
+        iconClone.style.fill = '#FFFFFF';
+        splashIcon.innerHTML = '';
+        splashIcon.appendChild(iconClone);
+
+        // Add platform class and show splash
+        splash.classList.add(platform);
+        splash.classList.add('active');
+
+        // Quick animation sequence
+        gsap.timeline()
+            .to(splashIcon, {
+                scale: 1,
+                duration: 0.3,
+                ease: "back.out(1.7)"
+            })
+            .to(splashIcon, {
+                scale: 1.2,
+                opacity: 0,
+                duration: 0.2,
+                ease: "power2.in",
+                onComplete: () => {
+                    window.open(href, '_blank');
+                }
+            })
+            .to(splash, {
+                opacity: 0,
+                duration: 0.2,
+                onComplete: () => {
+                    splash.classList.remove('active', platform);
+                    splashIcon.style.opacity = '1';
+                    gsap.set(splashIcon, { scale: 0 });
+                }
+            });
+    });
+});
