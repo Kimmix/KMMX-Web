@@ -124,14 +124,6 @@ function toggleEquipment(card) {
             setTimeout(() => {
                 card.classList.remove('expanded', 'closing');
 
-                // Only reorder on desktop
-                if (!isMobile) {
-                    // Restore original order
-                    const cardArray = Array.from(equipmentSection.children);
-                    cardArray.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
-                    cardArray.forEach(c => equipmentSection.appendChild(c));
-                }
-
                 // Reset styles
                 cards.forEach(c => c.style.willChange = 'auto');
             }, 300);
@@ -143,12 +135,6 @@ function toggleEquipment(card) {
                     otherCard.classList.remove('expanded', 'closing');
                 }
             });
-
-            // Only move card on desktop
-            if (!isMobile) {
-                card.remove();
-                equipmentSection.insertBefore(card, equipmentSection.firstChild);
-            }
 
             requestAnimationFrame(() => {
                 card.classList.add('expanded');
