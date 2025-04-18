@@ -138,7 +138,7 @@ function toggleEquipment(card) {
     const wasExpanded = card.classList.contains('expanded');
     const equipmentSection = card.parentElement;
     const cards = Array.from(equipmentSection.children);
-    const originalOrder = parseInt(card.dataset.order);
+    const isMobile = window.innerWidth <= 768;
 
     // Use transform instead of transition for better performance
     requestAnimationFrame(() => {
@@ -148,24 +148,19 @@ function toggleEquipment(card) {
             setTimeout(() => {
                 card.classList.remove('expanded', 'closing');
 
-                // Restore original order
-                const cardArray = Array.from(equipmentSection.children);
-                cardArray.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
-
-                equipmentSection.style.willChange = 'transform';
-                cards.forEach(c => c.style.willChange = 'transform');
-
-                cardArray.forEach(c => equipmentSection.appendChild(c));
-
-                // Force reflow
-                void equipmentSection.offsetWidth;
+                // Only reorder on desktop
+                if (!isMobile) {
+                    // Restore original order
+                    const cardArray = Array.from(equipmentSection.children);
+                    cardArray.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
+                    cardArray.forEach(c => equipmentSection.appendChild(c));
+                }
 
                 // Reset styles
-                equipmentSection.style.willChange = 'auto';
                 cards.forEach(c => c.style.willChange = 'auto');
             }, 300);
         } else {
-            // Collapse other cards with hardware acceleration
+            // Collapse other cards
             cards.forEach(otherCard => {
                 if (otherCard !== card) {
                     otherCard.style.willChange = 'transform';
@@ -173,19 +168,16 @@ function toggleEquipment(card) {
                 }
             });
 
-            // Move clicked card to first position with optimized animation
-            card.style.willChange = 'transform';
-            equipmentSection.style.willChange = 'transform';
-
-            card.remove();
-            equipmentSection.insertBefore(card, equipmentSection.firstChild);
+            // Only move card on desktop
+            if (!isMobile) {
+                card.remove();
+                equipmentSection.insertBefore(card, equipmentSection.firstChild);
+            }
 
             requestAnimationFrame(() => {
                 card.classList.add('expanded');
                 // Reset will-change after animation
                 setTimeout(() => {
-                    card.style.willChange = 'auto';
-                    equipmentSection.style.willChange = 'auto';
                     cards.forEach(c => c.style.willChange = 'auto');
                 }, 300);
             });
