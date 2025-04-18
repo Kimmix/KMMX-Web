@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             frame = requestAnimationFrame(() => {
                 card.style.setProperty('--mouse-x', `${coords.x}%`);
                 card.style.setProperty('--mouse-y', `${coords.y}%`);
+                card.style.setProperty('--glow-opacity', '1');
                 frame = null;
             });
         }
@@ -23,16 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
         // Use passive event listener for better scroll performance
         card.addEventListener('mousemove', e => updateMousePosition(e, card), { passive: true });
 
-        // Reset position on mouse leave with slight delay for smoother transition
+        // Fade out glow before resetting position
         card.addEventListener('mouseleave', () => {
             if (frame) {
                 cancelAnimationFrame(frame);
                 frame = null;
             }
-            requestAnimationFrame(() => {
-                card.style.setProperty('--mouse-x', '50%');
-                card.style.setProperty('--mouse-y', '50%');
-            });
+
+            // First fade out the glow
+            card.style.setProperty('--glow-opacity', '0');
+
+            // Then reset position after fade
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    card.style.setProperty('--mouse-x', '50%');
+                    card.style.setProperty('--mouse-y', '50%');
+                });
+            }, 300);
         });
     });
 
