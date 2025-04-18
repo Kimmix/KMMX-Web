@@ -48,7 +48,6 @@ body {
             justify-content: end;
             align-items: flex-end;
             width: 100%;
-            /* overflow: hidden; */
 
             h1 {
                 display: flex;
@@ -322,41 +321,6 @@ body {
             gap: 2rem;
             padding: 0.5rem;
 
-            .model-overview {
-                text-align: center;
-                margin-bottom: 1.5rem;
-
-                .section-title {
-                    font-size: clamp(1.6rem, 2vw, 2.2rem);
-                    margin-bottom: 0.5rem;
-
-                    .highlight {
-                        color: var(--primary-color);
-                        position: relative;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            width: 100%;
-                            height: 1px;
-                            bottom: -3px;
-                            left: 0;
-                            background: var(--primary-color);
-                            transform: scaleX(0.7);
-                            opacity: 0.5;
-                        }
-                    }
-                }
-
-                .model-description {
-                    font-size: 0.95rem;
-                    max-width: 500px;
-                    margin: 0 auto;
-                    opacity: 0.7;
-                    font-weight: 300;
-                }
-            }
-
             .stat-cards {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -411,11 +375,6 @@ body {
                             );
                         }
 
-                        .stat-icon {
-                            background: var(--primary-color);
-                            color: var(--black2-color);
-                        }
-
                         .stat-number {
                             color: var(--primary-color);
                             text-shadow: 0 0 10px rgba(203, 32, 64, 0.5);
@@ -427,22 +386,6 @@ body {
                                 background: linear-gradient(90deg, rgb(203, 32, 64) 0%, rgb(137, 59, 133) 85%, rgb(60, 64, 93) 100%);
                             }
                         }
-                    }
-
-                    .stat-icon {
-                        flex: 0 0 48px;
-                        width: 48px;
-                        height: 48px;
-                        background: rgba(255, 255, 255, 0.05);
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 1.5rem;
-                        font-weight: 500;
-                        color: rgba(255, 255, 255, 0.9);
-                        transition: all 0.3s ease;
-                        z-index: 2;
                     }
 
                     .stat-info {
@@ -566,132 +509,6 @@ body {
                     gap: 2rem;
                 }
 
-                .arcai-orb {
-                    position: relative;
-                    width: 160px;
-                    height: 160px;
-                    flex-shrink: 0;
-
-                    .orb-content {
-                        width: 100%;
-                        height: 100%;
-                        background: radial-gradient(circle,
-                            rgba(203, 32, 64, 0.7) 0%,
-                            rgba(203, 32, 64, 0.3) 70%,
-                            rgba(203, 32, 64, 0.1) 100%);
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        position: relative;
-                        z-index: 2;
-                        box-shadow: 0 0 30px rgba(203, 32, 64, 0.3);
-                        animation: pulsate 5s ease-in-out infinite;
-
-                        .arcai-mastery {
-                            color: var(--white-color);
-                            font-size: 0.85rem;
-                            font-weight: 500;
-                            text-align: center;
-                            max-width: 80%;
-                        }
-                    }
-
-                    .orb-ring {
-                        position: absolute;
-                        border-radius: 50%;
-                        border: 1px solid var(--primary-color);
-                        border-color: rgba(203, 32, 64, 0.2);
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        pointer-events: none;
-
-                        &.ring-1 {
-                            width: calc(100% + 40px);
-                            height: calc(100% + 40px);
-                            animation: rotate 25s linear infinite;
-
-                            &::before, &::after {
-                                content: '';
-                                position: absolute;
-                                width: 6px;
-                                height: 6px;
-                                border-radius: 50%;
-                                background: var(--primary-color);
-                            }
-
-                            &::before {
-                                top: 5%;
-                                left: 50%;
-                                transform: translateX(-50%);
-                            }
-
-                            &::after {
-                                bottom: 5%;
-                                left: 50%;
-                                transform: translateX(-50%);
-                            }
-                        }
-
-                        &.ring-2 {
-                            width: calc(100% + 80px);
-                            height: calc(100% + 80px);
-                            animation: rotate 40s linear reverse infinite;
-                            opacity: 0.8;
-
-                            &::before, &::after {
-                                content: '';
-                                position: absolute;
-                                width: 5px;
-                                height: 5px;
-                                border-radius: 50%;
-                                background: var(--primary-color);
-                                opacity: 0.7;
-                            }
-
-                            &::before {
-                                top: 50%;
-                                left: 5%;
-                                transform: translateY(-50%);
-                            }
-
-                            &::after {
-                                top: 50%;
-                                right: 5%;
-                                transform: translateY(-50%);
-                            }
-                        }
-
-                        &.ring-3 {
-                            width: calc(100% + 120px);
-                            height: calc(100% + 120px);
-                            animation: rotate 60s linear infinite;
-                            opacity: 0.6;
-
-                            &::before, &::after {
-                                content: '';
-                                position: absolute;
-                                width: 4px;
-                                height: 4px;
-                                border-radius: 50%;
-                                background: var(--primary-color);
-                                opacity: 0.5;
-                            }
-
-                            &::before {
-                                top: 30%;
-                                right: 10%;
-                            }
-
-                            &::after {
-                                bottom: 30%;
-                                left: 10%;
-                            }
-                        }
-                    }
-                }
-
                 .arcai-shard {
                     position: relative;
                     width: 180px;
@@ -741,59 +558,7 @@ body {
                             margin-right: auto;
                         }
                     }
-
-                    .action-links {
-                        display: flex;
-                        gap: 1rem;
-                        flex-wrap: wrap;
-
-                        @media (max-width: 992px) {
-                            justify-content: center;
-                        }
-
-                        .viz-button {
-                            display: inline-flex;
-                            align-items: center;
-                            color: var(--white-color);
-                            text-decoration: none;
-                            font-size: 0.9rem;
-                            transition: all 0.3s ease;
-                            padding: 0.4rem 1rem;
-                            border-radius: 0.5rem;
-                            font-weight: 400;
-
-                            &.primary {
-                                background: var(--primary-color);
-                                color: var(--black2-color);
-
-                                &:hover {
-                                    opacity: 0.9;
-                                    transform: translateY(-2px);
-                                }
-                            }
-
-                            &.secondary {
-                                background: transparent;
-                                border: 1px solid var(--primary-color);
-
-                                &:hover {
-                                    background: rgba(203, 32, 64, 0.1);
-                                }
-                            }
-                        }
-                    }
                 }
-            }
-        }
-
-        @keyframes pulsate {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(203, 32, 64, 0.3);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 0 30px rgba(203, 32, 64, 0.4);
             }
         }
 
@@ -994,7 +759,6 @@ body {
                     justify-content: space-between;
                     margin-bottom: 1rem;
                     min-height: 3rem;
-                    /* Reduce min-height */
 
                     h3 {
                         font-size: clamp(1.2rem, 1.5vw, 1.8rem);
@@ -1033,12 +797,6 @@ body {
                     transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
                     will-change: transform, opacity;
                     backface-visibility: hidden;
-
-                    &.visible {
-                        max-height: 1000px;
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
 
                     .spec-list {
                         margin: 1rem 0;
