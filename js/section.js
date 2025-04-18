@@ -1,53 +1,95 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Equipment card glow effect
+    // Equipment card hover effect
     const cards = document.querySelectorAll('.equipment-card');
-    let coords = { x: 0, y: 0 };
-    let frame;
-
-    const updateMousePosition = (e, card) => {
-        const rect = card.getBoundingClientRect();
-        coords.x = ((e.clientX - rect.left) / card.offsetWidth) * 100;
-        coords.y = ((e.clientY - rect.top) / card.offsetHeight) * 100;
-
-        // Only schedule an animation frame if we don't have one pending
-        if (!frame) {
-            frame = requestAnimationFrame(() => {
-                card.style.setProperty('--mouse-x', `${coords.x}%`);
-                card.style.setProperty('--mouse-y', `${coords.y}%`);
-                card.style.setProperty('--glow-opacity', '1');
-                frame = null;
-            });
-        }
-    };
 
     cards.forEach(card => {
-        // Use passive event listener for better scroll performance
-        card.addEventListener('mousemove', e => updateMousePosition(e, card), { passive: true });
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / card.offsetWidth) * 100;
+            const y = ((e.clientY - rect.top) / card.offsetHeight) * 100;
 
-        // Fade out glow before resetting position
+            requestAnimationFrame(() => {
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+                card.style.setProperty('--glow-opacity', '1');
+            });
+        }, { passive: true });
+
         card.addEventListener('mouseleave', () => {
-            if (frame) {
-                cancelAnimationFrame(frame);
-                frame = null;
-            }
-
-            // First fade out the glow
             card.style.setProperty('--glow-opacity', '0');
-
-            // Then reset position after fade
-            setTimeout(() => {
-                requestAnimationFrame(() => {
-                    card.style.setProperty('--mouse-x', '50%');
-                    card.style.setProperty('--mouse-y', '50%');
-                });
-            }, 300);
         });
     });
 
+    // Handle stat cards hover effects
+    const statCards = document.querySelectorAll('.stat-card');
+
+    statCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            requestAnimationFrame(() => {
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        }, { passive: true });
+    });
+
+    // Animate stat meters on page load with simple fade in
+    setTimeout(() => {
+        document.querySelectorAll('.meter-fill').forEach((meter, index) => {
+            const width = meter.style.width;
+            meter.style.width = '0%';
+
+            setTimeout(() => {
+                meter.style.transition = 'width 1s ease-out';
+                meter.style.width = width;
+            }, 100 + (index * 100));
+        });
+    }, 300);
+
+    // Simple hover for arcai orb
+    const arcaiOrb = document.querySelector('.arcai-orb');
+    if (arcaiOrb) {
+        arcaiOrb.addEventListener('mousemove', (e) => {
+            const rect = arcaiOrb.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            // Calculate distance from center
+            const distX = (mouseX - centerX) / (rect.width / 2);
+            const distY = (mouseY - centerY) / (rect.height / 2);
+
+            // Apply subtle movement
+            requestAnimationFrame(() => {
+                arcaiOrb.style.transform = `translate(${distX * 5}px, ${distY * 5}px)`;
+            });
+
+            // Mild glow increase on hover
+            const orbContent = arcaiOrb.querySelector('.orb-content');
+            orbContent.style.boxShadow = `0 0 25px rgba(203, 32, 64, 0.4)`;
+        }, { passive: true });
+
+        arcaiOrb.addEventListener('mouseleave', () => {
+            arcaiOrb.style.transition = 'transform 0.5s ease';
+            arcaiOrb.style.transform = 'translate(0, 0)';
+
+            const orbContent = arcaiOrb.querySelector('.orb-content');
+            orbContent.style.transition = 'box-shadow 0.5s ease';
+            orbContent.style.boxShadow = '0 0 20px rgba(203, 32, 64, 0.3)';
+
+            setTimeout(() => {
+                arcaiOrb.style.transition = '';
+                orbContent.style.transition = '';
+            }, 500);
+        });
+    }
 });
 
-//! BIO
-// Enhanced showContent function with smooth transitions
+//! Navigation
 function showContent(sectionId, event) {
     event.preventDefault();
 
@@ -91,65 +133,34 @@ function showContent(sectionId, event) {
     }
 }
 
-// Responsive sidebar
-const sidebar = document.querySelector('.sidebar');
-if (sidebar) {
-    const stickyHeader = document.querySelector('.sticky-logo');
-    const stickyHeaderHeight = stickyHeader ? stickyHeader.offsetHeight : 0;
-
-    const updateSidebarPosition = () => {
-        if (window.innerWidth > 768) {
-            sidebar.style.top = `${stickyHeaderHeight + 20}px`;
-        } else {
-            sidebar.style.top = '0';
-        }
-    };
-
-    window.addEventListener('resize', updateSidebarPosition);
-    updateSidebarPosition();
-}
-
-// Toggle equipment cards with enhanced functionality
+// Toggle equipment cards
 function toggleEquipment(card) {
     const wasExpanded = card.classList.contains('expanded');
     const equipmentSection = card.parentElement;
     const cards = Array.from(equipmentSection.children);
 
-    // Set will-change for performance optimization
-    cards.forEach(c => {
-        c.style.willChange = 'transform, opacity, width, flex';
-    });
+    if (wasExpanded) {
+        // Collapse animation
+        card.classList.add('closing');
 
-    requestAnimationFrame(() => {
-        if (wasExpanded) {
-            // Collapse animation
-            card.classList.add('closing');
+        setTimeout(() => {
+            card.classList.remove('expanded', 'closing');
+        }, 400);
+    } else {
+        // Close any other expanded cards first
+        cards.forEach(otherCard => {
+            if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                otherCard.classList.add('closing');
+                setTimeout(() => {
+                    otherCard.classList.remove('expanded', 'closing');
+                }, 300);
+            }
+        });
 
-            setTimeout(() => {
-                card.classList.remove('expanded', 'closing');
-                cards.forEach(c => c.style.willChange = 'auto');
-            }, 400); // Match the CSS transition duration
-        } else {
-            // Close any other expanded cards first
-            cards.forEach(otherCard => {
-                if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                    otherCard.classList.add('closing');
-                    setTimeout(() => {
-                        otherCard.classList.remove('expanded', 'closing');
-                    }, 300);
-                }
-            });
-
-            // Expand the clicked card
-            requestAnimationFrame(() => {
-                card.classList.add('expanded');
-            });
-
-            // Clean up will-change after animation
-            setTimeout(() => {
-                cards.forEach(c => c.style.willChange = 'auto');
-            }, 400);
-        }
-    });
+        // Expand the clicked card
+        setTimeout(() => {
+            card.classList.add('expanded');
+        }, 10);
+    }
 }
 

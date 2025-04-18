@@ -47,7 +47,7 @@
         <div class="character-detail">
             <nav class="sidebar">
                 <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
-                <a href="#stat" onclick="showContent('stat', event)">Arcai stat</a>
+                <a href="#stat" onclick="showContent('stat', event)">Arcai Profile</a>
                 <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
             </nav>
 
@@ -73,14 +73,18 @@
                     </div>
 
                     <p class="info-text">
-                        Kimmix, an uncommon Protogen and a high-ranked Nehixim special officer, his purpose is to unravel
+                        Kimmix, an uncommon Protogen and a high-ranked Nehixim special officer, his purpose is to
+                        unravel
                         the mystery of Arcai. Armed with cutting-edge technology and backed by limitless funding from
-                        Nehixim, he operates in the shadows, unbound by conscience or consequence. As long as his objective
+                        Nehixim, he operates in the shadows, unbound by conscience or consequence. As long as his
+                        objective
                         is met, he pays little mind to the obstacles in his way.
                     </p>
                     <p class="info-text">
-                        While not designed for combat and lacking in physical strength, making direct confrontation a last
-                        resort. Instead, he seeks to weaponize Arcai itself—manifesting its power into lethal projectiles.
+                        While not designed for combat and lacking in physical strength, making direct confrontation a
+                        last
+                        resort. Instead, he seeks to weaponize Arcai itself—manifesting its power into lethal
+                        projectiles.
                         His relentless pursuit of discovery often treads the line between brilliance and ethical
                         transgression. He does not crave destruction, but he won't hesitate to break the rules—or anyone
                         who stands in his way. To him, ideals like justice and honor are nothing more than distractions;
@@ -90,104 +94,93 @@
 
                 <div id="stat" class="content-section">
                     <div class="stat-section">
-                        <div class="chart-container">
-                            <svg viewBox="0 0 300 300" class="radar-chart">
-                                <!-- Background grid -->
-                                <g class="grid" stroke="rgba(255, 255, 255, 0.1)" fill="none">
-                                    <polygon points="150,30 270,140 220,250 80,250 30,140" />
-                                    <polygon points="150,60 240,140 200,220 100,220 60,140" />
-                                    <polygon points="150,90 210,140 180,190 120,190 90,140" />
-                                    <polygon points="150,120 180,140 160,160 140,160 120,140" />
-                                    <!-- Axis lines -->
-                                    <line x1="150" y1="30" x2="150" y2="250" />
-                                    <line x1="30" y1="140" x2="270" y2="140" />
-                                    <line x1="80" y1="250" x2="220" y2="250" />
-                                </g>
-                                <!-- Data plot -->
-                                <g class="data-plot">
-                                    <!-- Gradient fill for the data area -->
-                                    <defs>
-                                        <radialGradient id="dataGradient" cx="50%" cy="50%" r="75%">
-                                            <stop offset="0%" style="stop-color:rgba(60, 64, 93, 0.4)" />
-                                            <stop offset="50%" style="stop-color:rgba(137, 59, 133, 0.5)" />
-                                            <stop offset="100%" style="stop-color:rgba(203, 32, 64, 0.8)" />
-                                        </radialGradient>
-                                    </defs>
-                                    <polygon
-                                        points="150,75 230,140 195,205 105,205 70,140"
-                                        fill="url(#dataGradient)"
-                                    />
-                                </g>
-                                <!-- Labels -->
-                                <g class="labels" fill="#ffffff" font-family="Montserrat" font-size="16">
-                                    <text x="150" y="20" text-anchor="middle">Focus</text>
-                                    <text x="280" y="145" text-anchor="start">Bandwidth</text>
-                                    <text x="230" y="270" text-anchor="middle">Reach</text>
-                                    <text x="70" y="270" text-anchor="middle">Capacity</text>
-                                    <text x="20" y="145" text-anchor="end">Control</text>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="stat-section-r">
-                            <h3 class="bold">The FBRCC (Fabric) Model</h3>
-                            <div class="stat-container">
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Focus</span>
-                                        <span class="bg-loop"></span>
-                                        <span>25</span>
+                        <header class="model-overview">
+                            <p class="model-description">
+                                The FBRCC (Fabric) Model
+                            </p>
+                        </header>
+
+                        <div class="stat-cards">
+                            <div class="stat-card" data-stat="focus">
+                                <div class="stat-icon">F</div>
+                                <div class="stat-info">
+                                    <h3>Focus</h3>
+                                    <div class="stat-meter">
+                                        <div class="meter-fill" style="width: 60%"></div>
+                                        <span class="stat-value">25</span>
                                     </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="60%"></div>
-                                    </div>
+                                    <p class="stat-desc">Precision of Arcai energy concentration</p>
                                 </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Bandwidth</span>
-                                        <span class="bg-loop"></span>
-                                        <span>5</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="10%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Reach</span>
-                                        <span class="bg-loop"></span>
-                                        <span>15</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="45%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Capacity</span>
-                                        <span class="bg-loop"></span>
-                                        <span>25</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="60%"></div>
-                                    </div>
-                                </div>
-                                <div class="stat-row">
-                                    <div class="stat-header">
-                                        <span>Control</span>
-                                        <span class="bg-loop"></span>
-                                        <span>30</span>
-                                    </div>
-                                    <div class="stat-bar-container">
-                                        <div class="stat-bar" data-position="85%"></div>
-                                    </div>
-                                </div>
-                                <a href="https://docs.google.com/document/d/1pZNkybm4JnZjy91ek9I3K00zvt1NQmgKzhZTUsIU0sc/preview?rm=demo&tab=t.0#heading=h.qx6qns3rqf68"
-                                    target="_blank" rel="noopener noreferrer" class="learn-more">
-                                    Learn more about Arcai
-                                    <span class="arrow">→</span>
-                                </a>
                             </div>
-                            <p class="mastery-note"><span class="bold">Arcai mastery:</span> Materialization</p>
+
+                            <div class="stat-card" data-stat="bandwidth">
+                                <div class="stat-icon">B</div>
+                                <div class="stat-info">
+                                    <h3>Bandwidth</h3>
+                                    <div class="stat-meter">
+                                        <div class="meter-fill" style="width: 10%"></div>
+                                        <span class="stat-value">5</span>
+                                    </div>
+                                    <p class="stat-desc">Simultaneous channeling capacity</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" data-stat="reach">
+                                <div class="stat-icon">R</div>
+                                <div class="stat-info">
+                                    <h3>Reach</h3>
+                                    <div class="stat-meter">
+                                        <div class="meter-fill" style="width: 45%"></div>
+                                        <span class="stat-value">15</span>
+                                    </div>
+                                    <p class="stat-desc">Maximum effective distance</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" data-stat="capacity">
+                                <div class="stat-icon">C</div>
+                                <div class="stat-info">
+                                    <h3>Capacity</h3>
+                                    <div class="stat-meter">
+                                        <div class="meter-fill" style="width: 60%"></div>
+                                        <span class="stat-value">25</span>
+                                    </div>
+                                    <p class="stat-desc">Energy storage potential</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card" data-stat="control">
+                                <div class="stat-icon">C</div>
+                                <div class="stat-info">
+                                    <h3>Control</h3>
+                                    <div class="stat-meter">
+                                        <div class="meter-fill" style="width: 85%"></div>
+                                        <span class="stat-value">30</span>
+                                    </div>
+                                    <p class="stat-desc">Manipulation precision and stability</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="visualization">
+                            <div class="arcai-shard">
+                                <img src="assets/svg/arcai_shard.svg" alt="Arcai Shard" class="shard-svg">
+                            </div>
+                            <div class="viz-details">
+                                <h3>Specialty: <span class="highlight">Materialization</span></h3>
+                                <p>
+                                    Kimmix excels at manifesting Arcai energy into physical form, creating tangible
+                                    objects with unique properties. This rare specialization supports his research
+                                    through direct manipulation of energy structures.
+                                </p>
+                                <div class="action-links">
+                                    <a href="#" class="viz-button primary">Arcai Profile</a>
+                                    <a href="https://docs.google.com/document/d/1pZNkybm4JnZjy91ek9I3K00zvt1NQmgKzhZTUsIU0sc/preview?rm=demo&tab=t.0#heading=h.qx6qns3rqf68"
+                                       target="_blank" rel="noopener noreferrer" class="viz-button secondary">
+                                        Learn more
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,10 +193,14 @@
                                 <span class="expand-indicator">▼</span>
                             </div>
                             <div class="equipment-image">
-                                <img src="assets/svg/aencc.svg" alt="AENCC Equipment Diagram" loading="lazy" decoding="async">
+                                <img src="assets/svg/aencc.svg" alt="AENCC Equipment Diagram" loading="lazy"
+                                    decoding="async">
                             </div>
                             <div class="equipment-details">
-                                <p>Arcai Enhanced Nano Carbon Composite (AENCC) - A revolutionary material that adapts and strengthens itself through Arcai activation. When under stress, the carbon composite structure reconfigures at the molecular level, creating a dynamic self-reinforcing matrix that becomes virtually impervious to damage.</p>
+                                <p>Arcai Enhanced Nano Carbon Composite (AENCC) - A revolutionary material that adapts
+                                    and strengthens itself through Arcai activation. When under stress, the carbon
+                                    composite structure reconfigures at the molecular level, creating a dynamic
+                                    self-reinforcing matrix that becomes virtually impervious to damage.</p>
                                 <ul class="spec-list">
                                     <li><span>Structure Type</span><span>Self-Reinforcing Matrix</span></li>
                                     <li><span>Response Time</span><span>0.003ms</span></li>
@@ -219,10 +216,12 @@
                                 <span class="expand-indicator">▼</span>
                             </div>
                             <div class="equipment-image">
-                                <img src="assets/svg/arcai_resonator.svg" alt="Arcai Resonator" loading="lazy" decoding="async">
+                                <img src="assets/svg/arcai_resonator.svg" alt="Arcai Resonator" loading="lazy"
+                                    decoding="async">
                             </div>
                             <div class="equipment-details">
-                                <p>A specialized device that amplifies and focuses Arcai energy, allowing for precise manipulation and materialization of Arcai constructs.</p>
+                                <p>A specialized device that amplifies and focuses Arcai energy, allowing for precise
+                                    manipulation and materialization of Arcai constructs.</p>
                                 <ul class="spec-list">
                                     <li><span>Resonance Frequency</span><span>1.2 MHz - 3.8 GHz</span></li>
                                     <li><span>Field Range</span><span>25 meters</span></li>
@@ -238,10 +237,12 @@
                                 <span class="expand-indicator">▼</span>
                             </div>
                             <div class="equipment-image">
-                                <img src="assets/svg/neural_dampeners.svg" alt="Neural Dampeners" loading="lazy" decoding="async">
+                                <img src="assets/svg/neural_dampeners.svg" alt="Neural Dampeners" loading="lazy"
+                                    decoding="async">
                             </div>
                             <div class="equipment-details">
-                                <p>Advanced cybernetic implants that help regulate and control the intense neural feedback from Arcai manipulation.</p>
+                                <p>Advanced cybernetic implants that help regulate and control the intense neural
+                                    feedback from Arcai manipulation.</p>
                                 <ul class="spec-list">
                                     <li><span>Coverage</span><span>Full Neural Network</span></li>
                                     <li><span>Response Time</span><span>0.0001ms</span></li>
