@@ -163,12 +163,10 @@ body {
                     right: 0;
                     bottom: 0;
                     height: 2px;
-                    background: linear-gradient(
-                        90deg,
-                        transparent,
-                        var(--primary-color) 50%,
-                        transparent
-                    );
+                    background: linear-gradient(90deg,
+                            transparent,
+                            var(--primary-color) 50%,
+                            transparent);
                     opacity: 0;
                     transform: scaleX(0.8);
                     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -216,7 +214,7 @@ body {
                         transform: scaleX(0);
                         opacity: 0;
                         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                                    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                            opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     &:hover {
@@ -240,7 +238,7 @@ body {
                         }
                     }
 
-                    & + a {
+                    &+a {
                         margin-left: 0.5rem;
                     }
                 }
@@ -382,6 +380,14 @@ body {
                             align-items: center;
                             justify-content: space-between;
                             width: 100%;
+
+                            .bg-loop {
+                                background-image: url(/assets/svg/slash.svg);
+                                background-repeat: repeat-x;
+                                background-size: 9px 31px;
+                                width: 85%;
+                                opacity: 0.5;
+                            }
 
                             span {
                                 &:first-child {

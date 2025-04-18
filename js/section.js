@@ -36,19 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Mouse movement effect for stat rows
-    const statRows = document.querySelectorAll('.stat-row');
-
-    statRows.forEach(row => {
-        row.addEventListener('mousemove', e => {
-            const rect = row.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            row.style.setProperty('--mouse-x', `${x}px`);
-            row.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
 });
 
 //! BIO
@@ -95,25 +82,6 @@ function showContent(sectionId, event) {
         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
-
-// Enhanced stat bars animation
-document.querySelectorAll('.stat-bar').forEach((bar) => {
-    const position = bar.getAttribute('data-position');
-    bar.style.width = '0%';
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    bar.style.width = position;
-                }, 200);
-                observer.unobserve(bar);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    observer.observe(bar);
-});
 
 // Responsive sidebar
 const sidebar = document.querySelector('.sidebar');
