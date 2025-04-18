@@ -309,8 +309,6 @@ body {
             .info-text {
                 text-indent: 2rem;
                 line-height: 1.8;
-                font-size: clamp(1rem, 1.1vw, 1.2rem);
-                max-width: 80ch;
                 color: var(--white2-color);
             }
         }
@@ -540,17 +538,11 @@ body {
                         font-size: clamp(1.2rem, 1.4vw, 1.4rem);
                         margin-bottom: 1rem;
                         font-weight: 400;
-
-                        .highlight {
-                            color: var(--primary-color);
-                        }
                     }
 
                     p {
                         line-height: 1.6;
-                        font-size: 0.95rem;
                         margin-bottom: 1.5rem;
-                        max-width: 60ch;
                         opacity: 0.8;
 
                         @media (max-width: 992px) {
@@ -822,12 +814,6 @@ body {
                                 color: var(--primary-color);
                             }
                         }
-                    }
-
-                    p {
-                        line-height: 1.6;
-                        font-size: clamp(0.9rem, 1vw, 1.1rem);
-                        max-width: 80ch;
                     }
                 }
             }

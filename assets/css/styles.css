@@ -84,7 +84,7 @@ img {
     object-fit: cover;
 }
 
-p, span {
+p {
     font-size: clamp(1rem, 1vw + 0.2rem, 1.15rem);
     font-weight: 200;
     line-height: 1.5;
@@ -136,6 +136,10 @@ hr {
     margin: 1em 0;
     padding: 0;
     opacity: 0.4;
+}
+
+.highlight {
+    color: var(--primary-color);
 }
 
 .bold {
