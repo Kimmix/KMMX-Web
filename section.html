@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KMMX - Main Page</title>
+    <meta name="description" content="Main page for KMMX" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+    <meta name="theme-color" content="#101014" />
+    <meta name="apple-mobile-web-app-status-bar" content="#101014" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="view-transition" content="same-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="assets\svg\bio_bg.svg">
+    <link rel="preload" as="image" href="assets/svg/aencc.svg">
+    <link rel="preload" as="image" href="assets/svg/arcai_resonator.svg">
+    <link rel="preload" as="image" href="assets/svg/neural_dampeners.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/section.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/intro.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/external/lenis.css">
+    <!-- Google font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="sticky-logo">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63">
+                <path fill="#CB2040"
+                    d="m14.55 662.77 434.72-649.6v649.6L319.52 458.63 14.55 662.77ZM776.55 677.65 496.38 295.82v376.04l127.28-87.6 152.89 93.39Z" />
+            </svg>
+        </div>
+        <div class="notification" id="notification">
+            <span class="notification-message"></span>
+        </div>
+    </div>
+    <section class="character" data-speed="1.7">
+        <img class="bio-bg unselectable" src="assets\svg\bio_bg.svg" data-speed="-3" loading="lazy" decoding="async">
+        <div class="character-header">
+            <h3 class="bio hide-mb unselectable" data-speed="-1.7">bi<br>o</h3>
+            <div class="character-name">
+                <!-- <h2 class="outline unselectable">KIMMIX</h2> -->
+                <h1>KIMMIX</h1>
+                <div class="character-species">
+                    <h6>Uncommon</h6>
+                    <p>Protogen</p>
+                </div>
+            </div>
+        </div>
+        <div class="character-detail">
+            <nav class="sidebar">
+                <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
+                <a href="#stat" onclick="showContent('stat', event)">Arcai stat</a>
+                <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
+            </nav>
+
+            <div class="content">
+                <div id="info" class="content-section active">
+                    <div class="character-info">
+                        <div class="info-item">
+                            <dt>Name</dt>
+                            <dd>Kimmix <span class="fade">/ˈkɪmɪks/</span></dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Faction</dt>
+                            <dd>Nehixim</dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Purpose</dt>
+                            <dd>Arcai research</dd>
+                        </div>
+                        <div class="info-item">
+                            <dt>Social Characteristics</dt>
+                            <dd>Patient, Anti-social, Intimidating</dd>
+                        </div>
+                    </div>
+
+                    <p class="info-text">
+                        Kimmix, an uncommon Protogen and a high-ranked Nehixim special officer, his purpose is to unravel
+                        the mystery of Arcai. Armed with cutting-edge technology and backed by limitless funding from
+                        Nehixim, he operates in the shadows, unbound by conscience or consequence. As long as his objective
+                        is met, he pays little mind to the obstacles in his way.
+                    </p>
+                    <p class="info-text">
+                        While not designed for combat and lacking in physical strength, making direct confrontation a last
+                        resort. Instead, he seeks to weaponize Arcai itself—manifesting its power into lethal projectiles.
+                        His relentless pursuit of discovery often treads the line between brilliance and ethical
+                        transgression. He does not crave destruction, but he won't hesitate to break the rules—or anyone
+                        who stands in his way. To him, ideals like justice and honor are nothing more than distractions;
+                        only the truth matters.
+                    </p>
+                </div>
+
+                <div id="stat" class="content-section">
+                    <div class="stat-section">
+                        <div class="chart-container">
+                            <svg viewBox="0 0 300 300" class="radar-chart">
+                                <!-- Background grid -->
+                                <g class="grid" stroke="rgba(255, 255, 255, 0.1)" fill="none">
+                                    <polygon points="150,30 270,140 220,250 80,250 30,140" />
+                                    <polygon points="150,60 240,140 200,220 100,220 60,140" />
+                                    <polygon points="150,90 210,140 180,190 120,190 90,140" />
+                                    <polygon points="150,120 180,140 160,160 140,160 120,140" />
+                                    <!-- Axis lines -->
+                                    <line x1="150" y1="30" x2="150" y2="250" />
+                                    <line x1="30" y1="140" x2="270" y2="140" />
+                                    <line x1="80" y1="250" x2="220" y2="250" />
+                                </g>
+                                <!-- Data plot -->
+                                <g class="data-plot">
+                                    <!-- Gradient fill for the data area -->
+                                    <defs>
+                                        <radialGradient id="dataGradient" cx="50%" cy="50%" r="75%">
+                                            <stop offset="0%" style="stop-color:rgba(60, 64, 93, 0.4)" />
+                                            <stop offset="50%" style="stop-color:rgba(137, 59, 133, 0.5)" />
+                                            <stop offset="100%" style="stop-color:rgba(203, 32, 64, 0.8)" />
+                                        </radialGradient>
+                                    </defs>
+                                    <polygon
+                                        points="150,75 230,140 195,205 105,205 70,140"
+                                        fill="url(#dataGradient)"
+                                    />
+                                </g>
+                                <!-- Labels -->
+                                <g class="labels" fill="#ffffff" font-family="Montserrat" font-size="16">
+                                    <text x="150" y="20" text-anchor="middle">Focus</text>
+                                    <text x="280" y="145" text-anchor="start">Bandwidth</text>
+                                    <text x="230" y="270" text-anchor="middle">Reach</text>
+                                    <text x="70" y="270" text-anchor="middle">Capacity</text>
+                                    <text x="20" y="145" text-anchor="end">Control</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="stat-section-r">
+                            <h3 class="bold">The FBRCC (Fabric) Model</h3>
+                            <div class="stat-container">
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Focus</span>
+                                        <span class="bg-loop"></span>
+                                        <span>25</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Bandwidth</span>
+                                        <span class="bg-loop"></span>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="10%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Reach</span>
+                                        <span class="bg-loop"></span>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="45%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Capacity</span>
+                                        <span class="bg-loop"></span>
+                                        <span>25</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-row">
+                                    <div class="stat-header">
+                                        <span>Control</span>
+                                        <span class="bg-loop"></span>
+                                        <span>30</span>
+                                    </div>
+                                    <div class="stat-bar-container">
+                                        <div class="stat-bar" data-position="85%"></div>
+                                    </div>
+                                </div>
+                                <a href="https://docs.google.com/document/d/1pZNkybm4JnZjy91ek9I3K00zvt1NQmgKzhZTUsIU0sc/preview?rm=demo&tab=t.0#heading=h.qx6qns3rqf68"
+                                    target="_blank" rel="noopener noreferrer" class="learn-more">
+                                    Learn more about Arcai
+                                    <span class="arrow">→</span>
+                                </a>
+                            </div>
+                            <p class="mastery-note"><span class="bold">Arcai mastery:</span> Materialization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="equipment" class="content-section">
+                    <div class="equipment-section">
+                        <div class="equipment-card" data-order="0" onclick="toggleEquipment(this)">
+                            <div class="equipment-header">
+                                <h3>AENCC</h3>
+                                <span class="expand-indicator">▼</span>
+                            </div>
+                            <div class="equipment-image">
+                                <img src="assets/svg/aencc.svg" alt="AENCC Equipment Diagram" loading="lazy" decoding="async">
+                            </div>
+                            <div class="equipment-details">
+                                <p>Arcai Enhanced Nano Carbon Composite - A revolutionary material that adapts and strengthens itself through Arcai activation. When under stress, the carbon composite structure reconfigures at the molecular level, creating a dynamic self-reinforcing matrix that becomes virtually impervious to damage.</p>
+                                <ul class="spec-list">
+                                    <li><span>Structure Type</span><span>Self-Reinforcing Matrix</span></li>
+                                    <li><span>Response Time</span><span>0.003ms</span></li>
+                                    <li><span>Stress Tolerance</span><span>Extreme Conditions</span></li>
+                                    <li><span>Reinforcement</span><span>Molecular Reconfiguration</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="equipment-card" data-order="1" onclick="toggleEquipment(this)">
+                            <div class="equipment-header">
+                                <h3>Arcai Resonator</h3>
+                                <span class="expand-indicator">▼</span>
+                            </div>
+                            <div class="equipment-image">
+                                <img src="assets/svg/arcai_resonator.svg" alt="Arcai Resonator" loading="lazy" decoding="async">
+                            </div>
+                            <div class="equipment-details">
+                                <p>A specialized device that amplifies and focuses Arcai energy, allowing for precise manipulation and materialization of Arcai constructs.</p>
+                                <ul class="spec-list">
+                                    <li><span>Resonance Frequency</span><span>1.2 MHz - 3.8 GHz</span></li>
+                                    <li><span>Field Range</span><span>25 meters</span></li>
+                                    <li><span>Stability Rating</span><span>99.97%</span></li>
+                                    <li><span>Power Draw</span><span>Variable (2-400 TW)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="equipment-card" data-order="2" onclick="toggleEquipment(this)">
+                            <div class="equipment-header">
+                                <h3>Neural Dampeners</h3>
+                                <span class="expand-indicator">▼</span>
+                            </div>
+                            <div class="equipment-image">
+                                <img src="assets/svg/neural_dampeners.svg" alt="Neural Dampeners" loading="lazy" decoding="async">
+                            </div>
+                            <div class="equipment-details">
+                                <p>Advanced cybernetic implants that help regulate and control the intense neural feedback from Arcai manipulation.</p>
+                                <ul class="spec-list">
+                                    <li><span>Coverage</span><span>Full Neural Network</span></li>
+                                    <li><span>Response Time</span><span>0.0001ms</span></li>
+                                    <li><span>Filter Capacity</span><span>99.999%</span></li>
+                                    <li><span>Dampening Modes</span><span>Adaptive (12 presets)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/section.js"></script>
+<script src="js/favicon.js"></script>
+<script src="js/external/gsap.min.js"></script>
+<script src="js/external/ScrollTrigger.min.js"></script>
+<script src="js/external/lenis.min.js"></script>
+
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="neural-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#CB2040;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#FF446C;stop-opacity:0.6"/>
+        </linearGradient>
+        <filter id="neural-blur">
+            <feGaussianBlur stdDeviation="3"/>
+        </filter>
+    </defs>
+    <!-- Main structure -->
+    <g transform="translate(400,400)">
+        <!-- Neural network connections -->
+        <g stroke="#CB2040" stroke-width="2" fill="none">
+            <path d="M-200,-200 Q0,-100 200,-200">
+                <animate attributeName="d"
+                    values="M-200,-200 Q0,-100 200,-200;M-200,-200 Q0,-150 200,-200;M-200,-200 Q0,-100 200,-200"
+                    dur="3s" repeatCount="indefinite"/>
+            </path>
+            <path d="M-200,0 Q0,100 200,0">
+                <animate attributeName="d"
+                    values="M-200,0 Q0,100 200,0;M-200,0 Q0,50 200,0;M-200,0 Q0,100 200,0"
+                    dur="3s" begin="1s" repeatCount="indefinite"/>
+            </path>
+            <path d="M-200,200 Q0,300 200,200">
+                <animate attributeName="d"
+                    values="M-200,200 Q0,300 200,200;M-200,200 Q0,250 200,200;M-200,200 Q0,300 200,200"
+                    dur="3s" begin="2s" repeatCount="indefinite"/>
+            </path>
+        </g>
+        <!-- Neural nodes -->
+        <g>
+            <circle cx="-200" cy="-200" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="-200" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-200" cy="0" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="0" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="-200" cy="200" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" begin="0.75s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="200" r="15" fill="#CB2040">
+                <animate attributeName="r" values="15;20;15" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        <!-- Central processor -->
+        <g>
+            <rect x="-60" y="-60" width="120" height="120" fill="#FF446C" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+            </rect>
+            <circle cx="0" cy="0" r="30" fill="#CB2040">
+                <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+</svg>
