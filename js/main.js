@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set age and handle feedback form
     const ageElement = document.getElementById('age');
     if (ageElement) {
-        ageElement.textContent = calculateAge(1996);
+        ageElement.textContent = calculateAge("1996-04-27");
     }
 
     // Feedback form handling
@@ -288,10 +288,12 @@ window.addEventListener('scroll', () => {
 });
 
 // Calculate age
-function calculateAge(birthYear) {
-    const currentDate = new Date();
-    return currentDate.getFullYear() - birthYear;
-}
+function calculateAge(birthDateString) {
+    const today = new Date();
+    const birth = new Date(birthDateString);
+    const age = today.getFullYear() - birth.getFullYear();
+    return today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? age - 1 : age;
+  }
 
 // Show notification
 function showNotification(message) {
