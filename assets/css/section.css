@@ -416,17 +416,18 @@ body {
                             color: var(--black2-color);
                         }
 
+                        .stat-number {
+                            color: var(--primary-color);
+                            text-shadow: 0 0 10px rgba(203, 32, 64, 0.5);
+                            transform: scale(1.05);
+                        }
+
                         .stat-meter {
                             .meter-fill {
                                 background: linear-gradient(90deg,
                                     var(--primary-color) 0%,
                                     #893b85 60%,
                                     #3c405d 100%);
-                            }
-
-                            .stat-value {
-                                color: var(--primary-color);
-                                text-shadow: 0 0 5px rgba(203, 32, 64, 0.3);
                             }
                         }
                     }
@@ -451,11 +452,41 @@ body {
                         flex: 1;
                         z-index: 2;
 
-                        h3 {
-                            font-size: 1.1rem;
+                        .stat-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             margin-bottom: 0.75rem;
-                            font-weight: 500;
-                            color: rgba(255, 255, 255, 0.9);
+
+                            h3 {
+                                font-size: 1.1rem;
+                                font-weight: 500;
+                                color: rgba(255, 255, 255, 0.9);
+                            }
+
+                            .stat-number {
+                                font-size: 1.75rem;
+                                font-weight: 600;
+                                color: rgba(255, 255, 255, 0.85);
+                                text-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+                                transition: all 0.3s ease;
+                                font-family: 'Montserrat', sans-serif;
+                                padding: 0 0.25rem;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -3px;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 2px;
+                                    background: rgba(203, 32, 64, 0.4);
+                                    transform: scaleX(0.7);
+                                    opacity: 0.6;
+                                    transition: all 0.3s ease;
+                                }
+                            }
                         }
 
                         .stat-meter {
@@ -474,15 +505,7 @@ body {
                                 border-radius: 3px;
                                 position: relative;
                                 transform-origin: left;
-                            }
-
-                            .stat-value {
-                                position: absolute;
-                                right: 0;
-                                top: -20px;
-                                font-size: 0.9rem;
-                                font-weight: 500;
-                                color: var(--primary-color);
+                                transition: background 0.3s ease;
                             }
                         }
 
@@ -683,6 +706,7 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    transform: scale(1.8);
 
                     .shard-svg {
                         width: 100%;
