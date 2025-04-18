@@ -115,37 +115,40 @@ function toggleEquipment(card) {
     const equipmentSection = card.parentElement;
     const cards = Array.from(equipmentSection.children);
 
+    // Set will-change for performance optimization
     cards.forEach(c => {
-        c.style.willChange = 'transform, opacity';
+        c.style.willChange = 'transform, opacity, width, flex';
     });
 
     requestAnimationFrame(() => {
         if (wasExpanded) {
+            // Collapse animation
             card.classList.add('closing');
 
             setTimeout(() => {
                 card.classList.remove('expanded', 'closing');
                 cards.forEach(c => c.style.willChange = 'auto');
-            }, 300);
+            }, 400); // Match the CSS transition duration
         } else {
+            // Close any other expanded cards first
             cards.forEach(otherCard => {
                 if (otherCard !== card && otherCard.classList.contains('expanded')) {
                     otherCard.classList.add('closing');
                     setTimeout(() => {
                         otherCard.classList.remove('expanded', 'closing');
-                    }, 250);
+                    }, 300);
                 }
             });
 
-            setTimeout(() => {
-                requestAnimationFrame(() => {
-                    card.classList.add('expanded');
-                });
-            }, 30);
+            // Expand the clicked card
+            requestAnimationFrame(() => {
+                card.classList.add('expanded');
+            });
 
+            // Clean up will-change after animation
             setTimeout(() => {
                 cards.forEach(c => c.style.willChange = 'auto');
-            }, 300);
+            }, 400);
         }
     });
 }
