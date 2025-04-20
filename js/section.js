@@ -151,8 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize smooth scrolling
     initSmoothScroll();
-
-    // Initialize animations
-    initAnimations();
 });
 
