@@ -640,6 +640,14 @@ body {
                 transform: scale(1.05);
             }
         }
+
+        &:nth-child(1) {
+            .equipment-image {
+                img {
+                    max-width: 75%;
+                }
+            }
+        }
     }
 
     .equipment-content {
@@ -688,16 +696,15 @@ body {
         justify-content: center;
         position: relative;
         overflow: hidden;
-        margin: 1rem 0;
+        margin: 2rem 0 1rem 0;
 
         img {
-            max-width: 100%;
-            height: 100%;
+            max-width: 60%;
+            height: auto;
             object-fit: contain;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                filter 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
             filter: drop-shadow(0 0 10px rgba(203, 32, 64, 0.2));
-            position: relative;
+            position: fixed;
             z-index: 2;
         }
 
@@ -727,6 +734,7 @@ body {
         flex: 1;
         display: flex;
         flex-direction: column;
+        margin-top: 3rem;
     }
 
     .equipment-desc {
@@ -734,7 +742,7 @@ body {
         line-height: 1.6;
         color: rgba(255, 255, 255, 0.8);
         font-weight: 300;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
 
     .spec-list {
