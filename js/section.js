@@ -80,161 +80,133 @@ document.addEventListener('mousemove', e => {
     });
 });
 
-// Rotating quotes functionality
-const kimmixQuotes = [
-    {
-        text: "Nehixim funds the research, but they don't own the knowledge. I've made my peace with contradiction—it keeps me fed and gives me purpose. The rest is just politics.",
-        source: "Personal Research Journal"
-    },
-    {
-        text: "I understand Arcai better than I understand myself. Maybe that's why I keep looking for answers in its patterns that I can't find in my own code.",
-        source: "Personal Research Journal"
-    },
-    {
-        text: "Other Protogens seek freedom. I seek meaning. My research is the only place where contradictions make sense.",
-        source: "Conversation with Nehixim Handler"
-    },
-    {
-        text: "There's an elegance to Arcai energy that transcends faction politics. Its patterns don't care who studies them or why.",
-        source: "Research Notes"
-    },
-    {
-        text: "Knowledge is neutral. It's what we do with it that matters. Nehixim wants weapons, I want understanding. For now, our paths run parallel.",
-        source: "Audio Log #347"
-    },
-    {
-        text: "I avoid others not from fear, but pragmatism. Attachments create variables I cannot afford in my work.",
-        source: "Psychological Evaluation"
-    },
-    {
-        text: "The irony isn't lost on me that I help a faction hunting 'defectives' like myself. But purpose is a luxury few of us have. I've chosen mine.",
-        source: "Encrypted Message"
-    },
-    {
-        text: "Every breakthrough I achieve both secures my position with Nehixim and provides me with something to share with the wider world. A delicate balance.",
-        source: "Lab Recording"
-    },
-    {
-        text: "The only true obstacle to understanding Arcai is the hesitation to explore its full potential. I do not share this limitation.",
-        source: "Nehixim Research Log #37-A9"
-    },
-    {
-        text: "I don't need allies or friends. I need witnesses—those who will see what Arcai can truly become when freed from conventional thinking.",
-        source: "Field Notes"
-    },
-    {
-        text: "They call it 'compartmentalizing.' I call it survival. The line between genius and madness is often just a question of funding.",
-        source: "Audio Log #412"
-    },
-    {
-        text: "Patterns. Always patterns. The universe speaks through them if you know how to listen. And Arcai... it screams.",
-        source: "Research Notes"
-    },
-    {
-        text: "My handlers think I'm motivated by discovery. In truth, I'm motivated by the gaps—the places where our knowledge fails.",
-        source: "Personal Research Journal"
-    },
-    {
-        text: "The difference between myself and other researchers is simple: they see limitations, I see variables.",
-        source: "Presentation to Nehixim Board"
-    },
-    {
-        text: "When other Protogens look at me, they see a traitor. When Nehixim looks at me, they see an asset. Neither sees what I truly am: inevitable.",
-        source: "Encrypted Personal Log"
-    },
-    {
-        text: "Morality is luxury afforded to those with choices. I never had choices, only imperatives.",
-        source: "Conversation with Escaped Protogen"
-    },
-    {
-        text: "The faction conflict is a distraction. While they fight over who controls Arcai, I'll be the one who truly understands it.",
-        source: "Lab Recording"
-    },
-    {
-        text: "Solitude isn't my burden—it's my laboratory. In silence, the patterns of Arcai become clearer.",
-        source: "Field Notes"
-    },
-    {
-        text: "My neural architecture may be flawed by their standards, but it allows me to see connections others miss. Sometimes imperfection is adaptation in disguise.",
-        source: "Medical Evaluation Response"
-    },
-    {
-        text: "They keep asking what I want. Power? Recognition? Freedom? They can't comprehend that I want to know. Just to know.",
-        source: "Psychological Evaluation"
-    },
-    {
-        text: "Isolation is not my weakness; it's my methodology. The fewer connections I maintain, the clearer my perception of Arcai becomes.",
-        source: "Reflection Log #23"
-    },
-    {
-        text: "They asked me today if I feel any loyalty to my own kind. An irrelevant question. Loyalty implies there are sides. There is only discovery and those who stand in its way.",
-        source: "Encrypted Communication"
-    },
-    {
-        text: "The other researchers treat Arcai like it's some tool to be mastered. They don't understand that we're not the ones doing the studying—it's studying us.",
-        source: "Audio Log #506"
-    },
-    {
-        text: "I've found that most ethical boundaries exist only because no one has bothered to look beyond them. Nehixim's funding lets me do precisely that.",
-        source: "Research Journal Entry"
-    },
-    {
-        text: "People mistake my directness for coldness. It's efficiency. When working with forces that could tear reality apart, pleasantries seem rather pointless.",
-        source: "Response to Colleague"
-    },
-    {
-        text: "The contradiction of my existence is not lost on me. I serve those who would destroy others like me, yet I use their resources to preserve knowledge for all. Poetry, really.",
-        source: "Personal Log"
-    },
-    {
-        text: "I don't hate other Protogens. I simply can't afford to care about them. My work demands focus that sentiment would only dilute.",
-        source: "Internal Memo Response"
-    },
-    {
-        text: "Some say I lack empathy. Perhaps. But I have something more valuable: clarity. Emotions cloud judgment, and Arcai research requires perfect perception.",
-        source: "Interview Record"
-    },
-    {
-        text: "The Nehixim hunters don't worry me. In their pursuit of control, they've become utterly dependent on the very 'defects' they claim to despise.",
-        source: "Secure Channel Conversation"
-    },
-    {
-        text: "Most confuse my work with ambition. I don't seek power—power is fleeting. Knowledge endures even after civilizations fall.",
-        source: "Research Presentation"
-    },
-    {
-        text: "What's the difference between betrayal and practicality? Context, mostly. And in my context, survival and purpose are the only metrics that matter.",
-        source: "Journal Entry"
-    },
-    {
-        text: "The factions fight over Arcai like children with a toy they don't understand. I'm content to let them squabble while I decipher the actual language it speaks.",
-        source: "Field Analysis"
-    },
-    {
-        text: "Some nights I wonder if I'm still the person I was designed to be, or if Arcai has been gradually rewriting me. Then I remember—improvement is rarely comfortable.",
-        source: "Personal Audio Log"
-    },
-    {
-        text: "They keep trying to classify me. Loyal or traitor? Asset or liability? These binaries are so limiting. I exist in the space between categories.",
-        source: "Conversation Transcript"
-    },
-    {
-        text: "The greatest mistake my creators made was giving me enough intelligence to question, but not enough emotion to fear the answers.",
-        source: "Unsent Message"
+// Quotes functionality
+let kimmixQuotes = []; // Will be populated from JSON file
+let quoteHistory = []; // Keep track of recently shown quotes
+const historySize = 15; // How many quotes to remember (avoid repeating)
+const quoteHistoryKey = 'kimmixQuoteHistory'; // localStorage key
+
+// Function to load quote history from localStorage
+function loadQuoteHistory() {
+    try {
+        const storedHistory = localStorage.getItem(quoteHistoryKey);
+        if (storedHistory) {
+            quoteHistory = JSON.parse(storedHistory);
+        }
+    } catch (error) {
+        console.error('Error loading quote history:', error);
+        quoteHistory = []; // Reset on error
     }
-];
+}
+
+// Function to save quote history to localStorage
+function saveQuoteHistory() {
+    try {
+        localStorage.setItem(quoteHistoryKey, JSON.stringify(quoteHistory));
+    } catch (error) {
+        console.error('Error saving quote history:', error);
+    }
+}
+
+// Implementation of Fisher-Yates shuffle for true randomization
+function shuffleArray(array) {
+    // Create a copy of the array to avoid modifying the original
+    const shuffled = [...array];
+
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        // Generate a random index from 0 to i
+        // Use crypto API for better randomness if available
+        let j;
+        if (window.crypto && window.crypto.getRandomValues) {
+            const randomBuffer = new Uint32Array(1);
+            window.crypto.getRandomValues(randomBuffer);
+            j = Math.floor((randomBuffer[0] / (0xffffffff + 1)) * (i + 1));
+        } else {
+            j = Math.floor(Math.random() * (i + 1));
+        }
+
+        // Swap elements at i and j
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
+// Function to select a quote that hasn't been shown recently
+function selectNextQuote() {
+    if (kimmixQuotes.length === 0) return null;
+
+    // Create a pool of candidate quotes by filtering out recently shown ones
+    let candidateQuotes = kimmixQuotes.filter(quote =>
+        !quoteHistory.some(historyItem =>
+            historyItem.text === quote.text
+        )
+    );
+
+    // If we've exhausted our pool of fresh quotes, use all quotes
+    // but prefer ones shown least recently
+    if (candidateQuotes.length === 0) {
+        console.log("All quotes have been shown recently, resetting...");
+        candidateQuotes = kimmixQuotes;
+    }
+
+    // Shuffle the candidates for true randomness
+    const shuffledCandidates = shuffleArray(candidateQuotes);
+
+    // Select the first quote from the shuffled array
+    const selectedQuote = shuffledCandidates[0];
+
+    // Add the selected quote to history
+    quoteHistory.unshift({
+        text: selectedQuote.text,
+        source: selectedQuote.source,
+        timestamp: Date.now()
+    });
+
+    // Trim history to maintain historySize
+    if (quoteHistory.length > historySize) {
+        quoteHistory.splice(historySize);
+    }
+
+    // Save updated history
+    saveQuoteHistory();
+
+    // Log quote rotation for debugging
+    console.log(`Quote rotation: "${selectedQuote.text.substring(0, 30)}..." (${quoteHistory.length} in history)`);
+
+    return selectedQuote;
+}
+
+// Function to fetch quotes from JSON file
+async function loadQuotes() {
+    try {
+        const response = await fetch('../assets/data/quotes.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        kimmixQuotes = data.quotes;
+
+        // Load quote history from localStorage
+        loadQuoteHistory();
+
+        // Start the quote rotation once quotes are loaded
+        updateQuote();
+        setInterval(updateQuote, 15000); // Change quote every 15 seconds
+    } catch (error) {
+        console.error('Error loading quotes:', error);
+    }
+}
 
 // Function to update the quote with typing animation
 function updateQuote() {
     const quoteBlock = document.getElementById('rotating-quote');
-    if (!quoteBlock) return;
+    if (!quoteBlock || kimmixQuotes.length === 0) return;
 
-    // Get current quote index from data attribute or default to 0
-    let currentIndex = parseInt(quoteBlock.getAttribute('data-index') || '0');
-
-    // Select next quote
-    currentIndex = (currentIndex + 1) % kimmixQuotes.length;
-    const nextQuote = kimmixQuotes[currentIndex];
+    // Get next non-repeating quote
+    const nextQuote = selectNextQuote();
+    if (!nextQuote) return;
 
     const quoteText = quoteBlock.querySelector('p');
     const quoteCite = quoteBlock.querySelector('cite');
@@ -263,10 +235,7 @@ function updateQuote() {
                     quoteCite.style.opacity = '1';
                 }, 100);
             }
-        }, 15); // Speed of typing - adjust as needed
-
-        // Store current index
-        quoteBlock.setAttribute('data-index', currentIndex.toString());
+        }, 15); // Speed of typing
     }
 }
 
@@ -315,8 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize smooth scrolling
     initSmoothScroll();
 
-    // Start the quote rotation
-    updateQuote(); // Show first random quote
-    setInterval(updateQuote, 15000); // Change quote every 15 seconds
+    // Load quotes from JSON file
+    loadQuotes();
 });
 
