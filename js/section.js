@@ -54,34 +54,6 @@ function showContent(contentId, event) {
     }
 }
 
-// Toggle equipment card expansion
-function toggleEquipment(card) {
-    const isExpanded = card.classList.contains('expanded');
-
-    // Close any other expanded cards first
-    const expandedCards = document.querySelectorAll('.equipment-card.expanded');
-    expandedCards.forEach(expandedCard => {
-        if (expandedCard !== card) {
-            expandedCard.classList.add('closing');
-            setTimeout(() => {
-                expandedCard.classList.remove('expanded');
-                expandedCard.classList.remove('closing');
-            }, 400);
-        }
-    });
-
-    // Toggle current card
-    if (isExpanded) {
-        card.classList.add('closing');
-        setTimeout(() => {
-            card.classList.remove('expanded');
-            card.classList.remove('closing');
-        }, 400);
-    } else {
-        card.classList.add('expanded');
-    }
-}
-
 // Add interactive glow effect to cards
 function initCardGlowEffect() {
     const cards = document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card');
@@ -140,11 +112,15 @@ function initSmoothScroll() {
     }
 }
 
-
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Show default content (info)
     showContent('info');
+
+    // Set all equipment cards to expanded by default
+    document.querySelectorAll('.equipment-card').forEach(card => {
+        card.classList.add('expanded');
+    });
 
     // Initialize glow effect on cards
     initCardGlowEffect();
