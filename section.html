@@ -49,7 +49,8 @@
             <nav class="sidebar">
                 <a href="#info" class="active" onclick="showContent('info', event)">Info</a>
                 <a href="#stat" onclick="showContent('stat', event)">Arcai Profile</a>
-                <a href="#equipment" onclick="showContent('equipment', event)">Equipment</a>
+                <a href="#equipment" onclick="showContent('equipment', event)">Enhancements</a>
+                <a href="#skill" onclick="showContent('skill', event)">Skills</a>
             </nav>
 
             <div class="content">
@@ -240,6 +241,164 @@
                                     <li><span>Filter Capacity</span><span>99.999%</span></li>
                                     <li><span>Dampening Modes</span><span>Adaptive (12 presets)</span></li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="skill" class="content-section">
+                    <div class="skill-section">
+                        <div class="skill-card passive">
+                            <div class="skill-category passive-cat">Passive</div>
+                            <div class="skill-content">
+                                <div class="skill-icon">
+                                    <img src="assets/svg/arcai_rune.svg" alt="Arcai Rune Icon" loading="lazy" decoding="async">
+                                </div>
+                                <div class="skill-details">
+                                    <h3>Arcai Rune</h3>
+                                    <p class="skill-short-desc">Intricate patterns of Arcai energy permanently manifested on the user's body, granting enhanced spatial awareness.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-category combat-cat">Offense</div>
+                            <div class="skill-content">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <h3>Resonant Shard</h3>
+                                    </div>
+                                </div>
+                                <div class="skill-body">
+                                    <div class="skill-icon">
+                                        <img src="assets/svg/resonant_shard.svg" alt="Resonant Shard Icon" loading="lazy" decoding="async">
+                                    </div>
+                                    <p class="skill-short-desc">Materializes volatile shards of solidified energy to impact targets with disruptive force.</p>
+                                    <div class="skill-stats">
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Damage</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 65%"></div></div>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Range</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 70%"></div></div>
+                                            <span class="stat-value">30m</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Energy Cost</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 10%"></div></div>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Cooldown</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 30%"></div></div>
+                                            <span class="stat-value">3s</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-category combat-cat">Defense</div>
+                            <div class="skill-content">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <h3>Arcai Field</h3>
+                                    </div>
+                                </div>
+                                <div class="skill-body">
+                                    <div class="skill-icon">
+                                        <img src="assets/svg/arcai_field.svg" alt="Arcai Field Icon" loading="lazy" decoding="async">
+                                    </div>
+                                    <p class="skill-short-desc">Creates a protective energy barrier that shields against physical and energy-based attacks.</p>
+                                    <div class="skill-stats">
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Protection</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 75%"></div></div>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Radius</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 50%"></div></div>
+                                            <span class="stat-value">3m</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Energy Cost</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 20%"></div></div>
+                                            <span class="stat-value">Low</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Stability</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 65%"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-category combat-cat">Utility</div>
+                            <div class="skill-content">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <h3>Neural Surge</h3>
+                                    </div>
+                                </div>
+                                <div class="skill-body">
+                                    <div class="skill-icon">
+                                        <img src="assets/svg/neural_surge.svg" alt="Neural Surge Icon" loading="lazy" decoding="async">
+                                    </div>
+                                    <p class="skill-short-desc">Temporarily boosts cognitive processing speeds for enhanced perception and analysis.</p>
+                                    <div class="skill-stats">
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Processing</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 85%"></div></div>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Duration</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 35%"></div></div>
+                                            <span class="stat-value">45s</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Energy Cost</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 40%"></div></div>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Cooldown</span>
+                                            <div class="stat-meter"><div class="meter-fill" style="width: 55%"></div></div>
+                                            <span class="stat-value">2m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card ultimate">
+                            <div class="skill-category ultimate-cat">Ultimate</div>
+                            <div class="skill-content">
+                                <div class="skill-icon">
+                                    <img src="assets/svg/dimensional_shift.svg" alt="Dimensional Shift Icon" loading="lazy" decoding="async">
+                                </div>
+                                <div class="skill-details">
+                                    <h3>Dimensional Shift</h3>
+                                    <p class="skill-short-desc">Harnesses dark energy to shift existence into the 4th dimension, allowing phasing through matter and manipulation of spatial coordinates.</p>
+                                    <div class="skill-stats">
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Duration</span>
+                                            <div class="stat-meter"><div class="meter-fill ultimate-fill" style="width: 20%"></div></div>
+                                            <span class="stat-value">15s</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Energy Cost</span>
+                                            <div class="stat-meter"><div class="meter-fill ultimate-fill" style="width: 100%"></div></div>
+                                            <span class="stat-value">Max</span>
+                                        </div>
+                                        <div class="skill-stat">
+                                            <span class="stat-label">Cooldown</span>
+                                            <div class="stat-meter"><div class="meter-fill ultimate-fill" style="width: 95%"></div></div>
+                                            <span class="stat-value">3d</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

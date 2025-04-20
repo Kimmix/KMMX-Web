@@ -87,6 +87,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 500);
         });
     }
+
+    // Skill card hover effect
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    skillCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            requestAnimationFrame(() => {
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+                card.style.setProperty('--glow-opacity', '1');
+            });
+        }, { passive: true });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--glow-opacity', '0');
+        });
+    });
 });
 
 //! Navigation
@@ -161,6 +182,33 @@ function toggleEquipment(card) {
         setTimeout(() => {
             card.classList.add('expanded');
         }, 10);
+    }
+}
+
+// Toggle skill cards
+function toggleSkill(card) {
+    // Toggle between collapsed and expanded state
+    if (card.classList.contains('collapsed')) {
+        card.classList.remove('collapsed');
+        card.classList.add('expanded');
+    } else if (card.classList.contains('expanded')) {
+        card.classList.remove('expanded');
+        card.classList.add('collapsed');
+    } else {
+        // First click - collapse all cards first, then expand the clicked one
+        const skillSection = card.parentElement;
+        const cards = Array.from(skillSection.children);
+
+        // Collapse all other cards
+        cards.forEach(otherCard => {
+            if (otherCard !== card) {
+                otherCard.classList.add('collapsed');
+                otherCard.classList.remove('expanded');
+            }
+        });
+
+        // Expand the clicked card
+        card.classList.add('expanded');
     }
 }
 
