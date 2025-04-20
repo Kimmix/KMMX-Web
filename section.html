@@ -261,8 +261,8 @@
                             </div>
                         </div>
 
-                        <div class="skill-card">
-                            <div class="skill-category combat-cat">Offense</div>
+                        <div class="skill-card dual-purpose">
+                            <div class="skill-category dual-cat">Offense/Defense</div>
                             <div class="skill-content">
                                 <div class="skill-header">
                                     <div class="skill-name">
@@ -273,25 +273,53 @@
                                     <div class="skill-icon">
                                         <img src="assets/svg/resonant_shard.svg" alt="Resonant Shard Icon" loading="lazy" decoding="async">
                                     </div>
-                                    <p class="skill-short-desc">Materializes volatile shards of solidified energy to impact targets with disruptive force.</p>
-                                    <div class="skill-stats">
-                                        <div class="skill-stat">
-                                            <span class="stat-label">Damage</span>
-                                            <div class="stat-meter"><div class="meter-fill" style="width: 65%"></div></div>
+                                    <p class="skill-short-desc">Versatile crystallized energy constructs that can be projected as offensive projectiles or formed as defensive barriers to intercept incoming threats.</p>
+                                    <div class="skill-modes">
+                                        <div class="mode-tab active" data-mode="offense">Offense</div>
+                                        <div class="mode-tab" data-mode="defense">Defense</div>
+                                    </div>
+                                    <div class="mode-content offense-mode active">
+                                        <div class="skill-stats">
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Damage</span>
+                                                <div class="stat-meter"><div class="meter-fill" style="width: 65%"></div></div>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Range</span>
+                                                <div class="stat-meter"><div class="meter-fill" style="width: 70%"></div></div>
+                                                <span class="stat-value">30m</span>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Energy Cost</span>
+                                                <div class="stat-meter"><div class="meter-fill" style="width: 10%"></div></div>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Cooldown</span>
+                                                <div class="stat-meter"><div class="meter-fill" style="width: 30%"></div></div>
+                                                <span class="stat-value">3s</span>
+                                            </div>
                                         </div>
-                                        <div class="skill-stat">
-                                            <span class="stat-label">Range</span>
-                                            <div class="stat-meter"><div class="meter-fill" style="width: 70%"></div></div>
-                                            <span class="stat-value">30m</span>
-                                        </div>
-                                        <div class="skill-stat">
-                                            <span class="stat-label">Energy Cost</span>
-                                            <div class="stat-meter"><div class="meter-fill" style="width: 10%"></div></div>
-                                        </div>
-                                        <div class="skill-stat">
-                                            <span class="stat-label">Cooldown</span>
-                                            <div class="stat-meter"><div class="meter-fill" style="width: 30%"></div></div>
-                                            <span class="stat-value">3s</span>
+                                    </div>
+                                    <div class="mode-content defense-mode">
+                                        <div class="skill-stats">
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Block Strength</span>
+                                                <div class="stat-meter"><div class="meter-fill defense-fill" style="width: 55%"></div></div>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Intercept Range</span>
+                                                <div class="stat-meter"><div class="meter-fill defense-fill" style="width: 40%"></div></div>
+                                                <span class="stat-value">15m</span>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Energy Cost</span>
+                                                <div class="stat-meter"><div class="meter-fill defense-fill" style="width: 20%"></div></div>
+                                            </div>
+                                            <div class="skill-stat">
+                                                <span class="stat-label">Duration</span>
+                                                <div class="stat-meter"><div class="meter-fill defense-fill" style="width: 25%"></div></div>
+                                                <span class="stat-value">8s</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -299,7 +327,7 @@
                         </div>
 
                         <div class="skill-card">
-                            <div class="skill-category combat-cat">Defense</div>
+                            <div class="skill-category defense-cat">Defense</div>
                             <div class="skill-content">
                                 <div class="skill-header">
                                     <div class="skill-name">
@@ -336,7 +364,7 @@
                         </div>
 
                         <div class="skill-card">
-                            <div class="skill-category combat-cat">Utility</div>
+                            <div class="skill-category utility-cat">Utility</div>
                             <div class="skill-content">
                                 <div class="skill-header">
                                     <div class="skill-name">

@@ -108,6 +108,31 @@ document.addEventListener("DOMContentLoaded", () => {
             card.style.setProperty('--glow-opacity', '0');
         });
     });
+
+    // Dual-purpose skill mode switching functionality
+    document.querySelectorAll('.mode-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            // Get the parent card and find all tabs and content within it
+            const card = this.closest('.skill-card');
+            const mode = this.getAttribute('data-mode');
+
+            // Remove active class from all tabs
+            card.querySelectorAll('.mode-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+
+            // Remove active class from all mode content
+            card.querySelectorAll('.mode-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // Add active class to selected tab
+            this.classList.add('active');
+
+            // Add active class to selected content
+            card.querySelector(`.${mode}-mode`).classList.add('active');
+        });
+    });
 });
 
 //! Navigation
