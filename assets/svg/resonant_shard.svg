@@ -9,14 +9,28 @@
       <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <!-- Wave effect -->
+    <filter id="wave-effect">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" result="noise">
+        <animate attributeName="baseFrequency" values="0.01;0.02;0.01" dur="5s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+    </filter>
   </defs>
-  <path d="M50,15 L65,40 L80,30 L70,50 L90,70 L65,65 L60,90 L45,70 L20,80 L35,55 L15,35 L40,40 L50,15"
-        fill="url(#shard-gradient)"
-        filter="url(#glow)"
-        stroke="#CB2040"
-        stroke-width="1" />
-  <circle cx="50" cy="50" r="5" fill="#fff" opacity="0.8" />
-  <circle cx="50" cy="50" r="3" fill="#CB2040" opacity="0.8">
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-  </circle>
+
+
+  <!-- Main triangular shard with only 3 points -->
+  <path d="M25,25 L85,60 L30,80 Z" fill="url(#shard-gradient)" filter="url(#glow)" stroke="#CB2040" stroke-width="1">
+    <animate attributeName="opacity" values="1;0.9;1" dur="3s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Enhanced resonant inner lines (also triangular) with animation -->
+  <path d="M35,35 L75,60 L40,70 Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1" opacity="0.7">
+    <animate attributeName="stroke-width" values="1;1.5;1" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2s" repeatCount="indefinite" />
+  </path>
+  <path d="M45,45 L65,55 L48,65 Z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" opacity="0.6">
+    <animate attributeName="stroke-width" values="0.8;1.2;0.8" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="1.5s" repeatCount="indefinite" />
+  </path>
 </svg>
