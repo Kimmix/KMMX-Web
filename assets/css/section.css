@@ -123,14 +123,21 @@ body {
         }
 
         .sidebar {
-            flex: 0 0 250px;
+            /* flex: 0 0 250px; */
             position: sticky;
             top: 100px;
+            /* Distance from top of viewport when sticking */
             height: fit-content;
-            padding: 2rem;
+            max-height: calc(100vh - 120px);
+            /* Ensure it doesn't overflow viewport */
+            align-self: flex-start;
+            /* Important for sticky positioning within flex parent */
+            /* padding: 2rem; */
             background: rgba(16, 16, 20, 0.3);
             border-radius: 1rem;
             backdrop-filter: blur(8px);
+            z-index: 10;
+            /* Ensure sidebar is above other content */
 
             @media (max-width: 768px) {
                 flex: none;
@@ -734,7 +741,8 @@ body {
         flex: 1;
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
     }
 
     .equipment-desc {
@@ -742,7 +750,7 @@ body {
         line-height: 1.6;
         color: rgba(255, 255, 255, 0.8);
         font-weight: 300;
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     .spec-list {
@@ -1210,10 +1218,11 @@ body {
 }
 
 .skill-body {
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    justify-content: space-around;
 }
 
 .skill-icon {
