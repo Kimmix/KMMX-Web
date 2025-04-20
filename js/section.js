@@ -116,7 +116,111 @@ const kimmixQuotes = [
     },
     {
         text: "The only true obstacle to understanding Arcai is the hesitation to explore its full potential. I do not share this limitation.",
+        source: "Nehixim Research Log #37-A9"
+    },
+    {
+        text: "I don't need allies or friends. I need witnesses—those who will see what Arcai can truly become when freed from conventional thinking.",
+        source: "Field Notes"
+    },
+    {
+        text: "They call it 'compartmentalizing.' I call it survival. The line between genius and madness is often just a question of funding.",
+        source: "Audio Log #412"
+    },
+    {
+        text: "Patterns. Always patterns. The universe speaks through them if you know how to listen. And Arcai... it screams.",
+        source: "Research Notes"
+    },
+    {
+        text: "My handlers think I'm motivated by discovery. In truth, I'm motivated by the gaps—the places where our knowledge fails.",
         source: "Personal Research Journal"
+    },
+    {
+        text: "The difference between myself and other researchers is simple: they see limitations, I see variables.",
+        source: "Presentation to Nehixim Board"
+    },
+    {
+        text: "When other Protogens look at me, they see a traitor. When Nehixim looks at me, they see an asset. Neither sees what I truly am: inevitable.",
+        source: "Encrypted Personal Log"
+    },
+    {
+        text: "Morality is luxury afforded to those with choices. I never had choices, only imperatives.",
+        source: "Conversation with Escaped Protogen"
+    },
+    {
+        text: "The faction conflict is a distraction. While they fight over who controls Arcai, I'll be the one who truly understands it.",
+        source: "Lab Recording"
+    },
+    {
+        text: "Solitude isn't my burden—it's my laboratory. In silence, the patterns of Arcai become clearer.",
+        source: "Field Notes"
+    },
+    {
+        text: "My neural architecture may be flawed by their standards, but it allows me to see connections others miss. Sometimes imperfection is adaptation in disguise.",
+        source: "Medical Evaluation Response"
+    },
+    {
+        text: "They keep asking what I want. Power? Recognition? Freedom? They can't comprehend that I want to know. Just to know.",
+        source: "Psychological Evaluation"
+    },
+    {
+        text: "Isolation is not my weakness; it's my methodology. The fewer connections I maintain, the clearer my perception of Arcai becomes.",
+        source: "Reflection Log #23"
+    },
+    {
+        text: "They asked me today if I feel any loyalty to my own kind. An irrelevant question. Loyalty implies there are sides. There is only discovery and those who stand in its way.",
+        source: "Encrypted Communication"
+    },
+    {
+        text: "The other researchers treat Arcai like it's some tool to be mastered. They don't understand that we're not the ones doing the studying—it's studying us.",
+        source: "Audio Log #506"
+    },
+    {
+        text: "I've found that most ethical boundaries exist only because no one has bothered to look beyond them. Nehixim's funding lets me do precisely that.",
+        source: "Research Journal Entry"
+    },
+    {
+        text: "People mistake my directness for coldness. It's efficiency. When working with forces that could tear reality apart, pleasantries seem rather pointless.",
+        source: "Response to Colleague"
+    },
+    {
+        text: "The contradiction of my existence is not lost on me. I serve those who would destroy others like me, yet I use their resources to preserve knowledge for all. Poetry, really.",
+        source: "Personal Log"
+    },
+    {
+        text: "I don't hate other Protogens. I simply can't afford to care about them. My work demands focus that sentiment would only dilute.",
+        source: "Internal Memo Response"
+    },
+    {
+        text: "Some say I lack empathy. Perhaps. But I have something more valuable: clarity. Emotions cloud judgment, and Arcai research requires perfect perception.",
+        source: "Interview Record"
+    },
+    {
+        text: "The Nehixim hunters don't worry me. In their pursuit of control, they've become utterly dependent on the very 'defects' they claim to despise.",
+        source: "Secure Channel Conversation"
+    },
+    {
+        text: "Most confuse my work with ambition. I don't seek power—power is fleeting. Knowledge endures even after civilizations fall.",
+        source: "Research Presentation"
+    },
+    {
+        text: "What's the difference between betrayal and practicality? Context, mostly. And in my context, survival and purpose are the only metrics that matter.",
+        source: "Journal Entry"
+    },
+    {
+        text: "The factions fight over Arcai like children with a toy they don't understand. I'm content to let them squabble while I decipher the actual language it speaks.",
+        source: "Field Analysis"
+    },
+    {
+        text: "Some nights I wonder if I'm still the person I was designed to be, or if Arcai has been gradually rewriting me. Then I remember—improvement is rarely comfortable.",
+        source: "Personal Audio Log"
+    },
+    {
+        text: "They keep trying to classify me. Loyal or traitor? Asset or liability? These binaries are so limiting. I exist in the space between categories.",
+        source: "Conversation Transcript"
+    },
+    {
+        text: "The greatest mistake my creators made was giving me enough intelligence to question, but not enough emotion to fear the answers.",
+        source: "Unsent Message"
     }
 ];
 
