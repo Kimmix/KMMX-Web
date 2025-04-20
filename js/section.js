@@ -140,61 +140,6 @@ function initSmoothScroll() {
     }
 }
 
-// Initialize animations using GSAP
-function initAnimations() {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Animate skill cards entrance
-        const skillTimeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#skill',
-                start: 'top 80%',
-            }
-        });
-
-        // First animate the passive skill
-        skillTimeline.fromTo('.skill-card.passive',
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
-        );
-
-        // Then animate the main skills row with stagger
-        skillTimeline.fromTo('.skill-row .skill-card',
-            { y: 30, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                stagger: 0.15,
-                ease: 'power2.out'
-            },
-            "-=0.3"
-        );
-
-        // Finally animate the ultimate skill with a special effect
-        skillTimeline.fromTo('.skill-card.ultimate',
-            { y: 30, opacity: 0, scale: 0.95 },
-            {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: 'elastic.out(1, 0.5)'
-            },
-            "-=0.1"
-        );
-
-        // Add a subtle glow animation to the ultimate skill icon
-        gsap.to('.ultimate-glow', {
-            boxShadow: '0 0 30px rgba(203, 32, 64, 0.6)',
-            repeat: -1,
-            yoyo: true,
-            duration: 2,
-            ease: 'sine.inOut'
-        });
-    }
-}
 
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
