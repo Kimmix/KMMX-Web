@@ -1,91 +1,169 @@
-// Show content based on active sidebar link
-function showContent(contentId, event) {
-    if (event) {
-        event.preventDefault();
-    }
+// Content switching for main sections
+function showContent(id, e) {
+    // Prevent default action if it's a link
+    if (e) e.preventDefault();
 
-    // Hide all content sections with proper animation
-    const sections = document.querySelectorAll('.content-section');
-    const activeSection = document.querySelector('.content-section.active');
+    // Hide all content sections
+    const allSections = document.querySelectorAll('.content-section');
+    allSections.forEach(section => {
+        section.classList.remove('active');
+    });
 
-    // Update active class on sidebar links
-    const links = document.querySelectorAll('.sidebar a');
-    links.forEach(link => {
+    // Show the selected section
+    const selectedSection = document.getElementById(id);
+    selectedSection.classList.add('active');
+
+    // Update the active class on navigation links
+    const navLinks = document.querySelectorAll('.sidebar a');
+    navLinks.forEach(link => {
         link.classList.remove('active');
     });
 
     // Add active class to clicked link
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
+    if (e && e.target) {
+        e.target.classList.add('active');
     } else {
-        const activeLink = document.querySelector(`.sidebar a[href="#${contentId}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
-    }
-
-    // Show selected content
-    const selectedContent = document.getElementById(contentId);
-
-    // If there's an active section and it's not the one we want to show
-    if (activeSection && activeSection !== selectedContent) {
-        // Add fade-out class to active section
-        activeSection.classList.add('fade-out');
-
-        // After animation completes, hide old content and show new content
-        setTimeout(() => {
-            sections.forEach(section => {
-                section.classList.remove('active', 'fade-out');
-            });
-
-            if (selectedContent) {
-                selectedContent.classList.add('active');
-            }
-        }, 300); // Match the CSS animation duration
-    } else {
-        // If there's no active section or it's the same one, just show the selected content
-        sections.forEach(section => {
-            section.classList.remove('active', 'fade-out');
-        });
-
-        if (selectedContent) {
-            selectedContent.classList.add('active');
-        }
+        document.querySelector(`.sidebar a[href="#${id}"]`).classList.add('active');
     }
 }
 
-// Add interactive glow effect to cards
-function initCardGlowEffect() {
+// Tab switching for the info section
+function switchTab(tabId) {
+    // Hide all tab contents
+    const allTabContents = document.querySelectorAll('.tab-content');
+    allTabContents.forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Show the selected tab
+    const selectedTab = document.getElementById(tabId);
+    selectedTab.classList.add('active');
+
+    // Update the active class on tab buttons
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Add active class to clicked button
+    const clickedButton = document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`);
+    if (clickedButton) {
+        clickedButton.classList.add('active');
+    }
+}
+
+// Initialize mouse tracking for hover effects
+document.addEventListener('mousemove', e => {
     const cards = document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card');
 
     cards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-            const mouseX = Math.max(0, Math.min(1, x / card.clientWidth)) * 100;
-            const mouseY = Math.max(0, Math.min(1, y / card.clientHeight)) * 100;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
 
-            card.style.setProperty('--mouse-x', `${mouseX}%`);
-            card.style.setProperty('--mouse-y', `${mouseY}%`);
-
-            // Different variables for different card types
-            if (card.classList.contains('equipment-card')) {
-                card.style.setProperty('--glow-opacity', '1');
-            } else if (card.classList.contains('skill-card')) {
-                card.style.setProperty('--card-glow-opacity', '1');
-            }
-        });
-
-        card.addEventListener('mouseleave', () => {
-            if (card.classList.contains('equipment-card')) {
-                card.style.setProperty('--glow-opacity', '0');
-            } else if (card.classList.contains('skill-card')) {
-                card.style.setProperty('--card-glow-opacity', '0');
-            }
-        });
+        // Add glow effect when mouse is over the card
+        if (
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom
+        ) {
+            card.style.setProperty('--card-glow-opacity', '1');
+            card.style.setProperty('--glow-opacity', '1');
+        } else {
+            card.style.setProperty('--card-glow-opacity', '0');
+            card.style.setProperty('--glow-opacity', '0');
+        }
     });
+});
+
+// Rotating quotes functionality
+const kimmixQuotes = [
+    {
+        text: "Nehixim funds the research, but they don't own the knowledge. I've made my peace with contradiction—it keeps me fed and gives me purpose. The rest is just politics.",
+        source: "Personal Research Journal"
+    },
+    {
+        text: "I understand Arcai better than I understand myself. Maybe that's why I keep looking for answers in its patterns that I can't find in my own code.",
+        source: "Personal Research Journal"
+    },
+    {
+        text: "Other Protogens seek freedom. I seek meaning. My research is the only place where contradictions make sense.",
+        source: "Conversation with Nehixim Handler"
+    },
+    {
+        text: "There's an elegance to Arcai energy that transcends faction politics. Its patterns don't care who studies them or why.",
+        source: "Research Notes"
+    },
+    {
+        text: "Knowledge is neutral. It's what we do with it that matters. Nehixim wants weapons, I want understanding. For now, our paths run parallel.",
+        source: "Audio Log #347"
+    },
+    {
+        text: "I avoid others not from fear, but pragmatism. Attachments create variables I cannot afford in my work.",
+        source: "Psychological Evaluation"
+    },
+    {
+        text: "The irony isn't lost on me that I help a faction hunting 'defectives' like myself. But purpose is a luxury few of us have. I've chosen mine.",
+        source: "Encrypted Message"
+    },
+    {
+        text: "Every breakthrough I achieve both secures my position with Nehixim and provides me with something to share with the wider world. A delicate balance.",
+        source: "Lab Recording"
+    },
+    {
+        text: "The only true obstacle to understanding Arcai is the hesitation to explore its full potential. I do not share this limitation.",
+        source: "Personal Research Journal"
+    }
+];
+
+// Function to update the quote with typing animation
+function updateQuote() {
+    const quoteBlock = document.getElementById('rotating-quote');
+    if (!quoteBlock) return;
+
+    // Get current quote index from data attribute or default to 0
+    let currentIndex = parseInt(quoteBlock.getAttribute('data-index') || '0');
+
+    // Select next quote
+    currentIndex = (currentIndex + 1) % kimmixQuotes.length;
+    const nextQuote = kimmixQuotes[currentIndex];
+
+    const quoteText = quoteBlock.querySelector('p');
+    const quoteCite = quoteBlock.querySelector('cite');
+
+    if (quoteText && quoteCite) {
+        // Store the new quote text
+        const newQuoteText = nextQuote.text;
+        const newCiteText = `— Kimmix, ${nextQuote.source}`;
+
+        // Clear current content and prepare for typing animation
+        quoteText.innerHTML = '';
+        quoteCite.style.opacity = '0';
+
+        // Type animation for quote text
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+            if (charIndex < newQuoteText.length) {
+                quoteText.textContent += newQuoteText.charAt(charIndex);
+                charIndex++;
+            } else {
+                // When typing is complete, update citation with fade in
+                clearInterval(typeInterval);
+                quoteCite.textContent = newCiteText;
+                quoteCite.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    quoteCite.style.opacity = '1';
+                }, 100);
+            }
+        }, 15); // Speed of typing - adjust as needed
+
+        // Store current index
+        quoteBlock.setAttribute('data-index', currentIndex.toString());
+    }
 }
 
 // Initialize smooth scrolling with Lenis if available
@@ -112,20 +190,29 @@ function initSmoothScroll() {
     }
 }
 
-// Initialize everything when DOM is ready
+// Run initial setup
 document.addEventListener('DOMContentLoaded', () => {
-    // Show default content (info)
+    // Show default content
     showContent('info');
 
-    // Set all equipment cards to expanded by default
-    document.querySelectorAll('.equipment-card').forEach(card => {
-        card.classList.add('expanded');
-    });
+    // Make sure the hover effects work correctly
+    document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.setProperty('--card-glow-opacity', '1');
+            card.style.setProperty('--glow-opacity', '1');
+        });
 
-    // Initialize glow effect on cards
-    initCardGlowEffect();
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--card-glow-opacity', '0');
+            card.style.setProperty('--glow-opacity', '0');
+        });
+    });
 
     // Initialize smooth scrolling
     initSmoothScroll();
+
+    // Start the quote rotation
+    updateQuote(); // Show first random quote
+    setInterval(updateQuote, 15000); // Change quote every 15 seconds
 });
 

@@ -55,43 +55,124 @@
 
             <div class="content">
                 <div id="info" class="content-section active">
-                    <div class="character-info">
-                        <div class="info-item">
-                            <dt>Name</dt>
-                            <dd>Kimmix <span class="fade">/ˈkɪmɪks/</span></dd>
+                    <div class="info-container">
+                        <div class="info-primary">
+                            <div class="character-profile">
+                                <h3 class="section-title">Profile</h3>
+                                <div class="profile-grid">
+                                    <div class="info-item">
+                                        <dt>Name</dt>
+                                        <dd>Kimmix <span class="fade">/ˈkɪmɪks/</span></dd>
+                                    </div>
+                                    <div class="info-item">
+                                        <dt>Species</dt>
+                                        <dd>Uncommon Protogen</dd>
+                                    </div>
+                                    <div class="info-item">
+                                        <dt>Faction</dt>
+                                        <dd>Nehixim <span class="info-tag">Research Division</span></dd>
+                                    </div>
+                                    <div class="info-item">
+                                        <dt>Purpose</dt>
+                                        <dd>Arcai Research & Analysis</dd>
+                                    </div>
+                                    <div class="info-item">
+                                        <dt>Status</dt>
+                                        <dd>Active <span class="status-indicator"></span></dd>
+                                    </div>
+                                    <div class="info-item">
+                                        <dt>Classification</dt>
+                                        <dd>Level 5 Clearance</dd>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <dt>Faction</dt>
-                            <dd>Nehixim</dd>
-                        </div>
-                        <div class="info-item">
-                            <dt>Purpose</dt>
-                            <dd>Arcai research</dd>
-                        </div>
-                        <div class="info-item">
-                            <dt>Social Characteristics</dt>
-                            <dd>Patient, Anti-social, Intimidating</dd>
-                        </div>
-                    </div>
 
-                    <p class="info-text">
-                        Kimmix, an uncommon Protogen and a high-ranked Nehixim special officer, his purpose is to
-                        unravel
-                        the mystery of Arcai. Armed with cutting-edge technology and backed by limitless funding from
-                        Nehixim, he operates in the shadows, unbound by conscience or consequence. As long as his
-                        objective
-                        is met, he pays little mind to the obstacles in his way.
-                    </p>
-                    <p class="info-text">
-                        While not designed for combat and lacking in physical strength, making direct confrontation a
-                        last
-                        resort. Instead, he seeks to weaponize Arcai itself—manifesting its power into lethal
-                        projectiles.
-                        His relentless pursuit of discovery often treads the line between brilliance and ethical
-                        transgression. He does not crave destruction, but he won't hesitate to break the rules—or anyone
-                        who stands in his way. To him, ideals like justice and honor are nothing more than distractions;
-                        only the truth matters.
-                    </p>
+                        <div class="info-secondary">
+                            <div class="character-attributes">
+                                <h3 class="section-title">Characteristics</h3>
+                                <div class="attributes-container">
+                                    <div class="attribute">
+                                        <div class="attribute-name">Analytical</div>
+                                        <div class="attribute-bar">
+                                            <div class="attribute-fill" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="attribute">
+                                        <div class="attribute-name">Patience</div>
+                                        <div class="attribute-bar">
+                                            <div class="attribute-fill" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="attribute">
+                                        <div class="attribute-name">Adaptability</div>
+                                        <div class="attribute-bar">
+                                            <div class="attribute-fill" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="attribute">
+                                        <div class="attribute-name">Sociability</div>
+                                        <div class="attribute-bar">
+                                            <div class="attribute-fill" style="width: 30%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="attribute">
+                                        <div class="attribute-name">Empathy</div>
+                                        <div class="attribute-bar">
+                                            <div class="attribute-fill" style="width: 40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-description">
+                            <h3 class="section-title">Background</h3>
+                            <div class="info-tabs">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+                                    <button class="tab-btn" onclick="switchTab('personality')">Personality</button>
+                                    <button class="tab-btn" onclick="switchTab('objectives')">Objectives</button>
+                                </div>
+
+                                <div id="overview" class="tab-content active">
+                                    <p class="info-text">
+                                        Kimmix works within Nehixim's research division as a field researcher specializing in Arcai energy patterns. Created with modified neural architecture that allows for a unique perspective on Arcai flow, they were originally intended to be a breakthrough asset for the organization. However, a series of unexpected complications during development led to limitations that the Nehixim engineers couldn't resolve, resulting in a capable but flawed operative who doesn't quite match their original specifications.
+                                    </p>
+                                    <p class="info-text">
+                                        Despite being affiliated with Nehixim, Kimmix maintains an uneasy relationship with the faction. He stays primarily for the substantial research funding they provide, which allows him to pursue his work without limitations. While aware that Nehixim actively hunts down free-willed Protogens they consider "defective," Kimmix has chosen a pragmatic path—finding that having a purpose in his research outweighs the moral complications of his affiliation. This stance has made him a solitary figure, avoiding other Protogens who might become targets should they cross his path.
+                                    </p>
+                                </div>
+
+                                <div id="personality" class="tab-content">
+                                    <p class="info-text">
+                                        Kimmix maintains a detached demeanor that often comes across as cold, though this is partially a defense mechanism developed from years of feeling like a failed experiment. Their analytical mind gives them insight into patterns others miss, but their impatience with bureaucracy and institutional constraints frequently leads to conflict with authority figures. While they can focus intensely on research that interests them, they struggle with maintaining motivation for assignments they didn't choose.
+                                    </p>
+                                    <p class="info-text">
+                                        Beneath the calculating exterior lies a conflicted individual who questions their purpose and place. Kimmix experiences moments of genuine connection and empathy that surprise even themselves, though they often retreat back to emotional distance when these feelings become uncomfortable. This internal struggle between their programmed directive to advance Arcai research and their emerging sense of personal identity forms the core of their character—neither hero nor villain, but someone trying to navigate a complex moral landscape with limited emotional tools.
+                                    </p>
+                                </div>
+
+                                <div id="objectives" class="tab-content">
+                                    <p class="info-text">
+                                        Officially, Kimmix's assignment is to document and analyze naturally occurring Arcai phenomena, reporting findings back to Nehixim for potential applications. Unofficially, they've been pursuing a more personal objective: understanding whether Arcai energy could be used to address their own inherent flaws. This self-directed research has led them to explore applications that their superiors would likely disapprove of, creating a precarious situation where discovery could mean reassignment or worse.
+                                    </p>
+                                    <p class="info-text">
+                                        What Nehixim doesn't know is that Kimmix has been deliberately documenting his research in ways that can be easily leaked to the wider scientific community. While his handlers believe his findings remain exclusively within their classified databases, Kimmix operates on the principle that knowledge belongs to everyone—not just those with power. Though aware that his research could potentially harm Nehixim's interests, he continues this dangerous balancing act, believing that scientific advancement should transcend factional conflicts. This philosophy has only further isolated him, as neither side fully trusts his intentions.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="info-quote">
+                                <blockquote id="rotating-quote">
+                                    <p>"Nehixim funds the research, but they don't own the knowledge. I've made my peace with contradiction—it keeps me fed and gives me purpose. The rest is just politics."</p>
+                                    <cite>— Kimmix, Personal Research Journal</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div id="stat" class="content-section">
