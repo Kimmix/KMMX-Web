@@ -1,239 +1,213 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Equipment card hover effect
-    const cards = document.querySelectorAll('.equipment-card');
+// Show content based on active sidebar link
+function showContent(contentId, event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    // Hide all content sections with proper animation
+    const sections = document.querySelectorAll('.content-section');
+    const activeSection = document.querySelector('.content-section.active');
+
+    // Update active class on sidebar links
+    const links = document.querySelectorAll('.sidebar a');
+    links.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Add active class to clicked link
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    } else {
+        const activeLink = document.querySelector(`.sidebar a[href="#${contentId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+
+    // Show selected content
+    const selectedContent = document.getElementById(contentId);
+
+    // If there's an active section and it's not the one we want to show
+    if (activeSection && activeSection !== selectedContent) {
+        // Add fade-out class to active section
+        activeSection.classList.add('fade-out');
+
+        // After animation completes, hide old content and show new content
+        setTimeout(() => {
+            sections.forEach(section => {
+                section.classList.remove('active', 'fade-out');
+            });
+
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+        }, 300); // Match the CSS animation duration
+    } else {
+        // If there's no active section or it's the same one, just show the selected content
+        sections.forEach(section => {
+            section.classList.remove('active', 'fade-out');
+        });
+
+        if (selectedContent) {
+            selectedContent.classList.add('active');
+        }
+    }
+}
+
+// Toggle equipment card expansion
+function toggleEquipment(card) {
+    const isExpanded = card.classList.contains('expanded');
+
+    // Close any other expanded cards first
+    const expandedCards = document.querySelectorAll('.equipment-card.expanded');
+    expandedCards.forEach(expandedCard => {
+        if (expandedCard !== card) {
+            expandedCard.classList.add('closing');
+            setTimeout(() => {
+                expandedCard.classList.remove('expanded');
+                expandedCard.classList.remove('closing');
+            }, 400);
+        }
+    });
+
+    // Toggle current card
+    if (isExpanded) {
+        card.classList.add('closing');
+        setTimeout(() => {
+            card.classList.remove('expanded');
+            card.classList.remove('closing');
+        }, 400);
+    } else {
+        card.classList.add('expanded');
+    }
+}
+
+// Add interactive glow effect to cards
+function initCardGlowEffect() {
+    const cards = document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / card.offsetWidth) * 100;
-            const y = ((e.clientY - rect.top) / card.offsetHeight) * 100;
-
-            requestAnimationFrame(() => {
-                card.style.setProperty('--mouse-x', `${x}%`);
-                card.style.setProperty('--mouse-y', `${y}%`);
-                card.style.setProperty('--glow-opacity', '1');
-            });
-        }, { passive: true });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.setProperty('--glow-opacity', '0');
-        });
-    });
-
-    // Handle stat cards hover effects
-    const statCards = document.querySelectorAll('.stat-card');
-
-    statCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            requestAnimationFrame(() => {
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        }, { passive: true });
-    });
+            const mouseX = Math.max(0, Math.min(1, x / card.clientWidth)) * 100;
+            const mouseY = Math.max(0, Math.min(1, y / card.clientHeight)) * 100;
 
-    // Animate stat meters on page load with simple fade in
-    setTimeout(() => {
-        document.querySelectorAll('.meter-fill').forEach((meter, index) => {
-            const width = meter.style.width;
-            meter.style.width = '0%';
+            card.style.setProperty('--mouse-x', `${mouseX}%`);
+            card.style.setProperty('--mouse-y', `${mouseY}%`);
 
-            setTimeout(() => {
-                meter.style.transition = 'width 1s ease-out';
-                meter.style.width = width;
-            }, 100 + (index * 100));
+            // Different variables for different card types
+            if (card.classList.contains('equipment-card')) {
+                card.style.setProperty('--glow-opacity', '1');
+            } else if (card.classList.contains('skill-card')) {
+                card.style.setProperty('--card-glow-opacity', '1');
+            }
         });
-    }, 300);
 
-    // Simple hover for arcai orb
-    const arcaiOrb = document.querySelector('.arcai-orb');
-    if (arcaiOrb) {
-        arcaiOrb.addEventListener('mousemove', (e) => {
-            const rect = arcaiOrb.getBoundingClientRect();
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
+        card.addEventListener('mouseleave', () => {
+            if (card.classList.contains('equipment-card')) {
+                card.style.setProperty('--glow-opacity', '0');
+            } else if (card.classList.contains('skill-card')) {
+                card.style.setProperty('--card-glow-opacity', '0');
+            }
+        });
+    });
+}
 
-            // Calculate distance from center
-            const distX = (mouseX - centerX) / (rect.width / 2);
-            const distY = (mouseY - centerY) / (rect.height / 2);
+// Initialize smooth scrolling with Lenis if available
+function initSmoothScroll() {
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
 
-            // Apply subtle movement
-            requestAnimationFrame(() => {
-                arcaiOrb.style.transform = `translate(${distX * 5}px, ${distY * 5}px)`;
-            });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
 
-            // Mild glow increase on hover
-            const orbContent = arcaiOrb.querySelector('.orb-content');
-            orbContent.style.boxShadow = `0 0 25px rgba(203, 32, 64, 0.4)`;
-        }, { passive: true });
+        requestAnimationFrame(raf);
+    }
+}
 
-        arcaiOrb.addEventListener('mouseleave', () => {
-            arcaiOrb.style.transition = 'transform 0.5s ease';
-            arcaiOrb.style.transform = 'translate(0, 0)';
+// Initialize animations using GSAP
+function initAnimations() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-            const orbContent = arcaiOrb.querySelector('.orb-content');
-            orbContent.style.transition = 'box-shadow 0.5s ease';
-            orbContent.style.boxShadow = '0 0 20px rgba(203, 32, 64, 0.3)';
+        // Animate skill cards entrance
+        const skillTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#skill',
+                start: 'top 80%',
+            }
+        });
 
-            setTimeout(() => {
-                arcaiOrb.style.transition = '';
-                orbContent.style.transition = '';
-            }, 500);
+        // First animate the passive skill
+        skillTimeline.fromTo('.skill-card.passive',
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
+        );
+
+        // Then animate the main skills row with stagger
+        skillTimeline.fromTo('.skill-row .skill-card',
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: 'power2.out'
+            },
+            "-=0.3"
+        );
+
+        // Finally animate the ultimate skill with a special effect
+        skillTimeline.fromTo('.skill-card.ultimate',
+            { y: 30, opacity: 0, scale: 0.95 },
+            {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'elastic.out(1, 0.5)'
+            },
+            "-=0.1"
+        );
+
+        // Add a subtle glow animation to the ultimate skill icon
+        gsap.to('.ultimate-glow', {
+            boxShadow: '0 0 30px rgba(203, 32, 64, 0.6)',
+            repeat: -1,
+            yoyo: true,
+            duration: 2,
+            ease: 'sine.inOut'
         });
     }
+}
 
-    // Skill card hover effect
-    const skillCards = document.querySelectorAll('.skill-card');
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Show default content (info)
+    showContent('info');
 
-    skillCards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    // Initialize glow effect on cards
+    initCardGlowEffect();
 
-            requestAnimationFrame(() => {
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-                card.style.setProperty('--glow-opacity', '1');
-            });
-        }, { passive: true });
+    // Initialize smooth scrolling
+    initSmoothScroll();
 
-        card.addEventListener('mouseleave', () => {
-            card.style.setProperty('--glow-opacity', '0');
-        });
-    });
-
-    // Dual-purpose skill mode switching functionality
-    document.querySelectorAll('.mode-tab').forEach(function(tab) {
-        tab.addEventListener('click', function() {
-            // Get the parent card and find all tabs and content within it
-            const card = this.closest('.skill-card');
-            const mode = this.getAttribute('data-mode');
-
-            // Remove active class from all tabs
-            card.querySelectorAll('.mode-tab').forEach(function(t) {
-                t.classList.remove('active');
-            });
-
-            // Remove active class from all mode content
-            card.querySelectorAll('.mode-content').forEach(function(content) {
-                content.classList.remove('active');
-            });
-
-            // Add active class to selected tab
-            this.classList.add('active');
-
-            // Add active class to selected content
-            card.querySelector(`.${mode}-mode`).classList.add('active');
-        });
-    });
+    // Initialize animations
+    initAnimations();
 });
-
-//! Navigation
-function showContent(sectionId, event) {
-    event.preventDefault();
-
-    const sections = document.querySelectorAll('.content-section');
-    const links = document.querySelectorAll('.sidebar a');
-    const targetSection = document.getElementById(sectionId);
-
-    // Fade out all sections
-    sections.forEach(section => {
-        if (section.classList.contains('active')) {
-            section.style.opacity = '0';
-            setTimeout(() => {
-                section.classList.remove('active');
-                // Fade in target section
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                    setTimeout(() => {
-                        targetSection.style.opacity = '1';
-                    }, 50);
-                }
-            }, 300);
-        } else {
-            section.classList.remove('active');
-        }
-    });
-
-    // Update navigation state
-    links.forEach(link => {
-        if (link === event.target) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
-        } else {
-            link.classList.remove('active');
-            link.removeAttribute('aria-current');
-        }
-    });
-
-    // Scroll into view on mobile
-    if (window.innerWidth <= 768) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-// Toggle equipment cards
-function toggleEquipment(card) {
-    const wasExpanded = card.classList.contains('expanded');
-    const equipmentSection = card.parentElement;
-    const cards = Array.from(equipmentSection.children);
-
-    if (wasExpanded) {
-        // Collapse animation
-        card.classList.add('closing');
-
-        setTimeout(() => {
-            card.classList.remove('expanded', 'closing');
-        }, 400);
-    } else {
-        // Close any other expanded cards first
-        cards.forEach(otherCard => {
-            if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                otherCard.classList.add('closing');
-                setTimeout(() => {
-                    otherCard.classList.remove('expanded', 'closing');
-                }, 300);
-            }
-        });
-
-        // Expand the clicked card
-        setTimeout(() => {
-            card.classList.add('expanded');
-        }, 10);
-    }
-}
-
-// Toggle skill cards
-function toggleSkill(card) {
-    // Toggle between collapsed and expanded state
-    if (card.classList.contains('collapsed')) {
-        card.classList.remove('collapsed');
-        card.classList.add('expanded');
-    } else if (card.classList.contains('expanded')) {
-        card.classList.remove('expanded');
-        card.classList.add('collapsed');
-    } else {
-        // First click - collapse all cards first, then expand the clicked one
-        const skillSection = card.parentElement;
-        const cards = Array.from(skillSection.children);
-
-        // Collapse all other cards
-        cards.forEach(otherCard => {
-            if (otherCard !== card) {
-                otherCard.classList.add('collapsed');
-                otherCard.classList.remove('expanded');
-            }
-        });
-
-        // Expand the clicked card
-        card.classList.add('expanded');
-    }
-}
 
