@@ -113,7 +113,6 @@ body {
         display: flex;
         max-width: min(1600px, 90vw);
         margin: 0 auto;
-        padding: 2rem;
         position: relative;
 
         @media (max-width: 768px) {
