@@ -589,7 +589,8 @@ body {
 
   .gallery-filters {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .gallery-sort {
@@ -599,8 +600,13 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .gallery-container {
+    padding: 15px 10px;
+  }
+
   .gallery-header {
     padding: 20px 15px;
+    margin-bottom: 25px;
   }
 
   .gallery-header h1 {
@@ -616,24 +622,85 @@ body {
     font-size: 0.85rem;
   }
 
+  /* Improve nav buttons for touch */
   .nav-btn {
     width: 40px;
     height: 40px;
     font-size: 18px;
+    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   .prev-btn {
-    left: 10px;
+    left: 5px;
   }
 
   .next-btn {
-    right: 10px;
+    right: 5px;
+  }
+
+  /* Improve popup for mobile */
+  .popup-content {
+    max-width: 95%;
+  }
+
+  .popup-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .popup-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Additional breakpoint for smaller phones */
+  .gallery-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .filter-btn {
+    min-width: 75px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-toggle {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+
+  /* Fix popup navigation on small screens */
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .prev-btn {
+    left: 2px;
+  }
+
+  .next-btn {
+    right: 2px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .gallery-container {
-    padding: 15px;
+    padding: 10px 8px;
   }
 
   .gallery-header h1 {
@@ -641,28 +708,38 @@ body {
   }
 
   .gallery-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 10px;
   }
 
   .gallery-filters {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
 
   .filter-btn {
-    padding: 8px 10px;
+    padding: 7px 10px;
     font-size: 0.8rem;
-    flex: 1;
+    flex-grow: 1;
     justify-content: center;
+    min-width: 70px;
+    max-width: calc(50% - 6px);
   }
 
   .filter-icon {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .gallery-sort {
+    justify-content: flex-start;
+  }
+
+  .gallery-sort select {
+    max-width: 140px;
   }
 
   .item-overlay h3 {
@@ -673,8 +750,54 @@ body {
     font-size: 0.8rem;
   }
 
+  .list-item {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
   .list-item .item-image {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 160px;
+    margin-right: 0;
+    object-fit: cover;
+  }
+
+  .list-item .item-info {
+    padding: 12px;
+  }
+}
+
+/* Additional styles for very small screens */
+@media screen and (max-width: 360px) {
+  .gallery-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .filter-btn {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+
+  .gallery-sort label {
+    display: none;
+  }
+
+  .search-container input {
+    padding: 8px 35px 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .popup-content img {
+    max-height: 70vh;
+  }
+
+  .close-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
   }
 }

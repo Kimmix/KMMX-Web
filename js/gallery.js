@@ -24,6 +24,10 @@ let currentSearch = '';
 let currentSort = 'default';
 let currentView = 'grid';
 let resizeTimeout;
+let isMobile = window.innerWidth < 768;
+let touchStartX = 0;
+let touchEndX = 0;
+let popupOpen = false;
 
 // Initialize the gallery
 async function initGallery() {
@@ -91,14 +95,18 @@ function renderGridView() {
         // Set a default span for all items
         galleryItem.style.setProperty('--span', 20);
 
-        // Set animation delay for staggered effect
-        galleryItem.style.animationDelay = `${index * 0.05}s`;
+        // Set animation delay for staggered effect - limit for mobile
+        const delay = isMobile ? Math.min(index, 10) * 0.03 : index * 0.05;
+        galleryItem.style.animationDelay = `${delay}s`;
 
         // Create image element and set up load event
         const img = document.createElement('img');
         img.src = item.imgSrc;
         img.alt = item.title;
         img.loading = "lazy";
+        // Add width and height to help with layout calculation before image loads
+        img.setAttribute('width', '100%');
+        img.setAttribute('height', 'auto');
 
         // Set up load event to recalculate grid item size after image loads
         img.onload = () => {
@@ -117,12 +125,18 @@ function renderGridView() {
         galleryItem.appendChild(img);
         galleryItem.appendChild(overlay);
         galleryGrid.appendChild(galleryItem);
+
+        // On mobile, make overlay always visible for better UX
+        if (isMobile) {
+            overlay.style.transform = 'translateY(0)';
+        }
     });
 
     // Recalculate layout after a short delay
     setTimeout(resizeAllGridItems, 100);
 
-    // Additional resize check after all images should have loaded
+    // Additional resize checks for better layout stability
+    setTimeout(resizeAllGridItems, 500);
     setTimeout(resizeAllGridItems, 1000);
 }
 
@@ -133,8 +147,9 @@ function renderListView() {
         listItem.className = 'list-item';
         listItem.setAttribute('data-index', index);
 
-        // Set animation delay for staggered effect
-        listItem.style.animationDelay = `${index * 0.05}s`;
+        // Set animation delay for staggered effect - limit for mobile
+        const delay = isMobile ? Math.min(index, 10) * 0.03 : index * 0.05;
+        listItem.style.animationDelay = `${delay}s`;
 
         // Create image element
         const img = document.createElement('img');
@@ -160,6 +175,17 @@ function renderListView() {
 
 // Set up all event listeners
 function setupEventListeners() {
+    // Track mobile/desktop state for responsive adjustments
+    window.addEventListener('resize', debounce(() => {
+        const wasMobile = isMobile;
+        isMobile = window.innerWidth < 768;
+
+        // If mobile state changed, re-render to adjust layout
+        if (wasMobile !== isMobile) {
+            renderGallery();
+        }
+    }, 200));
+
     // Filter button clicks
     filterButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -236,7 +262,7 @@ function setupEventListeners() {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (!imagePopup.style.display || imagePopup.style.display === 'none') return;
+        if (!popupOpen) return;
 
         switch (e.key) {
             case 'Escape':
@@ -251,6 +277,16 @@ function setupEventListeners() {
         }
     });
 
+    // Touch swipe support for image popup on mobile
+    imagePopup.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    imagePopup.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
     // Window resize handler
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -260,6 +296,22 @@ function setupEventListeners() {
             }
         }, 100);
     });
+}
+
+// Handle touch swipe in popup
+function handleSwipe() {
+    if (!popupOpen) return;
+
+    const swipeThreshold = 50; // minimum swipe distance
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > swipeThreshold) {
+        // Swiped right - go to previous
+        showPreviousImage();
+    } else if (swipeDistance < -swipeThreshold) {
+        // Swiped left - go to next
+        showNextImage();
+    }
 }
 
 // Update the view toggle buttons
@@ -328,7 +380,7 @@ function debounce(func, delay) {
     };
 }
 
-// Masonry layout calculation - Updated to not rely on maxHeight
+// Masonry layout calculation - Updated for better mobile support
 function resizeGridItem(item) {
     if (!item || !galleryGrid) return;
 
@@ -338,8 +390,9 @@ function resizeGridItem(item) {
 
     const img = item.querySelector('img');
     if (!img || !img.complete) {
-        // If image hasn't loaded yet, use a default span
-        item.style.gridRowEnd = `span 20`;
+        // If image hasn't loaded yet, use a default span based on device
+        const defaultSpan = isMobile ? 15 : 20;
+        item.style.gridRowEnd = `span ${defaultSpan}`;
         return;
     }
 
@@ -347,23 +400,42 @@ function resizeGridItem(item) {
     const contentHeight = img.offsetHeight;
     const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
 
-    item.style.gridRowEnd = `span ${rowSpan}`;
+    // Ensure a minimum span
+    const minSpan = isMobile ? 10 : 15;
+    item.style.gridRowEnd = `span ${Math.max(rowSpan, minSpan)}`;
 }
 
-// Apply masonry calculations to all items - Improved for better reliability
+// Apply masonry calculations to all items - Optimized for mobile
 function resizeAllGridItems() {
     const allItems = document.querySelectorAll('.gallery-item');
     if (!allItems.length) return;
 
-    allItems.forEach(item => {
-        resizeGridItem(item);
+    // Limit processing on mobile for better performance
+    const batchSize = isMobile ? 5 : allItems.length;
+    let processed = 0;
 
-        // Add event listener for image load
-        const img = item.querySelector('img');
-        if (img && !img.complete) {
-            img.addEventListener('load', () => resizeGridItem(item));
+    function processNextBatch() {
+        const end = Math.min(processed + batchSize, allItems.length);
+
+        for (let i = processed; i < end; i++) {
+            resizeGridItem(allItems[i]);
+
+            // Add event listener for image load
+            const img = allItems[i].querySelector('img');
+            if (img && !img.complete) {
+                img.addEventListener('load', () => resizeGridItem(allItems[i]));
+            }
         }
-    });
+
+        processed = end;
+
+        // If there are more items to process, schedule the next batch
+        if (processed < allItems.length) {
+            setTimeout(processNextBatch, 10);
+        }
+    }
+
+    processNextBatch();
 }
 
 // Popup functions
@@ -378,10 +450,15 @@ function openPopup(index) {
 
     // Display popup with animation
     imagePopup.style.display = 'block';
+    popupOpen = true;
+
     setTimeout(() => {
         imagePopup.querySelector('.popup-overlay').style.opacity = '1';
         imagePopup.querySelector('.popup-content').style.opacity = '1';
     }, 10);
+
+    // Prevent body scrolling when popup is open
+    document.body.style.overflow = 'hidden';
 }
 
 function closePopup() {
@@ -390,9 +467,12 @@ function closePopup() {
 
     overlay.style.opacity = '0';
     content.style.opacity = '0';
+    popupOpen = false;
 
     setTimeout(() => {
         imagePopup.style.display = 'none';
+        // Re-enable scrolling
+        document.body.style.overflow = '';
     }, 300);
 }
 
@@ -412,6 +492,16 @@ function updatePopupContent() {
     // Create new image element to allow for fade transition
     const newImage = new Image();
     newImage.src = item.imgSrc;
+
+    // For mobile, update immediately to avoid delay
+    if (isMobile) {
+        popupImage.src = item.imgSrc;
+        popupTitle.textContent = item.title;
+        popupArtist.textContent = item.artist;
+        return;
+    }
+
+    // For desktop, add fade transition
     newImage.onload = () => {
         popupImage.style.opacity = '0';
         setTimeout(() => {
@@ -455,6 +545,9 @@ async function loadAnimatedItems() {
 
 // Initialize the gallery when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if we're on mobile first
+    isMobile = window.innerWidth < 768;
+
     initGallery();
     loadAnimatedItems();
 });
