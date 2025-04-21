@@ -55,104 +55,259 @@
             <div class="content">
                 <div id="info" class="content-section active">
                     <div class="info-container">
-                        <div class="info-primary">
-                            <div class="character-profile">
-                                <h3 class="section-title">Profile</h3>
-                                <div class="profile-grid">
-                                    <div class="info-item">
-                                        <dt>Name</dt>
-                                        <dd>Kimmix <span class="fade">/ˈkɪmɪks/</span></dd>
+                        <!-- Header card with basic identity -->
+                        <div class="info-header-card">
+                            <div class="info-header-content">
+                                <div class="info-avatar">
+                                    <div class="avatar-frame">
+                                        <div class="avatar-glow"></div>
                                     </div>
-                                    <div class="info-item">
-                                        <dt>Species</dt>
-                                        <dd>Uncommon Protogen</dd>
+                                    <div class="arcai-emblem">
+                                        <img src="assets/svg/arcai_shard.svg" alt="Arcai emblem" class="emblem-icon">
                                     </div>
-                                    <div class="info-item">
-                                        <dt>Faction</dt>
-                                        <dd>Nehixim <span class="info-tag">Research Division</span></dd>
+                                </div>
+                                <div class="info-identity">
+                                    <h2 class="identity-name">Kimmix <span class="identity-phonetic">/ˈkɪmɪks/</span></h2>
+                                    <div class="identity-tags">
+                                        <span class="identity-tag">Uncommon Protogen</span>
+                                        <span class="identity-tag primary">Nehixim</span>
+                                        <span class="identity-tag">Research Division</span>
                                     </div>
-                                    <div class="info-item">
-                                        <dt>Purpose</dt>
-                                        <dd>Arcai Research & Analysis</dd>
-                                    </div>
-                                    <div class="info-item">
-                                        <dt>Status</dt>
-                                        <dd>Active <span class="status-indicator"></span></dd>
-                                    </div>
-                                    <div class="info-item">
-                                        <dt>Classification</dt>
-                                        <dd>Level 5 Clearance</dd>
+                                    <div class="identity-status">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">Active</span>
+                                        <span class="status-detail">Level 5 Clearance</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="info-secondary">
-                            <div class="character-attributes">
-                                <h3 class="section-title">Characteristics</h3>
-                                <div class="attributes-container">
-                                    <div class="attribute">
-                                        <div class="attribute-name">Analytical</div>
-                                        <div class="attribute-bar">
-                                            <div class="attribute-fill" style="width: 75%"></div>
+                        <div class="info-grid">
+                            <!-- Primary info column -->
+                            <div class="info-primary">
+                                <div class="info-card character-profile">
+                                    <div class="card-header">
+                                        <h3 class="section-title">Profile Details</h3>
+                                        <div class="card-actions">
+                                            <button class="card-action-btn" title="More information">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12v.01M12 16v.01M12 8v.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="attribute">
-                                        <div class="attribute-name">Patience</div>
-                                        <div class="attribute-bar">
-                                            <div class="attribute-fill" style="width: 45%"></div>
+                                    <div class="profile-stats">
+                                        <div class="profile-stat">
+                                            <div class="stat-icon purpose-icon"></div>
+                                            <div class="stat-content">
+                                                <span class="stat-label">Purpose</span>
+                                                <span class="stat-value">Arcai Research & Analysis</span>
+                                            </div>
+                                        </div>
+                                        <div class="profile-stat">
+                                            <div class="stat-icon specialty-icon"></div>
+                                            <div class="stat-content">
+                                                <span class="stat-label">Specialty</span>
+                                                <span class="stat-value">Materialization</span>
+                                            </div>
+                                        </div>
+                                        <div class="profile-stat">
+                                            <div class="stat-icon location-icon"></div>
+                                            <div class="stat-content">
+                                                <span class="stat-label">Field Assignment</span>
+                                                <span class="stat-value">Arcai Phenomenon Investigation</span>
+                                            </div>
+                                        </div>
+                                        <div class="profile-stat">
+                                            <div class="stat-icon mission-icon"></div>
+                                            <div class="stat-content">
+                                                <span class="stat-label">Current Task</span>
+                                                <span class="stat-value">Resonance Pattern Analysis</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="attribute">
-                                        <div class="attribute-name">Adaptability</div>
-                                        <div class="attribute-bar">
-                                            <div class="attribute-fill" style="width: 65%"></div>
+                                </div>
+
+                                <!-- Timeline card -->
+                                <div class="info-card timeline-card">
+                                    <div class="card-header">
+                                        <h3 class="section-title">Key Events</h3>
+                                        <div class="card-actions">
+                                            <button class="card-action-btn timeline-expand" title="Expand timeline">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 4h6m-6 8h6m-6 8h6M4 4h2m-2 8h2m-2 8h2m10-16h4m-4 8h4m-4 8h4"/></svg>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="attribute">
-                                        <div class="attribute-name">Sociability</div>
-                                        <div class="attribute-bar">
-                                            <div class="attribute-fill" style="width: 30%"></div>
+                                    <div class="timeline">
+                                        <div class="timeline-event">
+                                            <div class="event-date">
+                                                <span class="event-year">2022</span>
+                                            </div>
+                                            <div class="event-connector">
+                                                <div class="connector-line"></div>
+                                                <div class="connector-dot"></div>
+                                            </div>
+                                            <div class="event-content">
+                                                <h4 class="event-title">Nehixim Recruitment</h4>
+                                                <p class="event-description">Recruited to Nehixim Research Division based on independent Arcai studies</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-event">
+                                            <div class="event-date">
+                                                <span class="event-year">2023</span>
+                                            </div>
+                                            <div class="event-connector">
+                                                <div class="connector-line"></div>
+                                                <div class="connector-dot"></div>
+                                            </div>
+                                            <div class="event-content">
+                                                <h4 class="event-title">First Arcai Breakthrough</h4>
+                                                <p class="event-description">Successfully documented crystallization process of Arcai energy</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-event current">
+                                            <div class="event-date">
+                                                <span class="event-year">2025</span>
+                                            </div>
+                                            <div class="event-connector">
+                                                <div class="connector-line"></div>
+                                                <div class="connector-dot"></div>
+                                            </div>
+                                            <div class="event-content">
+                                                <h4 class="event-title">Advanced Materialization</h4>
+                                                <p class="event-description">Current field research on stabilizing materialized Arcai constructs</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="attribute">
-                                        <div class="attribute-name">Empathy</div>
-                                        <div class="attribute-bar">
-                                            <div class="attribute-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Secondary info column -->
+                            <div class="info-secondary">
+                                <div class="info-card character-attributes">
+                                    <div class="card-header">
+                                        <h3 class="section-title">Characteristics</h3>
+                                        <div class="card-actions">
+                                            <button class="card-action-btn attributes-view-toggle" title="Change view">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="attributes-container">
+                                        <div class="attribute">
+                                            <div class="attribute-header">
+                                                <div class="attribute-name">Analytical</div>
+                                                <div class="attribute-value">75%</div>
+                                            </div>
+                                            <div class="attribute-bar">
+                                                <div class="attribute-fill" style="width: 75%"></div>
+                                            </div>
+                                            <div class="attribute-description">High aptitude for pattern recognition and data analysis</div>
+                                        </div>
+                                        <div class="attribute">
+                                            <div class="attribute-header">
+                                                <div class="attribute-name">Patience</div>
+                                                <div class="attribute-value">45%</div>
+                                            </div>
+                                            <div class="attribute-bar">
+                                                <div class="attribute-fill" style="width: 45%"></div>
+                                            </div>
+                                            <div class="attribute-description">Moderate tolerance for delays and setbacks</div>
+                                        </div>
+                                        <div class="attribute">
+                                            <div class="attribute-header">
+                                                <div class="attribute-name">Adaptability</div>
+                                                <div class="attribute-value">65%</div>
+                                            </div>
+                                            <div class="attribute-bar">
+                                                <div class="attribute-fill" style="width: 65%"></div>
+                                            </div>
+                                            <div class="attribute-description">Good capacity to adjust to changing circumstances</div>
+                                        </div>
+                                        <div class="attribute">
+                                            <div class="attribute-header">
+                                                <div class="attribute-name">Sociability</div>
+                                                <div class="attribute-value">30%</div>
+                                            </div>
+                                            <div class="attribute-bar">
+                                                <div class="attribute-fill" style="width: 30%"></div>
+                                            </div>
+                                            <div class="attribute-description">Limited interest in social interactions</div>
+                                        </div>
+                                        <div class="attribute">
+                                            <div class="attribute-header">
+                                                <div class="attribute-name">Empathy</div>
+                                                <div class="attribute-value">40%</div>
+                                            </div>
+                                            <div class="attribute-bar">
+                                                <div class="attribute-fill" style="width: 40%"></div>
+                                            </div>
+                                            <div class="attribute-description">Selective emotional understanding</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Connections card -->
+                                <div class="info-card connections-card">
+                                    <div class="card-header">
+                                        <h3 class="section-title">Connections</h3>
+                                        <div class="card-actions">
+                                            <button class="card-action-btn connections-filter" title="Filter connections">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18m-9 6h9m-9 6h9M6 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="connections-container">
+                                        <div class="connection-group">
+                                            <h4 class="connection-group-label">Nehixim</h4>
+                                            <div class="connection-item">
+                                                <div class="connection-strength ally"></div>
+                                                <div class="connection-name">Dr. Lythara</div>
+                                                <div class="connection-role">Research Supervisor</div>
+                                            </div>
+                                            <div class="connection-item">
+                                                <div class="connection-strength neutral"></div>
+                                                <div class="connection-name">Commander Vex</div>
+                                                <div class="connection-role">Security Oversight</div>
+                                            </div>
+                                        </div>
+                                        <div class="connection-group">
+                                            <h4 class="connection-group-label">External</h4>
+                                            <div class="connection-item">
+                                                <div class="connection-strength ally"></div>
+                                                <div class="connection-name">Researcher Tallen</div>
+                                                <div class="connection-role">Independent Scientist</div>
+                                            </div>
+                                            <div class="connection-item">
+                                                <div class="connection-strength cautious"></div>
+                                                <div class="connection-name">Kairo</div>
+                                                <div class="connection-role">Information Broker</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="info-description">
-                            <h3 class="section-title">Background</h3>
-                            <div class="info-tabs">
-                                <div class="tab-buttons">
-                                    <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
-                                    <button class="tab-btn" onclick="switchTab('personality')">Personality</button>
-                                    <button class="tab-btn" onclick="switchTab('objectives')">Objectives</button>
+                        <!-- Background section (full width) -->
+                        <div class="info-full-width">
+                            <div class="info-card background-card">
+                                <div class="card-header">
+                                    <h3 class="section-title">Background</h3>
+                                    <div class="context-selector">
+                                        <button id="context-professional" class="context-selector-btn active">
+                                            <span class="selector-icon overview-icon"></span>
+                                            <span class="selector-label">Overview</span>
+                                        </button>
+                                        <button id="context-personal" class="context-selector-btn">
+                                            <span class="selector-icon personality-icon"></span>
+                                            <span class="selector-label">Personality</span>
+                                        </button>
+                                        <button id="context-social" class="context-selector-btn">
+                                            <span class="selector-icon objectives-icon"></span>
+                                            <span class="selector-label">Objectives</span>
+                                        </button>
+                                    </div>
                                 </div>
-
-                                <div id="overview" class="tab-content active">
-                                    <p class="info-text">
-                                        Kimmix works within Nehixim's research division as a field researcher specializing in Arcai energy patterns. Created with modified neural architecture that allows for a unique perspective on Arcai flow, they were originally intended to be a breakthrough asset for the organization. However, a series of unexpected complications during development led to limitations that the Nehixim engineers couldn't resolve, resulting in a capable but flawed operative who doesn't quite match their original specifications.
-                                    </p>
-                                    <p class="info-text">
-                                        Despite being affiliated with Nehixim, Kimmix maintains an uneasy relationship with the faction. He stays primarily for the substantial research funding they provide, which allows him to pursue his work without limitations. While aware that Nehixim actively hunts down free-willed Protogens they consider "defective," Kimmix has chosen a pragmatic path—finding that having a purpose in his research outweighs the moral complications of his affiliation. This stance has made him a solitary figure, avoiding other Protogens who might become targets should they cross his path.
-                                    </p>
-                                </div>
-
-                                <div id="personality" class="tab-content">
-                                    <p class="info-text">
-                                        Kimmix maintains a detached demeanor that often comes across as cold, though this is partially a defense mechanism developed from years of feeling like a failed experiment. Their analytical mind gives them insight into patterns others miss, but their impatience with bureaucracy and institutional constraints frequently leads to conflict with authority figures. While they can focus intensely on research that interests them, they struggle with maintaining motivation for assignments they didn't choose.
-                                    </p>
-                                    <p class="info-text">
-                                        Beneath the calculating exterior lies a conflicted individual who questions their purpose and place. Kimmix experiences moments of genuine connection and empathy that surprise even themselves, though they often retreat back to emotional distance when these feelings become uncomfortable. This internal struggle between their programmed directive to advance Arcai research and their emerging sense of personal identity forms the core of their character—neither hero nor villain, but someone trying to navigate a complex moral landscape with limited emotional tools.
-                                    </p>
-                                </div>
-
-                                <div id="objectives" class="tab-content">
+                                <div class="background-content">
                                     <p class="info-text">
                                         Officially, Kimmix's assignment is to document and analyze naturally occurring Arcai phenomena, reporting findings back to Nehixim for potential applications. Unofficially, they've been pursuing a more personal objective: understanding whether Arcai energy could be used to address their own inherent flaws. This self-directed research has led them to explore applications that their superiors would likely disapprove of, creating a precarious situation where discovery could mean reassignment or worse.
                                     </p>
@@ -160,17 +315,20 @@
                                         What Nehixim doesn't know is that Kimmix has been deliberately documenting his research in ways that can be easily leaked to the wider scientific community. While his handlers believe his findings remain exclusively within their classified databases, Kimmix operates on the principle that knowledge belongs to everyone—not just those with power. Though aware that his research could potentially harm Nehixim's interests, he continues this dangerous balancing act, believing that scientific advancement should transcend factional conflicts. This philosophy has only further isolated him, as neither side fully trusts his intentions.
                                     </p>
                                 </div>
-
                             </div>
 
-                            <div class="info-quote">
-                                <blockquote id="rotating-quote">
-                                    <p>"Nehixim funds the research, but they don't own the knowledge. I've made my peace with contradiction—it keeps me fed and gives me purpose. The rest is just politics."</p>
-                                    <cite>— Kimmix, Personal Research Journal</cite>
-                                </blockquote>
+                            <div class="info-quote-container">
+                                <div class="info-quote">
+                                    <blockquote id="rotating-quote" class="clickable" title="Click to change quote">
+                                        <p>"Nehixim funds the research, but they don't own the knowledge. I've made my peace with contradiction—it keeps me fed and gives me purpose. The rest is just politics."</p>
+                                        <cite>— Kimmix, Personal Research Journal</cite>
+                                    </blockquote>
+                                </div>
+                                <div class="quote-decoration">
+                                    <div class="quote-glyph"></div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 

@@ -27,29 +27,77 @@ function showContent(id, e) {
     }
 }
 
-// Tab switching for the info section
-function switchTab(tabId) {
-    // Hide all tab contents
-    const allTabContents = document.querySelectorAll('.tab-content');
-    allTabContents.forEach(tab => {
-        tab.classList.remove('active');
-    });
+// Background context switching functionality
+const backgroundContexts = {
+    "overview": {
+        text: `Officially, Kimmix's assignment is to document and analyze naturally occurring Arcai phenomena, reporting findings back to Nehixim for potential applications. Unofficially, they've been pursuing a more personal objective: understanding whether Arcai energy could be used to address their own inherent flaws. This self-directed research has led them to explore applications that their superiors would likely disapprove of, creating a precarious situation where discovery could mean reassignment or worse.
 
-    // Show the selected tab
-    const selectedTab = document.getElementById(tabId);
-    selectedTab.classList.add('active');
+What Nehixim doesn't know is that Kimmix has been deliberately documenting his research in ways that can be easily leaked to the wider scientific community. While his handlers believe his findings remain exclusively within their classified databases, Kimmix operates on the principle that knowledge belongs to everyone—not just those with power. Though aware that his research could potentially harm Nehixim's interests, he continues this dangerous balancing act, believing that scientific advancement should transcend factional conflicts. This philosophy has only further isolated him, as neither side fully trusts his intentions.`
+    },
+    "personality": {
+        text: `Before joining Nehixim, Kimmix was a nomadic researcher, traveling between settlements and studying Arcai manifestations as an independent scientist. His unconventional approach to classification systems and tendency to theorize beyond established parameters made him both brilliant and frustratingly difficult to work with. This reputation caught the attention of Nehixim's talent scouts, who saw potential in his unorthodox methodologies.
 
-    // Update the active class on tab buttons
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    tabButtons.forEach(button => {
-        button.classList.remove('active');
-    });
+What drove Kimmix to eventually accept Nehixim's offer wasn't the prestige or resources, but rather a rare condition affecting his neural network. The specialized medical treatment required was only available through Nehixim's advanced healthcare division. This dependency created a complex relationship with his employer—grateful for the treatment that keeps his mind intact, yet increasingly uncomfortable with how his research is being weaponized against rival factions.`
+    },
+    "objectives": {
+        text: `Kimmix maintains few personal relationships, finding social interactions draining and often unnecessary. His closest associates are fellow researchers who communicate primarily through encrypted data channels, sharing findings through coded language that would appear as harmless technical discussions to outside observers. These connections form a loose network of like-minded scientists across faction lines who prioritize knowledge advancement over political allegiances.
 
-    // Add active class to clicked button
-    const clickedButton = document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`);
-    if (clickedButton) {
-        clickedButton.classList.add('active');
+In public settings, Kimmix appears detached and often abrasive, intentionally cultivating a reputation as a difficult personality to discourage casual interactions. This carefully constructed facade has been effective in limiting unwanted attention, though it has occasionally backfired when his research requires cooperation from others. Only a select few have glimpsed the dry humor and occasional moments of unexpected compassion that lie beneath his guarded exterior.`
     }
+};
+
+function setupContextButtons() {
+    const contextButtons = {
+        overview: document.getElementById('context-professional'),
+        personality: document.getElementById('context-personal'),
+        objectives: document.getElementById('context-social')
+    };
+    const backgroundContent = document.querySelector('.background-content');
+
+    if (!backgroundContent) return;
+
+    // Function to set active button and update content
+    function setActiveContext(contextType) {
+        // Remove active class from all buttons
+        Object.values(contextButtons).forEach(btn => {
+            if (btn) btn.classList.remove('active');
+        });
+
+        // Add active class to the selected button
+        if (contextButtons[contextType]) {
+            contextButtons[contextType].classList.add('active');
+        }
+
+        // Format the text to create paragraphs
+        const context = backgroundContexts[contextType];
+        if (context) {
+            // Add animation class
+            backgroundContent.classList.add('changing');
+
+            // Update the content with a slight delay for animation
+            setTimeout(() => {
+                const paragraphs = context.text.split('\n\n').map(p =>
+                    `<p class="info-text">${p.trim()}</p>`
+                ).join('');
+
+                backgroundContent.innerHTML = paragraphs;
+
+                // Remove the animation class after content is updated
+                setTimeout(() => {
+                    backgroundContent.classList.remove('changing');
+                }, 100);
+            }, 300);
+        }
+    }
+
+    // Add click event listeners to context buttons
+    Object.entries(contextButtons).forEach(([contextType, button]) => {
+        if (button) {
+            button.addEventListener('click', () => {
+                setActiveContext(contextType);
+            });
+        }
+    });
 }
 
 // Initialize mouse tracking for hover effects
@@ -85,6 +133,8 @@ let kimmixQuotes = []; // Will be populated from JSON file
 let quoteHistory = []; // Keep track of recently shown quotes
 const historySize = 15; // How many quotes to remember (avoid repeating)
 const quoteHistoryKey = 'kimmixQuoteHistory'; // localStorage key
+let quoteChangeInterval = null; // Store interval reference for clearing
+const QUOTE_DISPLAY_TIME = 60000; // 60 seconds (increased from 15 seconds)
 
 // Function to load quote history from localStorage
 function loadQuoteHistory() {
@@ -193,9 +243,42 @@ async function loadQuotes() {
 
         // Start the quote rotation once quotes are loaded
         updateQuote();
-        setInterval(updateQuote, 15000); // Change quote every 15 seconds
+
+        // Set up automatic rotation at longer interval
+        quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
+
+        // Add click handler to the quote block
+        setupQuoteClickHandler();
     } catch (error) {
         console.error('Error loading quotes:', error);
+    }
+}
+
+// Set up click handler for manual quote changing
+function setupQuoteClickHandler() {
+    const quoteBlock = document.getElementById('rotating-quote');
+    if (quoteBlock) {
+        quoteBlock.addEventListener('click', () => {
+            // Clear existing interval to avoid overlap
+            if (quoteChangeInterval) {
+                clearInterval(quoteChangeInterval);
+            }
+
+            // Show a new quote immediately
+            updateQuote();
+
+            // Reset the interval
+            quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
+
+            // Add a subtle feedback animation
+            quoteBlock.classList.add('clicked');
+            setTimeout(() => {
+                quoteBlock.classList.remove('clicked');
+            }, 300);
+        });
+
+        // Add cursor styling via JavaScript to ensure it's applied
+        quoteBlock.style.cursor = 'pointer';
     }
 }
 
@@ -267,6 +350,9 @@ function initSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
     // Show default content
     showContent('info');
+
+    // Initialize context buttons
+    setupContextButtons();
 
     // Make sure the hover effects work correctly
     document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card').forEach(card => {
