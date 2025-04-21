@@ -150,6 +150,8 @@ const historySize = 15; // How many quotes to remember (avoid repeating)
 const quoteHistoryKey = 'kimmixQuoteHistory'; // localStorage key
 let quoteChangeInterval = null; // Store interval reference for clearing
 const QUOTE_DISPLAY_TIME = 60000; // 60 seconds (increased from 15 seconds)
+let typeInterval = null; // Store the typing interval for cancellation
+let isTypingQuote = false; // Flag to track if a quote is currently being typed
 
 // Function to load quote history from localStorage
 function loadQuoteHistory() {
@@ -210,7 +212,6 @@ function selectNextQuote() {
     );
 
     // If we've exhausted our pool of fresh quotes, use all quotes
-    // but prefer ones shown least recently
     if (candidateQuotes.length === 0) {
         console.log("All quotes have been shown recently, resetting...");
         candidateQuotes = kimmixQuotes;
@@ -237,9 +238,6 @@ function selectNextQuote() {
     // Save updated history
     saveQuoteHistory();
 
-    // Log quote rotation for debugging
-    console.log(`Quote rotation: "${selectedQuote.text.substring(0, 30)}..." (${quoteHistory.length} in history)`);
-
     return selectedQuote;
 }
 
@@ -252,16 +250,10 @@ async function loadQuotes() {
         }
         const data = await response.json();
         kimmixQuotes = data.quotes;
-
         // Load quote history from localStorage
         loadQuoteHistory();
-
-        // Start the quote rotation once quotes are loaded
-        updateQuote();
-
-        // Set up automatic rotation at longer interval
+        // Set up automatic rotation
         quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
-
         // Add click handler to the quote block
         setupQuoteClickHandler();
     } catch (error) {
@@ -274,15 +266,12 @@ function setupQuoteClickHandler() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (quoteBlock) {
         quoteBlock.addEventListener('click', () => {
-            // Clear existing interval to avoid overlap
-            if (quoteChangeInterval) {
-                clearInterval(quoteChangeInterval);
-            }
+            // Prevent rapid clicking while a quote is animating
+            if (isTypingQuote) return;
 
-            // Show a new quote immediately
+            // Reset interval and show new quote
+            clearInterval(quoteChangeInterval);
             updateQuote();
-
-            // Reset the interval
             quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
 
             // Add a subtle feedback animation
@@ -291,9 +280,6 @@ function setupQuoteClickHandler() {
                 quoteBlock.classList.remove('clicked');
             }, 300);
         });
-
-        // Add cursor styling via JavaScript to ensure it's applied
-        quoteBlock.style.cursor = 'pointer';
     }
 }
 
@@ -301,7 +287,6 @@ function setupQuoteClickHandler() {
 function updateQuote() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (!quoteBlock || kimmixQuotes.length === 0) return;
-
     // Get next non-repeating quote
     const nextQuote = selectNextQuote();
     if (!nextQuote) return;
@@ -314,26 +299,41 @@ function updateQuote() {
         const newQuoteText = nextQuote.text;
         const newCiteText = `— Kimmix, ${nextQuote.source}`;
 
-        // Clear current content and prepare for typing animation
-        quoteText.innerHTML = '';
-        quoteCite.style.opacity = '0';
+        // Disable interaction during animation
+        isTypingQuote = true;
 
-        // Type animation for quote text
-        let charIndex = 0;
-        const typeInterval = setInterval(() => {
-            if (charIndex < newQuoteText.length) {
-                quoteText.textContent += newQuoteText.charAt(charIndex);
-                charIndex++;
-            } else {
-                // When typing is complete, update citation with fade in
-                clearInterval(typeInterval);
-                quoteCite.textContent = newCiteText;
-                quoteCite.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => {
-                    quoteCite.style.opacity = '1';
-                }, 100);
-            }
-        }, 15); // Speed of typing
+        // Fade transition
+        quoteBlock.classList.add('fading');
+
+        setTimeout(() => {
+            // Clear current content
+            quoteText.textContent = '';
+            quoteCite.style.opacity = '0';
+            quoteCite.textContent = newCiteText;
+
+            // Remove fading class
+            quoteBlock.classList.remove('fading');
+
+            // Type animation for quote text
+            let charIndex = 0;
+            typeInterval = setInterval(() => {
+                if (charIndex < newQuoteText.length) {
+                    quoteText.textContent += newQuoteText.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    // Animation complete
+                    clearInterval(typeInterval);
+                    typeInterval = null;
+
+                    // Fade in the citation
+                    quoteCite.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => {
+                        quoteCite.style.opacity = '1';
+                        isTypingQuote = false;
+                    }, 100);
+                }
+            }, 15);
+        }, 200);
     }
 }
 

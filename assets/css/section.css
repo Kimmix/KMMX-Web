@@ -1271,6 +1271,12 @@ body {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
 
+        &.fading {
+            opacity: 0.3;
+            transform: translateY(5px);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+        }
+
         &:hover {
             border-left-width: 6px;
             transform: translateY(-3px);

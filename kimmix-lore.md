@@ -4,19 +4,7 @@
 **Name:** Kimmix (/ˈkɪmɪks/)
 **Classification:** Uncommon Protogen
 **Affiliation:** Nehixim Research Division
-**Clearance Level:** Level 5
-**Current Status:** Active
 **Current Assignment:** Arcai Phenomenon Investigation, Resonance Pattern Analysis
-
----
-
-## PHYSICAL CHARACTERISTICS
-
-Kimmix presents as a distinctly modified Protogen with specialized adaptations for Arcai energy manipulation. Their form features sleek, angular design elements with integrated tech components showing sophisticated minimalism over ostentation. The most distinctive feature is the series of glowing Arcai runes permanently manifested across their body, which pulse subtly with energy and intensify during active Arcai manipulation.
-
-The visor display typically projects a calm, analytical interface pattern that shifts to more complex geometric arrangements during data processing. Neural dampener implants are visible at key connection points along the spine and skull base, distinguished by their characteristic blue-violet glow. The entire frame incorporates AENCC (Arcai Enhanced Nano Carbon Composite), giving it a matte black finish with occasional glimpses of the underlying molecular structure when catching light at specific angles.
-
-Kimmix's color scheme primarily consists of deep blues, violets, and blacks, with occasional accent highlights in electric cyan that correspond to active Arcai energy channels. When fully engaged with Arcai manipulation, bioluminescent patterns activate across their form, creating a distinctive energy signature that experienced observers can identify from considerable distance.
 
 ---
 
