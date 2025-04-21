@@ -25,6 +25,21 @@ function showContent(id, e) {
     } else {
         document.querySelector(`.sidebar a[href="#${id}"]`).classList.add('active');
     }
+
+    // Scroll the content to the top using the global lenis instance if available
+    if (window.lenis) {
+        // Use Lenis scrollTo with immediate:true to force instant scroll
+        window.lenis.scrollTo(0, { immediate: true });
+    } else {
+        // Fallback to direct DOM scrolling for browsers without Lenis
+        const contentContainer = document.querySelector('.content');
+        if (contentContainer) {
+            contentContainer.scrollTo({
+                top: 0,
+                behavior: 'auto'
+            });
+        }
+    }
 }
 
 // Background context switching functionality
@@ -325,7 +340,8 @@ function updateQuote() {
 // Initialize smooth scrolling with Lenis if available
 function initSmoothScroll() {
     if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
+        // Create Lenis instance and store it globally
+        window.lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
@@ -338,7 +354,7 @@ function initSmoothScroll() {
         });
 
         function raf(time) {
-            lenis.raf(time);
+            window.lenis.raf(time);
             requestAnimationFrame(raf);
         }
 
