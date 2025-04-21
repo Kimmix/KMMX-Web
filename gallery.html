@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>KMMX - Main Page</title>
-    <meta name="description" content="Main page for KMMX" />
+    <title>KMMX - Art Gallery</title>
+    <meta name="description" content="KMMX Art Gallery - Collection of commissioned and gift artwork" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#141414" />
@@ -14,9 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
@@ -24,32 +22,108 @@
 </head>
 
 <body>
-    <section id="gallery" class="gallery page">
-        <div class="wrapper">
-            <div class="gallery-text">
-                <div class="gallery-text container">
-                    <h2>Gallery</h2>
+    <div class="gallery-container">
+        <header class="gallery-header">
+            <div class="header-content">
+                <div class="header-title-area">
+                    <h1>Art Gallery</h1>
+                    <p class="gallery-subtitle">A collection of commissioned artwork and gifts from talented artists</p>
+                </div>
+
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="gallerySearch" placeholder="Search by title or artist...">
+                        <button id="searchButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="view-toggle">
+                        <button id="gridViewBtn" class="view-btn active" title="Grid View">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                        <button id="listViewBtn" class="view-btn" title="List View">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="gallery-content">
-                <div class="gallery-col" id="galleryContainer">
+
+            <div class="gallery-controls">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <span class="filter-icon">✦</span>All
+                    </button>
+                    <button class="filter-btn" data-filter="commission">
+                        <span class="filter-icon">🖌️</span>Commissions
+                    </button>
+                    <button class="filter-btn" data-filter="gift">
+                        <span class="filter-icon">🎁</span>Gift Art
+                    </button>
+                    <button class="filter-btn" data-filter="ych">
+                        <span class="filter-icon">🎨</span>YCH
+                    </button>
                 </div>
-                <div class="spacer"></div>
+
+                <div class="gallery-sort">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="default">Default</option>
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="artist">Artist Name</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- Popup container for full-size image with title and artist -->
-    <div id="popup" class="popup">
-        <span class="close">&times;</span>
-        <img class="popup-content" id="popup-img">
-        <div class="popup-info">
-            <h3 id="popup-title"></h3>
-            <h4 id="popup-artist"></h4>
+
+            <div class="gallery-stats">
+                <span id="itemCount">0</span> artworks displayed
+            </div>
+        </header>
+
+        <main class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be loaded here via JavaScript -->
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Loading gallery...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Improved popup for full-size image viewing -->
+    <div id="imagePopup" class="image-popup">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <button class="nav-btn prev-btn" id="prevImage">&lt;</button>
+            <div class="popup-content">
+                <img id="popupImage" src="" alt="Full size artwork">
+                <div class="popup-info">
+                    <h2 id="popupTitle"></h2>
+                    <h3>Artist: <span id="popupArtist"></span></h3>
+                </div>
+            </div>
+            <button class="nav-btn next-btn" id="nextImage">&gt;</button>
+            <button class="close-btn" id="closePopup">&times;</button>
         </div>
     </div>
-</body>
 
-<script src="js/gallery.js"></script>
-<script src="js/favicon.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/favicon.js"></script>
+</body>
 
 </html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KMMX - Starmap</title>
+    <meta name="description" content="Starmap and Lore for KMMX" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+    <meta name="theme-color" content="#101014" />
+    <meta name="apple-mobile-web-app-status-bar" content="#101014" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="view-transition" content="same-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/starmap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/external/lenis.css">
+    <!-- Google font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="star-chart">
+        <!-- Starmap background with parallax -->
+        <div class="starmap-bg">
+            <img class="star-map" src="assets/svg/star_map.svg" alt="" data-speed="0.1">
+        </div>
+
+        <!-- Main story scrolling container -->
+        <div class="lore-reveal">
+            <!-- Title section -->
+            <div class="lore-header">
+                <h1>KIMMIX</h1>
+                <div class="subtitle">NEHIXIM RESEARCH DIVISION</div>
+                <div class="classification">
+                    <span class="label">CLEARANCE:</span>
+                    <span class="value">LEVEL 3</span>
+                    <span class="status">ACCESS GRANTED</span>
+                </div>
+            </div>
+
+            <!-- Timeline navigation -->
+            <div class="timeline">
+                <div class="timeline-track"></div>
+                <div class="timeline-node" data-year="2020">
+                    <div class="node"></div>
+                    <div class="year">2020</div>
+                </div>
+                <div class="timeline-node" data-year="2022">
+                    <div class="node"></div>
+                    <div class="year">2022</div>
+                </div>
+                <div class="timeline-node" data-year="2023">
+                    <div class="node"></div>
+                    <div class="year">2023</div>
+                </div>
+                <div class="timeline-node" data-year="2024">
+                    <div class="node"></div>
+                    <div class="year">2024</div>
+                </div>
+                <div class="timeline-node" data-year="2025">
+                    <div class="node"></div>
+                    <div class="year">2025</div>
+                </div>
+                <div class="timeline-progress"></div>
+            </div>
+
+            <!-- Story sections -->
+            <div class="story-sections">
+                <!-- Origin story - 2020 -->
+                <section class="story-panel" id="origin" data-year="2020">
+                    <div class="panel-content">
+                        <h2>Pre-Nehixim Period</h2>
+                        <div class="story-body">
+                            <p>Before official record-keeping began, Kimmix conducted independent research into anomalous energy patterns, developing rudimentary theories that would later align with Arcai principles.</p>
+
+                            <div class="detail-reveal">
+                                <p>A catastrophic experimental failure resulted in permanent neural alterations and the first instance of involuntary Arcai manifestation, leaving Kimmix with the characteristic rune patterns and an irreversible connection to Arcai energy fields.</p>
+                            </div>
+
+                            <div class="identity-tag">
+                                <div class="tag-label">IDENTITY:</div>
+                                <div class="tag-value">Independent Researcher</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-element">
+                        <img src="assets/svg/arcai_rune.svg" alt="Arcai Rune" class="story-visual">
+                    </div>
+                </section>
+
+                <!-- Recruitment - 2022 -->
+                <section class="story-panel" id="recruitment" data-year="2022">
+                    <div class="panel-content">
+                        <h2>Nehixim Recruitment</h2>
+                        <div class="story-body">
+                            <p>Kimmix's independent research into anomalous energy signatures attracted Nehixim's attention. After monitoring their activities for several months, Nehixim approached with an offer.</p>
+
+                            <div class="detail-reveal">
+                                <p>Resources and infrastructure in exchange for exclusive research rights. Desperate for proper equipment and theoretical frameworks, Kimmix accepted, though privately harboring reservations about Nehixim's ultimate intentions for Arcai applications.</p>
+                            </div>
+
+                            <div class="identity-tag">
+                                <div class="tag-label">IDENTITY:</div>
+                                <div class="tag-value">Nehixim Recruit</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-element right">
+                        <img src="assets/svg/arcai_analysis.svg" alt="Arcai Analysis" class="story-visual">
+                    </div>
+                </section>
+
+                <!-- Breakthrough - 2023 -->
+                <section class="story-panel" id="breakthrough" data-year="2023">
+                    <div class="panel-content">
+                        <h2>First Arcai Breakthrough</h2>
+                        <div class="story-body">
+                            <p>Successfully documented the crystallization process of Arcai energy, creating the first stable Resonant Shards under laboratory conditions.</p>
+
+                            <div class="detail-reveal">
+                                <p>This breakthrough established Kimmix as a valuable asset within the Research Division and secured additional funding and autonomy for their projects. During this period, Kimmix began systematically creating duplicate research documentation—the official versions for Nehixim databases and the shadow versions designed for eventual public dissemination.</p>
+                            </div>
+
+                            <div class="identity-tag">
+                                <div class="tag-label">IDENTITY:</div>
+                                <div class="tag-value">Research Scientist</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-element">
+                        <img src="assets/svg/resonant_shard.svg" alt="Resonant Shard" class="story-visual">
+                    </div>
+                </section>
+
+                <!-- Neural Interface - 2024 -->
+                <section class="story-panel" id="neural" data-year="2024">
+                    <div class="panel-content">
+                        <h2>Development of Neural Interface</h2>
+                        <div class="story-body">
+                            <p>Created specialized Neural Dampeners to manage the increasing neural feedback from advanced Arcai manipulation.</p>
+
+                            <div class="detail-reveal">
+                                <p>This self-preservation project revealed new insights into the biological interface between consciousness and Arcai energy, leading to more precise manipulation techniques and eventually the theoretical framework for what would become the Dimensional Shift ability.</p>
+                            </div>
+
+                            <div class="identity-tag">
+                                <div class="tag-label">IDENTITY:</div>
+                                <div class="tag-value">Neural Interface Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-element right">
+                        <img src="assets/svg/neural_dampeners.svg" alt="Neural Dampeners" class="story-visual">
+                    </div>
+                </section>
+
+                <!-- Current Research - 2025 -->
+                <section class="story-panel" id="current" data-year="2025">
+                    <div class="panel-content">
+                        <h2>Advanced Materialization Research</h2>
+                        <div class="story-body">
+                            <p>Currently focused on stabilizing materialized Arcai constructs and extending their duration beyond current temporal limitations.</p>
+
+                            <div class="detail-reveal">
+                                <p>This research involves high-risk field experiments in remote locations, collecting data on naturally occurring Arcai phenomena while simultaneously testing theoretical enhancements to materialization techniques.</p>
+
+                                <p class="quote">"Science transcends factions. Knowledge belongs to existence itself. When we attempt to claim ownership of understanding, we become smaller than the very truths we seek."</p>
+                                <p class="quote-attribution">— Kimmix, encrypted personal journal, March 2025</p>
+                            </div>
+
+                            <div class="identity-tag">
+                                <div class="tag-label">IDENTITY:</div>
+                                <div class="tag-value">Arcai Researcher</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-element">
+                        <img src="assets/svg/dimensional_shift.svg" alt="Dimensional Shift" class="story-visual">
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer information -->
+            <div class="lore-footer">
+                <div class="location-data">
+                    <div class="location-label">CURRENT LOCATION:</div>
+                    <div class="location-value">{{EN_KIMMIX_PLANETARY_LOCATION}}</div>
+                </div>
+                <div class="aencc">
+                    <p>AENCC Active/.</p>
+                    <div class="txtblock">
+                        <div class="tb-1">
+                            <div class="v-bar"></div>
+                            <div class="tb-1-r">
+                                <div class="tb-1-r-bar1"></div>
+                                <div class="tb-1-r-1">
+                                    <div class="tb-1-r-1-bar1"></div>
+                                    <div class="tb-1-r-1-bar2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-2">
+                            <div class="tb-2-l">
+                                <div class="tb-2-l-bar1"></div>
+                                <div class="tb-2-l-bar2"></div>
+                                <div class="redbar"></div>
+                            </div>
+                            <div class="tb-2-r">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.44 313.09">
+                                    <path d="M9.17 298.17 203.07 8.23 203.07 298.17 145.17 206.27 9.17 298.17z" />
+                                    <path d="M223.29 301.84 223.29 133.67 347.81 304.14 280.72 262.33 223.29 301.84z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/external/gsap.min.js"></script>
+    <script src="js/external/ScrollTrigger.min.js"></script>
+    <script src="js/external/lenis.min.js"></script>
+    <script src="js/favicon.js"></script>
+    <script src="js/starmap.js"></script>
+</body>
+
+</html>

@@ -1,18 +1,37 @@
 [
-    {
-        "imgSrc": "assets/gallery/img43.webp",
-        "height": "700px",
-        "maxHeight": "550px",
-        "objectPosition": "98% -38px",
-        "title": "Commission",
-        "artist": "XXXXXX"
-    },
-    {
-        "imgSrc": "assets/gallery/img33.webp",
-        "height": "700px",
-        "maxHeight": "550px",
-        "objectPosition": "98% -38px",
-        "title": "Commission",
-        "artist": "Milkypaw24"
-    }
+  {
+    "imgSrc": "assets/gallery/img3.webp",
+    "title": "Animated Commission",
+    "artist": "GlowingArt",
+    "category": "commission",
+    "isAnimated": true
+  },
+  {
+    "imgSrc": "assets/gallery/img26.webp",
+    "title": "Animated YCH",
+    "artist": "AnimeFluff",
+    "category": "ych",
+    "isAnimated": true
+  },
+  {
+    "imgSrc": "assets/gallery/img33.webp",
+    "title": "Animated Gift Art",
+    "artist": "GalacticCreations",
+    "category": "gift",
+    "isAnimated": true
+  },
+  {
+    "imgSrc": "assets/gallery/img39.webp",
+    "title": "Special Animation",
+    "artist": "PixelMaster",
+    "category": "commission",
+    "isAnimated": true
+  },
+  {
+    "imgSrc": "assets/gallery/img43.webp",
+    "title": "Animated Commission",
+    "artist": "DigitalDreamers",
+    "category": "commission",
+    "isAnimated": true
+  }
 ]
