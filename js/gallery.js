@@ -10,9 +10,8 @@ const nextImageBtn = document.getElementById('nextImage');
 const filterButtons = document.querySelectorAll('.filter-btn');
 const searchInput = document.getElementById('gallerySearch');
 const searchButton = document.getElementById('searchButton');
+const clearSearchBtn = document.getElementById('clearSearchButton');
 const sortSelect = document.getElementById('sortSelect');
-const gridViewBtn = document.getElementById('gridViewBtn');
-const listViewBtn = document.getElementById('listViewBtn');
 const itemCountElement = document.getElementById('itemCount');
 
 // Global variables
@@ -22,12 +21,14 @@ let filteredItems = [];
 let currentFilter = 'all';
 let currentSearch = '';
 let currentSort = 'default';
-let currentView = 'grid';
 let resizeTimeout;
 let isMobile = window.innerWidth < 768;
 let touchStartX = 0;
+let touchEndY = 0;
+let touchStartY = 0;
 let touchEndX = 0;
 let popupOpen = false;
+let isScrolling = false;
 
 // Initialize the gallery
 async function initGallery() {
@@ -74,14 +75,9 @@ function renderGallery() {
     // Update the count
     itemCountElement.textContent = filteredItems.length;
 
-    // Check if we should render as grid or list
-    if (currentView === 'grid') {
-        galleryGrid.className = 'gallery-grid';
-        renderGridView();
-    } else {
-        galleryGrid.className = 'gallery-list';
-        renderListView();
-    }
+    // Render items in grid view (masonry layout)
+    galleryGrid.className = 'gallery-grid';
+    renderGridView();
 }
 
 // Render items in grid view (masonry layout)
@@ -97,7 +93,7 @@ function renderGridView() {
 
         // Set animation delay for staggered effect - limit for mobile
         const delay = isMobile ? Math.min(index, 10) * 0.03 : index * 0.05;
-        galleryItem.style.animationDelay = `${delay}s`;
+        galleryItem.style.setProperty('--delay', `${delay}s`);
 
         // Create image element and set up load event
         const img = document.createElement('img');
@@ -130,6 +126,11 @@ function renderGridView() {
         if (isMobile) {
             overlay.style.transform = 'translateY(0)';
         }
+
+        // Add visible class with a delay for staggered appearance
+        setTimeout(() => {
+            galleryItem.classList.add('visible');
+        }, index * 50);
     });
 
     // Recalculate layout after a short delay
@@ -138,39 +139,6 @@ function renderGridView() {
     // Additional resize checks for better layout stability
     setTimeout(resizeAllGridItems, 500);
     setTimeout(resizeAllGridItems, 1000);
-}
-
-// Render items in list view
-function renderListView() {
-    filteredItems.forEach((item, index) => {
-        const listItem = document.createElement('div');
-        listItem.className = 'list-item';
-        listItem.setAttribute('data-index', index);
-
-        // Set animation delay for staggered effect - limit for mobile
-        const delay = isMobile ? Math.min(index, 10) * 0.03 : index * 0.05;
-        listItem.style.animationDelay = `${delay}s`;
-
-        // Create image element
-        const img = document.createElement('img');
-        img.className = 'item-image';
-        img.src = item.imgSrc;
-        img.alt = item.title;
-        img.loading = "lazy";
-
-        // Create info container
-        const info = document.createElement('div');
-        info.className = 'item-info';
-        info.innerHTML = `
-            <h3>${item.title}</h3>
-            <h4>Artist: ${item.artist}</h4>
-        `;
-
-        // Append elements to the list item
-        listItem.appendChild(img);
-        listItem.appendChild(info);
-        galleryGrid.appendChild(listItem);
-    });
 }
 
 // Set up all event listeners
@@ -190,7 +158,7 @@ function setupEventListeners() {
     filterButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const filter = e.target.getAttribute('data-filter') ||
-                           e.target.closest('.filter-btn').getAttribute('data-filter');
+                e.target.closest('.filter-btn').getAttribute('data-filter');
 
             // Update active button
             filterButtons.forEach(button => button.classList.remove('active'));
@@ -205,13 +173,25 @@ function setupEventListeners() {
     // Search input
     searchInput.addEventListener('input', debounce(() => {
         currentSearch = searchInput.value.trim().toLowerCase();
+        updateClearSearchButton();
         applyFiltersAndSort();
     }, 300));
 
     searchButton.addEventListener('click', () => {
         currentSearch = searchInput.value.trim().toLowerCase();
+        updateClearSearchButton();
         applyFiltersAndSort();
     });
+
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearch = '';
+        updateClearSearchButton();
+        applyFiltersAndSort();
+    });
+
+    // Update clear search button visibility initially
+    updateClearSearchButton();
 
     // Sort selection
     sortSelect.addEventListener('change', () => {
@@ -219,26 +199,9 @@ function setupEventListeners() {
         applyFiltersAndSort();
     });
 
-    // View toggle
-    gridViewBtn.addEventListener('click', () => {
-        if (currentView !== 'grid') {
-            currentView = 'grid';
-            updateViewToggle();
-            renderGallery();
-        }
-    });
-
-    listViewBtn.addEventListener('click', () => {
-        if (currentView !== 'list') {
-            currentView = 'list';
-            updateViewToggle();
-            renderGallery();
-        }
-    });
-
     // Gallery item clicks to open popup
     galleryGrid.addEventListener('click', (e) => {
-        const galleryItem = e.target.closest('.gallery-item') || e.target.closest('.list-item');
+        const galleryItem = e.target.closest('.gallery-item');
         if (!galleryItem) return;
 
         const index = parseInt(galleryItem.getAttribute('data-index'));
@@ -280,10 +243,12 @@ function setupEventListeners() {
     // Touch swipe support for image popup on mobile
     imagePopup.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
     }, false);
 
     imagePopup.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
     }, false);
 
@@ -291,9 +256,7 @@ function setupEventListeners() {
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            if (currentView === 'grid') {
-                resizeAllGridItems();
-            }
+            resizeAllGridItems();
         }, 100);
     });
 }
@@ -303,21 +266,21 @@ function handleSwipe() {
     if (!popupOpen) return;
 
     const swipeThreshold = 50; // minimum swipe distance
-    const swipeDistance = touchEndX - touchStartX;
+    const swipeDistanceX = touchEndX - touchStartX;
+    const swipeDistanceY = touchEndY - touchStartY;
 
-    if (swipeDistance > swipeThreshold) {
+    if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+        // Vertical swipe detected, ignore
+        return;
+    }
+
+    if (swipeDistanceX > swipeThreshold) {
         // Swiped right - go to previous
         showPreviousImage();
-    } else if (swipeDistance < -swipeThreshold) {
+    } else if (swipeDistanceX < -swipeThreshold) {
         // Swiped left - go to next
         showNextImage();
     }
-}
-
-// Update the view toggle buttons
-function updateViewToggle() {
-    gridViewBtn.classList.toggle('active', currentView === 'grid');
-    listViewBtn.classList.toggle('active', currentView === 'list');
 }
 
 // Apply current filters and sort
@@ -372,7 +335,7 @@ function sortItems() {
 // Simple debounce function for search input
 function debounce(func, delay) {
     let timeout;
-    return function() {
+    return function () {
         const context = this;
         const args = arguments;
         clearTimeout(timeout);
@@ -380,7 +343,7 @@ function debounce(func, delay) {
     };
 }
 
-// Masonry layout calculation - Updated for better mobile support
+// Masonry layout calculation - Enhanced for better handling of wide images
 function resizeGridItem(item) {
     if (!item || !galleryGrid) return;
 
@@ -396,13 +359,50 @@ function resizeGridItem(item) {
         return;
     }
 
-    // Use actual image height for loaded images
+    // Get actual dimensions of the image
     const contentHeight = img.offsetHeight;
-    const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
 
-    // Ensure a minimum span
-    const minSpan = isMobile ? 10 : 15;
-    item.style.gridRowEnd = `span ${Math.max(rowSpan, minSpan)}`;
+    // Calculate aspect ratio (width/height)
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+
+    // Create an advanced adjustment curve based on aspect ratio
+    let adjustedHeight = contentHeight;
+    let aspectAdjustment = 1;
+
+    // Enhanced aspect ratio handling with progressive scaling
+    if (aspectRatio > 1) {
+        // For landscape images, apply progressive reduction based on how wide they are
+        // This creates a smooth curve where wider images get progressively smaller height allocations
+        // 1.0 = square, 1.5 = 3:2 landscape, 2.0 = 2:1 landscape, 3.0 = extremely wide panorama
+        if (aspectRatio <= 1.5) {
+            // Mild reduction for slightly wide images (1:1 to 3:2)
+            aspectAdjustment = 1 - (aspectRatio - 1) * 0.2;
+        } else if (aspectRatio <= 2.5) {
+            // Medium reduction for wide images (3:2 to 5:2)
+            aspectAdjustment = 0.9 - (aspectRatio - 1.5) * 0.25;
+        } else {
+            // Strong reduction for panoramic images (wider than 5:2)
+            aspectAdjustment = 0.65 - Math.min(0.25, (aspectRatio - 2.5) * 0.1);
+        }
+
+        adjustedHeight = contentHeight * aspectAdjustment;
+    }
+
+    // Calculate row span based on adjusted height
+    const rowSpan = Math.ceil((adjustedHeight + rowGap) / (rowHeight + rowGap));
+
+    // Set minimum span based on aspect ratio to prevent too small cells for wide images
+    // Wider images get smaller minimum spans since they need less vertical space
+    const baseMinSpan = isMobile ? 8 : 12;
+    const aspectRatioFactor = Math.min(1, 1.2 / aspectRatio); // Normalize aspect ratio effect
+    const minSpan = Math.max(Math.floor(baseMinSpan * aspectRatioFactor), 5);
+
+    // Set the final row span
+    const finalSpan = Math.max(rowSpan, minSpan);
+    item.style.gridRowEnd = `span ${finalSpan}`;
+
+    // Add a custom property to track aspect ratio for CSS styling
+    item.style.setProperty('--aspect-ratio', aspectRatio.toFixed(2));
 }
 
 // Apply masonry calculations to all items - Optimized for mobile
@@ -452,28 +452,17 @@ function openPopup(index) {
     imagePopup.style.display = 'block';
     popupOpen = true;
 
-    setTimeout(() => {
-        imagePopup.querySelector('.popup-overlay').style.opacity = '1';
-        imagePopup.querySelector('.popup-content').style.opacity = '1';
-    }, 10);
-
     // Prevent body scrolling when popup is open
     document.body.style.overflow = 'hidden';
 }
 
 function closePopup() {
-    const overlay = imagePopup.querySelector('.popup-overlay');
-    const content = imagePopup.querySelector('.popup-content');
-
-    overlay.style.opacity = '0';
-    content.style.opacity = '0';
+    // Remove opacity transitions
+    imagePopup.style.display = 'none';
     popupOpen = false;
 
-    setTimeout(() => {
-        imagePopup.style.display = 'none';
-        // Re-enable scrolling
-        document.body.style.overflow = '';
-    }, 300);
+    // Re-enable scrolling immediately
+    document.body.style.overflow = '';
 }
 
 function showPreviousImage() {
@@ -513,41 +502,19 @@ function updatePopupContent() {
     };
 }
 
-// Load animated items from separate JSON file (if exists)
-async function loadAnimatedItems() {
-    try {
-        const response = await fetch('/assets/gallery/animated.json');
-        if (!response.ok) return;
-
-        const animatedItems = await response.json();
-
-        // Add animated items to gallery
-        if (Array.isArray(animatedItems) && animatedItems.length > 0) {
-            // Add original index and apply the same processing
-            const processedAnimatedItems = animatedItems.map((item, idx) => {
-                const lowerTitle = item.title.toLowerCase();
-                let category = item.category || 'other';
-
-                return {
-                    ...item,
-                    originalIndex: -(animatedItems.length - idx) // Negative to ensure they come first
-                };
-            });
-
-            galleryItems = [...processedAnimatedItems, ...galleryItems];
-            filteredItems = [...galleryItems];
-            renderGallery();
-        }
-    } catch (error) {
-        console.log('No animated items found or error loading them');
+// Update clear search button visibility
+function updateClearSearchButton() {
+    const searchContainer = searchInput.parentElement;
+    if (currentSearch) {
+        clearSearchBtn.style.display = 'block';
+        searchContainer.classList.add('has-text');
+    } else {
+        clearSearchBtn.style.display = 'none';
+        searchContainer.classList.remove('has-text');
     }
 }
 
 // Initialize the gallery when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we're on mobile first
-    isMobile = window.innerWidth < 768;
-
     initGallery();
-    loadAnimatedItems();
 });

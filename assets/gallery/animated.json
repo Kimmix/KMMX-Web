@@ -1,37 +1,22 @@
 [
   {
-    "imgSrc": "assets/gallery/img3.webp",
-    "title": "Animated Commission",
-    "artist": "GlowingArt",
-    "category": "commission",
-    "isAnimated": true
-  },
-  {
     "imgSrc": "assets/gallery/img26.webp",
     "title": "Animated YCH",
-    "artist": "AnimeFluff",
-    "category": "ych",
-    "isAnimated": true
+    "artist": "AnimeFluff"
   },
   {
     "imgSrc": "assets/gallery/img33.webp",
     "title": "Animated Gift Art",
-    "artist": "GalacticCreations",
-    "category": "gift",
-    "isAnimated": true
+    "artist": "GalacticCreations"
   },
   {
     "imgSrc": "assets/gallery/img39.webp",
     "title": "Special Animation",
-    "artist": "PixelMaster",
-    "category": "commission",
-    "isAnimated": true
+    "artist": "PixelMaster"
   },
   {
     "imgSrc": "assets/gallery/img43.webp",
     "title": "Animated Commission",
-    "artist": "DigitalDreamers",
-    "category": "commission",
-    "isAnimated": true
+    "artist": "DigitalDreamers"
   }
 ]
