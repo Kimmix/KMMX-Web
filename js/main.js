@@ -1,136 +1,62 @@
-// Detect desktop or mobile environment
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-// const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(navigator.userAgent) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
-// const isDesktop = !isMobile && !isTablet;
-
-// Initialize Lenis
-document.addEventListener("DOMContentLoaded", () => {
-    const lenis = new Lenis()
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    })
-    gsap.ticker.lagSmoothing(0);
-    gsap.registerPlugin(ScrollTrigger);
-
-
-    gsap.utils.toArray("[data-speed]").forEach(layer => {
-        let speed = layer.dataset.speed;
-        let movement = -(layer.offsetHeight * speed)
-        gsap.to(layer, {
-            y: movement,
-            ease: "none",
-            scrollTrigger: {
-                trigger: "#parallax",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
-        }, 0)
-    });
-
-    const POPPERS = document.querySelectorAll(".pop-out-image");
-
-    POPPERS.forEach((pop) => {
-        const IMG = pop.querySelectorAll("img");
-        gsap.to(IMG, {
-            scrollTrigger: {
-                trigger: pop,
-                scrub: 1,
-                start: isMobile ? "bottom bottom+=5" : "bottom bottom+=50",
-                end: "top top+=50"
-            },
-            filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
-            yPercent: -30
-        });
-    });
-
-    // Set age and handle feedback form
-    const ageElement = document.getElementById('age');
-    if (ageElement) {
-        ageElement.textContent = calculateAge("1996-04-27");
-    }
-
-    // Feedback form handling
-    const feedbackForm = document.getElementById("feedbackMessage");
-    const sendButton = document.getElementById("sendFeedback");
-
-    if (sendButton && feedbackForm) {
-        // Add input event listener to check content as user types
-        feedbackForm.addEventListener("input", () => {
-            const message = feedbackForm.value.trim();
-            if (message) {
-                sendButton.disabled = false;
-            }
-        });
-
-        sendButton.addEventListener("click", (e) => {
-            e.preventDefault();
-            const message = feedbackForm.value.trim();
-
-            // Double check the message content
-            if (message && message.length > 0) {
-                showNotification("Thank you for your feedback!");
-                feedbackForm.value = ""; // Clear the form
-            } else {
-                showNotification("Please enter a message before sending.");
-            }
-        });
-    }
-});
-
-// Check device type
-function getDeviceType() {
+// Utility functions
+// -----------------------------------------
+// Device detection - consolidated into one function
+const deviceInfo = (function() {
     const ua = navigator.userAgent;
+    const isMobile = /Mobi|Android/i.test(ua);
+    const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+    const isDesktop = !isMobile && !isTablet;
 
-    if (/Mobi|Android/i.test(ua)) {
-        return 'Mobile';
-    }
-    if (/iPad|Tablet|PlayBook|Silk/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2)) {
-        return 'Tablet';
-    }
-    return 'Desktop';
+    return {
+        isMobile,
+        isTablet,
+        isDesktop,
+        getDeviceType() {
+            return isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop';
+        }
+    };
+})();
+
+// Throttle function - removed duplication
+function throttle(func, limit) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
 }
 
-// Display the detected device type
-document.addEventListener('DOMContentLoaded', () => {
-    const deviceType = getDeviceType();
-    document.getElementById('deviceType').textContent = `Detected ${deviceType} device.`;
-});
+// Calculate age
+function calculateAge(birthDateString) {
+    const today = new Date();
+    const birth = new Date(birthDateString);
+    const age = today.getFullYear() - birth.getFullYear();
+    return today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? age - 1 : age;
+}
 
+// Show notification
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const notificationMessage = notification.querySelector('.notification-message');
+    notificationMessage.textContent = message;
+    notification.classList.add('show');
 
-//? mouse parallax
-const particles = document.querySelectorAll(".shard");
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
 
-
-// Initialize IntersectionObserver
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            if (isMobile) {
-                enableAccelerometerParallax();
-            } else {
-                document.addEventListener("mousemove", throttledParallax);
-            }
-        } else {
-            document.removeEventListener("mousemove", throttledParallax);
-            if (isMobile) disableAccelerometerParallax();
-        }
-    });
-});
-
-// Observe particles
-particles.forEach((particle) => observer.observe(particle));
-
-// Throttle function for smoother performance
-const throttledParallax = throttle(parallax, 16);
-
+// Parallax effects
+// -----------------------------------------
 // Desktop parallax effect
 function parallax(event) {
     const { innerWidth, innerHeight } = window;
     const { pageX, pageY } = event;
 
-    particles.forEach((particle) => {
+    document.querySelectorAll(".shard").forEach((particle) => {
         const position = parseFloat(particle.getAttribute("value"));
         const x = (innerWidth - pageX * position) / 90;
         const y = (innerHeight - pageY * position) / 160;
@@ -138,12 +64,18 @@ function parallax(event) {
     });
 }
 
+// Clamp helper
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
 // Mobile parallax effect using accelerometer
 function handleMotion(event) {
     const { gamma, beta } = event; // gamma: left-to-right tilt, beta: front-to-back tilt
     const x = clamp(gamma * 0.6, -100, 20);
     const y = clamp((beta - 90) * 0.4, -70, 30);
-    particles.forEach((particle) => {
+
+    document.querySelectorAll(".shard").forEach((particle) => {
         const position = parseFloat(particle.getAttribute("value"));
         const offsetX = x * position;
         const offsetY = y * position;
@@ -151,80 +83,287 @@ function handleMotion(event) {
     });
 }
 
-function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-}
+// Parallax control functions
+const parallaxControl = {
+    enableAccelerometer() {
+        if (window.DeviceMotionEvent) {
+            window.addEventListener("deviceorientation", handleMotion);
+        }
+    },
 
-// Enable accelerometer parallax
-function enableAccelerometerParallax() {
-    if (window.DeviceMotionEvent) {
-        window.addEventListener("deviceorientation", handleMotion);
+    disableAccelerometer() {
+        window.removeEventListener("deviceorientation", handleMotion);
+    },
+
+    throttledParallax: null, // Will be initialized on setup
+
+    setup() {
+        this.throttledParallax = throttle(parallax, 16);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    if (deviceInfo.isMobile) {
+                        this.enableAccelerometer();
+                    } else {
+                        document.addEventListener("mousemove", this.throttledParallax);
+                    }
+                } else {
+                    document.removeEventListener("mousemove", this.throttledParallax);
+                    if (deviceInfo.isMobile) this.disableAccelerometer();
+                }
+            });
+        });
+
+        // Observe all particles
+        const particles = document.querySelectorAll(".shard");
+        if (particles.length > 0) {
+            particles.forEach((particle) => observer.observe(particle));
+        }
     }
-}
+};
 
-// Disable accelerometer parallax
-function disableAccelerometerParallax() {
-    window.removeEventListener("deviceorientation", handleMotion);
-}
-
-// Throttle function to limit event frequency
-function throttle(func, limit) {
-    let lastCall = 0;
-    return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= limit) {
-            lastCall = now;
-            func.apply(this, args);
+// App initialization modules
+// -----------------------------------------
+const App = {
+    // Initialize smooth scrolling
+    initSmoothScroll() {
+        // Skip Lenis initialization if we're on section page
+        if (window.location.pathname.includes('section.html')) {
+            console.log('Skipping Lenis initialization on section.html page');
+            return null;
         }
-    };
-}
 
+        const lenis = new Lenis({
+            duration: 1.0, // Reduced from 1.2 for better performance
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            smoothTouch: false, // Disable on touch devices for better performance
+            touchMultiplier: 2,
+            wheelMultiplier: 0.8, // Slightly reduced for better control
+            lerp: 0.08, // Lower lerp for better performance
+        });
 
-// Throttle function to limit execution frequency
-function throttle(func, limit) {
-    let lastCall = 0;
-    return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= limit) {
-            lastCall = now;
-            func.apply(this, args);
-        }
-    };
-}
+        // Only connect with GSAP if lenis was initialized
+        if (lenis) {
+            // Connect with GSAP - use a throttled callback for better performance
+            const throttledUpdate = throttle(() => {
+                ScrollTrigger.update();
+            }, 100); // Only update ScrollTrigger every 100ms max
 
-document.querySelectorAll('.triangle').forEach(triangle => {
-    const randomStart = Math.floor(Math.random() * 360) - 180; // Random between -180 and 180 degrees
-    const randomEnd = Math.floor(Math.random() * 360) - 180;   // Random between -180 and 180 degrees
-    triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
-    triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
-});
+            lenis.on("scroll", throttledUpdate);
 
-// Auto pause video
-var heroVideo = document.getElementById("heroVideo");
-
-var io = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                heroVideo.play();
-            } else {
-                heroVideo.pause();
+            // Use requestAnimationFrame instead of gsap.ticker for better performance
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
             }
+            requestAnimationFrame(raf);
+
+            // Expose lenis to window for other scripts to detect
+            window.lenis = lenis;
+        }
+
+        // Prevent unnecessary GSAP lag smoothing
+        gsap.ticker.lagSmoothing(0);
+
+        return lenis;
+    },
+
+    // Initialize GSAP and ScrollTrigger
+    initGSAP() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Force GSAP to use transform instead of top/left for better performance
+        gsap.config({
+            force3D: true
+        });
+
+        // Mark ScrollTrigger to use requestAnimationFrame
+        ScrollTrigger.config({
+            autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
         });
     },
-    {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1
+
+    // Setup image pop-out animations
+    setupImageAnimations() {
+        const poppers = document.querySelectorAll(".pop-out-image");
+        if (poppers.length === 0) return;
+
+        poppers.forEach((pop) => {
+            const images = pop.querySelectorAll("img");
+            if (images.length === 0) return;
+
+            // Create an efficient ScrollTrigger
+            gsap.to(images, {
+                scrollTrigger: {
+                    trigger: pop,
+                    scrub: 1,
+                    start: deviceInfo.isMobile ? "bottom bottom+=5" : "bottom bottom+=50",
+                    end: "top top+=50",
+                    toggleActions: "play none none reverse"
+                },
+                filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
+                yPercent: -30
+            });
+        });
+    },
+
+    // Setup age display
+    setupAgeDisplay() {
+        const ageElement = document.getElementById('age');
+        if (ageElement) {
+            ageElement.textContent = calculateAge("1996-04-27");
+        }
+    },
+
+    // Setup feedback form
+    setupFeedbackForm() {
+        const feedbackForm = document.getElementById("feedbackMessage");
+        const sendButton = document.getElementById("sendFeedback");
+
+        if (sendButton && feedbackForm) {
+            // Update button state based on input
+            feedbackForm.addEventListener("input", () => {
+                sendButton.disabled = !feedbackForm.value.trim();
+            });
+
+            // Handle form submission
+            sendButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                const message = feedbackForm.value.trim();
+
+                if (message) {
+                    showNotification("Thank you for your feedback!");
+                    feedbackForm.value = ""; // Clear the form
+                    sendButton.disabled = true; // Disable button after submission
+                } else {
+                    showNotification("Please enter a message before sending.");
+                }
+            });
+        }
+    },
+
+    // Setup device type display
+    setupDeviceTypeDisplay() {
+        const deviceTypeElement = document.getElementById('deviceType');
+        if (deviceTypeElement) {
+            deviceTypeElement.textContent = `Detected ${deviceInfo.getDeviceType()} device.`;
+        }
+    },
+
+    // Setup random triangle rotations
+    setupTriangleAnimations() {
+        const triangles = document.querySelectorAll('.triangle');
+        if (triangles.length === 0) return;
+
+        triangles.forEach(triangle => {
+            const randomStart = Math.floor(Math.random() * 360) - 180;
+            const randomEnd = Math.floor(Math.random() * 360) - 180;
+            triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
+            triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
+        });
+    },
+
+    // Setup video autoplay/pause
+    setupVideoControl() {
+        const heroVideo = document.getElementById("heroVideo");
+        if (!heroVideo) return;
+
+        // Use IntersectionObserver for better performance
+        const videoObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    // Only play when at least 30% visible
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                        heroVideo.play().catch(() => {
+                            // Handle autoplay restrictions
+                            console.log("Video autoplay prevented by browser");
+                        });
+                    } else {
+                        heroVideo.pause();
+                    }
+                });
+            },
+            {
+                threshold: [0.3, 0.7] // Check at 30% and 70% visibility
+            }
+        );
+
+        videoObserver.observe(heroVideo);
+    },
+
+    // Setup stat bars
+    setupStatBars() {
+        const statBars = document.querySelectorAll('.stat-bar');
+        if (statBars.length === 0) return;
+
+        // Use an intersection observer to only animate when visible
+        const statObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const div = entry.target;
+                        const position = div.getAttribute('data-position');
+                        div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
+
+                        // Unobserve after animation is applied
+                        statObserver.unobserve(div);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        statBars.forEach((div) => statObserver.observe(div));
+    },
+
+    // Main initialization
+    init() {
+        // Initialize GSAP first (needed regardless of page)
+        this.initGSAP();
+
+        // Initialize Lenis smooth scrolling - only if not on section.html
+        const lenisInstance = this.initSmoothScroll();
+
+        // Add a class to body if Lenis is disabled, so CSS can adjust accordingly
+        if (!lenisInstance) {
+            document.body.classList.add('lenis-disabled');
+        }
+
+        // Schedule less critical initializations with small delays
+        // to improve initial load performance
+        setTimeout(() => {
+            // Set up dynamic content and elements
+            this.setupAgeDisplay();
+            this.setupDeviceTypeDisplay();
+
+            // Set up parallax effects - only if Lenis is enabled (not on section page)
+            if (lenisInstance) {
+                parallaxControl.setup();
+            }
+
+            // Set up form interaction
+            this.setupFeedbackForm();
+        }, 10);
+
+        // Slightly delay animations to ensure smooth page load
+        setTimeout(() => {
+            // Set up animations
+            this.setupImageAnimations();
+            this.setupTriangleAnimations();
+            this.setupVideoControl();
+            this.setupStatBars();
+
+            // Set up interactions
+            setupSocialInteractions();
+        }, 100);
     }
-);
+};
 
-// after confirming the element exists, look for the #heroVideo when visible in viewport
-if (heroVideo) {
-    io.observe(heroVideo)
-}
-
-//! BIO
+// Content section navigation
 function showContent(sectionId, event) {
     event.preventDefault();
     // Hide all content sections
@@ -242,107 +381,97 @@ function showContent(sectionId, event) {
     event.target.classList.add('active');
 }
 
-document.querySelectorAll('.stat-bar').forEach((div) => {
-    const position = div.getAttribute('data-position');
-    div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
-});
+// Social interactions
+// -----------------------------------------
+function setupSocialInteractions() {
+    // Social links hover effects
+    const socialLinks = document.querySelectorAll('.social-link');
+    if (socialLinks.length === 0) return;
 
+    socialLinks.forEach(link => {
+        // Precomputed selectors for better performance
+        const icon = link.querySelector('.social-icon');
+        if (!icon) return;
 
-//! ABOUT ME
-// Calculate age
-function calculateAge(birthDateString) {
-    const today = new Date();
-    const birth = new Date(birthDateString);
-    const age = today.getFullYear() - birth.getFullYear();
-    return today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? age - 1 : age;
-  }
+        // Use a simple CSS class for hover instead of GSAP for better performance
+        link.addEventListener('mouseenter', () => {
+            icon.classList.add('hover-scale');
+        });
 
-// Show notification
-function showNotification(message) {
-    const notification = document.getElementById('notification');
-    const notificationMessage = notification.querySelector('.notification-message');
-    notificationMessage.textContent = message;
-    notification.classList.add('show');
+        link.addEventListener('mouseleave', () => {
+            icon.classList.remove('hover-scale');
+        });
 
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 3000);
+        // Handle social link clicks with splash screen
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const platform = link.classList[1];
+            const href = link.getAttribute('href');
+            const splash = document.querySelector('.social-splash');
+            if (!splash) {
+                window.open(href, '_blank');
+                return;
+            }
+
+            const splashIcon = splash.querySelector('.splash-icon');
+            if (!splashIcon) {
+                window.open(href, '_blank');
+                return;
+            }
+
+            // Reset any ongoing animations and states
+            gsap.killTweensOf(splashIcon);
+            gsap.killTweensOf(splash);
+            splash.style.opacity = '';
+            splashIcon.style.opacity = '';
+            gsap.set(splashIcon, { scale: 0 });
+
+            // Remove any existing platform classes
+            splash.className = 'social-splash';
+
+            // Clone the icon and make it white
+            const iconSvg = link.querySelector('.social-icon svg');
+            if (iconSvg) {
+                const iconClone = iconSvg.cloneNode(true);
+                iconClone.style.fill = '#FFFFFF';
+                splashIcon.innerHTML = '';
+                splashIcon.appendChild(iconClone);
+            }
+
+            // Add platform class and show splash
+            splash.classList.add(platform);
+            splash.classList.add('active');
+
+            // Quick animation sequence
+            gsap.timeline()
+                .to(splashIcon, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                })
+                .to(splashIcon, {
+                    scale: 1.2,
+                    opacity: 0,
+                    duration: 0.2,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        window.open(href, '_blank');
+                    }
+                })
+                .to(splash, {
+                    opacity: 0,
+                    duration: 0.2,
+                    onComplete: () => {
+                        splash.classList.remove('active', platform);
+                        splashIcon.style.opacity = '1';
+                        gsap.set(splashIcon, { scale: 0 });
+                    }
+                });
+        });
+    });
 }
 
-// Social links hover effects
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', e => {
-        const icon = e.currentTarget.querySelector('.social-icon');
-        gsap.to(icon, {
-            scale: 1.1,
-            duration: 0.3,
-            ease: "back.out(1.7)"
-        });
-    });
-
-    link.addEventListener('mouseleave', e => {
-        const icon = e.currentTarget.querySelector('.social-icon');
-        gsap.to(icon, {
-            scale: 1,
-            duration: 0.3,
-            ease: "back.out(1.7)"
-        });
-    });
-});
-
-// Handle social link clicks with splash screen
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const platform = link.classList[1];
-        const href = link.getAttribute('href');
-        const splash = document.querySelector('.social-splash');
-        const splashIcon = splash.querySelector('.splash-icon');
-
-        // Reset any ongoing animations and states
-        gsap.killTweensOf(splashIcon);
-        gsap.killTweensOf(splash);
-        splash.style.opacity = '';
-        splashIcon.style.opacity = '';
-        gsap.set(splashIcon, { scale: 0 });
-
-        // Remove any existing platform classes
-        splash.className = 'social-splash';
-
-        // Clone the icon and make it white
-        const iconClone = link.querySelector('.social-icon svg').cloneNode(true);
-        iconClone.style.fill = '#FFFFFF';
-        splashIcon.innerHTML = '';
-        splashIcon.appendChild(iconClone);
-
-        // Add platform class and show splash
-        splash.classList.add(platform);
-        splash.classList.add('active');
-
-        // Quick animation sequence
-        gsap.timeline()
-            .to(splashIcon, {
-                scale: 1,
-                duration: 0.3,
-                ease: "back.out(1.7)"
-            })
-            .to(splashIcon, {
-                scale: 1.2,
-                opacity: 0,
-                duration: 0.2,
-                ease: "power2.in",
-                onComplete: () => {
-                    window.open(href, '_blank');
-                }
-            })
-            .to(splash, {
-                opacity: 0,
-                duration: 0.2,
-                onComplete: () => {
-                    splash.classList.remove('active', platform);
-                    splashIcon.style.opacity = '1';
-                    gsap.set(splashIcon, { scale: 0 });
-                }
-            });
-    });
+// Initialize on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+    App.init();
 });

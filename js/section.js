@@ -25,21 +25,6 @@ function showContent(id, e) {
     } else {
         document.querySelector(`.sidebar a[href="#${id}"]`).classList.add('active');
     }
-
-    // Scroll the content to the top using the global lenis instance if available
-    if (window.lenis) {
-        // Use Lenis scrollTo with immediate:true to force instant scroll
-        window.lenis.scrollTo(0, { immediate: true });
-    } else {
-        // Fallback to direct DOM scrolling for browsers without Lenis
-        const contentContainer = document.querySelector('.content');
-        if (contentContainer) {
-            contentContainer.scrollTo({
-                top: 0,
-                behavior: 'auto'
-            });
-        }
-    }
 }
 
 // Background context switching functionality
@@ -60,6 +45,18 @@ What drove Kimmix to eventually accept Nehixim's offer wasn't the prestige or re
 In public settings, Kimmix appears detached and often abrasive, intentionally cultivating a reputation as a difficult personality to discourage casual interactions. This carefully constructed facade has been effective in limiting unwanted attention, though it has occasionally backfired when his research requires cooperation from others. Only a select few have glimpsed the dry humor and occasional moments of unexpected compassion that lie beneath his guarded exterior.`
     }
 };
+
+// Throttling function to limit how often a function runs
+function throttle(callback, delay = 100) {
+    let lastCall = 0;
+    return function(...args) {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            callback.apply(this, args);
+        }
+    };
+}
 
 function setupContextButtons() {
     const contextButtons = {
@@ -115,9 +112,9 @@ function setupContextButtons() {
     });
 }
 
-// Initialize mouse tracking for hover effects
-document.addEventListener('mousemove', e => {
-    const cards = document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card');
+// Initialize mouse tracking for hover effects - throttled to improve performance
+const handleMouseMove = throttle((e) => {
+    const cards = document.querySelectorAll('.equipment-card:hover, .stat-card:hover, .visualization:hover, .skill-card:hover');
 
     cards.forEach(card => {
         const rect = card.getBoundingClientRect();
@@ -126,24 +123,14 @@ document.addEventListener('mousemove', e => {
 
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
-
-        // Add glow effect when mouse is over the card
-        if (
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom
-        ) {
-            card.style.setProperty('--card-glow-opacity', '1');
-            card.style.setProperty('--glow-opacity', '1');
-        } else {
-            card.style.setProperty('--card-glow-opacity', '0');
-            card.style.setProperty('--glow-opacity', '0');
-        }
+        card.style.setProperty('--card-glow-opacity', '1');
+        card.style.setProperty('--glow-opacity', '1');
     });
-});
+}, 16); // ~60fps (1000ms/60 ≈ 16ms)
 
-// Quotes functionality
+document.addEventListener('mousemove', handleMouseMove);
+
+// Quotes functionality - optimized
 let kimmixQuotes = []; // Will be populated from JSON file
 let quoteHistory = []; // Keep track of recently shown quotes
 const historySize = 15; // How many quotes to remember (avoid repeating)
@@ -177,13 +164,9 @@ function saveQuoteHistory() {
 
 // Implementation of Fisher-Yates shuffle for true randomization
 function shuffleArray(array) {
-    // Create a copy of the array to avoid modifying the original
     const shuffled = [...array];
 
-    // Fisher-Yates shuffle algorithm
     for (let i = shuffled.length - 1; i > 0; i--) {
-        // Generate a random index from 0 to i
-        // Use crypto API for better randomness if available
         let j;
         if (window.crypto && window.crypto.getRandomValues) {
             const randomBuffer = new Uint32Array(1);
@@ -193,7 +176,6 @@ function shuffleArray(array) {
             j = Math.floor(Math.random() * (i + 1));
         }
 
-        // Swap elements at i and j
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
 
@@ -204,58 +186,61 @@ function shuffleArray(array) {
 function selectNextQuote() {
     if (kimmixQuotes.length === 0) return null;
 
-    // Create a pool of candidate quotes by filtering out recently shown ones
     let candidateQuotes = kimmixQuotes.filter(quote =>
         !quoteHistory.some(historyItem =>
             historyItem.text === quote.text
         )
     );
 
-    // If we've exhausted our pool of fresh quotes, use all quotes
     if (candidateQuotes.length === 0) {
         console.log("All quotes have been shown recently, resetting...");
         candidateQuotes = kimmixQuotes;
     }
 
-    // Shuffle the candidates for true randomness
     const shuffledCandidates = shuffleArray(candidateQuotes);
-
-    // Select the first quote from the shuffled array
     const selectedQuote = shuffledCandidates[0];
 
-    // Add the selected quote to history
     quoteHistory.unshift({
         text: selectedQuote.text,
         source: selectedQuote.source,
         timestamp: Date.now()
     });
 
-    // Trim history to maintain historySize
     if (quoteHistory.length > historySize) {
         quoteHistory.splice(historySize);
     }
 
-    // Save updated history
     saveQuoteHistory();
 
     return selectedQuote;
 }
 
-// Function to fetch quotes from JSON file
+// Function to fetch quotes from JSON file with caching
 async function loadQuotes() {
     try {
-        const response = await fetch('../assets/data/quotes.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        const cachedQuotes = sessionStorage.getItem('kimmixQuotes');
+        if (cachedQuotes) {
+            kimmixQuotes = JSON.parse(cachedQuotes).quotes;
+            console.log('Loaded quotes from cache');
+        } else {
+            const response = await fetch('./assets/data/quotes.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            kimmixQuotes = data.quotes;
+
+            try {
+                sessionStorage.setItem('kimmixQuotes', JSON.stringify({ quotes: kimmixQuotes }));
+            } catch (e) {
+                console.warn('Failed to cache quotes', e);
+            }
         }
-        const data = await response.json();
-        kimmixQuotes = data.quotes;
-        // Load quote history from localStorage
+
         loadQuoteHistory();
-        // Set up automatic rotation
         quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
-        // Add click handler to the quote block
         setupQuoteClickHandler();
+        updateQuote();
     } catch (error) {
         console.error('Error loading quotes:', error);
     }
@@ -266,15 +251,12 @@ function setupQuoteClickHandler() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (quoteBlock) {
         quoteBlock.addEventListener('click', () => {
-            // Prevent rapid clicking while a quote is animating
             if (isTypingQuote) return;
 
-            // Reset interval and show new quote
             clearInterval(quoteChangeInterval);
             updateQuote();
             quoteChangeInterval = setInterval(updateQuote, QUOTE_DISPLAY_TIME);
 
-            // Add a subtle feedback animation
             quoteBlock.classList.add('clicked');
             setTimeout(() => {
                 quoteBlock.classList.remove('clicked');
@@ -287,7 +269,6 @@ function setupQuoteClickHandler() {
 function updateQuote() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (!quoteBlock || kimmixQuotes.length === 0) return;
-    // Get next non-repeating quote
     const nextQuote = selectNextQuote();
     if (!nextQuote) return;
 
@@ -295,37 +276,29 @@ function updateQuote() {
     const quoteCite = quoteBlock.querySelector('cite');
 
     if (quoteText && quoteCite) {
-        // Store the new quote text
         const newQuoteText = nextQuote.text;
         const newCiteText = `— Kimmix, ${nextQuote.source}`;
 
-        // Disable interaction during animation
         isTypingQuote = true;
 
-        // Fade transition
         quoteBlock.classList.add('fading');
 
         setTimeout(() => {
-            // Clear current content
             quoteText.textContent = '';
             quoteCite.style.opacity = '0';
             quoteCite.textContent = newCiteText;
 
-            // Remove fading class
             quoteBlock.classList.remove('fading');
 
-            // Type animation for quote text
             let charIndex = 0;
             typeInterval = setInterval(() => {
                 if (charIndex < newQuoteText.length) {
                     quoteText.textContent += newQuoteText.charAt(charIndex);
                     charIndex++;
                 } else {
-                    // Animation complete
                     clearInterval(typeInterval);
                     typeInterval = null;
 
-                    // Fade in the citation
                     quoteCite.style.transition = 'opacity 0.5s ease';
                     setTimeout(() => {
                         quoteCite.style.opacity = '1';
@@ -337,33 +310,11 @@ function updateQuote() {
     }
 }
 
-// Initialize smooth scrolling with Lenis if available
-// function initSmoothScroll() {
-//     if (typeof Lenis !== 'undefined') {
-//         // Create Lenis instance and store it globally
-//         window.lenis = new Lenis({
-//             duration: 1.2,
-//             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-//             direction: 'vertical',
-//             gestureDirection: 'vertical',
-//             smooth: true,
-//             mouseMultiplier: 1,
-//             smoothTouch: false,
-//             touchMultiplier: 2,
-//             infinite: false,
-//         });
-
-//         function raf(time) {
-//             window.lenis.raf(time);
-//             requestAnimationFrame(raf);
-//         }
-
-//         requestAnimationFrame(raf);
-//     }
-// }
-
 // Run initial setup
 document.addEventListener('DOMContentLoaded', () => {
+    // Add class to body to inform CSS that we're not using Lenis
+    document.body.classList.add('no-lenis');
+
     // Show default content
     showContent('info');
 
@@ -383,10 +334,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize smooth scrolling
-    // initSmoothScroll();
-
-    // Load quotes from JSON file
-    loadQuotes();
+    // Load quotes from JSON file with optimization
+    window.requestIdleCallback ?
+        window.requestIdleCallback(() => loadQuotes()) :
+        setTimeout(loadQuotes, 100);
 });
 

@@ -272,7 +272,8 @@ body {
         .content {
             flex: 1;
             max-width: 100%;
-            padding: 2rem;
+            padding-left: 2rem;
+            min-height: 1000px;
 
             @media (max-width: 768px) {
                 padding: 1rem 0;
@@ -2573,4 +2574,15 @@ body {
     .skill-stats {
         padding-top: 0.25rem;
     }
+}
+
+/* Add hardware acceleration hints for smoother animations */
+.equipment-card, .skill-card, .stat-card, .visualization {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.avatar-glow, .skill-icon-glow, .equipment-icon-glow, .quote-glyph {
+    will-change: opacity, transform;
+    transform: translateZ(0);
 }
