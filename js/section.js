@@ -338,29 +338,29 @@ function updateQuote() {
 }
 
 // Initialize smooth scrolling with Lenis if available
-function initSmoothScroll() {
-    if (typeof Lenis !== 'undefined') {
-        // Create Lenis instance and store it globally
-        window.lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
+// function initSmoothScroll() {
+//     if (typeof Lenis !== 'undefined') {
+//         // Create Lenis instance and store it globally
+//         window.lenis = new Lenis({
+//             duration: 1.2,
+//             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//             direction: 'vertical',
+//             gestureDirection: 'vertical',
+//             smooth: true,
+//             mouseMultiplier: 1,
+//             smoothTouch: false,
+//             touchMultiplier: 2,
+//             infinite: false,
+//         });
 
-        function raf(time) {
-            window.lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+//         function raf(time) {
+//             window.lenis.raf(time);
+//             requestAnimationFrame(raf);
+//         }
 
-        requestAnimationFrame(raf);
-    }
-}
+//         requestAnimationFrame(raf);
+//     }
+// }
 
 // Run initial setup
 document.addEventListener('DOMContentLoaded', () => {
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize smooth scrolling
-    initSmoothScroll();
+    // initSmoothScroll();
 
     // Load quotes from JSON file
     loadQuotes();

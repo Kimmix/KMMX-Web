@@ -12,23 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     gsap.ticker.lagSmoothing(0);
     gsap.registerPlugin(ScrollTrigger);
-    const stickySection = document.querySelector(".sticky");
-    const stickyHeader = document.querySelector(".sticky-header");
-    const stickyHeight = window.innerHeight * 2;
 
-    ScrollTrigger.create({
-        trigger: stickySection,
-        start: "top top",
-        end: `+=${stickyHeight}px`,
-        pin: true,
-        pinSpacing: true,
-        onUpdate: (self) => {
-            const progress = self.progress;
-            const maxTranslate = stickyHeader.offsetWidth - window.innerWidth;
-            const translateX = -progress * maxTranslate;
-            gsap.set(stickyHeader, { x: translateX });
-        },
-    });
 
     gsap.utils.toArray("[data-speed]").forEach(layer => {
         let speed = layer.dataset.speed;
@@ -264,29 +248,7 @@ document.querySelectorAll('.stat-bar').forEach((div) => {
 });
 
 
-//! Star-chart
-const professionContainer = document.querySelector('.star-chart');
-const professionItems = professionContainer.querySelectorAll('#profession');
-
-window.addEventListener('scroll', () => {
-    const rect = professionContainer.getBoundingClientRect();
-    const totalHeight = professionContainer.offsetHeight;
-    // Calculate scroll percentage
-    const percentage = Math.max(0, Math.min(100, ((window.innerHeight - rect.top) / totalHeight) * 100));
-    // console.log(percentage);
-    // Apply highlighting based on percentage ranges
-    professionItems.forEach((item, index) => {
-        item.classList.remove('highlight'); // Reset all highlights
-        if (index === 0 && percentage > 0 && percentage <= 30) {
-            item.classList.add('highlight');
-        } else if (index === 1 && percentage > 30 && percentage <= 49) {
-            item.classList.add('highlight');
-        } else if (index === 2 && percentage >= 50) {
-            item.classList.add('highlight');
-        }
-    });
-});
-
+//! ABOUT ME
 // Calculate age
 function calculateAge(birthDateString) {
     const today = new Date();
