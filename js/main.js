@@ -402,73 +402,79 @@ function setupSocialInteractions() {
             icon.classList.remove('hover-scale');
         });
 
-        // Handle social link clicks with splash screen
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const platform = link.classList[1];
-            const href = link.getAttribute('href');
-            const splash = document.querySelector('.social-splash');
-            if (!splash) {
-                window.open(href, '_blank');
-                return;
-            }
+        // Handle click events - for desktop
+        link.addEventListener('click', handleSocialLinkInteraction);
 
-            const splashIcon = splash.querySelector('.splash-icon');
-            if (!splashIcon) {
-                window.open(href, '_blank');
-                return;
-            }
-
-            // Reset any ongoing animations and states
-            gsap.killTweensOf(splashIcon);
-            gsap.killTweensOf(splash);
-            splash.style.opacity = '';
-            splashIcon.style.opacity = '';
-            gsap.set(splashIcon, { scale: 0 });
-
-            // Remove any existing platform classes
-            splash.className = 'social-splash';
-
-            // Clone the icon and make it white
-            const iconSvg = link.querySelector('.social-icon svg');
-            if (iconSvg) {
-                const iconClone = iconSvg.cloneNode(true);
-                iconClone.style.fill = '#FFFFFF';
-                splashIcon.innerHTML = '';
-                splashIcon.appendChild(iconClone);
-            }
-
-            // Add platform class and show splash
-            splash.classList.add(platform);
-            splash.classList.add('active');
-
-            // Quick animation sequence
-            gsap.timeline()
-                .to(splashIcon, {
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "back.out(1.7)"
-                })
-                .to(splashIcon, {
-                    scale: 1.2,
-                    opacity: 0,
-                    duration: 0.2,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        window.open(href, '_blank');
-                    }
-                })
-                .to(splash, {
-                    opacity: 0,
-                    duration: 0.2,
-                    onComplete: () => {
-                        splash.classList.remove('active', platform);
-                        splashIcon.style.opacity = '1';
-                        gsap.set(splashIcon, { scale: 0 });
-                    }
-                });
-        });
+        // Handle touch events - specifically for iOS/mobile
+        link.addEventListener('touchend', handleSocialLinkInteraction);
     });
+
+    // Separated event handler function to avoid code duplication
+    function handleSocialLinkInteraction(e) {
+        e.preventDefault();
+        const link = e.currentTarget;
+        const platform = link.classList[1];
+        const href = link.getAttribute('href');
+
+        // Safety fallback - ensure we always navigate even if animation fails
+        setTimeout(() => {
+            window.open(href, '_blank');
+        }, 500);
+
+        // Animation sequence if possible
+        const splash = document.querySelector('.social-splash');
+        if (!splash) {
+            window.open(href, '_blank');
+            return;
+        }
+
+        const splashIcon = splash.querySelector('.splash-icon');
+        if (!splashIcon) {
+            window.open(href, '_blank');
+            return;
+        }
+
+        // Reset any ongoing animations and states
+        gsap.killTweensOf(splashIcon);
+        gsap.killTweensOf(splash);
+        splash.style.opacity = '';
+        splashIcon.style.opacity = '';
+        gsap.set(splashIcon, { scale: 0 });
+
+        // Remove any existing platform classes
+        splash.className = 'social-splash';
+
+        // Clone the icon and make it white
+        const iconSvg = link.querySelector('.social-icon svg');
+        if (iconSvg) {
+            const iconClone = iconSvg.cloneNode(true);
+            iconClone.style.fill = '#FFFFFF';
+            splashIcon.innerHTML = '';
+            splashIcon.appendChild(iconClone);
+        }
+
+        // Add platform class and show splash
+        splash.classList.add(platform);
+        splash.classList.add('active');
+
+        // Simpler animation sequence with fewer steps
+        gsap.timeline()
+            .to(splashIcon, {
+                scale: 1,
+                duration: 0.3,
+                ease: "back.out(1.7)"
+            })
+            .to(splash, {
+                opacity: 0,
+                duration: 0.3,
+                delay: 0.2,
+                onComplete: () => {
+                    splash.classList.remove('active', platform);
+                    splashIcon.style.opacity = '1';
+                    gsap.set(splashIcon, { scale: 0 });
+                }
+            });
+    }
 }
 
 // Initialize on DOMContentLoaded
