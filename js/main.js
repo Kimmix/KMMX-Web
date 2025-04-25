@@ -125,243 +125,241 @@ const parallaxControl = {
 
 // App initialization modules
 // -----------------------------------------
-const App = {
-    // Initialize smooth scrolling
-    initSmoothScroll() {
-        // Skip Lenis initialization if we're on section page
-        if (window.location.pathname.includes('section.html')) {
-            console.log('Skipping Lenis initialization on section.html page');
-            return null;
-        }
+// Initialize smooth scrolling
+function initSmoothScroll() {
+    // Skip Lenis initialization if we're on section page
+    if (window.location.pathname.includes('section.html')) {
+        console.log('Skipping Lenis initialization on section.html page');
+        return null;
+    }
 
-        const lenis = new Lenis({
-            duration: 1.0, // Reduced from 1.2 for better performance
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            smoothTouch: false, // Disable on touch devices for better performance
-            touchMultiplier: 2,
-            wheelMultiplier: 0.8, // Slightly reduced for better control
-            lerp: 0.08, // Lower lerp for better performance
-        });
+    const lenis = new Lenis({
+        duration: 1.0, // Reduced from 1.2 for better performance
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        smoothTouch: false, // Disable on touch devices for better performance
+        touchMultiplier: 2,
+        wheelMultiplier: 0.8, // Slightly reduced for better control
+        lerp: 0.08, // Lower lerp for better performance
+    });
 
-        // Only connect with GSAP if lenis was initialized
-        if (lenis) {
-            // Connect with GSAP - use a throttled callback for better performance
-            const throttledUpdate = throttle(() => {
-                ScrollTrigger.update();
-            }, 100); // Only update ScrollTrigger every 100ms max
+    // Only connect with GSAP if lenis was initialized
+    if (lenis) {
+        // Connect with GSAP - use a throttled callback for better performance
+        const throttledUpdate = throttle(() => {
+            ScrollTrigger.update();
+        }, 100); // Only update ScrollTrigger every 100ms max
 
-            lenis.on("scroll", throttledUpdate);
+        lenis.on("scroll", throttledUpdate);
 
-            // Use requestAnimationFrame instead of gsap.ticker for better performance
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
+        // Use requestAnimationFrame instead of gsap.ticker for better performance
+        function raf(time) {
+            lenis.raf(time);
             requestAnimationFrame(raf);
-
-            // Expose lenis to window for other scripts to detect
-            window.lenis = lenis;
         }
+        requestAnimationFrame(raf);
 
-        // Prevent unnecessary GSAP lag smoothing
-        gsap.ticker.lagSmoothing(0);
+        // Expose lenis to window for other scripts to detect
+        window.lenis = lenis;
+    }
 
-        return lenis;
-    },
+    // Prevent unnecessary GSAP lag smoothing
+    gsap.ticker.lagSmoothing(0);
 
-    // Initialize GSAP and ScrollTrigger
-    initGSAP() {
-        gsap.registerPlugin(ScrollTrigger);
+    return lenis;
+}
 
-        // Force GSAP to use transform instead of top/left for better performance
-        gsap.config({
-            force3D: true
+// Initialize GSAP and ScrollTrigger
+function initGSAP() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Force GSAP to use transform instead of top/left for better performance
+    gsap.config({
+        force3D: true
+    });
+
+    // Mark ScrollTrigger to use requestAnimationFrame
+    ScrollTrigger.config({
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+    });
+}
+
+// Setup image pop-out animations
+function setupImageAnimations() {
+    const poppers = document.querySelectorAll(".pop-out-image");
+    if (poppers.length === 0) return;
+
+    poppers.forEach((pop) => {
+        const images = pop.querySelectorAll("img");
+        if (images.length === 0) return;
+
+        // Create an efficient ScrollTrigger
+        gsap.to(images, {
+            scrollTrigger: {
+                trigger: pop,
+                scrub: 1,
+                start: deviceInfo.isMobile ? "bottom bottom+=5" : "bottom bottom+=50",
+                end: "top top+=50",
+                toggleActions: "play none none reverse"
+            },
+            filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
+            yPercent: -30
+        });
+    });
+}
+
+// Setup age display
+function setupAgeDisplay() {
+    const ageElement = document.getElementById('age');
+    if (ageElement) {
+        ageElement.textContent = calculateAge("1996-04-27");
+    }
+}
+
+// Setup feedback form
+function setupFeedbackForm() {
+    const feedbackForm = document.getElementById("feedbackMessage");
+    const sendButton = document.getElementById("sendFeedback");
+
+    if (sendButton && feedbackForm) {
+        // Update button state based on input
+        feedbackForm.addEventListener("input", () => {
+            sendButton.disabled = !feedbackForm.value.trim();
         });
 
-        // Mark ScrollTrigger to use requestAnimationFrame
-        ScrollTrigger.config({
-            autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+        // Handle form submission
+        sendButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const message = feedbackForm.value.trim();
+
+            if (message) {
+                showNotification("Thank you for your feedback!");
+                feedbackForm.value = ""; // Clear the form
+                sendButton.disabled = true; // Disable button after submission
+            } else {
+                showNotification("Please enter a message before sending.");
+            }
         });
-    },
+    }
+}
 
-    // Setup image pop-out animations
-    setupImageAnimations() {
-        const poppers = document.querySelectorAll(".pop-out-image");
-        if (poppers.length === 0) return;
+// Setup device type display
+function setupDeviceTypeDisplay() {
+    const deviceTypeElement = document.getElementById('deviceType');
+    if (deviceTypeElement) {
+        deviceTypeElement.textContent = `Detected ${deviceInfo.getDeviceType()} device.`;
+    }
+}
 
-        poppers.forEach((pop) => {
-            const images = pop.querySelectorAll("img");
-            if (images.length === 0) return;
+// Setup random triangle rotations
+function setupTriangleAnimations() {
+    const triangles = document.querySelectorAll('.triangle');
+    if (triangles.length === 0) return;
 
-            // Create an efficient ScrollTrigger
-            gsap.to(images, {
-                scrollTrigger: {
-                    trigger: pop,
-                    scrub: 1,
-                    start: deviceInfo.isMobile ? "bottom bottom+=5" : "bottom bottom+=50",
-                    end: "top top+=50",
-                    toggleActions: "play none none reverse"
-                },
-                filter: (index) => (index === 0 ? "brightness(1)" : "brightness(1.3)"),
-                yPercent: -30
-            });
-        });
-    },
+    triangles.forEach(triangle => {
+        const randomStart = Math.floor(Math.random() * 360) - 180;
+        const randomEnd = Math.floor(Math.random() * 360) - 180;
+        triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
+        triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
+    });
+}
 
-    // Setup age display
-    setupAgeDisplay() {
-        const ageElement = document.getElementById('age');
-        if (ageElement) {
-            ageElement.textContent = calculateAge("1996-04-27");
-        }
-    },
+// Setup video autoplay/pause
+function setupVideoControl() {
+    const heroVideo = document.getElementById("heroVideo");
+    if (!heroVideo) return;
 
-    // Setup feedback form
-    setupFeedbackForm() {
-        const feedbackForm = document.getElementById("feedbackMessage");
-        const sendButton = document.getElementById("sendFeedback");
-
-        if (sendButton && feedbackForm) {
-            // Update button state based on input
-            feedbackForm.addEventListener("input", () => {
-                sendButton.disabled = !feedbackForm.value.trim();
-            });
-
-            // Handle form submission
-            sendButton.addEventListener("click", (e) => {
-                e.preventDefault();
-                const message = feedbackForm.value.trim();
-
-                if (message) {
-                    showNotification("Thank you for your feedback!");
-                    feedbackForm.value = ""; // Clear the form
-                    sendButton.disabled = true; // Disable button after submission
+    // Use IntersectionObserver for better performance
+    const videoObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                // Only play when at least 30% visible
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    heroVideo.play().catch(() => {
+                        // Handle autoplay restrictions
+                        console.log("Video autoplay prevented by browser");
+                    });
                 } else {
-                    showNotification("Please enter a message before sending.");
+                    heroVideo.pause();
                 }
             });
+        },
+        {
+            threshold: [0.3, 0.7] // Check at 30% and 70% visibility
         }
-    },
+    );
 
-    // Setup device type display
-    setupDeviceTypeDisplay() {
-        const deviceTypeElement = document.getElementById('deviceType');
-        if (deviceTypeElement) {
-            deviceTypeElement.textContent = `Detected ${deviceInfo.getDeviceType()} device.`;
-        }
-    },
+    videoObserver.observe(heroVideo);
+}
 
-    // Setup random triangle rotations
-    setupTriangleAnimations() {
-        const triangles = document.querySelectorAll('.triangle');
-        if (triangles.length === 0) return;
+// Setup stat bars
+function setupStatBars() {
+    const statBars = document.querySelectorAll('.stat-bar');
+    if (statBars.length === 0) return;
 
-        triangles.forEach(triangle => {
-            const randomStart = Math.floor(Math.random() * 360) - 180;
-            const randomEnd = Math.floor(Math.random() * 360) - 180;
-            triangle.style.setProperty('--rotation-start', `${randomStart}deg`);
-            triangle.style.setProperty('--rotation-end', `${randomEnd}deg`);
-        });
-    },
+    // Use an intersection observer to only animate when visible
+    const statObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const div = entry.target;
+                    const position = div.getAttribute('data-position');
+                    div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
 
-    // Setup video autoplay/pause
-    setupVideoControl() {
-        const heroVideo = document.getElementById("heroVideo");
-        if (!heroVideo) return;
+                    // Unobserve after animation is applied
+                    statObserver.unobserve(div);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
 
-        // Use IntersectionObserver for better performance
-        const videoObserver = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    // Only play when at least 30% visible
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                        heroVideo.play().catch(() => {
-                            // Handle autoplay restrictions
-                            console.log("Video autoplay prevented by browser");
-                        });
-                    } else {
-                        heroVideo.pause();
-                    }
-                });
-            },
-            {
-                threshold: [0.3, 0.7] // Check at 30% and 70% visibility
-            }
-        );
+    statBars.forEach((div) => statObserver.observe(div));
+}
 
-        videoObserver.observe(heroVideo);
-    },
+// Main initialization
+function init() {
+    // Initialize GSAP first (needed regardless of page)
+    initGSAP();
 
-    // Setup stat bars
-    setupStatBars() {
-        const statBars = document.querySelectorAll('.stat-bar');
-        if (statBars.length === 0) return;
+    // Initialize Lenis smooth scrolling - only if not on section.html
+    const lenisInstance = initSmoothScroll();
 
-        // Use an intersection observer to only animate when visible
-        const statObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const div = entry.target;
-                        const position = div.getAttribute('data-position');
-                        div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
-
-                        // Unobserve after animation is applied
-                        statObserver.unobserve(div);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-
-        statBars.forEach((div) => statObserver.observe(div));
-    },
-
-    // Main initialization
-    init() {
-        // Initialize GSAP first (needed regardless of page)
-        this.initGSAP();
-
-        // Initialize Lenis smooth scrolling - only if not on section.html
-        const lenisInstance = this.initSmoothScroll();
-
-        // Add a class to body if Lenis is disabled, so CSS can adjust accordingly
-        if (!lenisInstance) {
-            document.body.classList.add('lenis-disabled');
-        }
-
-        // Schedule less critical initializations with small delays
-        // to improve initial load performance
-        setTimeout(() => {
-            // Set up dynamic content and elements
-            this.setupAgeDisplay();
-            this.setupDeviceTypeDisplay();
-
-            // Set up parallax effects - only if Lenis is enabled (not on section page)
-            if (lenisInstance) {
-                parallaxControl.setup();
-            }
-
-            // Set up form interaction
-            this.setupFeedbackForm();
-        }, 10);
-
-        // Slightly delay animations to ensure smooth page load
-        setTimeout(() => {
-            // Set up animations
-            this.setupImageAnimations();
-            this.setupTriangleAnimations();
-            this.setupVideoControl();
-            this.setupStatBars();
-
-            // Set up interactions
-            setupSocialInteractions();
-        }, 100);
+    // Add a class to body if Lenis is disabled, so CSS can adjust accordingly
+    if (!lenisInstance) {
+        document.body.classList.add('lenis-disabled');
     }
-};
+
+    // Schedule less critical initializations with small delays
+    // to improve initial load performance
+    setTimeout(() => {
+        // Set up dynamic content and elements
+        setupAgeDisplay();
+        setupDeviceTypeDisplay();
+
+        // Set up parallax effects - only if Lenis is enabled (not on section page)
+        if (lenisInstance) {
+            parallaxControl.setup();
+        }
+
+        // Set up form interaction
+        setupFeedbackForm();
+    }, 10);
+
+    // Slightly delay animations to ensure smooth page load
+    setTimeout(() => {
+        // Set up animations
+        setupImageAnimations();
+        setupTriangleAnimations();
+        setupVideoControl();
+        setupStatBars();
+
+        // Set up interactions
+        setupSocialInteractions();
+    }, 100);
+}
 
 // Content section navigation
 function showContent(sectionId, event) {
@@ -479,5 +477,5 @@ function setupSocialInteractions() {
 
 // Initialize on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
-    App.init();
+    init();
 });

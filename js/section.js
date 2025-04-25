@@ -49,7 +49,7 @@ In public settings, Kimmix appears detached and often abrasive, intentionally cu
 // Throttling function to limit how often a function runs
 function throttle(callback, delay = 100) {
     let lastCall = 0;
-    return function(...args) {
+    return function (...args) {
         const now = Date.now();
         if (now - lastCall >= delay) {
             lastCall = now;
