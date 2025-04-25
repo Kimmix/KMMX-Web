@@ -30,19 +30,19 @@ function showContent(id, e) {
 // Background context switching functionality
 const backgroundContexts = {
     "overview": {
-        text: `Officially, Kimmix's assignment is to document and analyze naturally occurring Arcai phenomena, reporting findings back to Nehixim for potential applications. Unofficially, they've been pursuing a more personal objective: understanding whether Arcai energy could be used to address their own inherent flaws. This self-directed research has led them to explore applications that their superiors would likely disapprove of, creating a precarious situation where discovery could mean reassignment or worse.
-
-What Nehixim doesn't know is that Kimmix has been deliberately documenting his research in ways that can be easily leaked to the wider scientific community. While his handlers believe his findings remain exclusively within their classified databases, Kimmix operates on the principle that knowledge belongs to everyone—not just those with power. Though aware that his research could potentially harm Nehixim's interests, he continues this dangerous balancing act, believing that scientific advancement should transcend factional conflicts. This philosophy has only further isolated him, as neither side fully trusts his intentions.`
-    },
-    "personality": {
         text: `Before joining Nehixim, Kimmix was a nomadic researcher, traveling between settlements and studying Arcai manifestations as an independent scientist. His unconventional approach to classification systems and tendency to theorize beyond established parameters made him both brilliant and frustratingly difficult to work with. This reputation caught the attention of Nehixim's talent scouts, who saw potential in his unorthodox methodologies.
 
-What drove Kimmix to eventually accept Nehixim's offer wasn't the prestige or resources, but rather a rare condition affecting his neural network. The specialized medical treatment required was only available through Nehixim's advanced healthcare division. This dependency created a complex relationship with his employer—grateful for the treatment that keeps his mind intact, yet increasingly uncomfortable with how his research is being weaponized against rival factions.`
+        What drove Kimmix to eventually accept Nehixim's offer wasn't the prestige or resources, but rather a rare condition affecting his neural network. The specialized medical treatment required was only available through Nehixim's advanced healthcare division. This dependency created a complex relationship with his employer—grateful for the treatment that keeps his mind intact, yet increasingly uncomfortable with how his research is being weaponized against rival factions.`
     },
-    "objectives": {
+    "personality": {
         text: `Kimmix maintains few personal relationships, finding social interactions draining and often unnecessary. His closest associates are fellow researchers who communicate primarily through encrypted data channels, sharing findings through coded language that would appear as harmless technical discussions to outside observers. These connections form a loose network of like-minded scientists across faction lines who prioritize knowledge advancement over political allegiances.
 
-In public settings, Kimmix appears detached and often abrasive, intentionally cultivating a reputation as a difficult personality to discourage casual interactions. This carefully constructed facade has been effective in limiting unwanted attention, though it has occasionally backfired when his research requires cooperation from others. Only a select few have glimpsed the dry humor and occasional moments of unexpected compassion that lie beneath his guarded exterior.`
+        In public settings, Kimmix appears detached and often abrasive, intentionally cultivating a reputation as a difficult personality to discourage casual interactions. This carefully constructed facade has been effective in limiting unwanted attention, though it has occasionally backfired when his research requires cooperation from others. Only a select few have glimpsed the dry humor and occasional moments of unexpected compassion that lie beneath his guarded exterior.`
+    },
+    "objectives": {
+        text: `Officially, Kimmix's assignment is to document and analyze naturally occurring Arcai phenomena, reporting findings back to Nehixim for potential applications. Unofficially, they've been pursuing a more personal objective: understanding whether Arcai energy could be used to address their own inherent flaws. This self-directed research has led them to explore applications that their superiors would likely disapprove of, creating a precarious situation where discovery could mean reassignment or worse.
+
+        What Nehixim doesn't know is that Kimmix has been deliberately documenting his research in ways that can be easily leaked to the wider scientific community. While his handlers believe his findings remain exclusively within their classified databases, Kimmix operates on the principle that knowledge belongs to everyone—not just those with power. Though aware that his research could potentially harm Nehixim's interests, he continues this dangerous balancing act, believing that scientific advancement should transcend factional conflicts. This philosophy has only further isolated him, as neither side fully trusts his intentions.`
     }
 };
 
