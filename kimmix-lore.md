@@ -1,6 +1,7 @@
 # KIMMIX | NEHIXIM RESEARCH DIVISION
 
 ## IDENTITY PROFILE
+
 **Name:** Kimmix (/ˈkɪmɪks/)
 **Classification:** Uncommon Protogen
 **Affiliation:** Nehixim Research Division
@@ -11,6 +12,7 @@
 ## BACKGROUND & HISTORY
 
 ### Early Development
+
 Before Nehixim recruitment, Kimmix operated independently on the fringes of established scientific communities. Self-taught and driven by an insatiable curiosity about the fundamental nature of reality, they conducted unauthorized experiments with unstable energy sources that eventually led to the discovery of what would later be classified as primitive Arcai manifestations. These early experiments resulted in several permanently altered regions of spacetime and the distinctive neural architecture that would make Kimmix particularly suited to Arcai research.
 
 ### Timeline of Significant Events
@@ -53,9 +55,11 @@ Unlike other Arcai practitioners who focus on energy projection or field manipul
 Kimmix maintains a complex, increasingly strained relationship with the Nehixim organization. Initially drawn to the research opportunities and resources Nehixim provided, Kimmix has grown increasingly disillusioned with the organization's compartmentalized approach to knowledge and its apparent focus on weaponization over scientific understanding.
 
 ### Official Standing
+
 Officially, Kimmix remains in good standing with the organization, consistently delivering valuable research findings and maintaining the appearance of loyalty. Dr. Lythara, Kimmix's research supervisor, has been a consistent advocate, recognizing the scientific value of Kimmix's work even when its immediate practical applications aren't apparent.
 
 ### Unofficial Activities
+
 Unknown to Nehixim leadership, Kimmix has established an elaborate system for documenting and preserving research findings outside official channels. This includes:
 
 1. **Shadow Documentation:** Creating parallel research notes written in specialized notation systems that appear as standard observation logs but contain embedded secondary data
@@ -65,6 +69,7 @@ Unknown to Nehixim leadership, Kimmix has established an elaborate system for do
 These activities are driven by Kimmix's conviction that scientific knowledge—particularly knowledge with transformative potential—belongs to all sentient beings rather than any single organization or power structure. Despite understanding that these actions constitute a serious breach of Nehixim protocol, Kimmix justifies them as ethical necessity.
 
 ### Key Relationships
+
 - **Dr. Lythara (Research Supervisor):** A mentor figure who appreciates Kimmix's scientific brilliance while remaining unaware of their ethical conflicts
 - **Commander Vex (Security Oversight):** Maintains professional skepticism about Kimmix's loyalty but lacks concrete evidence of misconduct
 - **Researcher Tallen (Independent Scientist):** A trusted external contact who helps disseminate Kimmix's leaked research to appropriate scientific communities
@@ -75,6 +80,7 @@ These activities are driven by Kimmix's conviction that scientific knowledge—p
 ## PERSONALITY PROFILE
 
 ### Core Traits
+
 - **Analytical (75%):** Exceptional pattern recognition and data processing abilities
 - **Patience (45%):** Moderate tolerance for delays and setbacks, particularly when research objectives are at stake
 - **Adaptability (65%):** Good capacity to adjust to changing circumstances and incorporate new information
@@ -82,6 +88,7 @@ These activities are driven by Kimmix's conviction that scientific knowledge—p
 - **Empathy (40%):** Selective emotional understanding, primarily directed toward those who share intellectual curiosity
 
 ### Psychological Assessment
+
 Kimmix demonstrates classic traits of the scientist-philosopher archetype—intrinsically motivated by discovery rather than external rewards or recognition. Their ethical framework prioritizes knowledge advancement and equitable access to information over institutional loyalty or conventional security protocols.
 
 The psychological conflict between institutional obligation and personal ethics creates ongoing cognitive dissonance that Kimmix manages through compartmentalization. This coping mechanism has been largely successful but may become increasingly difficult to maintain as research advances and Nehixim expectations evolve.
@@ -95,6 +102,7 @@ Kimmix's self-perception includes awareness of their social limitations but cons
 ## EQUIPMENT & ENHANCEMENTS
 
 ### AENCC (Arcai Enhanced Nano Carbon Composite)
+
 A revolutionary material integrated into Kimmix's physical structure that adapts and strengthens itself through Arcai activation. When under stress, the carbon composite reconfigures at the molecular level, creating a dynamic self-reinforcing matrix.
 
 - **Composition:** Carbon nano-lattice with Arcai reactive nodes
@@ -105,6 +113,7 @@ A revolutionary material integrated into Kimmix's physical structure that adapts
 The integration of AENCC with Kimmix's systems creates a symbiotic relationship where Arcai energy manipulation simultaneously reinforces the physical form. This integration was initially experimental and has become a definitive feature of Kimmix's physical capabilities.
 
 ### Arcai Resonator
+
 A specialized device that amplifies and focuses Arcai energy, allowing for precise manipulation and materialization of Arcai constructs. Kimmix has extensively modified the standard Nehixim design to better suit their specific manifestation techniques.
 
 - **Core:** Refined Arcai crystal lattice with custom harmonic tuning
@@ -115,6 +124,7 @@ A specialized device that amplifies and focuses Arcai energy, allowing for preci
 The resonator integrates directly with Kimmix's neural system, creating near-instantaneous response to cognitive commands and enabling the precision necessary for complex materialization tasks.
 
 ### Neural Dampeners
+
 Advanced cybernetic implants that help regulate and control the intense neural feedback from Arcai manipulation. These dampeners allow Kimmix to engage with Arcai energy at levels that would otherwise cause cognitive damage.
 
 - **Implant Type:** Distributed nano-neural network with redundant processing nodes
@@ -131,6 +141,7 @@ These dampeners represent Kimmix's most significant personal modification—deve
 ### Passive Abilities
 
 #### Arcai Rune
+
 Intricate patterns of Arcai energy permanently manifested on Kimmix's body, granting enhanced spatial awareness and a constant connection to the Arcai energy field. These runes serve as both channels and anchors for Arcai manipulation, allowing for more efficient energy distribution and finer control than would otherwise be possible.
 
 The runes appeared spontaneously after Kimmix's first major Arcai experiment and have gradually expanded in complexity and coverage over subsequent years. They cannot be removed without catastrophic damage to Kimmix's systems and appear to have become integral to their biological functioning.
@@ -138,6 +149,7 @@ The runes appeared spontaneously after Kimmix's first major Arcai experiment and
 ### Active Abilities
 
 #### Resonant Shard (Offense)
+
 Versatile crystallized energy constructs that can be projected offensively to pierce targets or strategically positioned as defensive barriers to shatter incoming projectiles. These shards represent Kimmix's most fundamental and refined materialization skill.
 
 - **Damage:** High, particularly against energy-sensitive targets
@@ -148,6 +160,7 @@ Versatile crystallized energy constructs that can be projected offensively to pi
 Resonant Shards were Kimmix's first breakthrough in Arcai materialization and remain their most reliable and versatile combat application. The technique has been refined to allow for variable shard size, density, and velocity depending on specific tactical requirements.
 
 #### Arcai Field (Defense)
+
 Creates a protective energy barrier that shields against physical and energy-based attacks. This field represents a specialized application of materialization principles, creating a semi-solid energy membrane capable of absorbing and dispersing kinetic force.
 
 - **Protection:** Strong against both conventional weapons and energy-based attacks
@@ -158,6 +171,7 @@ Creates a protective energy barrier that shields against physical and energy-bas
 This ability evolved from Kimmix's research into energy containment and represents a distinctive application of materialization principles to create an omnidirectional protective barrier rather than discrete objects.
 
 #### Neural Surge (Utility)
+
 Temporarily boosts cognitive processing speeds for enhanced perception and analysis. This ability involves channeling carefully controlled Arcai energy through the neural dampeners to accelerate neural transmission without causing damage to cognitive systems.
 
 - **Processing:** +300% cognitive processing speed
@@ -168,6 +182,7 @@ Temporarily boosts cognitive processing speeds for enhanced perception and analy
 Neural Surge was initially developed as a research tool to process massive datasets during time-sensitive experiments. Its application has expanded to include combat situations where rapid tactical assessment is necessary, though Kimmix still employs it predominantly in research contexts.
 
 #### Dimensional Shift (Ultimate)
+
 The most advanced and dangerous of Kimmix's abilities, Dimensional Shift harnesses dark energy to transition partially into higher-dimensional space, allowing phasing through three-dimensional matter and manipulation of spatial coordinates. This represents the theoretical pinnacle of Kimmix's research into the fundamental relationship between Arcai energy and spacetime.
 
 - **Duration:** Limited to 30 seconds before dimensional instability becomes dangerous
