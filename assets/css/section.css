@@ -311,14 +311,13 @@ body {
         padding: 1.5rem;
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
         position: relative;
         z-index: 2;
     }
 
     .profile-row {
         display: flex;
-        padding: 0.75rem 1rem;
+        padding: 0.85rem 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         transition: all 0.3s ease;
         border-left: 3px solid transparent;
@@ -402,7 +401,7 @@ body {
     }
 
     .profile-footer {
-        margin-top: 0.75rem;
+        margin-top: 1.25rem;
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
@@ -416,7 +415,7 @@ body {
         background: linear-gradient(90deg,
                 rgba(16, 16, 20, 0.7) 0%,
                 rgba(203, 32, 64, 0.1) 100%);
-        padding: 0.5rem 0.75rem;
+        padding: 0.65rem 0.75rem;
         border-radius: 4px;
         border: 1px solid rgba(203, 32, 64, 0.2);
         transition: all 0.3s ease;
