@@ -17,7 +17,7 @@ const deviceInfo = (() => {
 // Throttle function - optimized
 function throttle(func, limit) {
     let lastCall = 0;
-    return function(...args) {
+    return function (...args) {
         const now = Date.now();
         if (now - lastCall >= limit) {
             lastCall = now;
@@ -46,8 +46,6 @@ function showNotification(message) {
 }
 
 // Parallax effects
-// -----------------------------------------
-// Desktop parallax effect
 function parallax(event) {
     const { innerWidth, innerHeight } = window;
     const { pageX, pageY } = event;
@@ -60,53 +58,18 @@ function parallax(event) {
     });
 }
 
-// Clamp helper
-function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-}
-
-// Mobile parallax effect using accelerometer
-function handleMotion(event) {
-    const { gamma, beta } = event; // gamma: left-to-right tilt, beta: front-to-back tilt
-    const x = clamp(gamma * 0.6, -100, 20);
-    const y = clamp((beta - 90) * 0.4, -70, 30);
-
-    document.querySelectorAll(".shard").forEach((particle) => {
-        const position = parseFloat(particle.getAttribute("value"));
-        const offsetX = x * position;
-        const offsetY = y * position;
-        particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-    });
-}
-
 // Parallax control functions
 const parallaxControl = {
-    enableAccelerometer() {
-        if (window.DeviceMotionEvent) {
-            window.addEventListener("deviceorientation", handleMotion);
-        }
-    },
-
-    disableAccelerometer() {
-        window.removeEventListener("deviceorientation", handleMotion);
-    },
-
     throttledParallax: null, // Will be initialized on setup
 
     setup() {
         this.throttledParallax = throttle(parallax, 16);
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    if (deviceInfo.isMobile) {
-                        this.enableAccelerometer();
-                    } else {
-                        document.addEventListener("mousemove", this.throttledParallax);
-                    }
+                    document.addEventListener("mousemove", this.throttledParallax);
                 } else {
                     document.removeEventListener("mousemove", this.throttledParallax);
-                    if (deviceInfo.isMobile) this.disableAccelerometer();
                 }
             });
         });
@@ -312,8 +275,8 @@ function setupBackToTopButton() {
     window.addEventListener('scroll', throttle(toggleButton, 200));
     btn.addEventListener('click', e => {
         e.preventDefault();
-        window.lenis ? window.lenis.scrollTo(0, {duration: 1.2})
-                     : window.scrollTo({top: 0, behavior: 'smooth'});
+        window.lenis ? window.lenis.scrollTo(0, { duration: 1.2 })
+            : window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     toggleButton(); // Check on load
@@ -322,7 +285,7 @@ function setupBackToTopButton() {
 // Setup color box copy functionality - optimized
 function setupColorBoxes() {
     document.querySelectorAll('.color-box').forEach(box => {
-        box.addEventListener('click', function() {
+        box.addEventListener('click', function () {
             const colorCode = this.getAttribute('data-tooltip');
             navigator.clipboard.writeText(colorCode).then(() => {
                 showNotification(`${colorCode} copied to clipboard!`);
@@ -358,39 +321,6 @@ function setupFooterBgAnimation() {
         opacity: 1,
         duration: 1,
         ease: "power1.in"
-    });
-}
-
-// Main initialization
-function init() {
-    // Initialize GSAP first (needed regardless of page)
-    initGSAP();
-
-    // Initialize Lenis smooth scrolling - only if not on section.html
-    const lenisInstance = initSmoothScroll();
-    if (!lenisInstance) document.body.classList.add('lenis-disabled');
-
-    // Initialize page elements - using requestAnimationFrame for non-critical tasks
-    requestAnimationFrame(() => {
-        // Essential UI elements first
-        setupAgeDisplay();
-        setupDeviceTypeDisplay();
-        setupFeedbackForm();
-
-        // Set up parallax effects if Lenis is enabled
-        if (lenisInstance) parallaxControl.setup();
-
-        // Delay visual enhancements slightly to prioritize core functionality
-        setTimeout(() => {
-            setupImageAnimations();
-            setupTriangleAnimations();
-            setupVideoControl();
-            setupBackToTopButton();
-            setupSVGAnimation();
-            setupFooterBgAnimation();
-            setupSocialInteractions();
-            setupColorBoxes();
-        }, 50);
     });
 }
 
@@ -492,5 +422,33 @@ function setupSocialInteractions() {
 
 // Single DOMContentLoaded event listener for all initializations
 document.addEventListener("DOMContentLoaded", () => {
-    init();
+    // Initialize GSAP first (needed regardless of page)
+    initGSAP();
+
+    // Initialize Lenis smooth scrolling - only if not on section.html
+    const lenisInstance = initSmoothScroll();
+    if (!lenisInstance) document.body.classList.add('lenis-disabled');
+
+    // Initialize page elements - using requestAnimationFrame for non-critical tasks
+    requestAnimationFrame(() => {
+        // Essential UI elements first
+        setupAgeDisplay();
+        setupDeviceTypeDisplay();
+        setupFeedbackForm();
+
+        // Set up parallax effects if Lenis is enabled
+        if (lenisInstance) parallaxControl.setup();
+
+        // Delay visual enhancements slightly to prioritize core functionality
+        setTimeout(() => {
+            setupImageAnimations();
+            setupTriangleAnimations();
+            setupVideoControl();
+            setupBackToTopButton();
+            setupSVGAnimation();
+            setupFooterBgAnimation();
+            setupSocialInteractions();
+            setupColorBoxes();
+        }, 50);
+    });
 });
