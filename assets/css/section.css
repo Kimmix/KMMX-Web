@@ -43,7 +43,6 @@
         opacity: var(--glow-opacity);
         transition: opacity 0.4s ease;
         pointer-events: none;
-        z-index: 1;
         mix-blend-mode: overlay;
     }
 
@@ -84,7 +83,6 @@ body {
         align-items: center;
         padding-bottom: 1.5rem;
         position: relative;
-        z-index: 2;
 
         h3 {
             font-size: 1.25rem;
@@ -131,7 +129,6 @@ body {
 .character {
     padding-top: 2%;
     position: relative;
-    z-index: 10;
 
     .character-detail {
         display: flex;
@@ -153,7 +150,6 @@ body {
             align-self: flex-start;
             background: rgba(16, 16, 20, 0.3);
             border-radius: 1rem;
-            z-index: 10;
 
             @media (max-width: 768px) {
                 flex: none;
@@ -169,7 +165,6 @@ body {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
-                z-index: 100;
 
                 &::-webkit-scrollbar {
                     display: none;
@@ -379,7 +374,6 @@ body {
         display: flex;
         flex-direction: column;
         position: relative;
-        z-index: 2;
     }
 
     .profile-row {
@@ -401,7 +395,6 @@ body {
                     rgba(203, 32, 64, 0.1) 0%,
                     rgba(16, 16, 20, 0) 100%);
             transition: width 0.3s ease;
-            z-index: 1;
             pointer-events: none;
         }
 
@@ -428,7 +421,6 @@ body {
         font-weight: 500;
         letter-spacing: 0.05em;
         position: relative;
-        z-index: 2;
     }
 
     .profile-value {
@@ -439,7 +431,6 @@ body {
         align-items: center;
         gap: 0.5rem;
         position: relative;
-        z-index: 2;
     }
 
     .profile-phonetic {
@@ -560,7 +551,6 @@ body {
         gap: 1.5rem;
         position: relative;
         padding-top: 1rem;
-        z-index: 2;
     }
 
     .attribute {
@@ -615,10 +605,10 @@ body {
 
         .attribute-annotation {
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.5);
+            font-weight: 200;
             font-style: italic;
             transition: opacity 0.3s ease;
-            opacity: 0.7;
+            opacity: 0.5;
         }
     }
 }
@@ -1014,7 +1004,6 @@ body {
             object-fit: contain;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
             /* position: fixed; */
-            z-index: 2;
         }
     }
 
@@ -1050,16 +1039,20 @@ body {
             border-radius: 0.25rem;
             background: rgba(255, 255, 255, 0.05);
             transition: background-color 0.3s ease;
-            font-size: 0.85rem;
 
             &:hover {
                 background: rgba(203, 32, 64, 0.1);
             }
 
-            span:first-child {
-                color: var(--primary-color);
-                font-size: 0.75rem;
-                margin-bottom: 0.25rem;
+            span {
+                font-weight: 200;
+
+                &:first-child {
+                    color: var(--primary-color);
+                    font-size: 0.75rem;
+                    margin-bottom: 0.25rem;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -1120,6 +1113,8 @@ body {
 
     .card {
         &.main {
+            min-height: 500px;
+
             &:hover {
                 .skill-icon {
                     background: rgba(255, 255, 255, 0.05);
@@ -1292,7 +1287,6 @@ body {
         position: absolute;
         top: 1.5rem;
         right: 1rem;
-        z-index: 10;
         font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -1329,7 +1323,6 @@ body {
 
     .skill-content {
         position: relative;
-        z-index: 2;
         height: 100%;
 
         .skill-header {
@@ -1344,10 +1337,11 @@ body {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            padding-top: 0.8rem;
 
             .skill-icon {
                 height: 100px;
-                margin-bottom: 0.25rem;
+                margin-bottom: 0.6rem;
                 border-radius: 12px;
                 display: flex;
                 align-items: center;
@@ -1364,7 +1358,6 @@ body {
                         filter 0.4s ease;
                     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
                     position: relative;
-                    z-index: 2;
                 }
 
                 .skill-icon-glow {
@@ -1375,7 +1368,6 @@ body {
                     background: radial-gradient(rgba(255, 255, 255, 0.15), transparent 70%);
                     opacity: 0.5;
                     transition: opacity 0.3s ease, transform 0.3s ease;
-                    z-index: 1;
                 }
             }
 
