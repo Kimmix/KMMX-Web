@@ -757,8 +757,10 @@ body {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                opacity: 1; /* Always partially visible */
-                transform: translateY(0); /* Start in final position */
+                opacity: 1;
+                /* Always partially visible */
+                transform: translateY(0);
+                /* Start in final position */
                 transition: all 0.3s ease;
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -777,8 +779,10 @@ body {
             /* Enhanced indicator on devices with hover capability */
             @media (hover: hover) {
                 .hover-indicator {
-                    opacity: 0; /* More subtle on desktop */
-                    transform: translateY(10px); /* Slight animation on desktop */
+                    opacity: 0;
+                    /* More subtle on desktop */
+                    transform: translateY(10px);
+                    /* Slight animation on desktop */
                 }
             }
         }
@@ -899,6 +903,12 @@ body {
                     z-index: 3;
                     writing-mode: vertical-rl;
                     white-space: nowrap;
+
+                    @media (max-width: 768px) {
+                        bottom: 120px;
+                        left: 10px;
+                        writing-mode: horizontal-tb;
+                    }
                 }
 
                 &:last-of-type {
@@ -1208,8 +1218,6 @@ body {
         }
     }
 }
-
-
 
 @keyframes twitter-pulse {
     0% {
