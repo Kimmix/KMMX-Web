@@ -1617,7 +1617,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--primary);
+    /* background-color: var(--primary-color); */
     color: white;
     border: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -1625,7 +1625,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 98;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -1640,19 +1640,26 @@ body {
     }
 
     &:hover {
-        background-color: var(--primary-light);
+        /* background-color: var(--secondary-color); */
         transform: translateY(-5px);
     }
 
-    &svg {
+    svg {
         width: 24px;
         height: 24px;
     }
 
     @media (max-width: 768px) {
         & {
-            bottom: 20px;
+            bottom: 70px;
             right: 20px;
         }
+    }
+
+    /* Hide the button when close to the footer */
+    .footer-visible & {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
     }
 }

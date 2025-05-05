@@ -294,18 +294,32 @@ function setupVideoControl() {
 function setupBackToTopButton() {
     const backToTopBtn = document.getElementById('backToTopBtn');
     const aboutmeSection = document.querySelector('.aboutme');
+    const footer = document.querySelector('.footer');
 
-    if (!backToTopBtn || !aboutmeSection) return;
+    if (!backToTopBtn || !aboutmeSection || !footer) return;
 
     // Get the position of the aboutme section
     const aboutmeSectionPosition = aboutmeSection.getBoundingClientRect().top + window.scrollY;
 
     // Show button when user scrolls past the aboutme section
+    // Hide button when near footer
     function toggleBackToTopButton() {
         if (window.scrollY > aboutmeSectionPosition) {
             backToTopBtn.classList.add('visible');
+
+            // Check if footer is nearly visible
+            const footerTop = footer.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+
+            // If footer is coming into view (within 100px of viewport bottom)
+            if (footerTop < viewportHeight - 100) {
+                document.body.classList.add('footer-visible');
+            } else {
+                document.body.classList.remove('footer-visible');
+            }
         } else {
             backToTopBtn.classList.remove('visible');
+            document.body.classList.remove('footer-visible');
         }
     }
 
@@ -381,6 +395,26 @@ function setupSVGAnimation() {
     observer.observe(svgAnimation);
 }
 
+// Setup footer background fade-in animation
+function setupFooterBgAnimation() {
+    const footerBg = document.querySelector('.footer-bg img');
+    if (!footerBg) return;
+
+    gsap.set(footerBg, { opacity: 0 });
+    gsap.to(footerBg, {
+        scrollTrigger: {
+            trigger: '.footer',
+            start: "top bottom+=90%",
+            end: "top center+=40%",
+            scrub: true,
+            toggleActions: "play none none reverse"
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power1.in"
+    });
+}
+
 // Main initialization
 function init() {
     // Initialize GSAP first (needed regardless of page)
@@ -418,6 +452,7 @@ function init() {
         setupVideoControl();
         setupBackToTopButton();
         setupSVGAnimation();
+        setupFooterBgAnimation();
 
         // Set up interactions
         setupSocialInteractions();

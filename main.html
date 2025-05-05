@@ -240,15 +240,14 @@
         <button onclick="sendCode()">Send Code</button>
         <div id="result"></div>
     </section> -->
-    <div class="footer-spacer"></div>
-
     <!-- Back to top button -->
     <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path d="M12 4l-8 8h5v8h6v-8h5l-8-8z" fill="currentColor"/>
+            <path d="M12 4l-8 8h5v8h6v-8h5l-8-8z" fill="currentColor" />
         </svg>
     </button>
 
+    <div class="footer-spacer"></div>
     <footer class="flex row footer">
         <div class="footer-bg">
             <img src="assets/img/Pal3_sketch_i.webp" alt="">
@@ -280,9 +279,11 @@
                                 stroke-dashoffset: 2000;
                                 transition: stroke-dashoffset 3s ease;
                             }
+
                             .stroke:nth-child(2) {
                                 transition-delay: 0.5s;
                             }
+
                             .svg-animation.animate .stroke {
                                 stroke-dashoffset: 0;
                             }
