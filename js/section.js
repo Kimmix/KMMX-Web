@@ -287,8 +287,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupContextButtons();
 
     // Add hover-glow class to all elements that need hover effects
-    document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card, .info-card, .profile-badge, .profile-row').forEach(card => {
-        card.classList.add('hover-glow');
+    document.querySelectorAll('.card, .visualization, .profile-badge, .profile-row').forEach(card => {
+        if (!card.classList.contains('hover-glow')) {
+            card.classList.add('hover-glow');
+        }
     });
 
     // Setup hover effect leave handlers

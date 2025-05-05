@@ -85,7 +85,7 @@ img {
 }
 
 p {
-    font-size: clamp(1rem, 1vw + 0.2rem, 1.15rem);
+    font-size: 1rem;
     font-weight: 200;
     line-height: 1.5;
     color: var(--text-color);
