@@ -80,7 +80,6 @@ body {
     max-width: var(--video-max-width);
     padding: unset;
     min-height: 100vh;
-    overflow-x: hidden;
 
     .video-overlay {
         position: absolute;
@@ -915,6 +914,7 @@ body {
                 &:last-of-type {
                     overflow: visible;
                     clip-path: inset(-200% 0 0 0);
+
                     img {
                         overflow: visible;
                     }
@@ -1518,12 +1518,9 @@ body {
             transform: translateX(-50%);
         }
 
-        .hero-bg {
-            object-position: 70%;
-        }
-
         .video-overlay {
-            height: 200px;
+            height: 150px;
+            bottom: -170px;
         }
     }
 

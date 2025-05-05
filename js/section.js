@@ -230,6 +230,9 @@ function updateQuote() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (!quoteBlock || !kimmixQuotes.length) return;
 
+    // Prevent multiple quote animations from running simultaneously
+    if (isTypingQuote) return;
+
     const nextQuote = selectNextQuote();
     if (!nextQuote) return;
 
