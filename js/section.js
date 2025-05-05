@@ -105,15 +105,23 @@ function setupContextButtons() {
 
 // Mouse tracking for hover effects
 const handleMouseMove = throttle((e) => {
-    document.querySelectorAll('.equipment-card:hover, .stat-card:hover, .visualization:hover, .skill-card:hover')
+    document.querySelectorAll('.hover-glow:hover')
         .forEach(card => {
             const rect = card.getBoundingClientRect();
             card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
             card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-            card.style.setProperty('--card-glow-opacity', '1');
             card.style.setProperty('--glow-opacity', '1');
         });
 }, THROTTLE_DELAY);
+
+// Add mouseleave event to reset glow opacity
+function setupHoverEffects() {
+    document.querySelectorAll('.hover-glow').forEach(card => {
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--glow-opacity', '0');
+        });
+    });
+}
 
 document.addEventListener('mousemove', handleMouseMove);
 
@@ -278,17 +286,13 @@ document.addEventListener('DOMContentLoaded', () => {
     showContent('info');
     setupContextButtons();
 
-    // Setup hover effects for cards
-    document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.setProperty('--card-glow-opacity', '1');
-            card.style.setProperty('--glow-opacity', '1');
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.setProperty('--card-glow-opacity', '0');
-            card.style.setProperty('--glow-opacity', '0');
-        });
+    // Add hover-glow class to all elements that need hover effects
+    document.querySelectorAll('.equipment-card, .stat-card, .visualization, .skill-card, .info-card, .profile-badge, .profile-row').forEach(card => {
+        card.classList.add('hover-glow');
     });
+
+    // Setup hover effect leave handlers
+    setupHoverEffects();
 
     // Load quotes when browser is idle or after slight delay
     window.requestIdleCallback
