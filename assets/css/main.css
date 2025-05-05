@@ -1305,24 +1305,6 @@ body {
                 position: relative;
             }
 
-            .tooltip {
-                position: fixed;
-                display: none;
-                padding: 7px;
-                background-color: var(--black-color);
-                color: var(--grey-color);
-                border-radius: 5px;
-                font-size: 12px;
-                white-space: nowrap;
-                pointer-events: none;
-                z-index: 4;
-
-                &.copied {
-                    color: var(--green-color) !important;
-                }
-            }
-
-
             .color-box-container {
                 justify-content: end;
                 gap: 10px;
@@ -1333,85 +1315,42 @@ body {
 
                 .color-box:nth-child(1) {
                     background-color: var(--primary-color);
-
-                    .tooltip {
-                        color: var(--primary-color);
-                    }
                 }
 
                 .color-box:nth-child(2) {
                     background-color: var(--secondary-color);
-
-                    .tooltip {
-                        color: var(--secondary-color);
-                    }
                 }
 
                 .color-box:nth-child(3) {
                     background-color: var(--tertiary-color);
-
-                    .tooltip {
-                        color: var(--tertiary-color);
-                    }
                 }
 
                 .color-box:nth-child(4) {
                     background-color: var(--white-color);
-
-                    .tooltip {
-                        color: var(--white-color);
-                    }
                 }
 
                 .color-box:nth-child(5) {
                     background-color: var(--white2-color);
-
-                    .tooltip {
-                        color: var(--white2-color);
-                    }
                 }
 
                 .color-box:nth-child(6) {
                     background-color: var(--white3-color);
-
-                    .tooltip {
-                        color: var(--white3-color);
-                    }
                 }
 
                 .color-box:nth-child(7) {
                     background-color: var(--black-color);
-
-                    .tooltip {
-                        background-color: var(--white2-color);
-                        color: var(--black-color);
-                    }
                 }
 
                 .color-box:nth-child(8) {
                     background-color: var(--black2-color);
-
-                    .tooltip {
-                        background-color: var(--white2-color);
-                        color: var(--black2-color);
-                    }
                 }
 
                 .color-box:nth-child(9) {
                     background-color: var(--black3-color);
-
-                    .tooltip {
-                        background-color: var(--white2-color);
-                        color: var(--black3-color);
-                    }
                 }
 
                 .color-box:nth-child(10) {
                     background-color: var(--grey-color);
-
-                    .tooltip {
-                        color: var(--grey-color);
-                    }
                 }
             }
         }
