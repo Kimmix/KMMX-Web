@@ -11,13 +11,25 @@
     --card-background: linear-gradient(135deg,
             rgba(30, 30, 39, 0.4) 0%,
             rgba(20, 20, 24, 0) 100%);
+
+    /* Common values */
+    --card-border-radius: 1rem;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --transition-standard: all 0.3s ease;
+    --header-padding: 1.25rem 1.5rem;
+    --content-padding: 1.5rem;
+
+    /* Secondary colors */
+    --defense-color: rgba(21, 101, 153, 0.8);
+    --utility-color: rgba(137, 59, 133, 0.8);
+    --passive-color: rgba(60, 64, 93, 0.8);
 }
 
 /* Common hover glow effect class */
 .hover-glow {
     position: relative;
     --glow-opacity: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &::before {
         content: '';
@@ -36,7 +48,6 @@
     }
 
     &:hover {
-        border-color: rgba(203, 32, 64, 0.15);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
         transform: translateY(-3px);
 
@@ -48,6 +59,60 @@
 
 body {
     background-color: var(--background-color);
+}
+
+/* Base card styles */
+.info-card,
+.stat-card,
+.equipment-card,
+.skill-card {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-standard);
+    position: relative;
+    height: 100%;
+}
+
+/* Card header base */
+.card-header,
+.info-card .card-header,
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--header-padding);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* background: rgba(16, 16, 20, 0.3); */
+    position: relative;
+    z-index: 2;
+
+    h3,
+    .section-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Attribute/stat meter base */
+.meter-base,
+.attribute-bar,
+.stat-meter,
+.skill-stat .stat-meter {
+    height: 6px;
+    background: rgba(7, 7, 8, 0.5);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+
+    .meter-fill,
+    .attribute-fill {
+        height: 100%;
+        background: var(--gradient-color);
+        border-radius: inherit;
+        transition: all 0.3s ease;
+        position: relative;
+    }
 }
 
 /* Character section */
@@ -69,20 +134,14 @@ body {
         }
 
         .sidebar {
-            /* flex: 0 0 250px; */
             position: sticky;
             top: 100px;
-            /* Distance from top of viewport when sticking */
             height: fit-content;
             max-height: calc(100vh - 120px);
-            /* Ensure it doesn't overflow viewport */
             align-self: flex-start;
-            /* Important for sticky positioning within flex parent */
-            /* padding: 2rem; */
             background: rgba(16, 16, 20, 0.3);
             border-radius: 1rem;
             z-index: 10;
-            /* Ensure sidebar is above other content */
 
             @media (max-width: 768px) {
                 flex: none;
@@ -242,6 +301,16 @@ body {
     }
 }
 
+/* Common grid layout */
+.grid-layout {
+    display: grid;
+    gap: 2rem;
+
+    @media (max-width: 992px) {
+        gap: 1.5rem;
+    }
+}
+
 /* Info section - New Design */
 .info-container {
     display: flex;
@@ -290,39 +359,12 @@ body {
     }
 }
 
-/* Common card styling */
-.info-card {
-    background: var(--card-background);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    height: 100%;
-
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        background: rgba(16, 16, 20, 0.3);
-        position: relative;
-        z-index: 2;
-
-        h3.section-title {
-            font-size: 1.25rem;
-        }
-    }
-}
-
 /* Profile card with stats - Enhanced style */
 .character-profile {
     position: relative;
 
     .profile-content {
-        padding: 1.5rem;
+        padding: var(--content-padding);
         display: flex;
         flex-direction: column;
         position: relative;
@@ -431,7 +473,6 @@ body {
                 rgba(203, 32, 64, 0.1) 100%);
         padding: 0.65rem 0.75rem;
         border-radius: 4px;
-        border: 1px solid rgba(203, 32, 64, 0.2);
         transition: all 0.3s ease;
         flex: 1;
         min-width: 45%;
@@ -462,12 +503,9 @@ body {
             text-overflow: ellipsis;
         }
 
-        &.security {
-            background: linear-gradient(90deg,
-                    rgba(16, 16, 20, 0.7) 0%,
-                    rgba(32, 140, 203, 0.1) 100%);
-            border-color: rgba(32, 140, 203, 0.2);
-
+        /* Badge variants */
+        &.security,
+        &.research {
             .badge-icon {
                 color: rgba(32, 140, 203, 0.8);
             }
@@ -479,11 +517,16 @@ body {
             }
         }
 
+        &.security {
+            background: linear-gradient(90deg,
+                    rgba(16, 16, 20, 0.7) 0%,
+                    rgba(32, 140, 203, 0.1) 100%);
+        }
+
         &.research {
             background: linear-gradient(90deg,
                     rgba(16, 16, 20, 0.7) 0%,
                     rgba(137, 59, 133, 0.1) 100%);
-            border-color: rgba(137, 59, 133, 0.2);
 
             .badge-icon {
                 color: rgba(137, 59, 133, 0.8);
@@ -504,7 +547,7 @@ body {
     overflow: hidden;
 
     .attributes-container {
-        padding: 1.5rem;
+        padding: var(--content-padding);
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -564,33 +607,6 @@ body {
             }
         }
 
-        .attribute-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-
-            .attribute-fill {
-                height: 100%;
-                background: var(--gradient-color);
-                border-radius: 4px;
-                transition: all 0.3s ease;
-                position: relative;
-
-                .attribute-highlights {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                }
-            }
-        }
-
         .attribute-annotation {
             font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.5);
@@ -603,58 +619,6 @@ body {
 
 /* Background card */
 .background-card {
-    .context-buttons {
-        display: flex;
-        gap: 0.5rem;
-        margin-left: auto;
-
-        .context-btn {
-            background: rgba(16, 16, 20, 0.4);
-            color: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-
-            &:hover {
-                color: rgba(255, 255, 255, 0.9);
-                border-color: rgba(255, 255, 255, 0.1);
-                background: rgba(255, 255, 255, 0.05);
-            }
-
-            &.active {
-                background: rgba(203, 32, 64, 0.15);
-                color: var(--white2-color);
-                border-color: var(--border-hover-color);
-                font-weight: 500;
-            }
-        }
-
-        @media (max-width: 576px) {
-            margin-top: 0.5rem;
-            margin-left: 0;
-            width: 100%;
-
-            .context-btn {
-                flex: 1;
-                font-size: 0.8rem;
-                padding: 0.4rem 0;
-                text-align: center;
-            }
-        }
-    }
-
-    .background-content {
-        padding: 1.5rem;
-        transition: opacity 0.4s ease;
-
-        .info-text {
-            text-indent: 3em;
-        }
-    }
-
     .card-header {
         flex-direction: column;
         align-items: flex-start;
@@ -671,10 +635,10 @@ body {
         gap: 0.5rem;
         margin-left: auto;
         background: rgba(16, 16, 20, 0.5);
+        backdrop-filter: blur(5px);
         padding: 0.25rem;
         border-radius: 0.75rem;
         border: 1px solid rgba(255, 255, 255, 0.05);
-        width: 100%;
 
         @media (min-width: 768px) {
             width: auto;
@@ -692,7 +656,6 @@ body {
             font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            flex: 1;
             justify-content: center;
 
             @media (min-width: 768px) {
@@ -751,7 +714,7 @@ body {
     }
 
     .background-content {
-        padding: 1.5rem;
+        padding: var(--content-padding);
         transition: opacity 0.4s ease, transform 0.4s ease;
 
         &.changing {
@@ -763,6 +726,10 @@ body {
             opacity: 1;
             transform: translateY(0);
             animation: fadeInBackground 0.4s ease forwards;
+        }
+
+        .info-text {
+            text-indent: 3em;
         }
     }
 }
@@ -900,17 +867,11 @@ body {
         }
 
         .stat-card {
-            background: var(--card-background);
-            border-radius: 0.75rem;
             padding: 1.25rem;
             display: flex;
             align-items: center;
             gap: 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-            position: relative;
+            z-index: 2;
 
             .stat-info {
                 flex: 1;
@@ -955,17 +916,9 @@ body {
 
                 .stat-meter {
                     height: 6px;
-                    background: rgba(16, 16, 20, 0.5);
-                    border-radius: 3px;
                     margin-bottom: 0.75rem;
-                    overflow: hidden;
-                    position: relative;
 
                     .meter-fill {
-                        height: 100%;
-                        background: var(--gradient-color);
-                        border-radius: 3px;
-                        position: relative;
                         transform-origin: left;
                     }
                 }
@@ -990,10 +943,8 @@ body {
                 rgba(203, 32, 64, 0.3) 0%,
                 rgba(16, 16, 20, 0.85) 100%);
         border-radius: 0.75rem;
-        border: 1px solid rgba(203, 32, 64, 0.1);
         transition: transform 0.3s ease,
-            box-shadow 0.3s ease,
-            border-color 0.3s ease;
+            box-shadow 0.3s ease;
         position: relative;
 
         &:hover {
@@ -1069,14 +1020,6 @@ body {
     }
 
     .equipment-card {
-        background: var(--card-background);
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        height: 100%;
         display: flex;
         flex-direction: column;
 
@@ -1248,265 +1191,247 @@ body {
         &.ultimate-wrap {
             width: 100%;
         }
+    }
+}
 
-        .skill-card {
-            height: 100%;
-            border-radius: 16px;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* Skill card base styles */
+.skill-card {
+    &:hover .skill-header h3::after {
+        width: 100%;
+    }
 
-            &:hover {
-                &::before {
-                    opacity: 1;
+    &.main {
+        background: var(--card-background);
+        display: flex;
+        flex-direction: column;
+        min-height: 400px;
+
+        &:hover {
+            .skill-icon {
+                background: rgba(255, 255, 255, 0.05);
+
+                img {
+                    transform: scale(1.1);
+                    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+                }
+
+                .skill-icon-glow {
+                    opacity: 0.7;
+                    transform: scale(1.1);
                 }
             }
 
-            &.main {
-                background: var(--card-background);
-                display: flex;
+            .skill-desc {
+                color: rgba(255, 255, 255, 0.95);
+            }
+
+            .skill-stat {
+                .stat-label {
+                    color: rgba(255, 255, 255, 0.8);
+                }
+
+                .stat-value {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .stat-meter .meter-fill {
+                    box-shadow: 0 0 5px rgba(203, 32, 64, 0.5);
+                }
+            }
+        }
+    }
+
+    &.passive {
+        background: linear-gradient(135deg,
+                rgba(60, 64, 93, 0.3) 0%,
+                rgba(16, 16, 20, 0.85) 100%);
+        min-height: 180px;
+
+        .skill-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
                 flex-direction: column;
-                min-height: 400px;
-
-                &:hover {
-                    .skill-icon {
-                        background: rgba(255, 255, 255, 0.05);
-                        border-color: rgba(255, 255, 255, 0.1);
-
-                        img {
-                            transform: scale(1.1);
-                            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-                        }
-
-                        .skill-icon-glow {
-                            opacity: 0.7;
-                            transform: scale(1.1);
-                        }
-                    }
-
-                    .skill-desc {
-                        color: rgba(255, 255, 255, 0.95);
-                    }
-
-                    .skill-stat {
-                        .stat-label {
-                            color: rgba(255, 255, 255, 0.8);
-                        }
-
-                        .stat-value {
-                            color: rgba(255, 255, 255, 0.7);
-                        }
-
-                        .stat-meter .meter-fill {
-                            box-shadow: 0 0 5px rgba(203, 32, 64, 0.5);
-                        }
-                    }
-                }
+                text-align: center;
+                gap: 0.5rem;
             }
+        }
 
-            &.passive {
-                background: linear-gradient(135deg,
-                        rgba(60, 64, 93, 0.3) 0%,
-                        rgba(16, 16, 20, 0.85) 100%);
-                min-height: 180px;
+        .skill-icon {
+            min-width: 140px;
+            height: 100%;
+            padding: 0 2rem;
 
-                .skill-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
+            img {
+                max-height: 160px;
+                filter: drop-shadow(0 0 10px rgba(60, 64, 93, 0.5));
+            }
+        }
+
+        .skill-details {
+            width: auto;
+
+            h3 {
+                margin-bottom: 1rem;
+                font-size: 1.25rem;
+                font-weight: 500;
+                letter-spacing: 0.02em;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -0.5rem;
+                    left: 0;
+                    width: 3rem;
+                    height: 2px;
+                    background: rgba(60, 64, 93, 0.7);
+                    transition: width 0.3s ease;
 
                     @media (max-width: 768px) {
-                        flex-direction: column;
-                        text-align: center;
-                        gap: 0.5rem;
+                        left: 50%;
+                        transform: translateX(-50%);
                     }
+                }
+            }
+
+            p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.8);
+                font-weight: 300;
+            }
+        }
+
+        &:hover {
+            background: linear-gradient(135deg,
+                    rgba(60, 64, 93, 0.35) 0%,
+                    rgba(16, 16, 20, 0.9) 100%);
+
+            .skill-icon img {
+                filter: drop-shadow(0 0 15px rgba(60, 64, 93, 0.8));
+                transform: scale(1.05);
+            }
+
+            .skill-details h3::after {
+                width: 5rem;
+            }
+        }
+    }
+
+    &.ultimate {
+        background: linear-gradient(135deg,
+                rgba(203, 32, 64, 0.3) 0%,
+                rgba(16, 16, 20, 0.85) 100%);
+        min-height: 220px;
+
+        .skill-content {
+            display: flex;
+            flex-direction: column;
+
+            .skill-body {
+                flex-direction: row;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
                 }
 
                 .skill-icon {
-                    min-width: 140px;
+                    max-width: 180px;
+                    width: 50%;
                     height: 100%;
-                    padding: 0 2rem;
 
-                    img {
-                        max-height: 160px;
-                        filter: drop-shadow(0 0 10px rgba(60, 64, 93, 0.5));
+                    @media (max-width: 768px) {
+                        max-width: unset;
+                        width: 100%;
+                        height: 150px;
                     }
                 }
 
                 .skill-details {
-                    width: auto;
-
-                    h3 {
-                        margin-bottom: 1rem;
-                        font-size: 1.25rem;
-                        font-weight: 500;
-                        letter-spacing: 0.02em;
-                        position: relative;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            bottom: -0.5rem;
-                            left: 0;
-                            width: 3rem;
-                            height: 2px;
-                            background: rgba(60, 64, 93, 0.7);
-                            transition: width 0.3s ease;
-
-                            @media (max-width: 768px) {
-                                left: 50%;
-                                transform: translateX(-50%);
-                            }
-                        }
-                    }
-
-                    p {
-                        font-size: 0.95rem;
-                        line-height: 1.6;
-                        color: rgba(255, 255, 255, 0.8);
-                        font-weight: 300;
-                    }
-                }
-
-                &:hover {
-                    background: linear-gradient(135deg,
-                            rgba(60, 64, 93, 0.35) 0%,
-                            rgba(16, 16, 20, 0.9) 100%);
-
-                    .skill-icon img {
-                        filter: drop-shadow(0 0 15px rgba(60, 64, 93, 0.8));
-                        transform: scale(1.05);
-                    }
-
-                    .skill-details h3::after {
-                        width: 5rem;
-                    }
-                }
-            }
-
-            &.ultimate {
-                background: linear-gradient(135deg,
-                        rgba(203, 32, 64, 0.3) 0%,
-                        rgba(16, 16, 20, 0.85) 100%);
-                min-height: 220px;
-
-                .skill-content {
                     display: flex;
                     flex-direction: column;
 
-                    .skill-body {
-                        flex-direction: row;
-
-                        @media (max-width: 768px) {
-                            flex-direction: column;
-                        }
-
-                        .skill-icon {
-                            max-width: 180px;
-                            width: 50%;
-                            height: 100%;
-
-                            @media (max-width: 768px) {
-                                max-width: unset;
-                                width: 100%;
-                                height: 150px;
-                            }
-                        }
-
-                        .skill-details {
-                            display: flex;
-                            flex-direction: column;
-
-                            .skill-desc {
-                                color: #fff;
-                                ;
-                            }
-
-                            .skill-stats {
-                                grid-template-columns: auto;
-                                gap: 0;
-                                margin-top: 20px;
-                            }
-                        }
+                    .skill-desc {
+                        color: #fff;
+                        ;
                     }
 
-                }
-
-                img {
-                    filter: drop-shadow(0 0 15px rgba(203, 32, 64, 0.6));
-                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    .skill-stats {
+                        grid-template-columns: auto;
+                        gap: 0;
+                        margin-top: 20px;
+                    }
                 }
             }
         }
-    }
 
-    .skill-category {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        z-index: 10;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 0.25rem 0.65rem;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-
-        &.passive-cat {
-            background: rgba(60, 64, 93, 0.8);
-            color: white;
-            box-shadow: 0 3px 8px rgba(60, 64, 93, 0.2);
-        }
-
-        &.offense-cat {
-            background: rgba(203, 32, 64, 0.8);
-            color: white;
-            box-shadow: 0 3px 8px rgba(203, 32, 64, 0.2);
-        }
-
-        &.defense-cat {
-            background: rgba(21, 101, 153, 0.8);
-            color: white;
-            box-shadow: 0 3px 8px rgba(21, 101, 153, 0.2);
-        }
-
-        &.utility-cat {
-            background: rgba(137, 59, 133, 0.8);
-            color: white;
-            box-shadow: 0 3px 8px rgba(137, 59, 133, 0.2);
-        }
-
-        &.ultimate-cat {
-            background: linear-gradient(90deg, #CB2040, #893B85);
-            color: white;
-            box-shadow: 0 3px 10px rgba(203, 32, 64, 0.3);
-        }
-    }
-
-    &:hover .skill-category {
-        transform: translateY(-2px);
-
-        &.offense-cat {
-            box-shadow: 0 5px 12px rgba(203, 32, 64, 0.3);
-        }
-
-        &.defense-cat {
-            box-shadow: 0 5px 12px rgba(21, 101, 153, 0.3);
-        }
-
-        &.utility-cat {
-            box-shadow: 0 5px 12px rgba(137, 59, 133, 0.3);
-        }
-
-        &.ultimate-cat {
-            box-shadow: 0 5px 15px rgba(203, 32, 64, 0.4);
+        img {
+            filter: drop-shadow(0 0 15px rgba(203, 32, 64, 0.6));
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
     }
 }
 
-.skill-card:hover .skill-header h3::after {
-    width: 100%;
+.skill-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    color: white;
+
+    &.passive-cat {
+        background: var(--passive-color);
+        box-shadow: 0 3px 8px rgba(60, 64, 93, 0.2);
+    }
+
+    &.offense-cat {
+        background: rgba(203, 32, 64, 0.8);
+        box-shadow: 0 3px 8px rgba(203, 32, 64, 0.2);
+    }
+
+    &.defense-cat {
+        background: var(--defense-color);
+        box-shadow: 0 3px 8px rgba(21, 101, 153, 0.2);
+    }
+
+    &.utility-cat {
+        background: var(--utility-color);
+        box-shadow: 0 3px 8px rgba(137, 59, 133, 0.2);
+    }
+
+    &.ultimate-cat {
+        background: linear-gradient(90deg, #CB2040, #893B85);
+        box-shadow: 0 3px 10px rgba(203, 32, 64, 0.3);
+    }
+}
+
+.skill-section:hover .skill-category {
+    transform: translateY(-2px);
+
+    &.offense-cat {
+        box-shadow: 0 5px 12px rgba(203, 32, 64, 0.3);
+    }
+
+    &.defense-cat {
+        box-shadow: 0 5px 12px rgba(21, 101, 153, 0.3);
+    }
+
+    &.utility-cat {
+        box-shadow: 0 5px 12px rgba(137, 59, 133, 0.3);
+    }
+
+    &.ultimate-cat {
+        box-shadow: 0 5px 15px rgba(203, 32, 64, 0.4);
+    }
 }
 
 .skill-content {
@@ -1517,6 +1442,8 @@ body {
 
     .skill-header {
         min-height: 60px;
+        align-items: baseline;
+        padding: 0;
 
         h3 {
             padding-right: 80px;
@@ -1556,7 +1483,6 @@ body {
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
 
@@ -1611,21 +1537,6 @@ body {
                     transition: color 0.3s ease;
                 }
 
-                .stat-meter {
-                    height: 4px;
-                    background: rgba(255, 255, 255, 0.1);
-                    border-radius: 2px;
-                    overflow: hidden;
-
-                    .meter-fill {
-                        height: 100%;
-                        background: var(--gradient-color);
-                        border-radius: 2px;
-                        transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-                            box-shadow 0.3s ease;
-                    }
-                }
-
                 .stat-value {
                     font-size: 0.7rem;
                     color: rgba(255, 255, 255, 0.5);
@@ -1651,30 +1562,6 @@ body {
     100% {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-.background-content.changing {
-    animation: fadeInBackground 0.5s ease forwards;
-}
-
-/* Media queries for responsive layout */
-@media (max-width: 768px) {
-    .context-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .context-buttons.button-style {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .context-btn {
-        flex: 1;
-        padding: 0.6rem 0.5rem;
-        font-size: 0.85rem;
     }
 }
 
