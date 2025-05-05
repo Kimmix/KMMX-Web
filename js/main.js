@@ -355,6 +355,32 @@ function setupColorBoxes() {
     });
 }
 
+// Setup SVG animation in footer
+function setupSVGAnimation() {
+    const svgAnimation = document.querySelector('.footer-center .svg-animation');
+    if (!svgAnimation) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                // Add animate class when the element comes into view
+                if (entry.isIntersecting) {
+                    svgAnimation.classList.add('animate');
+                } else {
+                    // Optional: Remove the class when out of view to reset animation
+                    // Uncomment the next line if you want the animation to repeat each time
+                    // svgAnimation.classList.remove('animate');
+                }
+            });
+        },
+        {
+            threshold: 0.3 // Trigger when 30% of the element is visible
+        }
+    );
+
+    observer.observe(svgAnimation);
+}
+
 // Main initialization
 function init() {
     // Initialize GSAP first (needed regardless of page)
@@ -391,6 +417,7 @@ function init() {
         setupTriangleAnimations();
         setupVideoControl();
         setupBackToTopButton();
+        setupSVGAnimation();
 
         // Set up interactions
         setupSocialInteractions();

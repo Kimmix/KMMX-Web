@@ -264,9 +264,8 @@
                     <a href="gallery.html">Gallery</a> |
                     <a href="#aboutme">About me</a>
                 </nav>
+                <p class="fade">VanillaJS</p>
                 <p>anthro.asia CNAME by Mokarakom</p>
-                <p>Just pure HTML / CSS / VanillaJS</p>
-                <p class="fade">No framework needed</p>
                 <p>Kimmix&copy;2025</p>
             </div>
             <div class="footer-center">
@@ -277,6 +276,15 @@
                                 stroke: #CEDFFC;
                                 stroke-width: 15px;
                                 fill: none;
+                                stroke-dasharray: 2000;
+                                stroke-dashoffset: 2000;
+                                transition: stroke-dashoffset 3s ease;
+                            }
+                            .stroke:nth-child(2) {
+                                transition-delay: 0.5s;
+                            }
+                            .svg-animation.animate .stroke {
+                                stroke-dashoffset: 0;
                             }
                         </style>
                     </defs>
