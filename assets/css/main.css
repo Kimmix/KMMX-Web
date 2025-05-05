@@ -735,6 +735,7 @@ body {
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 
             &:hover {
+                cursor: pointer;
                 transform: scale(1.02);
 
                 .hover-indicator {
@@ -914,6 +915,9 @@ body {
                 &:last-of-type {
                     overflow: visible;
                     clip-path: inset(-200% 0 0 0);
+                    img {
+                        overflow: visible;
+                    }
                 }
 
                 img {
@@ -1616,7 +1620,7 @@ body {
         }
 
         .aboutme-text {
-            margin-top: -120px;
+            margin-top: -100px;
         }
     }
 
@@ -1722,13 +1726,6 @@ body {
     svg {
         width: 24px;
         height: 24px;
-    }
-
-    @media (max-width: 768px) {
-        & {
-            bottom: 70px;
-            right: 20px;
-        }
     }
 
     /* Hide the button when close to the footer */
