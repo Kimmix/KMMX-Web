@@ -28,7 +28,6 @@ let touchEndY = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let popupOpen = false;
-let isScrolling = false;
 let lenis; // Store the Lenis instance
 
 // Initialize smooth scrolling
@@ -37,9 +36,8 @@ function initSmoothScroll() {
         duration: 1.0,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: 'vertical',
-        gestureDirection: 'vertical',
         smooth: true,
-        smoothTouch: false, // Disable on touch devices for better performance
+        smoothTouch: false, // Better performance on touch devices
         touchMultiplier: 2,
         wheelMultiplier: 0.8,
         lerp: 0.08,
@@ -47,19 +45,14 @@ function initSmoothScroll() {
 
     // Connect with GSAP if available
     if (window.gsap && window.ScrollTrigger) {
-        const throttledUpdate = throttle(() => {
-            ScrollTrigger.update();
-        }, 100);
-
-        lenis.on("scroll", throttledUpdate);
+        lenis.on("scroll", throttle(() => ScrollTrigger.update(), 100));
     }
 
-    // Use requestAnimationFrame for animation loop
-    function raf(time) {
+    // Animation loop using requestAnimationFrame
+    requestAnimationFrame(function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    });
 
     // Expose lenis to window for other scripts
     window.lenis = lenis;
@@ -117,16 +110,15 @@ async function initGallery() {
     }
 }
 
-// Render gallery items based on current filter, search, and view mode
+// Render gallery items
 function renderGallery() {
-    // Clear loading indicator
+    // Clear gallery
     galleryGrid.innerHTML = '';
 
     // Update the count
     itemCountElement.textContent = filteredItems.length;
 
     // Render items in grid view (masonry layout)
-    galleryGrid.className = 'gallery-grid';
     renderGridView();
 }
 
@@ -137,8 +129,6 @@ function renderGridView() {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         galleryItem.setAttribute('data-index', index);
-
-        // Set a default span for all items
         galleryItem.style.setProperty('--span', 20);
 
         // Set animation delay for staggered effect - limit for mobile
@@ -150,14 +140,9 @@ function renderGridView() {
         img.src = item.imgSrc;
         img.alt = item.title;
         img.loading = "lazy";
-        // Add width and height to help with layout calculation before image loads
         img.setAttribute('width', '100%');
         img.setAttribute('height', 'auto');
-
-        // Set up load event to recalculate grid item size after image loads
-        img.onload = () => {
-            resizeGridItem(galleryItem);
-        };
+        img.onload = () => resizeGridItem(galleryItem);
 
         // Create the overlay content
         const overlay = document.createElement('div');
@@ -178,17 +163,12 @@ function renderGridView() {
         }
 
         // Add visible class with a delay for staggered appearance
-        setTimeout(() => {
-            galleryItem.classList.add('visible');
-        }, index * 50);
+        setTimeout(() => galleryItem.classList.add('visible'), index * 50);
     });
 
     // Recalculate layout after a short delay
     setTimeout(resizeAllGridItems, 100);
-
-    // Additional resize checks for better layout stability
     setTimeout(resizeAllGridItems, 500);
-    setTimeout(resizeAllGridItems, 1000);
 }
 
 // Set up all event listeners
@@ -220,7 +200,7 @@ function setupEventListeners() {
         });
     });
 
-    // Search input
+    // Search functionality
     searchInput.addEventListener('input', debounce(() => {
         currentSearch = searchInput.value.trim().toLowerCase();
         updateClearSearchButton();
@@ -254,8 +234,7 @@ function setupEventListeners() {
         const galleryItem = e.target.closest('.gallery-item');
         if (!galleryItem) return;
 
-        const index = parseInt(galleryItem.getAttribute('data-index'));
-        openPopup(index);
+        openPopup(parseInt(galleryItem.getAttribute('data-index')));
     });
 
     // Popup navigation and close
@@ -265,7 +244,6 @@ function setupEventListeners() {
 
     // Close popup when clicking outside the content
     imagePopup.addEventListener('click', (e) => {
-        // Close if clicking on the overlay or anywhere except popup content, navigation buttons
         if (e.target === imagePopup ||
             e.target.classList.contains('popup-overlay') ||
             e.target === document.querySelector('.popup-container')) {
@@ -278,37 +256,26 @@ function setupEventListeners() {
         if (!popupOpen) return;
 
         switch (e.key) {
-            case 'Escape':
-                closePopup();
-                break;
-            case 'ArrowLeft':
-                showPreviousImage();
-                break;
-            case 'ArrowRight':
-                showNextImage();
-                break;
+            case 'Escape': closePopup(); break;
+            case 'ArrowLeft': showPreviousImage(); break;
+            case 'ArrowRight': showNextImage(); break;
         }
     });
 
-    // Touch swipe support for image popup on mobile
+    // Touch swipe support for image popup
     imagePopup.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
-    }, false);
+    });
 
     imagePopup.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
-    }, false);
+    });
 
     // Window resize handler
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            resizeAllGridItems();
-        }, 100);
-    });
+    window.addEventListener('resize', debounce(resizeAllGridItems, 100));
 }
 
 // Handle touch swipe in popup
@@ -319,33 +286,27 @@ function handleSwipe() {
     const swipeDistanceX = touchEndX - touchStartX;
     const swipeDistanceY = touchEndY - touchStartY;
 
-    if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
-        // Vertical swipe detected, ignore
-        return;
-    }
-
-    if (swipeDistanceX > swipeThreshold) {
-        // Swiped right - go to previous
-        showPreviousImage();
-    } else if (swipeDistanceX < -swipeThreshold) {
-        // Swiped left - go to next
-        showNextImage();
+    // Only process horizontal swipes
+    if (Math.abs(swipeDistanceY) <= Math.abs(swipeDistanceX)) {
+        if (swipeDistanceX > swipeThreshold) {
+            showPreviousImage();
+        } else if (swipeDistanceX < -swipeThreshold) {
+            showNextImage();
+        }
     }
 }
 
 // Apply current filters and sort
 function applyFiltersAndSort() {
-    // First filter by category
-    if (currentFilter === 'all') {
-        filteredItems = [...galleryItems];
-    } else {
-        filteredItems = galleryItems.filter(item =>
+    // Filter by category
+    filteredItems = currentFilter === 'all'
+        ? [...galleryItems]
+        : galleryItems.filter(item =>
             item.category === currentFilter ||
             item.title.toLowerCase().includes(currentFilter)
         );
-    }
 
-    // Then apply search if any
+    // Apply search if any
     if (currentSearch) {
         filteredItems = filteredItems.filter(item =>
             item.title.toLowerCase().includes(currentSearch) ||
@@ -353,10 +314,10 @@ function applyFiltersAndSort() {
         );
     }
 
-    // Finally sort the items
+    // Sort the items
     sortItems();
 
-    // Re-render the gallery with the filtered items
+    // Re-render the gallery
     renderGallery();
 }
 
@@ -364,32 +325,26 @@ function applyFiltersAndSort() {
 function sortItems() {
     switch (currentSort) {
         case 'newest':
-            // Assuming newer items are at the end of the array
             filteredItems.sort((a, b) => b.originalIndex - a.originalIndex);
             break;
         case 'oldest':
-            // Assuming older items are at the beginning of the array
             filteredItems.sort((a, b) => a.originalIndex - b.originalIndex);
             break;
         case 'artist':
-            // Sort by artist name
             filteredItems.sort((a, b) => a.artist.localeCompare(b.artist));
             break;
         default:
-            // Default order (original order)
             filteredItems.sort((a, b) => a.originalIndex - b.originalIndex);
             break;
     }
 }
 
-// Simple debounce function for search input
-function debounce(func, delay) {
+// Simple debounce function
+function debounce(func, delay = 200) {
     let timeout;
-    return function () {
-        const context = this;
-        const args = arguments;
+    return function (...args) {
         clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), delay);
+        timeout = setTimeout(() => func.apply(this, args), delay);
     };
 }
 
@@ -403,35 +358,26 @@ function resizeGridItem(item) {
 
     const img = item.querySelector('img');
     if (!img || !img.complete) {
-        // If image hasn't loaded yet, use a default span based on device
-        const defaultSpan = isMobile ? 15 : 20;
-        item.style.gridRowEnd = `span ${defaultSpan}`;
+        // If image hasn't loaded yet, use a default span
+        item.style.gridRowEnd = `span ${isMobile ? 15 : 20}`;
         return;
     }
 
-    // Get actual dimensions of the image
+    // Get actual dimensions and aspect ratio
     const contentHeight = img.offsetHeight;
-
-    // Calculate aspect ratio (width/height)
     const aspectRatio = img.naturalWidth / img.naturalHeight;
 
-    // Create an advanced adjustment curve based on aspect ratio
+    // Adjust height based on aspect ratio
     let adjustedHeight = contentHeight;
     let aspectAdjustment = 1;
 
-    // Enhanced aspect ratio handling with progressive scaling
+    // Enhanced aspect ratio handling
     if (aspectRatio > 1) {
-        // For landscape images, apply progressive reduction based on how wide they are
-        // This creates a smooth curve where wider images get progressively smaller height allocations
-        // 1.0 = square, 1.5 = 3:2 landscape, 2.0 = 2:1 landscape, 3.0 = extremely wide panorama
         if (aspectRatio <= 1.5) {
-            // Mild reduction for slightly wide images (1:1 to 3:2)
             aspectAdjustment = 1 - (aspectRatio - 1) * 0.2;
         } else if (aspectRatio <= 2.5) {
-            // Medium reduction for wide images (3:2 to 5:2)
             aspectAdjustment = 0.9 - (aspectRatio - 1.5) * 0.25;
         } else {
-            // Strong reduction for panoramic images (wider than 5:2)
             aspectAdjustment = 0.65 - Math.min(0.25, (aspectRatio - 2.5) * 0.1);
         }
 
@@ -441,26 +387,25 @@ function resizeGridItem(item) {
     // Calculate row span based on adjusted height
     const rowSpan = Math.ceil((adjustedHeight + rowGap) / (rowHeight + rowGap));
 
-    // Set minimum span based on aspect ratio to prevent too small cells for wide images
-    // Wider images get smaller minimum spans since they need less vertical space
+    // Calculate minimum span based on aspect ratio
     const baseMinSpan = isMobile ? 8 : 12;
-    const aspectRatioFactor = Math.min(1, 1.2 / aspectRatio); // Normalize aspect ratio effect
+    const aspectRatioFactor = Math.min(1, 1.2 / aspectRatio);
     const minSpan = Math.max(Math.floor(baseMinSpan * aspectRatioFactor), 5);
 
     // Set the final row span
     const finalSpan = Math.max(rowSpan, minSpan);
     item.style.gridRowEnd = `span ${finalSpan}`;
 
-    // Add a custom property to track aspect ratio for CSS styling
+    // Add aspect ratio property for CSS styling
     item.style.setProperty('--aspect-ratio', aspectRatio.toFixed(2));
 }
 
-// Apply masonry calculations to all items - Optimized for mobile
+// Apply masonry calculations to all items
 function resizeAllGridItems() {
     const allItems = document.querySelectorAll('.gallery-item');
     if (!allItems.length) return;
 
-    // Limit processing on mobile for better performance
+    // Process in batches for better performance on mobile
     const batchSize = isMobile ? 5 : allItems.length;
     let processed = 0;
 
@@ -470,7 +415,7 @@ function resizeAllGridItems() {
         for (let i = processed; i < end; i++) {
             resizeGridItem(allItems[i]);
 
-            // Add event listener for image load
+            // Add event listener for image load if needed
             const img = allItems[i].querySelector('img');
             if (img && !img.complete) {
                 img.addEventListener('load', () => resizeGridItem(allItems[i]));
@@ -479,7 +424,7 @@ function resizeAllGridItems() {
 
         processed = end;
 
-        // If there are more items to process, schedule the next batch
+        // If more items to process, schedule next batch
         if (processed < allItems.length) {
             setTimeout(processNextBatch, 10);
         }
@@ -498,20 +443,17 @@ function openPopup(index) {
     popupTitle.textContent = item.title;
     popupArtist.textContent = item.artist;
 
-    // Display popup with animation
+    // Display popup
     imagePopup.style.display = 'block';
     popupOpen = true;
 
-    // Prevent body scrolling when popup is open
+    // Prevent body scrolling
     document.body.style.overflow = 'hidden';
 }
 
 function closePopup() {
-    // Remove opacity transitions
     imagePopup.style.display = 'none';
     popupOpen = false;
-
-    // Re-enable scrolling immediately
     document.body.style.overflow = '';
 }
 
@@ -528,11 +470,7 @@ function showNextImage() {
 function updatePopupContent() {
     const item = filteredItems[currentItemIndex];
 
-    // Create new image element to allow for fade transition
-    const newImage = new Image();
-    newImage.src = item.imgSrc;
-
-    // For mobile, update immediately to avoid delay
+    // For mobile, update immediately
     if (isMobile) {
         popupImage.src = item.imgSrc;
         popupTitle.textContent = item.title;
@@ -541,6 +479,8 @@ function updatePopupContent() {
     }
 
     // For desktop, add fade transition
+    const newImage = new Image();
+    newImage.src = item.imgSrc;
     newImage.onload = () => {
         popupImage.style.opacity = '0';
         setTimeout(() => {
@@ -564,7 +504,5 @@ function updateClearSearchButton() {
     }
 }
 
-// Initialize the gallery when the page is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initGallery();
-});
+// Initialize gallery on page load
+document.addEventListener('DOMContentLoaded', initGallery);
