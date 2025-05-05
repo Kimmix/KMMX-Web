@@ -1,26 +1,23 @@
 // Utility functions
 // -----------------------------------------
 // Device detection - consolidated into one function
-const deviceInfo = (function () {
+const deviceInfo = (() => {
     const ua = navigator.userAgent;
     const isMobile = /Mobi|Android/i.test(ua);
     const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
-    const isDesktop = !isMobile && !isTablet;
 
     return {
         isMobile,
         isTablet,
-        isDesktop,
-        getDeviceType() {
-            return isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop';
-        }
+        isDesktop: !isMobile && !isTablet,
+        getDeviceType: () => isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop'
     };
 })();
 
-// Throttle function - removed duplication
+// Throttle function - optimized
 function throttle(func, limit) {
     let lastCall = 0;
-    return function (...args) {
+    return function(...args) {
         const now = Date.now();
         if (now - lastCall >= limit) {
             lastCall = now;
@@ -29,7 +26,7 @@ function throttle(func, limit) {
     };
 }
 
-// Calculate age
+// Calculate age - simplified
 function calculateAge(birthDateString) {
     const today = new Date();
     const birth = new Date(birthDateString);
@@ -37,16 +34,12 @@ function calculateAge(birthDateString) {
     return today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? age - 1 : age;
 }
 
-// Show notification
+// Show notification - simplified
 function showNotification(message) {
     const notification = document.getElementById('notification');
-    const notificationMessage = notification.querySelector('.notification-message');
-    notificationMessage.textContent = message;
+    notification.querySelector('.notification-message').textContent = message;
     notification.classList.add('show');
-
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 3000);
+    setTimeout(() => notification.classList.remove('show'), 3000);
 }
 
 // Parallax effects
@@ -300,82 +293,52 @@ function setupBackToTopButton() {
 
     // Calculate trigger position using the reference section
     const triggerPos = refSection.getBoundingClientRect().top + window.scrollY;
+    const toggleButton = () => {
+        const isVisible = window.scrollY > triggerPos;
+        btn.classList.toggle('visible', isVisible);
 
-    function toggleButton() {
-        if (window.scrollY > triggerPos) {
-            btn.classList.add('visible');
-
+        if (isVisible) {
             // Handle footer visibility
-            const footerVisible = footer.getBoundingClientRect().top < window.innerHeight - 100;
-            document.body.classList.toggle('footer-visible', footerVisible);
+            document.body.classList.toggle('footer-visible',
+                footer.getBoundingClientRect().top < window.innerHeight - 100);
         } else {
-            btn.classList.remove('visible');
             document.body.classList.remove('footer-visible');
         }
-    }
-
-    // Scroll to top
-    function scrollToTop(e) {
-        e.preventDefault();
-        window.lenis ?
-            window.lenis.scrollTo(0, { duration: 1.2 }) :
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    };
 
     window.addEventListener('scroll', throttle(toggleButton, 200));
-    btn.addEventListener('click', scrollToTop);
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        window.lenis ? window.lenis.scrollTo(0, {duration: 1.2})
+                     : window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
     toggleButton(); // Check on load
 }
 
-// Setup color box copy functionality
+// Setup color box copy functionality - optimized
 function setupColorBoxes() {
-    const colorBoxes = document.querySelectorAll('.color-box');
-    colorBoxes.forEach(box => {
-        box.addEventListener('click', function () {
+    document.querySelectorAll('.color-box').forEach(box => {
+        box.addEventListener('click', function() {
             const colorCode = this.getAttribute('data-tooltip');
             navigator.clipboard.writeText(colorCode).then(() => {
-                // Show copied notification
-                const notification = document.querySelector('.notification');
-                const notificationMessage = document.querySelector('.notification-message');
-                if (notification && notificationMessage) {
-                    notificationMessage.textContent = `${colorCode} copied to clipboard!`;
-                    notification.classList.add('show');
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 2000);
-                }
+                showNotification(`${colorCode} copied to clipboard!`);
             });
         });
     });
 }
 
-// Setup SVG animation in footer
+// Setup SVG animation in footer - simplified
 function setupSVGAnimation() {
     const svgAnimation = document.querySelector('.footer-center .svg-animation');
     if (!svgAnimation) return;
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                // Add animate class when the element comes into view
-                if (entry.isIntersecting) {
-                    svgAnimation.classList.add('animate');
-                } else {
-                    // Optional: Remove the class when out of view to reset animation
-                    // Uncomment the next line if you want the animation to repeat each time
-                    // svgAnimation.classList.remove('animate');
-                }
-            });
-        },
-        {
-            threshold: 0.3 // Trigger when 30% of the element is visible
-        }
-    );
-
-    observer.observe(svgAnimation);
+    new IntersectionObserver(
+        entries => entries[0].isIntersecting && svgAnimation.classList.add('animate'),
+        { threshold: 0.3 }
+    ).observe(svgAnimation);
 }
 
-// Setup footer background fade-in animation
 function setupFooterBgAnimation() {
     const footerBg = document.querySelector('.footer-bg img');
     if (!footerBg) return;
@@ -402,42 +365,30 @@ function init() {
 
     // Initialize Lenis smooth scrolling - only if not on section.html
     const lenisInstance = initSmoothScroll();
+    if (!lenisInstance) document.body.classList.add('lenis-disabled');
 
-    // Add a class to body if Lenis is disabled, so CSS can adjust accordingly
-    if (!lenisInstance) {
-        document.body.classList.add('lenis-disabled');
-    }
-
-    // Schedule less critical initializations with small delays
-    // to improve initial load performance
-    setTimeout(() => {
-        // Set up dynamic content and elements
+    // Initialize page elements - using requestAnimationFrame for non-critical tasks
+    requestAnimationFrame(() => {
+        // Essential UI elements first
         setupAgeDisplay();
         setupDeviceTypeDisplay();
-
-        // Set up parallax effects - only if Lenis is enabled (not on section page)
-        if (lenisInstance) {
-            parallaxControl.setup();
-        }
-
-        // Set up form interaction
         setupFeedbackForm();
-    }, 10);
 
-    // Slightly delay animations to ensure smooth page load
-    setTimeout(() => {
-        // Set up animations
-        setupImageAnimations();
-        setupTriangleAnimations();
-        setupVideoControl();
-        setupBackToTopButton();
-        setupSVGAnimation();
-        setupFooterBgAnimation();
+        // Set up parallax effects if Lenis is enabled
+        if (lenisInstance) parallaxControl.setup();
 
-        // Set up interactions
-        setupSocialInteractions();
-        setupColorBoxes();
-    }, 100);
+        // Delay visual enhancements slightly to prioritize core functionality
+        setTimeout(() => {
+            setupImageAnimations();
+            setupTriangleAnimations();
+            setupVideoControl();
+            setupBackToTopButton();
+            setupSVGAnimation();
+            setupFooterBgAnimation();
+            setupSocialInteractions();
+            setupColorBoxes();
+        }, 50);
+    });
 }
 
 // Social interactions
