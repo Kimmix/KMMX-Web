@@ -34,12 +34,15 @@ function calculateAge(birthDateString) {
     return today < new Date(today.getFullYear(), birth.getMonth(), birth.getDate()) ? age - 1 : age;
 }
 
-// Show notification - simplified
+// Show notification with timeout reset
+let notificationTimeout;
 function showNotification(message) {
     const notification = document.getElementById('notification');
     notification.querySelector('.notification-message').textContent = message;
     notification.classList.add('show');
-    setTimeout(() => notification.classList.remove('show'), 3000);
+
+    notificationTimeout && clearTimeout(notificationTimeout);
+    notificationTimeout = setTimeout(() => notification.classList.remove('show'), 3000);
 }
 
 // Parallax effects
