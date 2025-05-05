@@ -29,10 +29,60 @@ let touchStartY = 0;
 let touchEndX = 0;
 let popupOpen = false;
 let isScrolling = false;
+let lenis; // Store the Lenis instance
+
+// Initialize smooth scrolling
+function initSmoothScroll() {
+    lenis = new Lenis({
+        duration: 1.0,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        smoothTouch: false, // Disable on touch devices for better performance
+        touchMultiplier: 2,
+        wheelMultiplier: 0.8,
+        lerp: 0.08,
+    });
+
+    // Connect with GSAP if available
+    if (window.gsap && window.ScrollTrigger) {
+        const throttledUpdate = throttle(() => {
+            ScrollTrigger.update();
+        }, 100);
+
+        lenis.on("scroll", throttledUpdate);
+    }
+
+    // Use requestAnimationFrame for animation loop
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Expose lenis to window for other scripts
+    window.lenis = lenis;
+}
+
+// Simple throttle function
+function throttle(func, limit) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
+}
 
 // Initialize the gallery
 async function initGallery() {
     try {
+        // Initialize smooth scrolling first for better user experience
+        initSmoothScroll();
+
         // Fetch gallery items from JSON
         const response = await fetch('/assets/gallery/galleryItems.json');
         galleryItems = await response.json();

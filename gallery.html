@@ -19,6 +19,11 @@
     <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/gallery.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/external/lenis.css">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="js/gallery.js" as="script">
+    <link rel="preload" href="assets/gallery/galleryItems.json" as="fetch" crossorigin>
 </head>
 
 <body>
@@ -107,8 +112,12 @@
         </div>
     </div>
 
+    <!-- Load scripts at the end for better performance -->
+    <script src="js/external/gsap.min.js" defer></script>
+    <script src="js/external/ScrollTrigger.min.js" defer></script>
+    <script src="js/external/lenis.min.js"></script>
     <script src="js/gallery.js"></script>
-    <script src="js/favicon.js"></script>
+    <script src="js/favicon.js" defer></script>
 </body>
 
 </html>

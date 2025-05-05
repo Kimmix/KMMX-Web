@@ -319,15 +319,15 @@ body {
   border-radius: 8px;
   overflow: hidden;
   opacity: 0;
-  /* Set initial opacity back to 0 */
   transform: translateY(20px);
   transition: transform var(--transition-speed) ease,
     box-shadow var(--transition-speed) ease;
-  will-change: opacity, transform;
-  /* Add will-change for better performance */
+  will-change: transform, opacity; /* More specific will-change */
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  contain: content; /* Add CSS containment to prevent layout thrashing */
 }
 
 /* Items with the visible class will be shown */
@@ -501,6 +501,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: alias;
 }
 
 .popup-content {
@@ -510,6 +511,7 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 101;
+  cursor: auto;
 }
 
 .popup-content img {
