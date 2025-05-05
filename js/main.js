@@ -292,59 +292,39 @@ function setupVideoControl() {
 
 // Back to top button functionality
 function setupBackToTopButton() {
-    const backToTopBtn = document.getElementById('backToTopBtn');
-    const aboutmeSection = document.querySelector('.aboutme');
+    const btn = document.getElementById('backToTopBtn');
+    const refSection = document.querySelector('.reference-sheet');
     const footer = document.querySelector('.footer');
 
-    if (!backToTopBtn || !aboutmeSection || !footer) return;
+    if (!btn || !refSection || !footer) return;
 
-    // Get the position of the aboutme section
-    const aboutmeSectionPosition = aboutmeSection.getBoundingClientRect().top + window.scrollY;
+    // Calculate trigger position using the reference section
+    const triggerPos = refSection.getBoundingClientRect().top + window.scrollY;
 
-    // Show button when user scrolls past the aboutme section
-    // Hide button when near footer
-    function toggleBackToTopButton() {
-        if (window.scrollY > aboutmeSectionPosition) {
-            backToTopBtn.classList.add('visible');
+    function toggleButton() {
+        if (window.scrollY > triggerPos) {
+            btn.classList.add('visible');
 
-            // Check if footer is nearly visible
-            const footerTop = footer.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight;
-
-            // If footer is coming into view (within 100px of viewport bottom)
-            if (footerTop < viewportHeight - 100) {
-                document.body.classList.add('footer-visible');
-            } else {
-                document.body.classList.remove('footer-visible');
-            }
+            // Handle footer visibility
+            const footerVisible = footer.getBoundingClientRect().top < window.innerHeight - 100;
+            document.body.classList.toggle('footer-visible', footerVisible);
         } else {
-            backToTopBtn.classList.remove('visible');
+            btn.classList.remove('visible');
             document.body.classList.remove('footer-visible');
         }
     }
 
-    // Scroll to top smoothly
+    // Scroll to top
     function scrollToTop(e) {
         e.preventDefault();
-
-        // If lenis smooth scroll is available, use it
-        if (window.lenis) {
-            window.lenis.scrollTo(0, { duration: 1.2 });
-        } else {
-            // Fallback for browsers without smooth scrolling
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+        window.lenis ?
+            window.lenis.scrollTo(0, { duration: 1.2 }) :
+            window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Add event listeners
-    window.addEventListener('scroll', throttle(toggleBackToTopButton, 200));
-    backToTopBtn.addEventListener('click', scrollToTop);
-
-    // Check position on load (in case page is refreshed while scrolled down)
-    toggleBackToTopButton();
+    window.addEventListener('scroll', throttle(toggleButton, 200));
+    btn.addEventListener('click', scrollToTop);
+    toggleButton(); // Check on load
 }
 
 // Setup color box copy functionality
