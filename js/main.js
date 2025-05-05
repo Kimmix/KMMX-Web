@@ -1,7 +1,7 @@
 // Utility functions
 // -----------------------------------------
 // Device detection - consolidated into one function
-const deviceInfo = (function() {
+const deviceInfo = (function () {
     const ua = navigator.userAgent;
     const isMobile = /Mobi|Android/i.test(ua);
     const isTablet = /iPad|Tablet|PlayBook|Silk/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
@@ -174,12 +174,9 @@ function initSmoothScroll() {
 // Initialize GSAP and ScrollTrigger
 function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Force GSAP to use transform instead of top/left for better performance
     gsap.config({
-        force3D: true
+        force3D: "auto"
     });
-
     // Mark ScrollTrigger to use requestAnimationFrame
     ScrollTrigger.config({
         autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
@@ -275,8 +272,7 @@ function setupVideoControl() {
     const videoObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
-                // Only play when at least 30% visible
-                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.15) {
                     heroVideo.play().catch(() => {
                         // Handle autoplay restrictions
                         console.log("Video autoplay prevented by browser");
@@ -287,36 +283,76 @@ function setupVideoControl() {
             });
         },
         {
-            threshold: [0.3, 0.7] // Check at 30% and 70% visibility
+            threshold: [0.15, 0.7] // Check at 15% and 70% visibility
         }
     );
 
     videoObserver.observe(heroVideo);
 }
 
-// Setup stat bars
-function setupStatBars() {
-    const statBars = document.querySelectorAll('.stat-bar');
-    if (statBars.length === 0) return;
+// Back to top button functionality
+function setupBackToTopButton() {
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const aboutmeSection = document.querySelector('.aboutme');
 
-    // Use an intersection observer to only animate when visible
-    const statObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const div = entry.target;
-                    const position = div.getAttribute('data-position');
-                    div.style.background = `linear-gradient(90deg, #cb2040 0%, #893b85 ${position}, #3c405d 100%)`;
+    if (!backToTopBtn || !aboutmeSection) return;
 
-                    // Unobserve after animation is applied
-                    statObserver.unobserve(div);
+    // Get the position of the aboutme section
+    const aboutmeSectionPosition = aboutmeSection.getBoundingClientRect().top + window.scrollY;
+
+    // Show button when user scrolls past the aboutme section
+    function toggleBackToTopButton() {
+        if (window.scrollY > aboutmeSectionPosition) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+
+    // Scroll to top smoothly
+    function scrollToTop(e) {
+        e.preventDefault();
+
+        // If lenis smooth scroll is available, use it
+        if (window.lenis) {
+            window.lenis.scrollTo(0, { duration: 1.2 });
+        } else {
+            // Fallback for browsers without smooth scrolling
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Add event listeners
+    window.addEventListener('scroll', throttle(toggleBackToTopButton, 200));
+    backToTopBtn.addEventListener('click', scrollToTop);
+
+    // Check position on load (in case page is refreshed while scrolled down)
+    toggleBackToTopButton();
+}
+
+// Setup color box copy functionality
+function setupColorBoxes() {
+    const colorBoxes = document.querySelectorAll('.color-box');
+    colorBoxes.forEach(box => {
+        box.addEventListener('click', function () {
+            const colorCode = this.getAttribute('data-tooltip');
+            navigator.clipboard.writeText(colorCode).then(() => {
+                // Show copied notification
+                const notification = document.querySelector('.notification');
+                const notificationMessage = document.querySelector('.notification-message');
+                if (notification && notificationMessage) {
+                    notificationMessage.textContent = `${colorCode} copied to clipboard!`;
+                    notification.classList.add('show');
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 2000);
                 }
             });
-        },
-        { threshold: 0.2 }
-    );
-
-    statBars.forEach((div) => statObserver.observe(div));
+        });
+    });
 }
 
 // Main initialization
@@ -354,29 +390,12 @@ function init() {
         setupImageAnimations();
         setupTriangleAnimations();
         setupVideoControl();
-        setupStatBars();
+        setupBackToTopButton();
 
         // Set up interactions
         setupSocialInteractions();
+        setupColorBoxes();
     }, 100);
-}
-
-// Content section navigation
-function showContent(sectionId, event) {
-    event.preventDefault();
-    // Hide all content sections
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.remove('active');
-    });
-
-    // Remove active class from all sidebar links
-    document.querySelectorAll('.sidebar a').forEach(link => {
-        link.classList.remove('active');
-    });
-
-    // Show the selected section and activate the link
-    document.getElementById(sectionId).classList.add('active');
-    event.target.classList.add('active');
 }
 
 // Social interactions
@@ -475,7 +494,7 @@ function setupSocialInteractions() {
     }
 }
 
-// Initialize on DOMContentLoaded
+// Single DOMContentLoaded event listener for all initializations
 document.addEventListener("DOMContentLoaded", () => {
     init();
 });

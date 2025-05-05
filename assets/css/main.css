@@ -1143,8 +1143,6 @@ body {
 .styling {
     text-align: left;
 
-
-
     .color-1 {
         background: var(--primary-color);
     }
@@ -1231,43 +1229,6 @@ body {
         margin-bottom: 75px;
     }
 }
-
-/* Sticky */
-.sticky {
-    position: relative;
-    background-color: var(--primary-color);
-    height: 100vh;
-
-    .sticky-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 420vw;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        will-change: transform;
-    }
-
-    .sticky-header h1 {
-        margin: 0;
-        color: var(--black-color);
-        font-size: clamp(3rem, 16vw + 2rem, 29rem);
-        font-weight: 200;
-        letter-spacing: -0.05em;
-        line-height: 100%;
-        white-space: nowrap;
-    }
-
-    .sticky-header h1:nth-child(2) {
-        align-self: flex-end;
-        margin-right: 15%;
-    }
-
-}
-
 
 /* Footer */
 .footer-spacer {
@@ -1456,6 +1417,15 @@ body {
         }
     }
 
+    .footer-nav a {
+        color: var(--grey-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+        color: var(--primary-color);
+    }
 }
 
 @media (max-width:1025px) {
@@ -1638,96 +1608,51 @@ body {
     }
 }
 
-/* Feedback Form */
-.feedback-form {
-    margin: 2rem 0;
-    position: relative;
-}
 
-.feedback-form h6 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 0.9rem;
-    color: rgba(206, 223, 252, 0.7);
-    background: var(--background-color);
-    padding: 0 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.feedback-form textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 1.2rem;
-    margin: 0.5rem 0;
-    background: transparent;
-    border: 1px solid rgba(60, 64, 93, 0.3);
-    border-radius: 8px;
-    color: #CEDFFC;
-    font-family: 'Open Sans', sans-serif;
-    resize: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-.feedback-form textarea:focus {
-    outline: none;
-    border-color: #CB2040;
-    box-shadow: 0 0 0 4px rgba(203, 32, 64, 0.1);
-    background: rgba(203, 32, 64, 0.03);
-}
-
-.feedback-form textarea::placeholder {
-    color: rgba(206, 223, 252, 0.3);
-    transition: opacity 0.3s ease;
-}
-
-.feedback-form textarea:focus::placeholder {
-    opacity: 0;
-}
-
-.feedback-btn {
-    background: linear-gradient(135deg, #CB2040, #FF446C);
-    color: #FFFFFF;
+/* Back to top button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
     border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 1rem;
-    position: relative;
-    overflow: hidden;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
-.feedback-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(203, 32, 64, 0.2);
-}
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 
-.feedback-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(203, 32, 64, 0.2);
-}
+    &:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-5px);
+    }
 
-.feedback-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent);
-    transition: 0.5s;
-}
+    &svg {
+        width: 24px;
+        height: 24px;
+    }
 
-.feedback-btn:hover::before {
-    left: 100%;
+    @media (max-width: 768px) {
+        & {
+            bottom: 20px;
+            right: 20px;
+        }
+    }
 }
