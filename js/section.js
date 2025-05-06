@@ -35,6 +35,12 @@ let isTypingQuote = false;
 function showContent(id, e) {
     if (e) e.preventDefault();
 
+    // Get the actual link element if the event came from a touch target span inside it
+    let targetElement = e?.target;
+    if (targetElement && targetElement.classList.contains('touch-target')) {
+        targetElement = targetElement.closest('a');
+    }
+
     // Update content sections
     document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('active');
@@ -46,8 +52,8 @@ function showContent(id, e) {
         link.classList.remove('active');
     });
 
-    if (e && e.target) {
-        e.target.classList.add('active');
+    if (targetElement) {
+        targetElement.classList.add('active');
     } else {
         document.querySelector(`.sidebar a[href="#${id}"]`).classList.add('active');
     }
