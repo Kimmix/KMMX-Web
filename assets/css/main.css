@@ -84,7 +84,7 @@ body {
     .video-overlay {
         position: absolute;
         left: 0;
-        bottom: -140px;
+        bottom: -120px;
         height: 400px;
         width: 100%;
         margin-bottom: -2%;
