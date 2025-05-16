@@ -59,18 +59,6 @@ function showContent(id, e) {
     }
 }
 
-// Throttle function to limit how often a function runs
-const throttle = (callback, delay = THROTTLE_DELAY) => {
-    let lastCall = 0;
-    return function(...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-            lastCall = now;
-            callback.apply(this, args);
-        }
-    };
-};
-
 function setupContextButtons() {
     const contextButtons = {
         overview: document.getElementById('context-professional'),
