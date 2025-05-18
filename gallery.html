@@ -6,7 +6,6 @@
     <title>KMMX - Art Gallery</title>
     <meta name="description" content="KMMX Art Gallery - Collection of commissioned and gift artwork" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#141414" />
     <meta name="apple-mobile-web-app-status-bar" content="#141414" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -17,9 +16,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
 
     <!-- Preload critical resources -->
     <link rel="preload" href="js/gallery.js" as="script">
@@ -59,21 +58,15 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="gallery-controls">
                     <div class="gallery-filters">
-                        <button class="filter-btn active" data-filter="all">
-                            <span class="filter-icon">✦</span>All
-                        </button>
-                        <button class="filter-btn" data-filter="commission">
-                            <span class="filter-icon">🖌️</span>Commissions
-                        </button>
-                        <button class="filter-btn" data-filter="gift">
-                            <span class="filter-icon">🎁</span>Gift Art
-                        </button>
-                        <button class="filter-btn" data-filter="ych">
-                            <span class="filter-icon">🎨</span>YCH
-                        </button>
+                        <button class="filter-btn active" data-filter="all"><span
+                                class="filter-icon">✦</span>All</button>
+                        <button class="filter-btn" data-filter="commission"><span
+                                class="filter-icon">🖌️</span>Commissions</button>
+                        <button class="filter-btn" data-filter="gift"><span class="filter-icon">🎁</span>Gift
+                            Art</button>
+                        <button class="filter-btn" data-filter="ych"><span class="filter-icon">🎨</span>YCH</button>
                     </div>
 
                     <div class="gallery-sort">
@@ -91,7 +84,6 @@
                     <span id="itemCount">0</span> artworks displayed
                 </div>
             </header>
-
             <main class="gallery-grid" id="galleryGrid">
                 <!-- Gallery items will be loaded here via JavaScript -->
                 <div class="loading-container">
@@ -99,10 +91,10 @@
                     <p>Loading gallery...</p>
                 </div>
             </main>
-        </div> <!-- close smooth-content -->
-    </div> <!-- close smooth-wrapper -->
+        </div>
+    </div>
 
-    <!-- Improved popup for full-size image viewing -->
+    <!-- Image popup -->
     <div id="imagePopup" class="image-popup">
         <div class="popup-overlay"></div>
         <div class="popup-container">
@@ -117,10 +109,11 @@
             <button class="nav-btn next-btn" id="nextImage">&gt;</button>
             <button class="close-btn" id="closePopup">&times;</button>
         </div>
-    </div> <!-- Load scripts at the end for better performance -->
-    <script src="js/external/gsap.min.js" defer></script>
-    <script src="js/external/ScrollTrigger.min.js" defer></script>
-    <script src="js/external/ScrollSmoother.min.js" defer></script>
+    </div>
+
+    <script src="js/external/gsap.min.js"></script>
+    <script src="js/external/ScrollTrigger.min.js"></script>
+    <script src="js/external/ScrollSmoother.min.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/favicon.js" defer></script>
 </body>
