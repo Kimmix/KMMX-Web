@@ -1,0 +1,10 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "ecmel.vscode-html-css",
+    "Zignd.html-css-class-completion",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+  ]
+}
