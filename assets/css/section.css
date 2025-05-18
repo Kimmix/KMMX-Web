@@ -823,6 +823,12 @@ body {
     .info-quote {
         flex: 1;
         position: relative;
+        width: 100%;
+    }
+
+    blockquote p {
+        min-height: 3.2em;
+        width: 100%;
     }
 
     .quote-decoration {
@@ -866,6 +872,12 @@ body {
         position: relative;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        will-change: transform, box-shadow;
+        /* Optimize for animation */
 
         &.fading {
             opacity: 0.3;
@@ -902,16 +914,19 @@ body {
             }
         }
 
-        &.clicked {
-            animation: quote-click-pulse 0.4s ease;
-        }
-
         p {
             font-style: italic;
             line-height: 1.6;
             margin: 0;
             color: var(--white2-color);
             position: relative;
+            word-wrap: break-word;
+            display: block;
+            /* Ensure block display */
+            width: 100%;
+            /* Use full width */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
         }
 
         cite {
@@ -919,8 +934,10 @@ body {
             margin-top: 1rem;
             font-style: normal;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
             text-align: right;
+            width: 100%;
+            /* Use full width */
         }
     }
 }
@@ -1559,22 +1576,5 @@ body {
     100% {
         transform: scale(1);
         opacity: 0;
-    }
-}
-
-@keyframes quote-click-pulse {
-    0% {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    50% {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(203, 32, 64, 0.25);
-    }
-
-    100% {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
     }
 }

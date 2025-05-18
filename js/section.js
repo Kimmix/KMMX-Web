@@ -2,7 +2,6 @@
 const HISTORY_SIZE = 15;                 // Number of quotes to keep in history
 const QUOTE_DISPLAY_TIME = 60000;        // Quote rotation interval (60 seconds)
 const QUOTE_HISTORY_KEY = 'kimmixQuoteHistory';
-const TYPING_SPEED = 15;                 // Speed of quote typing animation (ms)
 const THROTTLE_DELAY = 16;               // Mouse move throttle delay for hover effects
 
 // Background context switching functionality
@@ -28,7 +27,6 @@ const backgroundContexts = {
 let kimmixQuotes = [];
 let quoteHistory = [];
 let quoteChangeInterval = null;
-let typeInterval = null;
 let isTypingQuote = false;
 
 // Content switching for main sections
@@ -227,7 +225,7 @@ function setupQuoteClickHandler() {
     });
 }
 
-// Update quote with typing animation
+// Update quote with GSAP ScrambleTextPlugin animation
 function updateQuote() {
     const quoteBlock = document.getElementById('rotating-quote');
     if (!quoteBlock || !kimmixQuotes.length) return;
@@ -249,32 +247,38 @@ function updateQuote() {
     quoteBlock.classList.add('fading');
 
     setTimeout(() => {
-        quoteText.textContent = '';
         quoteCite.style.opacity = '0';
         quoteCite.textContent = newCiteText;
-        quoteBlock.classList.remove('fading');
-
-        let charIndex = 0;
-        typeInterval = setInterval(() => {
-            if (charIndex < newQuoteText.length) {
-                quoteText.textContent += newQuoteText.charAt(charIndex++);
-            } else {
-                clearInterval(typeInterval);
-                typeInterval = null;
-                quoteCite.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => {
-                    quoteCite.style.opacity = '1';
-                    isTypingQuote = false;
-                }, 100);
+        quoteBlock.classList.remove('fading');        // Use GSAP ScrambleTextPlugin for text reveal animation
+        gsap.to(quoteText, {
+            duration: 1.5,
+            scrambleText: {
+                text: newQuoteText,
+                chars: "01_",  // Minimalist character set for a cleaner effect
+                revealDelay: 0,
+                speed: 0.8,  // Slightly slower for more visible effect
+                delimiter: "",
+                ease: "power2.inOut"
+            },
+            onComplete: () => {
+                // After scramble animation completes, show the citation
+                gsap.to(quoteCite, {
+                    opacity: 1,
+                    duration: 0.6,
+                    delay: 0.2,
+                    onComplete: () => {
+                        isTypingQuote = false;
+                    }
+                });
             }
-        }, TYPING_SPEED);
+        });
     }, 200);
 }
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    // Add no-lenis class to body
-    document.body.classList.add('no-lenis');
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrambleTextPlugin);
 
     // Show default content and setup context buttons
     showContent('info');
