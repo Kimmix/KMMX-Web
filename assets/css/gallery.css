@@ -17,7 +17,6 @@ body {
   color: var(--text-color);
   font-family: 'Montserrat', sans-serif;
 }
-
 /* Main gallery container */
 .gallery-container {
   width: 100%;

@@ -28,46 +28,20 @@ let touchEndY = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let popupOpen = false;
-let lenis; // Store the Lenis instance
 
 // Initialize smooth scrolling
 function initSmoothScroll() {
-    lenis = new Lenis({
-        duration: 1.0,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        smooth: true,
-        smoothTouch: false, // Better performance on touch devices
-        touchMultiplier: 2,
-        wheelMultiplier: 0.8,
-        lerp: 0.08,
+    // Initialize ScrollSmoother
+    let smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 1,
+        effects: true,
+        normalizeScroll: true,
+        smoothTouch: 0.1
     });
-
-    // Connect with GSAP if available
-    if (window.gsap && window.ScrollTrigger) {
-        lenis.on("scroll", throttle(() => ScrollTrigger.update(), 100));
-    }
-
-    // Animation loop using requestAnimationFrame
-    requestAnimationFrame(function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    });
-
-    // Expose lenis to window for other scripts
-    window.lenis = lenis;
-}
-
-// Simple throttle function
-function throttle(func, limit) {
-    let lastCall = 0;
-    return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= limit) {
-            lastCall = now;
-            func.apply(this, args);
-        }
-    };
+      // Expose smoother to window for other scripts
+    window.smoother = smoother;
 }
 
 // Initialize the gallery
