@@ -1,7 +1,4 @@
 :root {
-    --background-color: var(--black2-color);
-    --text-color: var(--white2-color);
-    --video-max-width: 2400px;
     --primary-color: #CB2040;
     --primary-color-rgb: 203, 32, 64;
     --gradient-color: linear-gradient(90deg,
@@ -71,7 +68,7 @@ body {
     height: 100%;
     padding: 1.75rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1025px) {
         padding: 1.5rem;
     }
 
@@ -140,7 +137,7 @@ body {
         margin: 0 auto;
         position: relative;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) {
             flex-direction: column;
             gap: 1rem;
             padding: 0;
@@ -161,11 +158,11 @@ body {
             padding: 1.5rem 0.5rem;
             min-width: 180px;
 
-            @media (max-width: 768px) {
+            @media (max-width: 1025px) {
                 flex: none;
                 position: sticky;
                 top: 0;
-                z-index: 100;
+                z-index: 3;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -186,16 +183,17 @@ body {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+                max-width: 500px;
 
-                @media (max-width: 768px) {
+                @media (max-width: 1025px) {
                     flex-direction: row;
                     overflow-x: auto;
                     overflow-y: hidden;
                     scrollbar-width: none;
                     -webkit-overflow-scrolling: touch;
                     scroll-snap-type: x mandatory;
-                    padding: 0;
-                    margin: 0;
+                    padding: 2px 0;
+                    margin: 0 auto;
                     width: 100%;
 
                     &::-webkit-scrollbar {
@@ -226,7 +224,7 @@ body {
                     display: none;
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 1025px) {
                     position: relative;
                     margin: 0;
                     padding: 0.6rem 0;
@@ -314,7 +312,7 @@ body {
                     background: rgba(203, 32, 64, 0.1);
                     transform: translateX(5px);
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 1025px) {
                         transform: none;
                         background: none;
 
@@ -331,7 +329,7 @@ body {
                     font-weight: 500;
                     transform: none;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 1025px) {
                         &::before {
                             opacity: 1;
                             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23CB2040' stroke-width='1.75'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z' /%3E%3C/svg%3E");
@@ -364,7 +362,7 @@ body {
             padding-left: 2rem;
             min-height: 1000px;
 
-            @media (max-width: 768px) {
+            @media (max-width: 1025px) {
                 padding: 0;
             }
 
@@ -439,7 +437,7 @@ body {
         gap: 2rem;
         margin-top: 1rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) {
             gap: 1.5rem;
         }
     }
@@ -700,7 +698,7 @@ body {
         align-items: flex-start;
         gap: 1rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1025px) {
             flex-direction: row;
             align-items: center;
         }
@@ -717,9 +715,10 @@ body {
         border-radius: 0.75rem;
         border: 1px solid rgba(255, 255, 255, 0.05);
         width: 100%;
+        max-width: 420px;
         font-size: 0.85rem;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1025px) {
             width: auto;
         }
 
@@ -736,7 +735,7 @@ body {
             transition: all 0.3s ease;
             justify-content: center;
 
-            @media (min-width: 768px) {
+            @media (min-width: 1025px) {
                 flex: 0 0 auto;
                 padding: 0.5rem 1rem;
             }
@@ -816,7 +815,7 @@ body {
     display: flex;
     margin-top: 1rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1025px) {
         flex-direction: column;
     }
 
@@ -838,7 +837,7 @@ body {
         justify-content: center;
         position: relative;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) {
             display: none;
         }
 
@@ -954,7 +953,7 @@ body {
         gap: 1rem;
         width: 100%;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) {
             grid-template-columns: 1fr;
         }
 
@@ -1161,7 +1160,7 @@ body {
         }
     }
 
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (min-width: 1025px) and (max-width: 991px) {
         .equipment-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -1271,7 +1270,7 @@ body {
                 align-items: center;
                 gap: 1rem;
 
-                @media (max-width: 768px) {
+                @media (max-width: 1025px) {
                     flex-direction: column;
                     text-align: center;
                     gap: 0.5rem;
@@ -1309,7 +1308,7 @@ body {
                         background: rgba(60, 64, 93, 0.7);
                         transition: width 0.3s ease;
 
-                        @media (max-width: 768px) {
+                        @media (max-width: 1025px) {
                             left: 50%;
                             transform: translateX(-50%);
                         }
@@ -1352,7 +1351,7 @@ body {
                 .skill-body {
                     flex-direction: row;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 1025px) {
                         flex-direction: column;
                     }
 
@@ -1361,7 +1360,7 @@ body {
                         width: 50%;
                         height: 100%;
 
-                        @media (max-width: 768px) {
+                        @media (max-width: 1025px) {
                             max-width: unset;
                             width: 100%;
                             height: 150px;
