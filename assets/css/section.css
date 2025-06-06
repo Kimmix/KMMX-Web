@@ -919,6 +919,7 @@ body {
             margin: 0;
             color: var(--white2-color);
             word-wrap: break-word;
+            max-width: 1100px;
         }
 
         cite {
