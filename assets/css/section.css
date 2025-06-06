@@ -880,7 +880,7 @@ body {
 
         &.fading {
             opacity: 0.3;
-            transform: translateY(5px);
+            /* transform: translateY(5px); */
             transition: opacity 0.2s ease-out, transform 0.2s ease-out;
         }
 
@@ -918,14 +918,7 @@ body {
             line-height: 1.6;
             margin: 0;
             color: var(--white2-color);
-            position: relative;
             word-wrap: break-word;
-            display: block;
-            /* Ensure block display */
-            width: 100%;
-            /* Use full width */
-            box-sizing: border-box;
-            /* Include padding in width calculation */
         }
 
         cite {
@@ -936,7 +929,6 @@ body {
             color: rgba(255, 255, 255, 0.9);
             text-align: right;
             width: 100%;
-            /* Use full width */
         }
     }
 }
