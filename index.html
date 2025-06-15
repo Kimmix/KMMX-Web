@@ -66,14 +66,29 @@
             <div class="option-container" onmouseenter="showBox()" onmouseleave="hideBox()">
                 <div href="main.html" class="option" id="yes" onmouseover="moveBox(0)" onclick='gotoMain(event)'>YES
                 </div>
-                <div class="option" id="no" onmouseover="moveBox(1)">NO</div>
+                <div class="option" id="no" onmouseover="moveBox(1)" onclick="showNavigationMenu()">NO</div>
                 <div class="hover-box"></div>
             </div>
-            <div class="backbtn-container">
+            <!-- <div class="backbtn-container">
                 <a href="https://kimmix.anthro.asia/" target="_blank" class="underScroll">
                     < go back to v1 </a>
+            </div> -->
+        </div>
+
+        <!-- Navigation Popup Menu -->
+        <div id="navigationMenu" class="navigation-menu">
+            <div class="menu-overlay" onclick="hideNavigationMenu()"></div>
+            <div class="menu-content">
+                <button class="close-btn" onclick="hideNavigationMenu()">&times;</button>
+                <div class="menu-options">
+                    <a href="gallery.html" class="menu-option">Gallery</a>
+                    <!-- <a href="kimmix.html" class="menu-option">About Me</a>
+                    <a href="main.html" class="menu-option">Main</a> -->
+                    <a href="https://kimmix.anthro.asia/" target="_blank" class="menu-option">Back to V1</a>
+                </div>
             </div>
         </div>
+
         <!-- <div class="log">
             <h4>LOG A8.10.00.24</h4>
             <div id="logContent"></div>

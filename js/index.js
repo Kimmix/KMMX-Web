@@ -30,6 +30,26 @@ function hideBox() {
     hoverBox.style.opacity = '0';
 }
 
+// Navigation Menu Functions
+function showNavigationMenu() {
+    const menu = document.getElementById('navigationMenu');
+    menu.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function hideNavigationMenu() {
+    const menu = document.getElementById('navigationMenu');
+    menu.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close menu when pressing Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        hideNavigationMenu();
+    }
+});
+
 //? Check if the browser is Chromium-based
 document.addEventListener("DOMContentLoaded", function () {
     const isChromium = !!window.chrome;
