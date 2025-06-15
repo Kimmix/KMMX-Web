@@ -254,7 +254,7 @@ function updateQuote() {
             duration: 1.5,
             scrambleText: {
                 text: newQuoteText,
-                chars: "01_",  // Minimalist character set for a cleaner effect
+                chars: "01_ ",  // Minimalist character set for a cleaner effect
                 revealDelay: 0,
                 speed: 0.8,  // Slightly slower for more visible effect
                 delimiter: "",
