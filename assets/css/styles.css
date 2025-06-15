@@ -188,7 +188,7 @@ hr {
 }
 
 @media (max-width:1025px) {
-    html,body {
+    html, body {
         overflow-x: hidden;
         scrollbar-width: none;
         -ms-overflow-style: -ms-autohiding-scrollbar;

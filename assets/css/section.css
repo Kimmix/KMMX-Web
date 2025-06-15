@@ -1,4 +1,6 @@
 :root {
+    --background-color: var(--black2-color);
+    --text-color: var(--white2-color);
     --primary-color: #CB2040;
     --primary-color-rgb: 203, 32, 64;
     --gradient-color: linear-gradient(90deg,
