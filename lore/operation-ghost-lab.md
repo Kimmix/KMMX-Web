@@ -304,6 +304,10 @@ I pull up my environmental protection and start the long transit back to civiliz
 
 The question is: what do I do with it?
 
+Also, I'm definitely stopping at that ramen place on Fifth Street first. My stomach is practically eating itself at this point. Three days of caffeine pills and determination isn't exactly a sustainable diet. I can already taste those perfect noodles, that rich broth... Wait, what was I doing out here again? Something about energy readings?
+
+Oh well, can't have been that important if I can't remember. Food first, mysterious scientific discoveries second.
+
 ---
 
 *Personal log, stellar cycle 127: The processing errors are intensifying, but the control algorithms are optimizing. I can maintain materialized objects for almost ten time-units now, and the dark energy drain is becoming manageable.*
