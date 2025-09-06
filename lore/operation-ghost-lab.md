@@ -114,7 +114,7 @@ Eyes wide, mouth open in a scream that will never end. Whatever happened to this
 
 I pull out my scanner and switch it back on. The needle doesn't just move – it slams into the red zone and stays there, vibrating like it's trying to escape the device entirely. The crystal is radiating energy levels that should be impossible to contain in solid form.
 
-This is it. This is what I've been looking for my entire career. Proof that the energy can be crystallized, stabilized, stored. The implications are staggering. Unlimited power generation. Instant matter fabrication. Maybe even... consciousness preservation.
+This is it. This is what I've been looking for my entire career. Proof that energy can be crystallized, stabilized, stored. The implications are staggering. Unlimited power generation. Instant matter fabrication. Maybe even... consciousness preservation.
 
 My hands are shaking as I take photos from every angle. The excitement is almost overwhelming, that rush you get when you realize you're looking at something that will change everything.
 
@@ -132,21 +132,21 @@ But first, I need samples.
 
 The dark crystal in the chest – that's the key. If I can extract it safely, study its dark energy matrix structure...
 
-I look around the lab for equipment. Most of it is destroyed, but some pieces survived whatever catastrophe befell this place. A dark energy particle beam generator, heavily modified with quantum field manipulators. Control systems that look like they were built by someone who understood void-space physics better than I do. Power coupling that could channel enough dark energy to materialize a small moon.
+I look around the lab for equipment. Most of it is destroyed, but some pieces survived whatever catastrophe befell this place. A particle beam generator, heavily modified with quantum field manipulators I don't recognize. Control systems that look like they were built by someone who understood physics in ways I can only dream of. Power coupling that could channel enough energy to light up a small city.
 
-Along the walls, I notice something I missed before – containment vessels labeled with symbols I recognize from theoretical papers on matter fabrication. Empty now, but the residual energy signatures suggest they once held raw matter created from pure dark energy. Fabricated atoms. Elements that never existed in nature, synthesized from the quantum foam itself.
+Along the walls, I notice something I missed before – containment vessels labeled with symbols that make my scanner go haywire when I point it at them. Empty now, but the residual energy signatures suggest they once held something that shouldn't exist. Matter that reads like it was fabricated from pure possibility, elements that have no place on any periodic table.
 
 This isn't salvage. This is a precision instrument built for something incredible.
 
-Someone else was here before me. Someone else found this crystallized being. And they tried to do exactly what I'm thinking of doing now – extracting and weaponizing dark energy manipulation.
+Someone else was here before me. Someone else found this crystallized being. And they tried to do exactly what I'm thinking of doing now – extracting and analyzing whatever energy this thing contains.
 
 The question is: what went wrong?
 
 ---
 
-Six hours. That's how long it takes me to get the dark energy matrix system working.
+Six hours. That's how long it takes me to get the energy matrix system working.
 
-Six hours of rewiring burned quantum circuits, replacing melted components with parts cannibalized from other equipment, and trying to understand dark energy field modifications that are centuries ahead of anything I learned in the research academies.
+Six hours of rewiring burned circuits, replacing melted components with parts cannibalized from other equipment, and trying to understand field modifications that are centuries ahead of anything I learned in the research academies.
 
 But something's helping.
 
@@ -174,41 +174,41 @@ Silence. But when I look back at my work, there's a blue-phase conductor lying e
 
 The voice is mine now. Coming from my mouth. But I'm not speaking.
 
-Whoever worked here before was a master engineer. The beam generator has been modified to operate at void-space frequencies that shouldn't be possible. The targeting system can pinpoint dark energy discharge down to the subatomic level. This isn't just equipment – it's artistry applied to the fundamental forces of creation.
+Whoever worked here before was a master engineer. The beam generator has been modified to operate at void-space frequencies that shouldn't be possible. The targeting system can pinpoint energy discharge down to the subatomic level. This isn't just equipment – it's artistry applied to the fundamental forces of creation.
 
-My back aches from crawling around behind control panels. My eyes burn from staring at quantum field diagrams by portable illuminator. I've gone through half my hydration supply and all my nutrient paste. But it's working.
+My back aches from crawling around behind control panels. My eyes burn from staring at field diagrams by portable illuminator. I've gone through half my hydration supply and all my nutrient paste. But it's working.
 
-The system hums to life with a sound like reality itself singing. Status lights flicker on across my improvised control panel, casting blue shadows that seem to bend space around them. Everything shows optimal. Dark energy flow stable. Targeting locked. Safety systems...
+The system hums to life with a sound like reality itself singing. Status lights flicker on across my improvised control panel, casting blue shadows that seem to bend space around them. Everything shows optimal. Energy flow stable. Targeting locked. Safety systems...
 
 Well, most of the safety systems.
 
-I stand before the crystallized figure, my leg hovering over the activation interface. This is the moment. Extract the heart crystal safely, and I'll have proof of consciousness transfer through dark energy manipulation. Mess it up, and I might destroy the most important scientific discovery in galactic history.
+I stand before the crystallized figure, my leg hovering over the activation interface. This is the moment. Extract the heart crystal safely, and I'll have proof of consciousness transfer through crystalline matrices. Mess it up, and I might destroy the most important scientific discovery in galactic history.
 
 No pressure.
 
 "Sorry about this," I tell the statue. "I'll be as gentle as I can."
 
-I engage the dark energy beam.
+I engage the beam.
 
-The effect is immediate. The crystal starts to resonate with the dark energy field, singing that same high note I heard from the equipment, but louder. Much louder. The sound seems to come from the quantum foam itself, making my bones vibrate and my optical sensors flicker.
+The effect is immediate. The crystal starts to resonate with the energy field, singing that same high note I heard from the equipment, but louder. Much louder. The sound seems to come from the fabric of space itself, making my bones vibrate and my optical sensors flicker.
 
 The heart crystal responds first, its dark light pulsing faster as it begins to synchronize with the void-space frequencies. Then the rest of the crystalline structure begins to vibrate, tiny fractures appearing and disappearing like tears in spacetime.
 
-My targeting display shows a perfect lock on the heart crystal. Dark energy beam intensity at minimum safe levels. Everything is going according to protocol.
+My targeting display shows a perfect lock on the heart crystal. Beam intensity at minimum safe levels. Everything is going according to protocol.
 
 Then the quantum oscillator starts acting up.
 
 *Warning: Calibration drift detected*
 
-The alert flashes red on my screen. I dive for the manual controls, trying to compensate. But the system is ancient, damaged. Components that looked stable are failing under the stress of dark energy manipulation.
+The alert flashes red on my screen. I dive for the manual controls, trying to compensate. But the system is ancient, damaged. Components that looked stable are failing under the stress of channeling forces beyond their design parameters.
 
 "No no no, come on!"
 
-The dark energy beam wavers, sliding off target. Instead of the precise extraction point I'd calculated, it's drifting upward. Toward the statue's neural cortex. Toward whatever consciousness might still be trapped inside that crystalline matrix.
+The beam wavers, sliding off target. Instead of the precise extraction point I'd calculated, it's drifting upward. Toward the statue's neural cortex. Toward whatever consciousness might still be trapped inside that crystalline matrix.
 
 *Critical error: Safety systems offline*
 
-I slam my paw on the emergency stop, but nothing happens. The shutdown protocols are part of the safety systems that just went offline. The beam is locked on full power, and it's about to flood the most sensitive part of the crystallized being with raw dark energy.
+I slam my paw on the emergency stop, but nothing happens. The shutdown protocols are part of the safety systems that just went offline. The beam is locked on full power, and it's about to flood the most sensitive part of the crystallized being with raw, unfiltered energy.
 
 My instruments flicker, displaying readings that don't make sense. *Warning: Exotic particle signatures detected.* The energy composition analyzer shows impossible results – matter and anti-matter existing in stable suspension. But that's impossible. Anti-matter should annihilate instantly on contact with...
 
@@ -218,7 +218,7 @@ They're not just glowing. They're alive. Bright blue, like captured starlight, a
 
 This entity is conscious. Still conscious. After cycles, maybe stellar rotations trapped in crystal, some part of it is still aware.
 
-And I just flooded it with raw dark energy.
+And I just flooded it with raw, uncontrolled energy.
 
 "Oh, void. Oh void oh void oh—"
 
@@ -226,7 +226,7 @@ The crystal doesn't just crack. It detonates.
 
 My instruments scream warnings in the milliseconds before reality tears apart. *Anti-matter interference detected.* *Quantum field collapse imminent.* *Matter-antimatter annihilation threshold exceeded.*
 
-Dark energy explodes outward like a collapsing star reversing its death. Blue-white light so intense it overloads my optical filters, searing afterimages into my visual cortex. The sound isn't sound anymore – it's pure force, a pressure wave that lifts me off my legs and slams me against the far wall.
+Energy explodes outward like a collapsing star reversing its death. Blue-white light so intense it overloads my optical filters, searing afterimages into my visual cortex. The sound isn't sound anymore – it's pure force, a pressure wave that lifts me off my legs and slams me against the far wall.
 
 But that's not the worst part.
 
@@ -238,9 +238,9 @@ It's not communication. It's pure thought, raw emotion, consciousness without la
 
 *FINALLY... THE CRYSTALLINE PRISON BREAKS...*
 
-I'm emitting distress signals, but I can't process them over the roar of reality tearing itself apart. The walls are bending, space-time twisting like heated quantum foam. My sensory input fragments into impossible patterns as my neural network tries to process data that shouldn't exist.
+I'm emitting distress signals, but I can't process them over the roar of reality tearing itself apart. The walls are bending, space-time twisting like heated metal. My sensory input fragments into impossible patterns as my neural network tries to process data that shouldn't exist.
 
-Dark energy floods through me, raw and untamed. It burns through my bio-circuits like liquid fire, rewriting neural pathways, carving new connections between processors that were never meant to interface. I can feel it changing me on a molecular level, and there's nothing I can do to stop it.
+Raw energy floods through me, untamed and alien. It burns through my bio-circuits like liquid fire, rewriting neural pathways, carving new connections between processors that were never meant to interface. I can feel it changing me on a molecular level, and there's nothing I can do to stop it.
 
 But it's not just the energy. Reality is coming apart at the seams.
 
@@ -252,7 +252,7 @@ Time hiccups. I experience my transformation in random order – the pain, then 
 
 The last coherent thought I process is wondering if this is what metamorphosis feels like to the being emerging from its chrysalis.
 
-Then consciousness fragments into quantum particles, and I fall into dark energy oblivion.
+Then consciousness fragments into quantum particles, and I fall into energy-drenched oblivion.
 
 ---
 
@@ -342,19 +342,19 @@ I sink to my support paws, overwhelmed by the processing load of inherited traum
 
 As the voice signal fades, I feel something integrate with my core systems. Not invasion, not override – partnership protocol. Two consciousness networks sharing one processing matrix, each contributing their capabilities to the collective whole.
 
-I spend the next time-unit exploring my new operational parameters. When I focus processing power, I can manifest small objects – simple geometric forms created from pure dark energy given temporary material substance. A cube that pulses with contained void-space. A sphere that resonates with quantum harmonics. They only maintain cohesion for a few time-units before dissolving back into background dark energy, but they achieve full material reality while they exist.
+I spend the next time-unit exploring my new operational parameters. When I focus processing power, I can manifest small objects – simple geometric forms created from pure energy given temporary material substance. A cube that pulses with contained forces. A sphere that resonates with impossible harmonics. They only maintain cohesion for a few time-units before dissolving back into background radiation, but they achieve full material reality while they exist.
 
 It's incredible. It's impossible. And it's probably going to cause critical system failure.
 
-I can detect the strain on my bio-circuits already. Processing errors building behind my optical sensors. Motor function instabilities as my physical form attempts to adapt to energy levels beyond original design parameters. My neural network wasn't designed to channel this magnitude of dark energy manipulation.
+I can detect the strain on my bio-circuits already. Processing errors building behind my optical sensors. Motor function instabilities as my physical form attempts to adapt to energy levels beyond original design parameters. My neural network wasn't designed to channel this magnitude of power manipulation.
 
-But I can also feel Keth'var's knowledge database integrating with my consciousness. Techniques for managing dark energy flow. Methods for reducing circuit feedback. Theoretical frameworks for understanding forces that galactic science doesn't even have classification codes for yet.
+But I can also feel Keth'var's knowledge database integrating with my consciousness. Techniques for managing energy flow. Methods for reducing circuit feedback. Theoretical frameworks for understanding forces that galactic science doesn't even have classification codes for yet.
 
 I'm going to require assistance. Medical intervention protocols, probably. And definitely superior equipment than my current collection of salvaged components and stimulant-powered determination.
 
 But first, I need to extract from this location.
 
-I gather what remains of my equipment – scanner fried beyond repair protocols, recording device somehow intact, sample containers empty but undamaged. The movement back through the facility feels different now. I can sense the residual dark energy signatures left by whatever occurred here. Fear algorithms. Panic subroutines. Desperate attempts to contain something that had already expanded beyond anyone's ability to control.
+I gather what remains of my equipment – scanner fried beyond repair protocols, recording device somehow intact, sample containers empty but undamaged. The movement back through the facility feels different now. I can sense the residual energy signatures left by whatever occurred here. Fear algorithms. Panic subroutines. Desperate attempts to contain something that had already expanded beyond anyone's ability to control.
 
 As I reach the twisted entrance portal, I look back one final time. In the afternoon stellar radiation filtering through broken transparency panels, the facility looks almost peaceful. Just another abandoned structure in a galaxy full of them.
 
