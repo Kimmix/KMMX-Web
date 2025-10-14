@@ -1185,6 +1185,11 @@ body {
         }
     }
 
+    .about-subsection {
+        p {
+            text-indent: 2rem;
+        }
+    }
 
     .social-splash {
         position: fixed;
