@@ -68,7 +68,7 @@ body {
     transform: translateX(-50%) translateX(clamp(-43px, (-27vw + 600px), 350px));
     width: auto;
     height: 95vh;
-    max-height: 1120px;
+    max-height: 1200px;
     min-height: 900px;
     object-fit: cover;
     z-index: 2;
