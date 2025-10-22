@@ -19,8 +19,15 @@
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
 }
 
 .story-container {
@@ -103,10 +110,12 @@
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.5;
         transform: scale(1.02) rotate(1deg);
     }
+
     100% {
         opacity: 0;
         transform: scale(1.05) rotate(2deg);
@@ -115,8 +124,7 @@
 
 .story-act:hover,
 .story-act.revealed {
-    filter: drop-shadow(0 0 30px rgba(203, 32, 64, 0.4))
-            drop-shadow(0 0 60px rgba(203, 32, 64, 0.2));
+    filter: drop-shadow(0 0 30px rgba(203, 32, 64, 0.4)) drop-shadow(0 0 60px rgba(203, 32, 64, 0.2));
     animation: glassReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -124,6 +132,7 @@
     0% {
         filter: brightness(0.8) contrast(1);
     }
+
     100% {
         filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 30px rgba(203, 32, 64, 0.4));
     }
@@ -205,12 +214,10 @@
 .story-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(16, 16, 20, 0.95) 0%,
-        rgba(16, 16, 20, 0.7) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to right,
+            rgba(16, 16, 20, 0.95) 0%,
+            rgba(16, 16, 20, 0.7) 50%,
+            transparent 100%);
     pointer-events: none;
     z-index: 4;
     transition: opacity 0.6s ease, background 0.6s ease;
@@ -220,32 +227,26 @@
 .story-act:hover .story-overlay,
 .story-act.revealed .story-overlay {
     opacity: 0.3;
-    background: linear-gradient(
-        to right,
-        rgba(16, 16, 20, 0.6) 0%,
-        rgba(16, 16, 20, 0.2) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to right,
+            rgba(16, 16, 20, 0.6) 0%,
+            rgba(16, 16, 20, 0.2) 50%,
+            transparent 100%);
 }
 
 .story-act:nth-child(even) .story-overlay {
-    background: linear-gradient(
-        to left,
-        rgba(16, 16, 20, 0.95) 0%,
-        rgba(16, 16, 20, 0.7) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to left,
+            rgba(16, 16, 20, 0.95) 0%,
+            rgba(16, 16, 20, 0.7) 50%,
+            transparent 100%);
 }
 
 .story-act:nth-child(even):hover .story-overlay,
 .story-act:nth-child(even).revealed .story-overlay {
     opacity: 0.3;
-    background: linear-gradient(
-        to left,
-        rgba(16, 16, 20, 0.6) 0%,
-        rgba(16, 16, 20, 0.2) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to left,
+            rgba(16, 16, 20, 0.6) 0%,
+            rgba(16, 16, 20, 0.2) 50%,
+            transparent 100%);
 }
 
 .story-content {
@@ -300,9 +301,8 @@
     width: 4px;
     height: 0%;
     background: linear-gradient(to bottom,
-        var(--primary-color),
-        var(--secondary-color)
-    );
+            var(--primary-color),
+            var(--secondary-color));
     transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -370,8 +370,13 @@
 }
 
 @keyframes glow {
-    0%, 100% { text-shadow: 0 0 10px rgba(203, 32, 64, 0.5); }
-    50% { text-shadow: 0 0 20px rgba(203, 32, 64, 0.8), 0 0 30px rgba(203, 32, 64, 0.4); }
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(203, 32, 64, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(203, 32, 64, 0.8), 0 0 30px rgba(203, 32, 64, 0.4);
+    }
 }
 
 .story-header h4 {
@@ -383,9 +388,8 @@
     letter-spacing: 0.05em;
     transition: all 0.3s ease;
     background: linear-gradient(135deg,
-        var(--text-color) 0%,
-        var(--primary-color) 100%
-    );
+            var(--text-color) 0%,
+            var(--primary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -416,8 +420,13 @@
 }
 
 @keyframes blink {
-    0%, 49%, 100% { opacity: 1; }
-    50%, 99% { opacity: 0.3; }
+    0%, 49%, 100% {
+        opacity: 1;
+    }
+
+    50%, 99% {
+        opacity: 0.3;
+    }
 }
 
 .story-description {
@@ -461,17 +470,21 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(203, 32, 64, 0.2) 50%,
-        transparent 100%
-    );
+            transparent 0%,
+            rgba(203, 32, 64, 0.2) 50%,
+            transparent 100%);
     transform: translateX(-100%);
     animation: shimmer 3s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-    0%, 100% { transform: translateX(-100%); }
-    50% { transform: translateX(100%); }
+    0%, 100% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
 }
 
 a.story-link {
@@ -493,12 +506,16 @@ a.story-link:hover {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 8rem;
+    font-size: 10rem;
     font-weight: 900;
     color: rgba(203, 32, 64, 0.05);
     pointer-events: none;
     z-index: 0;
     transition: all 0.5s ease;
+}
+
+.story-act:nth-child(odd)::after {
+    text-align: end;
 }
 
 .story-act:hover::after,
@@ -535,12 +552,10 @@ a.story-link:hover {
     }
 
     .story-overlay {
-        background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgba(16, 16, 20, 0.6) 70%,
-            rgba(16, 16, 20, 0.9) 100%
-        ) !important;
+        background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(16, 16, 20, 0.6) 70%,
+                rgba(16, 16, 20, 0.9) 100%) !important;
     }
 
     .story-content {
