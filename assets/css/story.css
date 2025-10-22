@@ -195,7 +195,8 @@
     pointer-events: none;
 }
 
-.story-act:hover::before {
+.story-act:hover::before,
+.story-act.revealed::before {
     opacity: 0;
     transform: scale(1.02);
     border-color: rgba(203, 32, 64, 0.6);
@@ -217,7 +218,8 @@
     z-index: 10;
 }
 
-.story-act:hover::after {
+.story-act:hover::after,
+.story-act.revealed::after {
     opacity: 0;
     animation: shatter 0.6s ease-out forwards;
 }
@@ -237,7 +239,8 @@
     }
 }
 
-.story-act:hover {
+.story-act:hover,
+.story-act.revealed {
     filter: drop-shadow(0 0 30px rgba(203, 32, 64, 0.4))
             drop-shadow(0 0 60px rgba(203, 32, 64, 0.2));
     animation: glassReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -278,7 +281,8 @@
     filter: brightness(0.6) contrast(1) blur(2px);
 }
 
-.story-act:hover .story-image img {
+.story-act:hover .story-image img,
+.story-act.revealed .story-image img {
     transform: scale(1.1);
     filter: brightness(1) contrast(1.2) blur(0px);
 }
@@ -297,7 +301,8 @@
     z-index: 2;
 }
 
-.story-act:hover .story-image::before {
+.story-act:hover .story-image::before,
+.story-act.revealed .story-image::before {
     opacity: 0;
     backdrop-filter: blur(0px);
 }
@@ -317,7 +322,8 @@
     pointer-events: none;
 }
 
-.story-act:hover .story-image::after {
+.story-act:hover .story-image::after,
+.story-act.revealed .story-image::after {
     opacity: 0;
     transform: translateX(100%) scale(1.2);
 }
@@ -337,7 +343,8 @@
     opacity: 1;
 }
 
-.story-act:hover .story-overlay {
+.story-act:hover .story-overlay,
+.story-act.revealed .story-overlay {
     opacity: 0.3;
     background: linear-gradient(
         to right,
@@ -356,7 +363,8 @@
     );
 }
 
-.story-act:nth-child(even):hover .story-overlay {
+.story-act:nth-child(even):hover .story-overlay,
+.story-act:nth-child(even).revealed .story-overlay {
     opacity: 0.3;
     background: linear-gradient(
         to left,
@@ -389,7 +397,8 @@
     z-index: 1;
 }
 
-.story-act:hover .story-content::after {
+.story-act:hover .story-content::after,
+.story-act.revealed .story-content::after {
     width: 60px;
     height: 60px;
     border-color: rgba(203, 32, 64, 0.8);
@@ -403,7 +412,8 @@
     border-left: 3px solid rgba(203, 32, 64, 0.4);
 }
 
-.story-act:nth-child(even):hover .story-content::after {
+.story-act:nth-child(even):hover .story-content::after,
+.story-act:nth-child(even).revealed .story-content::after {
     border-left-color: rgba(203, 32, 64, 0.8);
 }
 
@@ -422,7 +432,8 @@
     transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.story-act:hover .story-content::before {
+.story-act:hover .story-content::before,
+.story-act.revealed .story-content::before {
     height: 80%;
 }
 
@@ -451,7 +462,8 @@
     transition: all 0.5s ease;
 }
 
-.story-act:hover .story-header::before {
+.story-act:hover .story-header::before,
+.story-act.revealed .story-header::before {
     width: 50px;
     height: 50px;
     border-color: rgba(203, 32, 64, 0.8);
@@ -468,7 +480,8 @@
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.story-act:hover .story-header::after {
+.story-act:hover .story-header::after,
+.story-act.revealed .story-header::after {
     width: 100%;
 }
 
@@ -505,7 +518,8 @@
     background-size: 200% 200%;
 }
 
-.story-act:hover .story-header h4 {
+.story-act:hover .story-header h4,
+.story-act.revealed .story-header h4 {
     background-position: 100% 100%;
 }
 
@@ -542,7 +556,8 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.story-act:hover .story-description {
+.story-act:hover .story-description,
+.story-act.revealed .story-description {
     opacity: 1;
 }
 
@@ -612,7 +627,8 @@ a.story-link:hover {
     transition: all 0.5s ease;
 }
 
-.story-act:hover::after {
+.story-act:hover::after,
+.story-act.revealed::after {
     color: rgba(203, 32, 64, 0.1);
     transform: scale(1.1) rotate(-5deg);
 }
@@ -666,7 +682,8 @@ a.story-link:hover {
         top: 0;
     }
 
-    .story-act:hover .story-content::before {
+    .story-act:hover .story-content::before,
+    .story-act.revealed .story-content::before {
         width: 80%;
         height: 4px;
     }

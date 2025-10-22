@@ -420,6 +420,45 @@ function setupSocialInteractions() {
     }
 }
 
+// Story Act Reveal with IntersectionObserver
+// -----------------------------------------
+function setupStoryReveal() {
+    const storyActs = document.querySelectorAll('.story-act');
+
+    if (storyActs.length === 0) return;
+
+    // Create IntersectionObserver that triggers when element is centered
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '-40% 0px -40% 0px', // Only trigger when in center 20% of viewport
+        threshold: 0.5 // Element must be 50% visible
+    };
+
+    const storyObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Remove revealed class from all other cards first
+                storyActs.forEach(act => {
+                    if (act !== entry.target) {
+                        act.classList.remove('revealed');
+                    }
+                });
+
+                // Add revealed class to centered element
+                entry.target.classList.add('revealed');
+            } else {
+                // Remove revealed class when element leaves center
+                entry.target.classList.remove('revealed');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all story act elements
+    storyActs.forEach((act) => {
+        storyObserver.observe(act);
+    });
+}
+
 // Single DOMContentLoaded event listener for all initializations
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize GSAP first (needed regardless of page)
@@ -449,6 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setupFooterBgAnimation();
             setupSocialInteractions();
             setupColorBoxes();
+            setupStoryReveal();
         }, 50);
     });
 });
