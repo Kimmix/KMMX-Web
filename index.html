@@ -14,21 +14,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/modern-normalize.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-    <!-- Google font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <!-- Prefetch -->
-    <!-- <link rel="prefetch" href="assets/video/kmmx_hero.mov" as="video" type="video/mp4"> -->
-    <link rel="prefetch" href="main.html" as="document" />
-    <link rel="prefetch" href="assets/css/main.css" as="style">
-    <link rel="prefetch" href="assets/css/intro.css" as="style">
-    <link rel="prefetch" href="js/main.js" as="script" />
-    <link rel="prefetch" href="assets/video/kmmx_hero.webm" as="video" type="video/webm">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;700&amp;display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -37,23 +25,15 @@
     </div>
     <section class="landing-page">
         <div id="glowContainer" class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.78 691.63" fill="none"
+                stroke="url(#redGradient)" stroke-miterlimit="10" stroke-width="8">
                 <defs>
-                    <style>
-                        .svgGlow {
-                            stroke: url(#redGradient);
-                            fill: none;
-                            stroke-miterlimit: 10;
-                            stroke-width: 8px;
-                        }
-                    </style>
                     <radialGradient id="redGradient" gradientUnits="userSpaceOnUse" r="45%" cx="50%" cy="50%">
                         <stop offset="1" stop-color="#16161A" />
                     </radialGradient>
                 </defs>
-                <path class="svgGlow" d="M14.55 662.77 L449.27 13.17 L449.27 662.77 L319.52 458.63 L14.55 662.77 Z" />
-                <path class="svgGlow"
-                    d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
+                <path d="M14.55 662.77 L449.27 13.17 L449.27 662.77 L319.52 458.63 L14.55 662.77 Z" />
+                <path d="M776.55 677.65 L496.38 295.82 L496.38 671.86 L623.66 584.26 L776.55 677.65 Z" />
             </svg>
         </div>
         <div class="flex boot-menu">
@@ -63,36 +43,18 @@
                 <h3>Initiate </h3>
                 <h2>boot sequence?</h2>
             </div>
-            <div class="option-container" onmouseenter="showBox()" onmouseleave="hideBox()">
-                <div href="main.html" class="option" id="yes" onmouseover="moveBox(0)" onclick='gotoMain(event)'>YES
-                </div>
-                <div class="option" id="no" onmouseover="moveBox(1)" onclick="showNavigationMenu()">NO</div>
-                <div class="hover-box"></div>
-            </div>
-            <!-- <div class="backbtn-container">
-                <a href="https://kimmix.anthro.asia/" target="_blank" class="underScroll">
-                    < go back to v1 </a>
-            </div> -->
-        </div>
-
-        <!-- Navigation Popup Menu -->
-        <div id="navigationMenu" class="navigation-menu">
-            <div class="menu-overlay" onclick="hideNavigationMenu()"></div>
-            <div class="menu-content">
-                <button class="close-btn" onclick="hideNavigationMenu()">&times;</button>
-                <div class="menu-options">
-                    <a href="gallery.html" class="menu-option">Gallery</a>
-                    <!-- <a href="kimmix.html" class="menu-option">About Me</a>
-                    <a href="main.html" class="menu-option">Main</a> -->
-                    <a href="https://kimmix.anthro.asia/" target="_blank" class="menu-option">Back to V1</a>
-                </div>
+            <div class="option-container">
+                <a href="main.html" class="option">YES</a>
+                <button type="button" class="option" popovertarget="navigationMenu">NO</button>
             </div>
         </div>
 
-        <!-- <div class="log">
-            <h4>LOG A8.10.00.24</h4>
-            <div id="logContent"></div>
-        </div> -->
+        <nav id="navigationMenu" class="navigation-menu" popover="auto" aria-label="Secondary navigation">
+            <button type="button" class="close-btn" popovertarget="navigationMenu" popovertargetaction="hide"
+                aria-label="Close navigation">&times;</button>
+            <a href="gallery.html" class="menu-option">Gallery</a>
+            <a href="https://kimmix.anthro.asia/" target="_blank" class="menu-option">Back to V1</a>
+        </nav>
     </section>
 </body>
 
