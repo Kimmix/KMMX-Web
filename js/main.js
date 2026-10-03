@@ -1,3 +1,15 @@
+// Always start the main page at the top when opened or refreshed.
+if (window.location.pathname.endsWith('/main.html')) {
+    history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', () => {
+        if (window.lenis) {
+            window.lenis.scrollTo(0, { immediate: true, force: true });
+        } else {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }
+    });
+}
+
 // Utility functions
 // -----------------------------------------
 // Device detection - consolidated into one function
