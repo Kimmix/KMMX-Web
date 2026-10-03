@@ -5,13 +5,10 @@ const elements = {
   popupImage: document.getElementById('popupImage'),
   popupTitle: document.getElementById('popupTitle'),
   popupArtist: document.getElementById('popupArtist'),
-  closeBtn: document.getElementById('closePopup'),
   prevBtn: document.getElementById('prevImage'),
   nextBtn: document.getElementById('nextImage'),
   filterBtns: document.querySelectorAll('.filter-btn'),
   searchInput: document.getElementById('gallerySearch'),
-  searchBtn: document.getElementById('searchButton'),
-  clearBtn: document.getElementById('clearSearchButton'),
   sortSelect: document.getElementById('sortSelect'),
   itemCount: document.getElementById('itemCount')
 };
@@ -23,36 +20,29 @@ const state = {
   currentIndex: 0,
   filter: 'all',
   search: '',
-  sort: 'default',
-  isMobile: window.innerWidth < 768,
-  isPopupOpen: false,
+  sort: 'oldest',
   touchStart: { x: 0, y: 0 },
   touchEnd: { x: 0, y: 0 }
 };
 
-// Initialize smooth scrolling
-function initSmoothScroll() {
-  ScrollSmoother.create({
-    wrapper: '#smooth-wrapper',
-    content: '#smooth-content',
-    smooth: 1,
-    effects: true,
-    normalizeScroll: true,
-    smoothTouch: 0.1
-  });
-}
+// Measure loaded images and square lazy placeholders at every viewport size.
+const gallerySizer = new ResizeObserver(entries => {
+  const gap = parseFloat(getComputedStyle(elements.grid).columnGap) || 0;
+  for (const entry of entries) {
+    entry.target.parentElement.style.gridRowEnd =
+      `span ${Math.max(1, Math.ceil(entry.contentRect.height + gap))}`;
+  }
+});
 
 // Fetch and initialize gallery data
 async function initGallery() {
   try {
-    initSmoothScroll();
-
     // Load gallery data
     const response = await fetch('/assets/gallery/galleryItems.json');
     const items = await response.json();
 
     // Process items
-    state.items = items.map((item, index) => {
+    state.items = items.map(item => {
       const lowerTitle = item.title.toLowerCase();
       let category = 'other';
 
@@ -60,7 +50,7 @@ async function initGallery() {
       else if (lowerTitle.includes('gift')) category = 'gift';
       else if (lowerTitle.includes('ych')) category = 'ych';
 
-      return { ...item, category, originalIndex: index };
+      return { ...item, category };
     });
 
     state.filtered = [...state.items];
@@ -68,7 +58,6 @@ async function initGallery() {
     // Render and setup
     renderGallery();
     setupEventListeners();
-    setTimeout(resizeAllGridItems, 100);
   } catch (error) {
     console.error('Error loading gallery:', error);
     elements.grid.innerHTML = '<div class="error-message">Failed to load gallery images. Please try again later.</div>';
@@ -77,6 +66,7 @@ async function initGallery() {
 
 // Render gallery items
 function renderGallery() {
+  gallerySizer.disconnect();
   elements.grid.innerHTML = '';
   elements.itemCount.textContent = state.filtered.length;
 
@@ -86,16 +76,11 @@ function renderGallery() {
     galleryItem.className = 'gallery-item';
     galleryItem.setAttribute('data-index', index);
 
-    // Set animation delay
-    const delay = state.isMobile ? Math.min(index, 10) * 0.03 : index * 0.05;
-    galleryItem.style.setProperty('--delay', `${delay}s`);
-
     // Create image element
     const img = document.createElement('img');
     img.src = item.imgSrc;
     img.alt = item.title;
     img.loading = "lazy";
-    img.onload = () => resizeGridItem(galleryItem);
 
     // Create overlay
     const overlay = document.createElement('div');
@@ -106,28 +91,15 @@ function renderGallery() {
     galleryItem.appendChild(img);
     galleryItem.appendChild(overlay);
     elements.grid.appendChild(galleryItem);
-
-    // Mobile optimizations
-    if (state.isMobile) overlay.style.transform = 'translateY(0)';
+    gallerySizer.observe(img);
 
     // Staggered appearance
     setTimeout(() => galleryItem.classList.add('visible'), index * 50);
   });
-
-  // Layout recalculation
-  setTimeout(resizeAllGridItems, 100);
 }
 
 // Set up event listeners
 function setupEventListeners() {
-  // Responsive handling
-  window.addEventListener('resize', debounce(() => {
-    const wasMobile = state.isMobile;
-    state.isMobile = window.innerWidth < 768;
-    if (wasMobile !== state.isMobile) renderGallery();
-    resizeAllGridItems();
-  }, 200));
-
   // Filter buttons
   elements.filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -140,22 +112,8 @@ function setupEventListeners() {
   });
 
   // Search functionality
-  elements.searchInput.addEventListener('input', debounce(() => {
+  elements.searchInput.addEventListener('input', () => {
     state.search = elements.searchInput.value.trim().toLowerCase();
-    updateClearSearchButton();
-    applyFiltersAndSort();
-  }, 300));
-
-  elements.searchBtn.addEventListener('click', () => {
-    state.search = elements.searchInput.value.trim().toLowerCase();
-    updateClearSearchButton();
-    applyFiltersAndSort();
-  });
-
-  elements.clearBtn.addEventListener('click', () => {
-    elements.searchInput.value = '';
-    state.search = '';
-    updateClearSearchButton();
     applyFiltersAndSort();
   });
 
@@ -172,24 +130,18 @@ function setupEventListeners() {
   });
 
   // Popup controls
-  elements.closeBtn.addEventListener('click', closePopup);
   elements.prevBtn.addEventListener('click', showPreviousImage);
   elements.nextBtn.addEventListener('click', showNextImage);
 
   elements.popup.addEventListener('click', (e) => {
-    if (e.target === elements.popup ||
-        e.target.classList.contains('popup-overlay') ||
-        e.target === document.querySelector('.popup-container')) {
-      closePopup();
-    }
+    if (e.target === elements.popup) elements.popup.close();
   });
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (!state.isPopupOpen) return;
+    if (!elements.popup.open) return;
 
     switch (e.key) {
-      case 'Escape': closePopup(); break;
       case 'ArrowLeft': showPreviousImage(); break;
       case 'ArrowRight': showNextImage(); break;
     }
@@ -207,13 +159,11 @@ function setupEventListeners() {
     handleSwipe();
   });
 
-  // Initial search button visibility
-  updateClearSearchButton();
 }
 
 // Handle touch swipe in popup
 function handleSwipe() {
-  if (!state.isPopupOpen) return;
+  if (!elements.popup.open) return;
 
   const swipeThreshold = 50;
   const swipeX = state.touchEnd.x - state.touchStart.x;
@@ -234,10 +184,7 @@ function applyFiltersAndSort() {
   // Apply category filter
   state.filtered = state.filter === 'all'
     ? [...state.items]
-    : state.items.filter(item =>
-        item.category === state.filter ||
-        item.title.toLowerCase().includes(state.filter)
-      );
+    : state.items.filter(item => item.category === state.filter);
 
   // Apply search if any
   if (state.search) {
@@ -247,120 +194,19 @@ function applyFiltersAndSort() {
     );
   }
 
-  // Apply sorting
-  switch (state.sort) {
-    case 'newest':
-      state.filtered.sort((a, b) => b.originalIndex - a.originalIndex);
-      break;
-    case 'oldest':
-      state.filtered.sort((a, b) => a.originalIndex - b.originalIndex);
-      break;
-    case 'artist':
-      state.filtered.sort((a, b) => a.artist.localeCompare(b.artist));
-      break;
-    default:
-      state.filtered.sort((a, b) => a.originalIndex - b.originalIndex);
+  if (state.sort === 'newest') state.filtered.reverse();
+  if (state.sort === 'artist') {
+    state.filtered.sort((a, b) => a.artist.localeCompare(b.artist));
   }
 
   renderGallery();
 }
 
-// Debounce helper function
-function debounce(func, delay = 200) {
-  let timeout;
-  return function(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
-// Masonry layout calculation
-function resizeGridItem(item) {
-  if (!item || !elements.grid) return;
-
-  const rowHeight = parseInt(window.getComputedStyle(elements.grid).getPropertyValue('grid-auto-rows'));
-  const rowGap = parseInt(window.getComputedStyle(elements.grid).getPropertyValue('gap'));
-
-  const img = item.querySelector('img');
-  if (!img || !img.complete) {
-    item.style.gridRowEnd = `span ${state.isMobile ? 15 : 20}`;
-    return;
-  }
-
-  // Calculate dimensions
-  const contentHeight = img.offsetHeight;
-  const aspectRatio = img.naturalWidth / img.naturalHeight;
-
-  // Adjust height based on aspect ratio
-  let adjustedHeight = contentHeight;
-
-  if (aspectRatio > 1) {
-    const adjustment = aspectRatio <= 1.5 ? 1 - (aspectRatio - 1) * 0.2 :
-                       aspectRatio <= 2.5 ? 0.9 - (aspectRatio - 1.5) * 0.25 :
-                       0.65 - Math.min(0.25, (aspectRatio - 2.5) * 0.1);
-    adjustedHeight = contentHeight * adjustment;
-  }
-
-  // Calculate spans
-  const rowSpan = Math.ceil((adjustedHeight + rowGap) / (rowHeight + rowGap));
-  const baseMinSpan = state.isMobile ? 8 : 12;
-  const aspectRatioFactor = Math.min(1, 1.2 / aspectRatio);
-  const minSpan = Math.max(Math.floor(baseMinSpan * aspectRatioFactor), 5);
-
-  // Set final span
-  const finalSpan = Math.max(rowSpan, minSpan);
-  item.style.gridRowEnd = `span ${finalSpan}`;
-  item.style.setProperty('--aspect-ratio', aspectRatio.toFixed(2));
-}
-
-// Process all grid items
-function resizeAllGridItems() {
-  const items = document.querySelectorAll('.gallery-item');
-  if (!items.length) return;
-
-  // Process in batches for better performance
-  const batchSize = state.isMobile ? 5 : items.length;
-  let processed = 0;
-
-  function processNextBatch() {
-    const end = Math.min(processed + batchSize, items.length);
-
-    for (let i = processed; i < end; i++) {
-      resizeGridItem(items[i]);
-
-      const img = items[i].querySelector('img');
-      if (img && !img.complete) {
-        img.addEventListener('load', () => resizeGridItem(items[i]));
-      }
-    }
-
-    processed = end;
-    if (processed < items.length) {
-      setTimeout(processNextBatch, 10);
-    }
-  }
-
-  processNextBatch();
-}
-
 // Popup functions
 function openPopup(index) {
   state.currentIndex = index;
-  const item = state.filtered[index];
-
-  elements.popupImage.src = item.imgSrc;
-  elements.popupTitle.textContent = item.title;
-  elements.popupArtist.textContent = item.artist;
-
-  elements.popup.style.display = 'block';
-  state.isPopupOpen = true;
-  document.body.style.overflow = 'hidden';
-}
-
-function closePopup() {
-  elements.popup.style.display = 'none';
-  state.isPopupOpen = false;
-  document.body.style.overflow = '';
+  updatePopupContent();
+  elements.popup.showModal();
 }
 
 function showPreviousImage() {
@@ -375,39 +221,9 @@ function showNextImage() {
 
 function updatePopupContent() {
   const item = state.filtered[state.currentIndex];
-
-  if (state.isMobile) {
-    // Simple update for mobile
-    elements.popupImage.src = item.imgSrc;
-    elements.popupTitle.textContent = item.title;
-    elements.popupArtist.textContent = item.artist;
-    return;
-  }
-
-  // Fade transition for desktop
-  const newImage = new Image();
-  newImage.src = item.imgSrc;
-  newImage.onload = () => {
-    elements.popupImage.style.opacity = '0';
-    setTimeout(() => {
-      elements.popupImage.src = item.imgSrc;
-      elements.popupTitle.textContent = item.title;
-      elements.popupArtist.textContent = item.artist;
-      elements.popupImage.style.opacity = '1';
-    }, 200);
-  };
-}
-
-// Update search button visibility
-function updateClearSearchButton() {
-  const searchContainer = elements.searchInput.parentElement;
-  if (state.search) {
-    elements.clearBtn.style.display = 'block';
-    searchContainer.classList.add('has-text');
-  } else {
-    elements.clearBtn.style.display = 'none';
-    searchContainer.classList.remove('has-text');
-  }
+  elements.popupImage.src = item.imgSrc;
+  elements.popupTitle.textContent = item.title;
+  elements.popupArtist.textContent = item.artist;
 }
 
 // Initialize gallery on page load

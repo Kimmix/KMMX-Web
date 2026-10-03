@@ -13,107 +13,69 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/modern-normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/gallery.css">
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="js/gallery.js" as="script">
-    <link rel="preload" href="assets/gallery/galleryItems.json" as="fetch" crossorigin>
 </head>
 
 <body>
-    <div class="gallery-container" id="smooth-wrapper">
-        <div id="smooth-content">
-            <header class="gallery-header">
-                <div class="header-content">
-                    <div class="header-title-area">
-                        <h1>Art Gallery</h1>
-                        <p class="gallery-subtitle">A collection of commissioned artwork and gifts from talented artists
-                        </p>
-                    </div>
-
-                    <div class="header-actions">
-                        <div class="search-container">
-                            <input type="text" id="gallerySearch" placeholder="Search by title or artist...">
-                            <button id="clearSearchButton" class="clear-search-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                            <button id="searchButton" class="search-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <div class="gallery-filters">
-                        <button class="filter-btn active" data-filter="all"><span
-                                class="filter-icon">✦</span>All</button>
-                        <button class="filter-btn" data-filter="commission"><span
-                                class="filter-icon">🖌️</span>Commissions</button>
-                        <button class="filter-btn" data-filter="gift"><span class="filter-icon">🎁</span>Gift
-                            Art</button>
-                        <button class="filter-btn" data-filter="ych"><span class="filter-icon">🎨</span>YCH</button>
-                    </div>
-
-                    <div class="gallery-sort">
-                        <label for="sortSelect">Sort by:</label>
-                        <select id="sortSelect">
-                            <option value="default">Default</option>
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="artist">Artist Name</option>
-                        </select>
-                    </div>
+    <div class="gallery-container">
+        <header class="gallery-header">
+            <div class="header-content">
+                <div class="header-title-area">
+                    <h1>Art Gallery</h1>
+                    <p class="gallery-subtitle">A collection of commissioned artwork and gifts from talented artists</p>
                 </div>
 
-                <div class="gallery-stats">
-                    <span id="itemCount">0</span> artworks displayed
+                <input type="search" id="gallerySearch" class="gallery-search"
+                    placeholder="Search by title or artist..." aria-label="Search gallery by title or artist">
+            </div>
+            <div class="gallery-controls">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all"><span class="filter-icon">✦</span>All</button>
+                    <button class="filter-btn" data-filter="commission"><span
+                            class="filter-icon">🖌️</span>Commissions</button>
+                    <button class="filter-btn" data-filter="gift"><span class="filter-icon">🎁</span>Gift Art</button>
+                    <button class="filter-btn" data-filter="ych"><span class="filter-icon">🎨</span>YCH</button>
                 </div>
-            </header>
-            <main class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be loaded here via JavaScript -->
-                <div class="loading-container">
-                    <div class="loading-spinner"></div>
-                    <p>Loading gallery...</p>
-                </div>
-            </main>
-        </div>
-    </div>
 
-    <!-- Image popup -->
-    <div id="imagePopup" class="image-popup">
-        <div class="popup-overlay"></div>
-        <div class="popup-container">
-            <button class="nav-btn prev-btn" id="prevImage">&lt;</button>
-            <div class="popup-content">
-                <img id="popupImage" src="" alt="Full size artwork">
-                <div class="popup-info">
-                    <h2 id="popupTitle"></h2>
-                    <h3>Artist: <span id="popupArtist"></span></h3>
+                <div class="gallery-sort">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="oldest">Oldest First</option>
+                        <option value="newest">Newest First</option>
+                        <option value="artist">Artist Name</option>
+                    </select>
                 </div>
             </div>
-            <button class="nav-btn next-btn" id="nextImage">&gt;</button>
-            <button class="close-btn" id="closePopup">&times;</button>
-        </div>
+
+            <div class="gallery-stats">
+                <span id="itemCount">0</span> artworks displayed
+            </div>
+        </header>
+        <main class="gallery-grid" id="galleryGrid">
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Loading gallery...</p>
+            </div>
+        </main>
     </div>
 
-    <script src="js/external/gsap.min.js"></script>
-    <script src="js/external/ScrollTrigger.min.js"></script>
-    <script src="js/external/ScrollSmoother.min.js"></script>
+    <dialog id="imagePopup" class="image-popup">
+        <button type="button" class="nav-btn prev-btn" id="prevImage" aria-label="Previous artwork">&lt;</button>
+        <div class="popup-content">
+            <img id="popupImage" src="" alt="Full size artwork">
+            <div class="popup-info">
+                <h2 id="popupTitle"></h2>
+                <h3>Artist: <span id="popupArtist"></span></h3>
+            </div>
+        </div>
+        <button type="button" class="nav-btn next-btn" id="nextImage" aria-label="Next artwork">&gt;</button>
+        <form method="dialog">
+            <button class="close-btn" aria-label="Close image viewer">&times;</button>
+        </form>
+    </dialog>
+
     <script src="js/gallery.js"></script>
     <script src="js/favicon.js" defer></script>
 </body>
